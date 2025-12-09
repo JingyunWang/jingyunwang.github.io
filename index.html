@@ -4,52 +4,74 @@
   <meta charset="utf-8" />
   <title>寻屿 · Yunisle | Inner Isles of Yun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="寻屿 · Yunisle — the inner isles of loving, becoming, and being whole. A bilingual space by Jingyun Wang for psychology, philosophy, research, and inner journeys." />
-
+  <!-- 如果你想用别的字体，可以改下面这行（Google Fonts） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* ========= 全局基础样式 ========= */
     :root {
-      --bg-deep: #0b1530;      /* 深夜星空蓝 */
-      --bg-sky:  #213963;      /* 云层蓝 */
-      --accent:  #f1c7b7;      /* 云霞粉橘 */
-      --accent-soft: #b1c8e8;  /* 雾蓝 */
-      --card-bg: rgba(255,255,255,0.9);
-      --text-main: #1f2a3c;
-      --text-soft: #4b5563;
-      --max-width: 1000px;
+      /* 这里是网站主色系：可以随意修改成你喜欢的颜色 */
+      --color-bg-top: #05091a;      /* 星空上方深蓝 */
+      --color-bg-bottom: #0b1f33;   /* 海面深色 */
+      --color-accent: #f2c17d;      /* 高光金色（标题、按钮） */
+      --color-accent-soft: #76c7e8; /* 云/水的柔和蓝 */
+      --color-card-bg: rgba(8, 18, 40, 0.82);  /* 内容卡片背景（半透明深蓝） */
+      --color-border-soft: rgba(255, 255, 255, 0.08);
+      --color-text-main: #f6f7fb;   /* 正文文字颜色（浅暖白） */
+      --color-text-muted: #c3c7d8;
+      --color-link: #8fd6ff;
+      --shadow-soft: 0 18px 35px rgba(0, 0, 0, 0.45);
+      --radius-card: 18px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "PingFang SC", "Microsoft Yahei", sans-serif;
-      color: var(--text-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--color-text-main);
       background:
-        radial-gradient(circle at 10% 20%, #1a2748 0, transparent 60%),
-        radial-gradient(circle at 80% 0, #2d456e 0, transparent 55%),
-        radial-gradient(circle at 50% 100%, #07101f 0, #02040a 70%);
-      background-color: #02040a;
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.14) 0, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(173,216,230,0.15) 0, transparent 45%),
+        linear-gradient(to bottom, var(--color-bg-top), var(--color-bg-bottom));
+      min-height: 100vh;
     }
 
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ========= 顶部导航 ========= */
     header {
-      color: #f9fafb;
-      padding: 28px 20px 18px;
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 20;
       backdrop-filter: blur(16px);
-      background: linear-gradient(to bottom, rgba(5,10,30,0.94), rgba(5,10,30,0.85));
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 9, 26, 0.92),
+        rgba(5, 9, 26, 0.86),
+        transparent
+      );
+      border-bottom: 1px solid var(--color-border-soft);
     }
 
-    .header-inner {
-      max-width: var(--max-width);
+    .nav-inner {
+      max-width: 1120px;
       margin: 0 auto;
+      padding: 12px 20px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .brand {
@@ -58,671 +80,827 @@
       gap: 2px;
     }
 
-    .brand-title {
-      font-size: 1.45rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+    .brand-main {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
     }
 
     .brand-sub {
-      font-size: 0.9rem;
-      opacity: 0.9;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
     }
 
-    nav {
+    .nav-links {
       display: flex;
+      gap: 14px;
       align-items: center;
-      gap: 16px;
       flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
-    nav a {
-      color: #e5e7eb;
-      text-decoration: none;
+    .nav-links a {
       font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
       padding: 4px 8px;
       border-radius: 999px;
-      transition: background 0.2s, color 0.2s;
+      border: 1px solid transparent;
     }
 
-    nav a:hover {
-      background: rgba(241,199,183,0.18);
-      color: #fff;
+    .nav-links a:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.02);
     }
 
+    /* 语言切换按钮 */
     .lang-toggle {
-      display: inline-flex;
-      border-radius: 999px;
-      border: 1px solid rgba(229,231,235,0.7);
-      overflow: hidden;
-      font-size: 0.82rem;
+      display: flex;
+      gap: 6px;
+      padding-left: 8px;
+      border-left: 1px solid var(--color-border-soft);
       margin-left: 4px;
     }
 
     .lang-btn {
-      padding: 4px 10px;
-      cursor: pointer;
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
       background: transparent;
-      border: none;
-      color: #e5e7eb;
+      color: var(--color-text-muted);
+      cursor: pointer;
     }
 
     .lang-btn.active {
-      background: #f1c7b7;
-      color: #111827;
+      background: var(--color-accent-soft);
+      color: #03101f;
+      border-color: transparent;
+      font-weight: 600;
     }
 
-    main {
-      max-width: var(--max-width);
-      margin: 18px auto 40px;
-      padding: 0 20px 30px;
-    }
-
-    section {
-      margin-top: 28px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 18px;
-      padding: 22px 20px 22px;
-      box-shadow: 0 14px 40px rgba(15,23,42,0.45);
-      border: 1px solid rgba(209,213,219,0.6);
-    }
-
+    /* ========= Hero / 首页顶部 ========= */
     .hero {
-      margin-top: 20px;
-      padding: 26px 24px 26px;
-      background:
-        radial-gradient(circle at 0 0, rgba(255,255,255,0.12) 0, transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(255,255,255,0.18) 0, transparent 60%),
-        linear-gradient(135deg, rgba(15,23,42,0.96), rgba(30,64,98,0.96));
-      color: #f9fafb;
+      max-width: 1120px;
+      margin: 28px auto 0;
+      padding: 0 20px 40px;
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: center;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 840px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
+        margin-top: 14px;
       }
     }
 
+    .hero-text {
+      padding-right: 8px;
+    }
+
+    .eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--color-accent-soft);
+      margin-bottom: 10px;
+    }
+
     .hero-title {
-      font-size: 1.9rem;
-      line-height: 1.3;
-      margin: 0 0 10px;
-      letter-spacing: 0.04em;
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      margin: 0 0 14px;
-      color: #e5e7eb;
-    }
-
-    .hero-question {
-      font-size: 0.96rem;
-      color: #e5e7eb;
-      margin: 6px 0;
+      font-family: "Playfair Display", serif;
+      font-size: 2.3rem;
+      line-height: 1.25;
+      margin: 0 0 12px;
     }
 
     .hero-highlight {
-      color: var(--accent);
-      font-weight: 500;
+      color: var(--color-accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-question {
+      font-size: 0.98rem;
+      color: var(--color-text-main);
+      margin-bottom: 18px;
     }
 
     .hero-cta {
-      margin-top: 14px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary, .btn-ghost {
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .btn-primary {
-      background: var(--accent);
-      color: #111827;
-      border-radius: 999px;
-      padding: 7px 16px;
-      border: none;
-      font-size: 0.9rem;
-      cursor: pointer;
-      font-weight: 500;
+      background: linear-gradient(135deg, var(--color-accent), #ffdfaa);
+      color: #2c1806;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      font-weight: 600;
     }
-
     .btn-primary:hover {
-      filter: brightness(1.03);
+      filter: brightness(1.04);
+      transform: translateY(-1px);
     }
 
     .btn-ghost {
-      background: transparent;
-      color: #f9fafb;
-      border-radius: 999px;
-      padding: 6px 14px;
-      border: 1px solid rgba(248,250,252,0.6);
-      font-size: 0.86rem;
-      cursor: pointer;
+      border-color: var(--color-border-soft);
+      color: var(--color-text-muted);
+      background: rgba(7, 18, 40, 0.7);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(7, 18, 40, 0.95);
     }
 
-    .hero-side {
-      font-size: 0.92rem;
-      color: #e5e7eb;
-      line-height: 1.7;
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+
+    /* 右侧视觉模块：星空 + 岛屿占位图 */
+    .hero-visual {
       position: relative;
+      min-height: 260px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.14), transparent 60%),
+        radial-gradient(circle at 80% 10%, rgba(144, 224, 239, 0.35), transparent 65%),
+        linear-gradient(145deg, #050816, #061f35 50%, #07253b 75%, #0b3046 100%);
     }
 
-    .hero-side::before {
+    /* 你可以把下面的 background-image 换成你喜欢的图（云/星空/海） */
+    .hero-visual::before {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 999px;
-      border: 1px dashed rgba(248,250,252,0.35);
-      opacity: 0.6;
+      background-image: url("https://images.unsplash.com/photo-1526481280695-3c687fd543c0?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.45; /* 调整图片透明度，保证文字可阅读 */
+      mix-blend-mode: screen;
       pointer-events: none;
     }
 
-    .hero-side-inner {
-      padding: 14px 18px;
+    .hero-visual-inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      padding: 18px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .hero-poem {
-      font-style: italic;
-      margin-bottom: 8px;
-      color: #fefce8;
+    .hero-quote {
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
-    h2 {
-      margin: 0 0 10px;
-      font-size: 1.4rem;
-      color: #1f2937;
+    .hero-quote span {
+      color: var(--color-accent-soft);
     }
 
-    h3 {
-      margin: 12px 0 6px;
-      font-size: 1.05rem;
-      color: #111827;
+    .hero-quote-author {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
     }
 
-    p {
-      margin: 6px 0;
-      font-size: 0.95rem;
-      color: var(--text-soft);
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
     }
 
-    ul {
-      padding-left: 18px;
-      margin: 6px 0 2px;
-    }
-
-    li {
-      margin: 3px 0;
-      font-size: 0.93rem;
-      color: var(--text-soft);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 2px 8px;
+    .tag-pill {
       font-size: 0.75rem;
-      background: rgba(177,200,232,0.28);
-      color: #1f2937;
-      margin-right: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 5px 10px;
+      background: rgba(4, 13, 32, 0.7);
+      color: var(--color-text-muted);
+    }
+
+    /* ========= Section 通用样式 ========= */
+    section {
+      max-width: 1120px;
+      margin: 0 auto 28px;
+      padding: 0 20px;
+    }
+
+    .section-card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--color-border-soft);
+      padding: 24px 22px 26px;
+      backdrop-filter: blur(18px);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      color: var(--color-accent);
+      margin: 0;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      max-width: 420px;
+    }
+
+    .section-body p {
+      margin: 0 0 10px;
+      font-size: 0.96rem;
+      color: var(--color-text-main);
+    }
+
+    .section-body ul {
+      margin: 6px 0 10px 18px;
+      padding-left: 0;
+      font-size: 0.94rem;
+      color: var(--color-text-main);
+    }
+
+    .section-body li {
       margin-bottom: 4px;
     }
 
-    .grid-two {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0;
     }
 
-    @media (max-width: 720px) {
-      .grid-two {
+    .pill {
+      font-size: 0.78rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--color-text-muted);
+    }
+
+    /* ========= Topics / Journey 模块 ========= */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 840px) {
+      .grid-2 {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .topics-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+    .quote-block {
+      border-left: 2px solid var(--color-accent-soft);
+      padding-left: 12px;
+      margin: 6px 0 8px;
+      font-size: 0.96rem;
+      color: var(--color-text-main);
+    }
+
+    /* ========= Contact ========= */
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 10px;
     }
 
-    @media (max-width: 720px) {
-      .topics-list {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .contact-item {
+      font-size: 0.88rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed rgba(255,255,255,0.3);
     }
 
-    .topic-item {
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(241,247,255,0.9);
-      border: 1px solid rgba(191,219,254,0.8);
-      font-size: 0.9rem;
-    }
-
-    .contact-links a {
-      display: inline-block;
-      margin-right: 10px;
-      margin-bottom: 6px;
-      font-size: 0.9rem;
-      color: #1d4ed8;
-      text-decoration: none;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
-    }
-
+    /* ========= Footer ========= */
     footer {
-      text-align: center;
-      padding: 18px 10px 28px;
+      max-width: 1120px;
+      margin: 16px auto 30px;
+      padding: 0 20px;
       font-size: 0.8rem;
-      color: #9ca3af;
+      color: var(--color-text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
-    /* Language toggle logic */
-    .lang-en .zh { display: none; }
-    .lang-zh .en { display: none; }
+    /* ========= 中英双语显示控制 ========= */
+    .lang-zh { display: none; } /* 默认显示英文，隐藏中文 */
 
+    .lang-zh.active-lang { display: block; }
+    .lang-en.active-lang { display: block; }
+
+    /* 行内双语小标签用 span 包裹，通过 lang 类控制 */
+    .inline-zh { display: none; }
+    .inline-en { display: inline; }
+
+    /* 切换为中文时，通过 JS 改这些类的 display */
   </style>
 </head>
+<body>
 
-<body class="lang-en">
 <header>
-  <div class="header-inner">
+  <div class="nav-inner">
     <div class="brand">
-      <div class="brand-title">寻屿 · Yunisle</div>
-      <div class="brand-sub en">Inner Isles of Yun · Psychology · Philosophy · Inner Journeys</div>
-      <div class="brand-sub zh">云之心屿 · 心理 · 哲学 · 内在旅程</div>
+      <div class="brand-main">寻屿 · YUNISLE</div>
+      <div class="brand-sub lang-en active-lang">Inner isles of Yun — psychology, philosophy, and becoming.</div>
+      <div class="brand-sub lang-zh">云端的内在小岛 —— 以心理与哲学，走向成为自己的旅程。</div>
     </div>
-    <nav>
-      <a href="#home"><span class="en">Home</span><span class="zh">首页</span></a>
-      <a href="#theory"><span class="en">Theory &amp; Pathways</span><span class="zh">理论与路径</span></a>
-      <a href="#meet-yun"><span class="en">Meet Yun</span><span class="zh">关于云</span></a>
-      <a href="#research"><span class="en">Research</span><span class="zh">研究发表</span></a>
-      <a href="#topics"><span class="en">Topics</span><span class="zh">话题与项目</span></a>
-      <a href="#contact"><span class="en">Contact</span><span class="zh">联系</span></a>
+    <nav class="nav-links">
+      <a href="#home">Home / 首页</a>
+      <a href="#theory">Theory & Method</a>
+      <a href="#meet">Meet Yun</a>
+      <a href="#research">Research</a>
+      <a href="#topics">Topics</a>
+      <a href="#contact">Contact</a>
 
+      <!-- 语言切换按钮 -->
       <div class="lang-toggle">
+        <!-- 点击调用 JS 里的 setLanguage('en') / setLanguage('zh') -->
         <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="zh">中</button>
       </div>
     </nav>
   </div>
 </header>
 
-<main>
-  <!-- HOME / INTRO -->
-  <section id="home">
-    <div class="card hero">
-      <div>
-        <h1 class="hero-title en">Yunisle · The inner isles of loving, becoming, and being whole.</h1>
-        <h1 class="hero-title zh">寻屿 · 在云与海之间，找回那个正在成为的自己。</h1>
-
-        <p class="hero-sub en">
-          I am <span class="hero-highlight">Jingyun</span>, a developmental psychologist and companion on inner journeys.  
-          Yunisle is a quiet space where we listen, feel, and slowly re-shape the stories we live in.
+<!-- ========== Hero / Home ========== -->
+<section id="home">
+  <div class="hero section-card">
+    <div class="hero-text">
+      <!-- 英文版本 -->
+      <div class="lang-en active-lang">
+        <div class="eyebrow">Welcome to Yunisle</div>
+        <h1 class="hero-title">
+          The inner isle of <span class="hero-highlight">loving, becoming, and being whole.</span>
+        </h1>
+        <p class="hero-subtitle">
+          I am <strong>Jingyun</strong> — psychologist, wanderer of inner worlds, and companion for those moving from
+          “who I am expected to be” to “who I am becoming.”
         </p>
-        <p class="hero-sub zh">
-          我是 <span class="hero-highlight">王静云</span>，发展心理学研究者，也是在场的同行者。  
-          「寻屿 Yunisle」是一座安静的小岛，用来聆听、感受，并一点点改写我们正在活出的故事。
+        <p class="hero-question">
+          Have you ever felt like you are living by other people’s scripts — sensing an inner tide calling you,
+          but not yet knowing how to answer?
         </p>
-
-        <p class="hero-question en">
-          Have you ever felt like you were living as <span class="hero-highlight">“the expected one”</span>  
-          instead of the person you quietly long to be?
-        </p>
-        <p class="hero-question zh">
-          你是否也曾觉得自己活成了「别人期待的样子」，  
-          却离那个真正渴望成为的自己，越来越远？
-        </p>
-
-        <p class="hero-question en">
-          Yunisle invites you to move from expectation to awakening — from merely coping,  
-          to <span class="hero-highlight">creating a life that feels like yours.</span>
-        </p>
-        <p class="hero-question zh">
-          「寻屿」邀请你从「被期待的人」走向「自我觉醒的存在」，  
-          从只是撑着活下去，到 <span class="hero-highlight">真正活成属于自己的样子。</span>
-        </p>
-
         <div class="hero-cta">
-          <button class="btn-primary" onclick="document.querySelector('#topics').scrollIntoView({behavior:'smooth'})">
-            <span class="en">Join the journey</span><span class="zh">加入这趟旅程</span>
-          </button>
-          <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
-            <span class="en">Write to Yun</span><span class="zh">写信给云</span>
-          </button>
+          <a href="#topics" class="btn-primary">Start the Journey</a>
+          <a href="#meet" class="btn-ghost">Meet Yun · 关于我</a>
         </div>
+        <p class="hero-note">
+          This is a space to explore experience → awareness → action → self-creation, and to remake your relationship
+          with self, others, and time.
+        </p>
       </div>
 
-      <div class="hero-side">
-        <div class="hero-side-inner">
-          <p class="hero-poem en">
-            Every step carries a story, echoing forward,  
-            shaping the soul of the journey.
-          </p>
-          <p class="hero-poem zh">
-            每一步都带着故事的余音，  
-            在时间里回响，慢慢塑造旅程的灵魂。
-          </p>
+      <!-- 中文版本 -->
+      <div class="lang-zh">
+        <div class="eyebrow">欢迎来到 寻屿 · Yunisle</div>
+        <h1 class="hero-title">
+          一座关于<span class="hero-highlight">爱、成为与完整</span>的内在小岛。
+        </h1>
+        <p class="hero-subtitle">
+          我是 <strong>王靖云</strong> —— 发展心理学研究者，内心世界的旅行者，
+          也是陪你从“被期待的人”走向“自我觉醒的存在”的同行者。
+        </p>
+        <p class="hero-question">
+          你是否也曾感觉，自己活在他人剧本里——隐约听见内心的潮声，却还不知道如何回应？
+        </p>
+        <div class="hero-cta">
+          <a href="#topics" class="btn-primary">开启旅程</a>
+          <a href="#meet" class="btn-ghost">遇见云屿 · 关于我</a>
+        </div>
+        <p class="hero-note">
+          这里是一场从经验 → 意识 → 行动 → 自我创造的旅程，重建你与自己、他人、时间的关系。
+        </p>
+      </div>
+    </div>
 
-          <p class="en">
-            Yunisle weaves psychology, philosophy, and lived experience into  
-            a gentle framework: from experience → awareness → action → self-creation.
-          </p>
-          <p class="zh">
-            在这里，心理学、哲学与亲身经验被织进一套温柔而清晰的路径：  
-            从经验 → 觉察 → 行动 → 自我创造。
-          </p>
-
-          <p class="en">
-            This is an inner island where you can live more freely, feel more deeply,  
-            and come closer to who you truly are.
-          </p>
-          <p class="zh">
-            这是一座可以暂时靠岸的小岛，  
-            让你活得更自由，感受得更深，并靠近那个更真实的自己。
-          </p>
+    <!-- 右侧视觉+引用 -->
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <div>
+          <div class="hero-quote lang-en active-lang">
+            “Every step carries a story, echoing forward and shaping the soul of the journey.
+            <span>Yunisle is where those stories learn to breathe.</span>”
+          </div>
+          <div class="hero-quote lang-zh">
+            “每一步都带着故事的回响，塑造着旅程也塑造着灵魂。
+            <span>在寻屿，这些故事终于可以好好呼吸。”</span>
+          </div>
+          <div class="hero-quote-author">
+            寻屿 · Yunisle
+          </div>
+        </div>
+        <div class="hero-tags">
+          <!-- 下面这些小标签可以自由改成你想强调的关键词 -->
+          <span class="tag-pill">Self-Determination</span>
+          <span class="tag-pill">Autonomy & Relationships</span>
+          <span class="tag-pill">Inner Isles</span>
+          <span class="tag-pill">Deep Feeling</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- THEORY & PATHWAYS -->
-  <section id="theory">
-    <div class="card">
-      <h2 class="en">Theory &amp; Pathways</h2>
-      <h2 class="zh">理论与路径 · Theory &amp; Pathways</h2>
-
-      <p class="en">
-        Yunisle rests on a few steady anchors: Self-Determination Theory,  
-        humanistic and existential psychology, attachment and relational work,  
-        and the slow philosophy of becoming.
+<!-- ========== Theory & Methodology ========== -->
+<section id="theory">
+  <div class="section-card">
+    <div class="section-header">
+      <h2 class="section-title lang-en active-lang">Inner Framework · Theory & Method</h2>
+      <h2 class="section-title lang-zh">内在框架 · 理论与方法</h2>
+      <p class="section-subtitle lang-en active-lang">
+        Psychology as method, philosophy as backbone, life as the ground of practice.
       </p>
-      <p class="zh">
-        「寻屿」扎根于几块稳固的基石：  
-        自我决定理论，人本与存在主义心理学，依恋与关系视角，  
-        以及关于「人成其为人」的哲学思考。
+      <p class="section-subtitle lang-zh">
+        以心理学为方法，以哲学为骨架，以真实生活为练习场。
       </p>
-
-      <div class="grid-two">
-        <div>
-          <h3 class="en">Self-Determination Theory · SDT</h3>
-          <h3 class="zh">自我决定理论 · SDT</h3>
-          <p class="en">
-            We all long to feel <strong>autonomous, competent, and connected</strong>.  
-            When these needs are supported, life feels more alive and meaningful.
-          </p>
-          <p class="zh">
-            人都渴望三件事：<strong>自主、胜任、联结</strong>。  
-            当这些基本需要被支持，我们的生命才真正有「活着」的感觉。
-          </p>
-        </div>
-
-        <div>
-          <h3 class="en">Exploration · Insight · Action</h3>
-          <h3 class="zh">探索 · 领悟 · 行动</h3>
-          <p class="en">
-            The Yunisle path invites you to move from raw experience,  
-            to gentle awareness, to experiments in action,  
-            and finally to self-authored ways of being.
-          </p>
-          <p class="zh">
-            「寻屿」的路径，就是从经验出发，  
-            走向温柔而清晰的觉察，再到小小的行动实验，  
-            最终慢慢活出自己写下的生命方式。
-          </p>
-        </div>
-      </div>
-
-      <h3 class="en">Voices that guide this isle</h3>
-      <h3 class="zh">这座小岛背后的声音</h3>
-
-      <ul>
-        <li class="en"><strong>Humanistic psychology</strong> — every person carries an inner tendency toward growth when met with empathy and honesty.</li>
-        <li class="zh"><strong>人本主义心理学</strong> —— 当一个人被真诚与共情地看见，内在的成长力量就会慢慢苏醒。</li>
-
-        <li class="en"><strong>Existential thought</strong> — we cannot avoid freedom, responsibility, and meaning; we can only learn to carry them more wisely.</li>
-        <li class="zh"><strong>存在主义</strong> —— 我们无法逃离自由、责任与意义，只能学会更有智慧地背负它们。</li>
-
-        <li class="en"><strong>Relational &amp; attachment work</strong> — we become ourselves in relationship; healing also happens in safe, honest contact.</li>
-        <li class="zh"><strong>依恋与关系视角</strong> —— 我们在关系中被塑造，也会在被安全、诚实地相遇中慢慢复原。</li>
-      </ul>
     </div>
-  </section>
-
-  <!-- MEET YUN -->
-  <section id="meet-yun">
-    <div class="card">
-      <h2 class="en">Meet Yun · About Me</h2>
-      <h2 class="zh">遇见云 · 关于我</h2>
-
-      <div class="grid-two">
+    <div class="section-body">
+      <!-- 自我决定理论 & 理念 -->
+      <div class="grid-2">
         <div>
-          <p class="en">
-            I am <strong>Jingyun Wang</strong> — a developmental psychologist, counsellor,  
-            and long-time companion of inner work. My research centers on autonomy,  
-            relationships, youth development, and intensive longitudinal designs.
+          <p class="lang-en active-lang">
+            At Yunisle, I draw mainly on <strong>Self-Determination Theory</strong>, attachment and developmental
+            psychology, along with intensive longitudinal methods that trace change as it unfolds within a person.
           </p>
-          <p class="zh">
-            我是 <strong>王静云</strong>，发展心理学博士，长期从事心理咨询、团体与心理教育工作。  
-            我的研究聚焦于：自主性发展、亲密与同伴关系、青少年心理健康，以及密集纵向研究设计。
+          <p class="lang-zh">
+            在寻屿，我主要以<strong>自我决定理论</strong>、依恋与发展心理学为基础，
+            结合密集纵向研究方法，细致地观察“改变”如何在每个人内在缓缓发生。
           </p>
-
-          <p class="en">
-            For over a decade, I have moved between research rooms, counselling rooms,  
-            and group circles — witnessing how people struggle, soften, and grow.
+          <p class="lang-en active-lang">
+            The journey moves through three recurring movements:
           </p>
-          <p class="zh">
-            十多年里，我在研究室、咨询室和团体空间之间穿梭，  
-            见证人们在挣扎、松动与成长中的细微变化。
+          <p class="lang-zh">
+            整个旅程常常在三个循环中展开：
           </p>
-
-          <p class="en">
-            Yunisle is my way of weaving these worlds together:  
-            science with tenderness, structure with soul.
-          </p>
-          <p class="zh">
-            「寻屿 Yunisle」是我把这些世界织在一起的方式：  
-            用科学守护温柔，用结构承载灵魂。
-          </p>
-        </div>
-
-        <div>
-          <h3 class="en">Credentials &amp; experience</h3>
-          <h3 class="zh">专业背景与实践</h3>
-          <ul>
-            <li class="en">PhD in Developmental Psychology (Utrecht University)</li>
-            <li class="zh">荷兰乌得勒支大学 · 发展心理学博士</li>
-
-            <li class="en">Background in counselling, group facilitation, and psycho-education</li>
-            <li class="zh">十年以上心理咨询、心理团体与心理教育实践经验</li>
-
-            <li class="en">Research on autonomy, family &amp; peer relationships, and youth mental health</li>
-            <li class="zh">研究方向：自主性发展、家庭与同伴关系、青少年心理健康</li>
+          <ul class="lang-en active-lang">
+            <li><strong>Exploration</strong> — noticing patterns, emotions, and long-held “shoulds”.</li>
+            <li><strong>Insight</strong> — making sense of stories, needs, and values.</li>
+            <li><strong>Action</strong> — small, concrete shifts that honour your autonomy and truth.</li>
           </ul>
-
-          <p class="en">
-            My vision is to build spaces where research, therapy, and community  
-            speak to each other — so that none of us has to walk our questions alone.
+          <ul class="lang-zh">
+            <li><strong>探索</strong> —— 觉察模式、情绪，以及那些“我应该……”的声音。</li>
+            <li><strong>领悟</strong> —— 理解背后的故事、需要与价值。</li>
+            <li><strong>行动</strong> —— 做出细小而具体的改变，忠于自己的自主与真实。</li>
+          </ul>
+        </div>
+        <!-- 名言区：你可以替换这里的句子 -->
+        <div>
+          <p class="lang-en active-lang">
+            Some of the voices that travel with us:
           </p>
-          <p class="zh">
-            我希望慢慢搭建一些空间，让研究、助人工作与真实的社区彼此对话，  
-            让人不必再独自背负那些关于「如何好好活」的疑问。
+          <p class="lang-zh">
+            一些一路同行、给我们照明的声音：
           </p>
+          <div class="quote-block">
+            <p class="lang-en active-lang">
+              “We are not what we are; we are what we are becoming.” — <em>Jean-Paul Sartre</em>
+            </p>
+            <p class="lang-zh">
+              “人并非已经是什么，而是在成为的路上。”—— <em>萨特</em>
+            </p>
+          </div>
+          <div class="quote-block">
+            <p class="lang-en active-lang">
+              “When people feel seen, they change.” — <em>Relational traditions</em>
+            </p>
+            <p class="lang-zh">
+              “当一个人被真正看见，改变就已经在发生。”—— <em>关系取向传统</em>
+            </p>
+          </div>
+          <div class="quote-block">
+            <p class="lang-en active-lang">
+              “Autonomy is not doing it alone; it is owning the shape of your ‘yes’ and ‘no’.”
+            </p>
+            <p class="lang-zh">
+              “自主，不是一个人扛起一切，而是为自己的‘要’与‘不要’负责。”
+            </p>
+          </div>
+          <div class="pill-row">
+            <span class="pill">Self-Determination Theory</span>
+            <span class="pill">Attachment & Development</span>
+            <span class="pill">Experience → Awareness → Action → Creation</span>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- RESEARCH -->
-  <section id="research">
-    <div class="card">
-      <h2 class="en">Research &amp; Publications</h2>
-      <h2 class="zh">研究与发表</h2>
-
-      <p class="en">
-        My academic work explores how autonomy, family and peer relationships,  
-        and school environments shape development and mental health over time.
+<!-- ========== Meet Yun ========== -->
+<section id="meet">
+  <div class="section-card">
+    <div class="section-header">
+      <h2 class="section-title lang-en active-lang">Meet Yun · About Me</h2>
+      <h2 class="section-title lang-zh">遇见云屿 · 关于我</h2>
+      <p class="section-subtitle lang-en active-lang">
+        A researcher, counsellor, and long-time companion to people on the edge of change.
       </p>
-      <p class="zh">
-        我的学术工作关注：自主性如何在家庭、同伴与学校情境中发展，  
-        以及这些历程如何在时间中影响心理健康。
+      <p class="section-subtitle lang-zh">
+        一名研究者，也是一位在改变边缘，陪人走路已久的同行者。
       </p>
+    </div>
+    <div class="section-body grid-2">
+      <div>
+        <p class="lang-en active-lang">
+          I am <strong>Jingyun Wang</strong>, a developmental psychologist with years of experience in
+          counselling, group work, and psycho-educational projects.
+          My research has focused on autonomy, family and peer relationships, and intensive longitudinal data.
+        </p>
+        <p class="lang-zh">
+          我是 <strong>王靖云</strong>，发展心理学博士，拥有多年心理咨询、团体带领与心理教育项目经验。
+          研究兴趣包括自主性、亲子与同伴关系，以及密集纵向数据分析。
+        </p>
+        <ul class="lang-en active-lang">
+          <li>PhD in Developmental Psychology</li>
+          <li>Background in counselling & mental health education</li>
+          <li>Workshops and groups on autonomy, shame, and relationships</li>
+        </ul>
+        <ul class="lang-zh">
+          <li>发展心理学博士</li>
+          <li>心理咨询与心理健康教育背景</li>
+          <li>长期带领关于自主、羞耻感与关系的工作坊与团体</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lang-en active-lang">
+          Yunisle grew out of a simple, stubborn belief: we are not here to perform a fixed role.
+          We are here to grow a life that fits the shape of our soul.
+        </p>
+        <p class="lang-zh">
+          寻屿源于一个简单却倔强的相信：我们不只是来扮演某个固定角色，
+          而是来慢慢长成一个配得上自己灵魂形状的人生。
+        </p>
+        <p class="lang-en active-lang">
+          This project is a journey from “the expected person” to “an awakened presence” —
+          walking with you as you reclaim your own pace, voice, and way of loving.
+        </p>
+        <p class="lang-zh">
+          这个项目，是一场从“被期待的人”到“自我觉醒的存在”的旅程，
+          陪你一点点找回属于自己的节奏、声音和爱的方式。
+        </p>
+        <p class="lang-en active-lang">
+          Past work has included student groups, workshops, reading circles, and quiet one-to-one spaces.
+          Future visions include retreats, online journeys, and collaborative research.
+        </p>
+        <p class="lang-zh">
+          过去，我在高校与机构中发起与参与过学生团体、工作坊、读书会以及一对一深度陪伴。
+          未来，希望与更多人一起，共同发起线上/线下旅程与以实践为根的研究。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <h3 class="en">Selected publications</h3>
-      <h3 class="zh">部分发表</h3>
-      <ul>
-        <li class="en">Wang, J. Y. (20xx). <em>Title of your dissertation or key paper.</em> Journal / Publisher.</li>
-        <li class="zh">王静云（20xx）。《你的代表作标题》。期刊 / 出版社。</li>
-
-        <li class="en">Wang, J. Y., &amp; Colleagues (20xx). <em>Another key article.</em> Journal.</li>
-        <li class="zh">Wang, J. Y. 等（20xx）。《另一篇重要文章》。期刊。</li>
+<!-- ========== Research ========== -->
+<section id="research">
+  <div class="section-card">
+    <div class="section-header">
+      <h2 class="section-title lang-en active-lang">Research & Publications</h2>
+      <h2 class="section-title lang-zh">研究与发表</h2>
+      <p class="section-subtitle lang-en active-lang">
+        Autonomy, relationships, intensive longitudinal data, and youth mental health.
+      </p>
+      <p class="section-subtitle lang-zh">
+        围绕自主性、关系、密集纵向数据与青少年心理健康展开的研究。
+      </p>
+    </div>
+    <div class="section-body">
+      <p class="lang-en active-lang">
+        Below is a selection of publications and projects. You can update the list anytime by editing this section.
+        <!-- 在此处替换为你的真实论文信息和链接 -->
+      </p>
+      <p class="lang-zh">
+        以下是部分代表性成果与项目示例，你可以随时在这里更新、替换为自己的真实内容。
+      </p>
+      <ul class="lang-en active-lang">
+        <li>
+          Wang, J. Y., et al. (2024). <em>Title of your key paper on autonomy and family relationships.</em> Journal Name.
+          <a href="#">PDF / Link</a>
+        </li>
+        <li>
+          Wang, J. Y., et al. (2023). <em>Intensive longitudinal perspectives on adolescent development.</em> Journal Name.
+          <a href="#">PDF / Link</a>
+        </li>
+        <li>
+          Doctoral Dissertation: <em>Autonomy in context: Family, peers, and school across adolescence.</em>
+          <a href="#">Thesis Link</a>
+        </li>
       </ul>
+      <ul class="lang-zh">
+        <li>
+          王靖云 等（2024）。<em>（在此填写你的代表作标题，例如：青少年自主发展与家庭关系的纵向研究）</em>。《期刊名称》。<a href="#">论文链接</a>
+        </li>
+        <li>
+          王靖云 等（2023）。<em>（在此填写另一篇代表作标题，例如：密集纵向视角下的青少年心理发展）</em>。《期刊名称》。<a href="#">论文链接</a>
+        </li>
+        <li>
+          博士论文：<em>（在此填写你的论文题目：如《语境中的自主性：家庭、同伴与学校中的青少年发展》）</em>。<a href="#">论文链接</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      <p class="en">
-        Dissertation: <em>Title of your thesis here.</em>  
-        <br/>You can link to your PDF or university page once it is available.
+<!-- ========== Topics / Activities ========== -->
+<section id="topics">
+  <div class="section-card">
+    <div class="section-header">
+      <h2 class="section-title lang-en active-lang">Topics · Journeys · Offerings</h2>
+      <h2 class="section-title lang-zh">话题 · 旅程 · 活动</h2>
+      <p class="section-subtitle lang-en active-lang">
+        Spaces where psychology, philosophy, and your lived experience meet.
       </p>
-      <p class="zh">
-        博士论文：<em>在这里写上你的论文题目</em>  
-        <br/>日后可链接到 PDF 或学校页面。
+      <p class="section-subtitle lang-zh">
+        在这里，心理学、哲学与真实生活的经验相遇。
       </p>
     </div>
-  </section>
+    <div class="section-body grid-2">
+      <div>
+        <p class="lang-en active-lang">
+          Yunisle holds different formats — talks, workshops, writing, one-to-one sessions, and small groups —
+          all circling around a few core themes:
+        </p>
+        <p class="lang-zh">
+          寻屿会以不同形式出现：讲座、工作坊、写作、一对一空间、小型团体，
+          但都围绕几个核心主题展开：
+        </p>
+        <ul class="lang-en active-lang">
+          <li>From “the expected person” to “an awakened presence”.</li>
+          <li>Rewriting your relationship with self, others, and time.</li>
+          <li>Autonomy with connection: saying “yes” and “no” without abandoning yourself.</li>
+          <li>Shame, tenderness, and learning to be seen.</li>
+        </ul>
+        <ul class="lang-zh">
+          <li>从“被期待的人”到“自我觉醒的存在”。</li>
+          <li>重写你与自我、他人、时间的关系。</li>
+          <li>在不断连结中保持自主：说“要”与“不要”而不丢下自己。</li>
+          <li>与羞耻感、温柔和“被看见”重新相处。</li>
+        </ul>
+      </div>
+      <div>
+        <p class="lang-en active-lang">
+          Each journey follows a gentle arc:
+        </p>
+        <p class="lang-zh">
+          每一段旅程，大致会沿着这样一个柔软的弧线展开：
+        </p>
+        <ul class="lang-en active-lang">
+          <li><strong>Experience</strong>: naming what has been carried.</li>
+          <li><strong>Awareness</strong>: seeing patterns, needs, and myths.</li>
+          <li><strong>Action</strong>: trying new moves in the real world.</li>
+          <li><strong>Creation</strong>: slowly crafting a life that fits your inner isles.</li>
+        </ul>
+        <ul class="lang-zh">
+          <li><strong>经验</strong>：给那些一直背着的东西一个名字。</li>
+          <li><strong>意识</strong>：看见其中的模式、需要与故事。</li>
+          <li><strong>行动</strong>：在真实生活中尝试新的动作。</li>
+          <li><strong>创造</strong>：慢慢织出一份更配得上自己内在岛屿的人生。</li>
+        </ul>
+        <p class="lang-en active-lang">
+          Upcoming journeys and offerings will be shared here.
+        </p>
+        <p class="lang-zh">
+          未来的旅程与活动，会在此更新发布。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- TOPICS / PROJECTS -->
-  <section id="topics">
-    <div class="card">
-      <h2 class="en">Topics &amp; Journeys</h2>
-      <h2 class="zh">话题与旅程</h2>
-
-      <p class="en">
-        Yunisle is a long-term project: a journey from being “the expected one”  
-        to becoming an awakened, self-creating presence.
+<!-- ========== Contact ========== -->
+<section id="contact">
+  <div class="section-card">
+    <div class="section-header">
+      <h2 class="section-title lang-en active-lang">Contact · Reach Out</h2>
+      <h2 class="section-title lang-zh">联系 · 与我相遇</h2>
+      <p class="section-subtitle lang-en active-lang">
+        For collaborations, research, workshops, or simply to say hello.
       </p>
-      <p class="zh">
-        「寻屿」是一个长期计划：  
-        从「被期待的人」，走向「自我觉醒、能为自己创造人生的存在」。
+      <p class="section-subtitle lang-zh">
+        若你想合作、共创项目、加入旅程，或只是打个招呼，都欢迎写信给我。
       </p>
-
-      <p class="en">
-        Through workshops, writing, and groups, we rebuild our relationship with:
-        <strong>self, others, and time</strong>.
+    </div>
+    <div class="section-body">
+      <p class="lang-en active-lang">
+        You can reach me through the channels below. Feel free to include a few lines about where you are in your journey
+        and what you are curious about.
       </p>
-      <p class="zh">
-        通过工作坊、写作和小组，我们一起重新编织  
-        与<strong>自我、他人与时间</strong>的关系。
+      <p class="lang-zh">
+        你可以通过以下方式与我联系。写信时，也欢迎简单分享你目前所在的生命阶段，以及你最在意或好奇的议题。
       </p>
-
-      <div class="topics-list">
-        <div class="topic-item">
-          <strong class="en">From expectation to awakening</strong>
-          <strong class="zh">从被期待到自我觉醒</strong>
-          <p class="en">Naming the roles you have carried, and meeting the person beneath them.</p>
-          <p class="zh">看见那些一直扮演的角色，也看见角色之下那个真实的人。</p>
+      <div class="contact-list">
+        <!-- 下面这些链接请替换为你自己的真实链接/ID -->
+        <div class="contact-item">
+          ✉️ Email: <a href="mailto:your.email@example.com">your.email@example.com</a>
         </div>
-
-        <div class="topic-item">
-          <strong class="en">Inner isles &amp; relationships</strong>
-          <strong class="zh">内在小岛与关系</strong>
-          <p class="en">How we protect, distance, or open our inner islands in close relationships.</p>
-          <p class="zh">在亲密关系中，我们如何守护、退缩或打开自己的「小岛」。</p>
+        <div class="contact-item">
+          🔗 LinkedIn: <a href="#">Your LinkedIn</a>
         </div>
-
-        <div class="topic-item">
-          <strong class="en">Time, shame, and second chances</strong>
-          <strong class="zh">时间、羞耻与重来一次</strong>
-          <p class="en">Working with regret and shame while still moving forward with gentleness.</p>
-          <p class="zh">带着羞耻与遗憾，仍能温柔地继续向前。</p>
+        <div class="contact-item">
+          📚 Google Scholar: <a href="#">Your Scholar</a>
         </div>
-
-        <div class="topic-item">
-          <strong class="en">Making room for your own life</strong>
-          <strong class="zh">为自己的人生留出空间</strong>
-          <p class="en">Small, concrete steps for living more freely and more truly as yourself.</p>
-          <p class="zh">通过细小而具体的行动，一点点活得更自由、更像自己。</p>
+        <div class="contact-item">
+          📕 小红书: <span>你的小红书ID</span>
+        </div>
+        <div class="contact-item">
+          💬 WeChat: <span>你的微信号（建议写为：加我请备注“寻屿”）</span>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="card">
-      <h2 class="en">Contact</h2>
-      <h2 class="zh">联系 Yunisle</h2>
-
-      <p class="en">
-        If something in this island speaks to you, you are welcome to reach out —  
-        for collaborations, research, workshops, or simply to share a piece of your story.
-      </p>
-      <p class="zh">
-        如果这座小岛的某一部分触动了你，欢迎与你联系：  
-        合作、研究、工作坊，或只是想分享你的一小段故事。
-      </p>
-
-      <div class="contact-links">
-        <p class="en"><strong>Email</strong> (recommend creating one like):  
-          <br/>yunisle.psychology[at]gmail.com / innerisles.yun[at]gmail.com
-        </p>
-        <p class="zh"><strong>邮箱</strong>（你可以新建类似）：  
-          <br/>yunisle.psychology[at]gmail.com 或 innerisles.yun[at]gmail.com
-        </p>
-
-        <p class="en"><strong>Links</strong> (fill when ready):</p>
-        <p class="zh"><strong>其他平台（之后可补充链接）：</strong></p>
-
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">Google Scholar</a>
-        <a href="#" target="_blank">Xiaohongshu / 小红书</a>
-        <a href="#" target="_blank">WeChat · 微信公众号 / 联系方式</a>
-      </div>
-
-      <p class="en">
-        For now, Yunisle is a small, growing project.  
-        Thank you for visiting this inner isle.
-      </p>
-      <p class="zh">
-        此刻的「寻屿」，还是一座正在慢慢成长的小岛。  
-        谢谢你曾在这里靠岸停留。
-      </p>
-    </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <footer>
-  © <span id="year"></span> 寻屿 · Yunisle · Inner Isles of Yun · All rights reserved.
+  <div>
+    © <span id="year"></span> 寻屿 · Yunisle · Jingyun Wang. All rights reserved.
+  </div>
+  <div>
+    Built on GitHub Pages · Design theme: clouds · stars · inner isles.
+  </div>
 </footer>
 
 <script>
-  // Language toggle
-  const body = document.body;
-  const langButtons = document.querySelectorAll('.lang-btn');
+  // ===== 自动更新年份 =====
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  langButtons.forEach(btn => {
+  // ===== 语言切换逻辑 =====
+  function setLanguage(lang) {
+    const enBlocks = document.querySelectorAll('.lang-en');
+    const zhBlocks = document.querySelectorAll('.lang-zh');
+    const langButtons = document.querySelectorAll('.lang-btn');
+
+    if (lang === 'en') {
+      enBlocks.forEach(el => el.classList.add('active-lang'));
+      zhBlocks.forEach(el => el.classList.remove('active-lang'));
+    } else {
+      zhBlocks.forEach(el => el.classList.add('active-lang'));
+      enBlocks.forEach(el => el.classList.remove('active-lang'));
+    }
+
+    langButtons.forEach(btn => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+
+  // 点击事件绑定
+  document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.getAttribute('data-lang');
-      body.classList.remove('lang-en', 'lang-zh');
-      body.classList.add('lang-' + lang);
-
-      langButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      setLanguage(lang);
     });
   });
-
-  // Year in footer
-  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
 </html>
+
