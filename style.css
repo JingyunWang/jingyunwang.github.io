@@ -1,65 +1,62 @@
-/* ===============================
-   全站基础样式：云端 · 岛屿 · 印象派
-   文件：style.css
-   提示：你可以修改 :root 里的颜色变量，快速调整整体色调
-   =============================== */
+/* ===========================
+   全站基础设置
+   =========================== */
 
+/* 设置整体背景：云端 + 海 + 轻微渐变的印象派色调 */
 :root {
-  /* 主题色：柔和云雾蓝+暮光紫+一点金色光线 */
-  --color-bg: #0e1525;           /* 深夜蓝，作为最底的天空色 */
-  --color-bg-grad1: #1c2340;     /* 渐变上层 - 暗蓝 */
-  --color-bg-grad2: #3c4466;     /* 渐变中层 - 雾蓝 */
-  --color-bg-grad3: #8ea6c9;     /* 渐变下层 - 浅云蓝 */
+  /* 主色调：柔和蓝、云雾紫、浅金色，可以按喜好调整 */
+  --color-sky: #c9dff5;        /* 天空蓝 */
+  --color-cloud: #f6f4ff;      /* 云雾淡紫 */
+  --color-sea: #a8c6c9;        /* 海水蓝绿 */
+  --color-sunset: #f9d3b4;     /* 日落暖橙 */
+  --color-ink: #1f2733;        /* 文字主色（深墨蓝） */
+  --color-soft-ink: #3c4a5f;   /* 次级文字 */
+  --color-accent: #ee9bb5;     /* 点缀色（柔粉） */
 
-  --color-accent: #f4c98b;       /* 柔和金色光线 */
-  --color-accent-soft: rgba(244, 201, 139, 0.3);
-  --color-text-main: #f9f5f0;    /* 主文本颜色：米白，和深色背景对比清晰 */
-  --color-text-muted: #d4d0cb;   /* 次要文字 */
-  --color-link: #f3d39e;         /* 超链接颜色 */
-  --color-chip-bg: rgba(15, 23, 42, 0.55); /* 导航和卡片背景 */
-
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-serif: "Georgia", "Times New Roman", serif;
-
-  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
-  --radius-large: 24px;
+  --radius-card: 18px;
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* 让页面充满云端渐变+朦胧光感背景 */
+/* 让背景更轻盈 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  padding: 0;
-  font-family: var(--font-sans);
-  color: var(--color-text-main);
-  background:
-    radial-gradient(circle at 10% 10%, rgba(255,255,255,0.12) 0, transparent 40%),
-    radial-gradient(circle at 80% 0%, rgba(255,255,255,0.18) 0, transparent 50%),
-    radial-gradient(circle at 10% 100%, rgba(178, 214, 255,0.2) 0, transparent 55%),
-    radial-gradient(circle at 85% 85%, rgba(247, 210, 178,0.25) 0, transparent 45%),
-    linear-gradient(160deg, var(--color-bg-grad1), var(--color-bg-grad2), var(--color-bg-grad3));
-  background-attachment: fixed;
-  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", Roboto, Helvetica, Arial, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", sans-serif;
+  color: var(--color-ink);
+  background: radial-gradient(circle at 0% 0%, var(--color-cloud) 0, var(--color-sky) 40%, var(--color-sea) 100%);
+  /* 如果你以后想用图片做背景，可以在这里换成：
+     background: url('images/your-background.jpg') center/cover fixed no-repeat;
+  */
+  line-height: 1.7;
 }
 
-/* 如果你想用自己的背景图片（云/岛/星空），取消注释下面三行，然后把 URL 换成自己的图片链接 */
-/*
-body {
-  background-image: url("images/cloud_island_bg.jpg");
-  background-size: cover;
-  background-position: center;
-}
-*/
-
-/* 全局排版限制宽度，保证阅读性 */
-.page-wrapper {
-  max-width: 1080px;
+/* 让内容宽度更舒服 */
+.page {
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 18px 60px;
+  padding: 0 20px 80px;
 }
 
-/* ===============================
-   顶部导航（中英文分开）
-   =============================== */
+/* 全局链接样式 */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===========================
+   顶部导航 / 语言切换
+   =========================== */
 
 .site-header {
   position: sticky;
@@ -67,18 +64,17 @@ body {
   z-index: 999;
   backdrop-filter: blur(18px);
   background: linear-gradient(
-    to bottom,
-    rgba(6, 11, 25, 0.93),
-    rgba(6, 11, 25, 0.75),
-    transparent
+    135deg,
+    rgba(248, 245, 255, 0.82),
+    rgba(222, 236, 244, 0.9)
   );
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-.nav-inner {
+.site-header-inner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 14px 18px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -87,322 +83,351 @@ body {
 .brand {
   display: flex;
   flex-direction: column;
-  gap: 2px;
 }
 
 .brand-title {
   font-size: 1.2rem;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-.brand-subtitle-zh {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-}
-
-.brand-subtitle-en {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
-  opacity: 0.9;
-}
-
-.nav-links {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  font-size: 0.9rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--color-text-main);
-  padding: 6px 10px;
-  border-radius: 999px;
-  background-color: rgba(15, 23, 42, 0.65);
-  border: 1px solid rgba(255,255,255,0.09);
-  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-}
-
-.nav-links a:hover {
-  background-color: rgba(244, 201, 139, 0.25);
-  box-shadow: 0 0 18px rgba(244, 201, 139, 0.4);
-  transform: translateY(-1px);
-}
-
-/* 语言切换按钮（这里只是视觉，你之后可以自己增加 JS 控制显示隐藏） */
-.lang-toggle {
-  display: flex;
-  gap: 6px;
-}
-
-.lang-toggle button {
+.brand-subtitle {
   font-size: 0.8rem;
-  padding: 5px 9px;
+  opacity: 0.8;
+}
+
+/* 导航 */
+.nav {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  font-size: 0.9rem;
+  color: var(--color-soft-ink);
+  padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(15, 23, 42, 0.9);
-  color: var(--color-text-main);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--color-ink);
+}
+
+/* 语言切换按钮 */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.lang-pill {
+  font-size: 0.78rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(60, 74, 95, 0.18);
   cursor: pointer;
+  text-decoration: none;
 }
 
-.lang-toggle button.active {
-  border-color: var(--color-accent);
-  background: rgba(244, 201, 139, 0.18);
+.lang-pill.active {
+  background: var(--color-ink);
+  color: #fff;
 }
 
-/* 移动端导航换行 */
+/* 小屏幕时导航折行更自然 */
 @media (max-width: 768px) {
-  .nav-inner {
+  .site-header-inner {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 6px;
   }
-  .nav-links {
-    flex-wrap: wrap;
+
+  .nav {
     justify-content: flex-start;
   }
 }
 
-/* ===============================
-   Home 页面：英雄区（云端岛屿感）
-   =============================== */
+/* ===========================
+   Hero 区：云端 / 岛屿感
+   =========================== */
 
 .hero {
-  margin-top: 40px;
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-  gap: 32px;
-  align-items: stretch;
-}
-
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 左侧文字云雾卡片 */
-.hero-text {
-  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.25) 0, rgba(9,13,25,0.9) 45%);
-  border-radius: var(--radius-large);
-  padding: 26px 26px 24px;
-  box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden;
+  padding: 70px 0 60px;
 }
 
-.hero-text::before {
-  content: "";
+/* 背景渐变 + 模拟云层的模糊椭圆块 */
+.hero-bg {
   position: absolute;
-  inset: -40%;
+  inset: 0;
   background:
-    radial-gradient(circle at 10% 0%, rgba(255,255,255,0.12) 0, transparent 45%),
-    radial-gradient(circle at 90% 100%, rgba(244, 201, 139,0.2) 0, transparent 50%);
+    radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.9) 0, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 210, 230, 0.7) 0, transparent 55%),
+    radial-gradient(circle at 20% 90%, rgba(196, 227, 255, 0.8) 0, transparent 55%),
+    radial-gradient(circle at 85% 75%, rgba(180, 215, 210, 0.8) 0, transparent 55%);
   opacity: 0.9;
-  mix-blend-mode: screen;
-  pointer-events: none;
 }
 
+/* 如果你以后想换成图片，可以这样：
+.hero-bg {
+  background: url('images/cloud-island.jpg') center/cover no-repeat;
+  opacity: 0.85;
+}
+*/
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.2),
+    rgba(248, 245, 255, 0.96)
+  );
+}
+
+/* 内容层 */
 .hero-inner {
   position: relative;
-  z-index: 2;
-}
-
-/* 小标签，用来提示“中文 / English” */
-.chip {
-  display: inline-flex;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
   align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background-color: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(255,255,255,0.18);
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  margin-bottom: 10px;
 }
 
-/* 主标题：中英文都用这个类，字号可以依自身内容调整 */
-.hero-title-zh {
-  font-size: 1.9rem;
-  margin: 4px 0 6px;
+.hero-title-cn {
+  font-size: 2.1rem;
   font-weight: 600;
+  color: var(--color-ink);
 }
 
 .hero-title-en {
-  font-size: 1.1rem;
-  margin: 0 0 16px;
-  font-family: var(--font-serif);
-  font-style: italic;
-  color: var(--color-text-muted);
+  font-size: 1.2rem;
+  margin-top: 4px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(31, 39, 51, 0.7);
 }
 
-/* 段落排版 */
-.hero-text p {
-  margin: 8px 0;
-  font-size: 0.97rem;
+.hero-tagline {
+  margin-top: 18px;
+  font-size: 1rem;
+  color: var(--color-soft-ink);
 }
 
 .hero-question {
-  margin-top: 12px;
-  padding: 10px 12px;
-  border-left: 2px solid rgba(244, 201, 139, 0.8);
-  background-color: rgba(15, 23, 42, 0.75);
-  border-radius: 9px;
-  font-size: 0.94rem;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: var(--color-soft-ink);
 }
 
-/* 号召性按钮区 */
-.hero-actions {
-  margin-top: 16px;
+.hero-cta {
+  margin-top: 26px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .btn-primary,
 .btn-ghost {
   border-radius: 999px;
-  padding: 8px 18px;
+  padding: 9px 20px;
   font-size: 0.9rem;
+  border: 1px solid transparent;
   cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(244, 201, 139, 0.18);
-  color: var(--color-text-main);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-sunset));
+  color: #fff;
+  box-shadow: var(--shadow-soft);
 }
 
 .btn-primary:hover {
-  background: rgba(244, 201, 139, 0.35);
-  box-shadow: 0 0 20px rgba(244, 201, 139, 0.7);
-  transform: translateY(-1px);
+  filter: brightness(1.05);
 }
 
 .btn-ghost {
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(60, 74, 95, 0.25);
+  color: var(--color-soft-ink);
 }
 
 .btn-ghost:hover {
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(255, 255, 255, 0.95);
 }
 
-/* 右侧：印象派图像占位卡片 */
-.hero-visual {
+/* 右侧“岛屿插画”占位：用渐变+圆形模拟印象派岛屿 */
+.hero-art {
   position: relative;
-  border-radius: var(--radius-large);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 32px;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   background:
-    radial-gradient(circle at 20% 0%, rgba(255,255,255,0.18) 0, transparent 45%),
-    radial-gradient(circle at 80% 80%, rgba(244, 201, 139,0.3) 0, transparent 55%),
-    linear-gradient(145deg, #1b233b, #253a54, #415671, #7fa0c2);
+    radial-gradient(circle at 50% 15%, #fff 0, rgba(255, 255, 255, 0) 40%),
+    radial-gradient(circle at 50% 75%, rgba(164, 206, 211, 0.9) 0, rgba(168, 198, 201, 0.1) 55%),
+    radial-gradient(circle at 15% 75%, rgba(238, 155, 181, 0.85) 0, transparent 50%),
+    radial-gradient(circle at 85% 40%, rgba(201, 223, 245, 0.95) 0, transparent 55%);
 }
 
-/* 在这里换成你喜欢的图片（云/岛屿/海/星空），图片会叠加在印象派色块上 */
-.hero-visual::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("images/yunisle_cloud_island.jpg"); /* ← 替换为你的图片路径 */
-  background-size: cover;
-  background-position: center;
-  opacity: 0.65;   /* 想更清晰就调高，想更朦胧就调低 */
-}
-
-/* 在图片上叠加一层渐变，保证字可读 */
-.hero-visual-overlay {
-  position: relative;
-  z-index: 2;
+/* 如果你有一张真正的画、照片，可以在 hero-art 内加 <img> */
+.hero-art img {
+  width: 100%;
   height: 100%;
-  padding: 18px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: radial-gradient(circle at 0 0, rgba(15,23,42,0.55) 0, transparent 40%),
-              linear-gradient(to top, rgba(6,11,25,0.78), transparent 40%);
+  object-fit: cover;
 }
 
-.hero-visual-caption-zh {
-  font-size: 0.95rem;
-  margin: 0 0 6px;
+/* 小屏幕 hero 改为上下布局 */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 56px 0 40px;
+  }
 }
 
-.hero-visual-caption-en {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  font-style: italic;
+/* ===========================
+   通用 Section & 卡片
+   =========================== */
+
+.section {
+  margin-top: 40px;
 }
 
-/* 小标签，用来写“云端 · 岛屿 · 内在旅程”等 */
-.badge-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
+.section-header {
+  margin-bottom: 16px;
+}
+
+.section-eyebrow {
   font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(60, 74, 95, 0.7);
 }
 
-.badge {
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(15,23,42,0.8);
-  border: 1px solid rgba(255,255,255,0.18);
+.section-title {
+  font-size: 1.4rem;
+  margin-top: 4px;
+  color: var(--color-ink);
 }
 
-/* ===============================
-   页脚（联系方式 - 每个页面底部都可以用）
-   =============================== */
-
-.site-footer {
-  margin-top: 50px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 18px;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-soft-ink);
+  margin-top: 4px;
 }
 
-.footer-grid {
+/* 半透明卡片（印象派玻璃感） */
+.card {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius-card);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* 分栏排版 */
+.columns-2 {
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  gap: 16px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 26px;
 }
 
-@media (max-width: 720px) {
-  .footer-grid {
+@media (max-width: 880px) {
+  .columns-2 {
     grid-template-columns: 1fr;
   }
 }
 
-.footer-col h4 {
-  margin: 0 0 6px;
+/* 列表样式 */
+ul.clean-list {
+  padding-left: 1.1em;
+  margin: 0.3em 0 0.4em;
+}
+
+ul.clean-list li {
+  margin-bottom: 0.2em;
+}
+
+/* 小标签 */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(60, 74, 95, 0.18);
+  color: var(--color-soft-ink);
+  margin-right: 6px;
+  margin-bottom: 4px;
+}
+
+/* ===========================
+   底部联系方式（所有页面底部共用）
+   =========================== */
+
+.site-footer {
+  margin-top: 50px;
+  padding: 24px 20px 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(
+    to bottom,
+    rgba(246, 244, 252, 0.95),
+    rgba(227, 235, 241, 0.98)
+  );
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.6fr);
+  gap: 26px;
   font-size: 0.9rem;
-  color: var(--color-text-main);
+  color: var(--color-soft-ink);
+}
+
+.footer-title {
+  font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
+  gap: 10px 18px;
 }
 
 .footer-links a {
-  color: var(--color-link);
-  text-decoration: none;
+  font-size: 0.88rem;
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-.footer-bottom {
+.footer-meta {
   margin-top: 10px;
-  font-size: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
 }
