@@ -2,140 +2,211 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title>寻屿 · Yunisle | 首页</title>
+  <title>寻屿 · Yunisle | Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- 引入我们刚才写的样式文件 -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="starry"></div>
 
-<div class="page-wrap">
+  <!-- =========================
+       顶部导航（中英文菜单）
+       之后你建好其他页面，只需把 href 改成相应文件即可
+       ========================= -->
   <header class="site-header">
-    <div class="brand-block">
-      <div class="brand-title">寻屿 · Yunisle</div>
-      <div class="brand-sub">云端之岛 · 内在之旅 · 心理与生命的对话</div>
-    </div>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-title">YUNISLE</div>
+        <div class="brand-subtitle-zh">寻屿 · 云端与内在之岛</div>
+        <div class="brand-subtitle-en">An inner isle of loving, becoming, and being whole</div>
+      </div>
 
-    <nav class="main-nav">
-      <a href="index.html" class="active">首页 Home</a>
-      <a href="theory.html">理论与路径</a>
-      <a href="meet-yun.html">遇见云</a>
-      <a href="publications.html">研究发表</a>
-      <a href="projects.html">旅程与项目</a>
-      <a href="topics.html">话题与共创</a>
-    </nav>
+      <nav class="nav-links">
+        <!-- 中文导航 -->
+        <a href="index.html">首页 Home</a>
+        <a href="theory.html">方法与路径 Theory</a>
+        <a href="meet-yun.html">关于云 Meet Yun</a>
+        <a href="publications.html">研究发表 Publications</a>
+        <a href="projects.html">项目 Projects</a>
+        <a href="topics.html">话题 Topics</a>
+        <a href="#contact">联系 Contact</a>
 
-    <div class="lang-switch">
-      中文 | <a href="en/index.html">English</a>
+        <!-- 语言切换按钮（目前只是视觉，你之后可加 JS 控制显示隐藏） -->
+        <div class="lang-toggle">
+          <button class="active">中</button>
+          <button>EN</button>
+        </div>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Hero 区：品牌宣言 + 进入按钮 -->
+  <main class="page-wrapper">
+
+    <!-- =========================
+         HERO / HOME 内容
+         Part 1: 介绍、理念、设问句、号召共建
+         ========================= -->
     <section class="hero">
+      <!-- 左侧：文本内容（中英文并排呈现，中文优先） -->
       <div class="hero-text">
-        <div class="hero-kicker">THE YUNISLE</div>
-        <h1 class="hero-title">在云端的岛屿上，与你一起成为自己</h1>
-        <p class="hero-subtitle">
-          寻屿，是一座为「正在成为的人」准备的内在岛屿。<br>
-          在这里，我们从被期待的角色，慢慢走向自我觉醒的存在：
-          用心理学看清经验，用哲学整理意义，用行动重新编织人生。
-        </p>
-        <div class="hero-cta-row">
-          <a href="topics.html" class="btn btn-primary">加入旅程 · Join the journey</a>
-          <a href="meet-yun.html" class="btn btn-ghost">遇见云 · About Yun</a>
+        <div class="hero-inner">
+
+          <!-- 你可以手动控制只显示中文或英文：
+               例如给 .lang-zh 添加 style="display:none" 来隐藏 -->
+          <div class="chip">
+            <span>中文 · Home</span>
+          </div>
+
+          <!-- 中文主标题和副标题 -->
+          <h1 class="hero-title-zh">寻屿 · Yunisle</h1>
+          <p class="hero-title-en">云端与内在之岛 · 一起走向更自由、更真实的自己</p>
+
+          <!-- 中文简介 + 理念 -->
+          <p>
+            在这里，<strong>“寻屿”</strong>不是一座外在的岛，而是每个人内心深处，
+            那片尚未被看见、却一直在呼唤的地方。
+          </p>
+          <p>
+            我是<strong>王婧芸</strong>（Jingyun），发展心理学研究者、心理实践者。
+            我相信：每一次停下脚步，每一次认真感受，都是在为自己缓缓建一座岛——
+            可以暂时靠岸、可以重新呼吸、可以慢慢决定要如何继续生活。
+          </p>
+
+          <!-- 设问句：点出痛点 -->
+          <div class="hero-question">
+            <p>也许，你正在经历这些：</p>
+            <ul style="margin: 6px 0 0 1.2em; padding-left: 0;">
+              <li>总在回应“别人期待的我”，却很难听见自己的声音；</li>
+              <li>在人际、家庭或亲密关系中，常常感到冲突、愧疚或拉扯；</li>
+              <li>理性上“都懂很多道理”，却依旧难以行动、难以真正松下来；</li>
+              <li>知道自己需要休息和边界，但很难不自责。</li>
+            </ul>
+          </div>
+
+          <!-- 号召共建 -->
+          <p style="margin-top: 12px;">
+            寻屿 · Yunisle 想做的，是为你提供一个
+            <strong>可以诚实自处、可以练习选择、可以慢慢成为自己的空间</strong>。
+          </p>
+          <p>
+            这里以<strong>心理学为方法</strong>，以<strong>哲学为骨架</strong>，
+            汇聚研究、书写、对话与实践，邀请你一起从
+            <strong>经验 → 意识 → 行动 → 自我创造</strong>，
+            重建与你自己、他人与时间的关系。
+          </p>
+
+          <!-- 行动按钮 -->
+          <div class="hero-actions">
+            <!-- 之后你可以把 href 换成“加入表单/预约页面”等链接 -->
+            <a class="btn-primary" href="topics.html">
+              加入这座岛 · Explore Topics
+            </a>
+            <a class="btn-ghost" href="meet-yun.html">
+              认识云 · Meet Yun
+            </a>
+          </div>
+
+          <!-- 英文区域（紧接着中文，方便你之后做分语言切换） -->
+          <div class="chip" style="margin-top: 18px;">
+            <span>English · Home</span>
+          </div>
+
+          <h2 class="hero-title-en">
+            Yunisle — an inner isle of loving, becoming, and being whole.
+          </h2>
+
+          <p>
+            Here, the “isle” is not a place on the map, but a quiet space within you —
+            the part that has long been waiting to be seen, heard, and gently held.
+          </p>
+          <p>
+            I am <strong>Jingyun Wang</strong>, a developmental psychologist and practitioner.
+            I believe that every pause, every honest feeling, is a small act of building
+            your own island — a place to arrive, to breathe, and to choose how you wish
+            to live.
+          </p>
+
+          <p class="hero-question">
+            <strong>Perhaps you know these moments:</strong><br>
+            moving through life by others’ expectations, feeling torn in relationships,
+            understanding so much yet struggling to act or truly rest, wanting clearer
+            boundaries without drowning in guilt.
+          </p>
+
+          <p style="margin-top: 10px;">
+            Yunisle is an invitation to co-create an inner space where you can live more
+            freely, feel more deeply, and meet who you truly are — through
+            <strong>psychology as method</strong> and <strong>philosophy as backbone</strong>.
+          </p>
+          <p>
+            Together we walk a path from <strong>experience → awareness → action →
+            self-creation</strong>, reshaping your relationship with self, others, and time.
+          </p>
+
         </div>
       </div>
 
-      <div class="hero-visual">
-        <!-- 如果你有图片，请把 images/cloud-island-placeholder.jpg 换成你的图 -->
-        <div class="hero-visual-inner">
-          <div class="hero-visual-label">云端 · 星光 · 一座只属于你的岛屿</div>
+      <!-- 右侧：印象派图像 + 简短文字 -->
+      <aside class="hero-visual">
+        <div class="hero-visual-overlay">
+          <div>
+            <p class="hero-visual-caption-zh">
+              云端之上，有一座只为你保留的岛。<br>
+              你不必一下子抵达，只要每一次愿意靠近一点点。
+            </p>
+            <p class="hero-visual-caption-en">
+              Somewhere between cloud and sea, an island waits quietly within you.
+              No rush to arrive — every step is already part of the journey.
+            </p>
+          </div>
+          <div>
+            <div class="badge-stack">
+              <span class="badge">云端 Cloud</span>
+              <span class="badge">内在之岛 Inner Isle</span>
+              <span class="badge">发展心理 Developmental Psychology</span>
+              <span class="badge">自我决定 Self-Determination</span>
+              <span class="badge">经验 · 觉察 · 行动</span>
+            </div>
+          </div>
         </div>
-        <div class="note">提示：你可以在 <code>style.css</code> 中 hero-visual-inner 处替换背景图片。</div>
-      </div>
+      </aside>
+
     </section>
 
-    <!-- 痛点设问 + 理念简述 -->
-    <section class="section">
-      <h2 class="section-title">你是否也有这样的时刻？</h2>
-      <p class="section-subtitle">
-        总是在照顾别人，却很少问一句「我真正想要的是什么」？<br>
-        在期待与责任之间，习惯了懂事，却越来越难听见自己的心？
-      </p>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>从被期待的人，到自我觉醒的存在</h3>
+    <!-- =========================
+         页脚：联系方式（每个子页面都可以复制这一段）
+         ========================= -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>联系 · Contact</h4>
           <p>
-            寻屿是一场旅程：从「别人希望我成为谁」，到「我可以选择如何生活」。
-            我们从日常经验出发，看见内在的模式与声音，让困局变成提问的起点。
+            如果你对合作、研究、咨询、工作坊或只是想写信交流，欢迎通过以下方式联系我。
           </p>
-        </article>
-
-        <article class="card">
-          <h3>心理学为方法 · 哲学为骨架</h3>
-          <p>
-            以自我决定理论、依恋与发展心理学为基础，结合现象学与存在主义视角，
-            帮助你从经验 &rarr; 意识 &rarr; 行动 &rarr; 自我创造，
-            重建与自我、他人、时间的关系。
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>不是要变成「更好的人」</h3>
-          <p>
-            而是一步步靠近那个更真实、更自由、更柔软的自己。
-            每一步都不完美，但每一步都在书写属于你的岛屿故事。
-          </p>
-        </article>
+        </div>
+        <div class="footer-col">
+          <div class="footer-links">
+            <!-- 请把下面的 # 替换为你的真实链接 -->
+            <a href="mailto:yourmail@example.com">Email</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="#" target="_blank" rel="noopener">小红书 Xiaohongshu</a>
+            <a href="#" target="_blank" rel="noopener">WeChat · 微信</a>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <!-- 加入共建的呼吁 -->
-    <section class="section">
-      <h2 class="section-title">一起共建这座岛屿</h2>
-      <p class="section-subtitle">
-        这里欢迎正在探索自我的人、关心教育与心理的人、在多重身份之间摇摆的人。<br>
-        你可以以读者、同行者、协作者的身份加入这座岛。
-      </p>
-
-      <div class="card-grid">
-        <article class="card">
-          <h3>如果你是正在探索自我的人</h3>
-          <p>你可以从「话题与共创」开始，看看哪些问题与你此刻的生命阶段共振。</p>
-        </article>
-        <article class="card">
-          <h3>如果你是研究者 / 教学者</h3>
-          <p>欢迎从「研究发表」「旅程与项目」了解我的工作，或直接联系我讨论合作。</p>
-        </article>
-        <article class="card">
-          <h3>如果你正在寻找一种温柔而清醒的陪伴</h3>
-          <p>你可以先从「遇见云」了解我的背景与风格，感受我们是否适合同行。</p>
-        </article>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> 寻屿 · Yunisle · Jingyun Wang</span>
+        <span>Inner isles · gentle science · honest living</span>
       </div>
-    </section>
+    </footer>
+
   </main>
 
-  <!-- 页脚（每个页面都建议复制这一段） -->
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <strong>寻屿 · Yunisle</strong><br>
-        云端之岛，一起练习活得更自由，也更温柔。
-        <div class="note">Every step carries a story, echoing forward, shaping the soul of the journey.</div>
-      </div>
-      <div class="footer-links">
-        <div><strong>联系 · Contact</strong></div>
-        <!-- 在这里替换为你的真实链接 -->
-        <a href="mailto:your.email@example.com">邮箱 Email</a>
-        <a href="#" target="_blank">领英 LinkedIn</a>
-        <a href="#" target="_blank">谷歌学术 Google Scholar</a>
-        <a href="#" target="_blank">小红书 RED</a>
-        <span>微信 WeChat：yourID</span>
-      </div>
-    </div>
-  </footer>
-</div>
+  <!-- 自动更新年份的小脚本，可保留也可删除 -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
