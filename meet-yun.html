@@ -2,111 +2,110 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <title>寻屿 · 遇见云 Meet Yun</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>寻屿 · 与云相遇 · About Yun</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="starry"></div>
-<div class="page-wrap">
+<div class="bg-layer">
+  <div class="bubble bubble--blue" style="width:260px;height:260px;top:8%;right:-40px;"></div>
+</div>
+
+<div class="page-shell">
   <header class="site-header">
     <div class="brand-block">
-      <div class="brand-title">寻屿 · Yunisle</div>
-      <div class="brand-sub">遇见云 · Meet Yun</div>
+      <div class="brand-title">寻屿 · YUNISLE</div>
+      <div class="brand-subtitle">Meet Yun · 与云相遇</div>
     </div>
     <nav class="main-nav">
-      <a href="index.html">首页 Home</a>
-      <a href="theory.html">理论与路径</a>
-      <a href="meet-yun.html" class="active">遇见云</a>
-      <a href="publications.html">研究发表</a>
-      <a href="projects.html">旅程与项目</a>
-      <a href="topics.html">话题与共创</a>
+      <a class="nav-link" href="index.html">主页 Home</a>
+      <a class="nav-link" href="theory.html">架构与方法</a>
+      <a class="nav-link nav-link--active" href="meet-yun.html">遇见云</a>
+      <a class="nav-link" href="research.html">研究与发表</a>
+      <a class="nav-link" href="projects.html">项目与合作</a>
+      <a class="nav-link" href="topics.html">话题与旅程</a>
     </nav>
     <div class="lang-switch">
-      中文 | <a href="en/meet-yun.html">English</a>
+      <span class="lang-active">中</span>
+      <a href="en/meet-yun.html">EN</a>
     </div>
   </header>
 
-  <main>
-    <section class="section">
-      <div class="hero">
-        <div class="hero-text">
-          <h1 class="hero-title">你好，我是云（Jingyun Wang）</h1>
-          <p class="hero-subtitle">
-            发展心理学博士，长期在家庭、同伴与学校的故事里，观察「人是怎样一步步成为自己」。
-            也是一个在自我怀疑与温柔练习之间往返的人。
-          </p>
-          <p class="hero-subtitle">
-            我相信，真正的改变往往不是轰轰烈烈的一次，而是在许多安静的时刻里，
-            你开始更诚实地对自己说话。
-          </p>
-        </div>
+  <main class="main-card">
+    <div class="kicker">MEET YUN · ABOUT</div>
+    <h1 class="main-heading">与云相遇：一位心理学者的内在岛屿</h1>
 
-        <div class="hero-visual">
-          <!-- 这里可以放你的照片：替换 src 为你的图片路径 -->
-          <div class="hero-visual-inner" style="
-            background-image:
-              linear-gradient(to top, rgba(7, 12, 40, 0.9), rgba(7, 12, 40, 0.3)),
-              url('images/your-photo-or-abstract.jpg');
-          ">
-            <div class="hero-visual-label">Cloud & Isle · Yun</div>
-          </div>
-          <div class="note">将 <code>images/your-photo-or-abstract.jpg</code> 换成你的照片或你喜欢的画面。</div>
-        </div>
+    <div class="grid-2">
+      <section class="card">
+        <div class="card-kicker">Photo · Portrait</div>
+        <!-- 把下面这个 div 换成你的照片 <img> 也可以 -->
+        <div class="paper-cover"></div>
+        <p class="card-body">
+          这里可以放一段「你是谁」的简短介绍，例如出生地、现在所在城市、你在做什么。
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="card-kicker">Background · 资质与研究</div>
+        <h2 class="card-title">学术与专业背景</h2>
+        <ul>
+          <li>发展心理学博士（例如：乌得勒支大学）。</li>
+          <li>心理健康教育 / 应用心理学硕士。</li>
+          <li>中国心理咨询师资格 & 11 年心理实践经验。</li>
+        </ul>
+        <p class="card-body">
+          研究方向：自主性发展、家庭与同伴关系、青少年心理健康、密集纵向数据等。
+        </p>
+      </section>
+    </div>
+
+    <section class="grid-3" style="margin-top:14px;">
+      <div class="card">
+        <div class="card-kicker">PRACTICE</div>
+        <h3 class="card-title">已经做过的活动</h3>
+        <ul>
+          <li>长期个体咨询与心理团体。</li>
+          <li>读书会、生命书写工作坊。</li>
+          <li>关于自主性、关系与边界的公开分享。</li>
+        </ul>
       </div>
-    </section>
 
-    <section class="section">
-      <div class="content-block">
-        <h2>专业背景 · Qualifications</h2>
-        <ul class="item-list">
-          <li>发展心理学博士（例如：乌得勒支大学）</li>
-          <li>心理健康教育 / 应用心理学硕士</li>
-          <li>超过十年心理工作经验：咨询、团体、工作坊、心理教育</li>
-          <li>研究领域：自主性发展、亲子与同伴关系、青少年心理健康、密集纵向数据（ILD）</li>
+      <div class="card">
+        <div class="card-kicker">TOPICS</div>
+        <h3 class="card-title">熟悉与擅长的话题</h3>
+        <ul>
+          <li>完美主义、羞愧、自我怀疑。</li>
+          <li>亲密关系、依恋与分离。</li>
+          <li>文化迁移、跨国生活与身份感。</li>
         </ul>
+      </div>
 
-        <h3>我熟悉的主题</h3>
-        <ul class="item-list">
-          <li>「总是很懂事」的人：如何从被期待中长出自己的声音</li>
-          <li>跨文化与迁徙：在多重身份、多种语言之间寻找家</li>
-          <li>学习与动机：如何既照顾成绩，又不丢掉好好活着</li>
-          <li>与父母、伴侣、朋友的边界与亲密</li>
-        </ul>
-
-        <h3>已经做过的一些事（示例，可自行替换）</h3>
-        <ul class="item-list">
-          <li>为本科生、研究生开设发展心理学与研究方法课程</li>
-          <li>带领多场心理团体：自我接纳、情绪与界限、人际关系</li>
-          <li>指导 12 名本科、2 名硕士完成研究项目</li>
-          <li>参与多国合作研究，关注青少年心理与教育环境</li>
-        </ul>
-
-        <h3>我在寻屿想做的事</h3>
-        <p>
-          我希望这里既是一个专业、严谨的心理学空间，也是一个允许你松一口气的地方。
-          不急着成为更好的人，只是练习在云端的岛屿上，跟自己诚实一点，跟世界温柔一点。
+      <div class="card">
+        <div class="card-kicker">VISION</div>
+        <h3 class="card-title">未来愿景</h3>
+        <p class="card-body">
+          想把寻屿打造成一个交织「研究 · 咨询 · 写作 · 公共对话」的空间，
+          让更多人可以不必完美，也能在自己的内在之屿上安全地长大。
         </p>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <strong>寻屿 · Yunisle</strong><br>
-        在成为研究者之前，我是一个一直在学习如何好好活的人。
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div class="footer-col footer-links">
+          <strong>联系 · Contact</strong><br>
+          邮箱：<a href="mailto:your.email@example.com">your.email@example.com</a>
+        </div>
+        <div class="footer-col">
+          © <span id="year"></span> 寻屿 · Yunisle.
+        </div>
       </div>
-      <div class="footer-links">
-        <div><strong>联系 · Contact</strong></div>
-        <a href="mailto:your.email@example.com">邮箱 Email</a>
-        <a href="#" target="_blank">领英 LinkedIn</a>
-        <a href="#" target="_blank">谷歌学术 Google Scholar</a>
-        <a href="#" target="_blank">小红书 RED</a>
-        <span>微信 WeChat：yourID</span>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </main>
 </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
