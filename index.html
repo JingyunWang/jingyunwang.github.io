@@ -1,157 +1,214 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JY · Psychology · Research · Care</title>
-
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
-    margin: 0;
-    padding: 0;
-    background: #fafafa;
-    color: #222;
-    line-height: 1.7;
-  }
-  header {
-    background: #89a6c9;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-  }
-  header h1 { margin: 0; font-size: 2.4em; font-weight: 600; }
-  header p { margin: 10px 0 0; font-size: 1.15em; }
-
-  nav {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 6px 10px;
-    border-radius: 5px;
-  }
-  nav a:hover {
-    background: rgba(255,255,255,0.25);
-  }
-
-  .section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
-  h2 {
-    font-size: 1.9em;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #2f3c4d;
-  }
-  .soft {
-    background: white;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
-  }
-  footer {
-    margin-top: 40px;
-    text-align: center;
-    padding: 20px;
-    color: #777;
-  }
-</style>
+  <meta charset="utf-8" />
+  <title>寻屿 · Yunisle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      --bg: #f7f4f1;
+      --card: #ffffff;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --accent: #8ba6c9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    header {
+      padding: 40px 20px 28px;
+      text-align: center;
+      background: linear-gradient(135deg, #8ba6c9, #d7c3d4);
+      color: #fff;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 0.12em;
+    }
+    header h2 {
+      margin: 8px 0 0;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .lang-toggle {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lang-toggle button {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.7);
+      background: transparent;
+      color: #fff;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .lang-toggle button.active {
+      background: rgba(255,255,255,0.18);
+      font-weight: 600;
+    }
+    main {
+      max-width: 900px;
+      margin: 28px auto 40px;
+      padding: 0 18px 10px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(15,23,42,0.06);
+      padding: 22px 20px;
+      margin-bottom: 16px;
+    }
+    h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    p { margin: 6px 0; }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    footer {
+      text-align: center;
+      padding: 16px 10px 22px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    a { color: var(--accent); }
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+  </style>
 </head>
-
-
 <body>
 
 <header>
-  <h1>JY</h1>
-  <p>Developmental Psychology · Mental Health · Compassionate Care</p>
+  <h1>寻屿 · Yunisle</h1>
+  <h2>The inner isle of loving, becoming, and being whole</h2>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#care">Therapy & Care</a>
-    <a href="#cv">CV</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active">English</button>
+    <button id="btn-zh">中文</button>
+  </div>
 </header>
 
+<main>
+  <!-- English section -->
+  <section id="en" class="lang-section active">
+    <div class="card">
+      <h3>Welcome to the Yunisle</h3>
+      <p>
+        Yunisle is the inner isle of loving, becoming, and being whole.
+        I am <strong>Jingyun</strong>, inviting you to live freely, feel deeply,
+        and step into your inner world.
+      </p>
+      <p>
+        Here, every soul finds its isle; every step carries a story,
+        echoing forward, shaping the self and the journey.
+      </p>
+      <p>
+        This is where you meet who you truly are, and where our most
+        authentic selves encounter, unfold, and co-create meaning together.
+      </p>
+    </div>
 
+    <div class="card">
+      <h3>What lives on this isle</h3>
+      <p class="muted">
+        Research · Therapy-informed reflections · Inner journeys ·
+        Writing about autonomy, relationships, and gentle change.
+      </p>
+      <p>
+        I work at the intersection of developmental psychology, youth mental
+        health, and human connection. This space holds research, essays,
+        and offerings that honour complexity and compassion.
+      </p>
+    </div>
 
-<div class="section soft" id="about">
-  <h2>About</h2>
-  <p>
-    I am JY — a developmental psychologist shaped by many years of watching  
-    how people struggle, soften, heal, and rise again.  
-  </p>
-  <p>
-    My work follows a simple, old truth:  
-    <em>“When people feel seen, they change.”</em>  
-  </p>
-  <p>
-    I study autonomy, relationships, and the ways young people carry  
-    their stories inside their bodies and minds. My approach is  
-    scientific, but my heart stays with compassion, clarity, and the  
-    dignity of every person I meet.
-  </p>
-</div>
+    <div class="card">
+      <h3>Contact</h3>
+      <p>
+        For collaboration, workshops, or counselling-related inquiries,
+        you can reach me at:
+        <br>
+        <a href="mailto:your@email">your@email</a>
+      </p>
+    </div>
+  </section>
 
+  <!-- Chinese section -->
+  <section id="zh" class="lang-section">
+    <div class="card">
+      <h3>欢迎来到「寻屿 · Yunisle」</h3>
+      <p>
+        「寻屿」是一座关于<strong>爱、成长与成为完整自己</strong>的内在小岛。
+        我是<strong>景云</strong>（Jingyun），邀请你
+        <strong>活得更自由，感受得更深入</strong>，也更温柔地走近自己。
+      </p>
+      <p>
+        在这里，每一个灵魂都能找到属于自己的小岛；<br>
+        每一步都是一个故事，向前回响，悄悄塑造着旅程，也塑造着「我」。
+      </p>
+      <p>
+        这是一个与你真正的自己相遇的地方；<br>
+        也是我们以真实之身彼此相逢、展开、共同编织意义的空间。
+      </p>
+    </div>
 
+    <div class="card">
+      <h3>在这座小岛上，我们做什么</h3>
+      <p class="muted">
+        心理学 · 青少年与关系 · 咨询视角下的书写与反思 ·
+        关于自主、人际、与动机的温柔对话。
+      </p>
+      <p>
+        我的工作在「发展心理学、心理健康与人际联结」的交界处展开。
+        这里会慢慢放入研究、文字、以及面向个体与关系的实践与邀请。
+      </p>
+    </div>
 
-<div class="section soft" id="research">
-  <h2>Research</h2>
-  <p>My research explores autonomy development, peer relationships,  
-     intensive longitudinal data (ILD), and mental health.</p>
-
-  <ul>
-    <li>Paper 1 — Title, Journal, Year, <a href="#">PDF</a></li>
-    <li>Paper 2 — Title, Journal, Year, <a href="#">PDF</a></li>
-    <li>Paper 3 — Title, Journal, Year, <a href="#">PDF</a></li>
-  </ul>
-</div>
-
-
-
-<div class="section soft" id="care">
-  <h2>Therapy & Care</h2>
-  <p>
-    My therapeutic work rests on warmth, presence, and deep respect  
-    for personal history. I combine evidence-based psychological  
-    approaches with an attitude rooted in compassion and honesty.
-  </p>
-
-  <p>
-    I hold long-term experience in counseling, youth mental health,  
-    autonomy support, and relational care.
-  </p>
-</div>
-
-
-
-<div class="section soft" id="cv">
-  <h2>CV</h2>
-  <p>Download my full CV here: <a href="#">CV.pdf</a></p>
-</div>
-
-
-
-<div class="section soft" id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
-</div>
-
-
+    <div class="card">
+      <h3>联系与合作</h3>
+      <p>
+        若你对合作、讲座 / 工作坊、或心理工作有兴趣，欢迎写信给我：<br>
+        <a href="mailto:jingyun.wang@hotmail.com">jingyun.wang@hotmail.com</a>
+      </p>
+    </div>
+  </section>
+</main>
 
 <footer>
-  © JY · Updated 2025
+  © <span id="year"></span> 寻屿 · Yunisle · Jingyun Wang
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const btnEn = document.getElementById('btn-en');
+  const btnZh = document.getElementById('btn-zh');
+  const en = document.getElementById('en');
+  const zh = document.getElementById('zh');
+
+  btnEn.addEventListener('click', () => {
+    btnEn.classList.add('active');
+    btnZh.classList.remove('active');
+    en.classList.add('active');
+    zh.classList.remove('active');
+  });
+
+  btnZh.addEventListener('click', () => {
+    btnZh.classList.add('active');
+    btnEn.classList.remove('active');
+    zh.classList.add('active');
+    en.classList.remove('active');
+  });
+</script>
 
 </body>
 </html>
