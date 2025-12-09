@@ -2,183 +2,261 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>寻屿 · Yunisle</title>
+  <title>寻屿 · Yunisle – Jingyun Wang</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
     :root {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-      --bg: #f7f4f1;
-      --card: #ffffff;
-      --ink: #1f2933;
-      --muted: #6b7280;
-      --accent: #8ba6c9;
+      --bg: #faf7f5;
+      --accent: #7b9acc;      /* 改这里可以换主色 */
+      --accent-soft: #eef2fb; /* 改这里可以换浅背景色 */
+      --text-main: #222222;
+      --text-muted: #666666;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       background: var(--bg);
-      color: var(--ink);
+      color: var(--text-main);
       line-height: 1.7;
     }
     header {
-      padding: 40px 20px 28px;
+      padding: 32px 16px 24px;
       text-align: center;
-      background: linear-gradient(135deg, #8ba6c9, #d7c3d4);
-      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #c8b4d6);
+      color: #ffffff;
     }
     header h1 {
       margin: 0;
       font-size: 2.2rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.05em;
     }
-    header h2 {
-      margin: 8px 0 0;
-      font-size: 1.1rem;
-      font-weight: 400;
+    header .subtitle {
+      margin-top: 6px;
+      font-size: 0.95rem;
+      opacity: 0.9;
     }
-    .lang-toggle {
-      margin-top: 18px;
+    .lang-switch {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    .lang-switch a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 4px;
+    }
+    nav {
+      margin-top: 16px;
       display: flex;
       justify-content: center;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
     }
-    .lang-toggle button {
+    nav a {
+      padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid rgba(255,255,255,0.7);
-      background: transparent;
-      color: #fff;
-      padding: 6px 14px;
       font-size: 0.9rem;
-      cursor: pointer;
+      text-decoration: none;
+      color: #ffffff;
     }
-    .lang-toggle button.active {
-      background: rgba(255,255,255,0.18);
-      font-weight: 600;
-    }
+    nav a:hover { background: rgba(255,255,255,0.18); }
+
     main {
-      max-width: 900px;
+      max-width: 960px;
       margin: 28px auto 40px;
-      padding: 0 18px 10px;
+      padding: 0 16px;
+    }
+    .hero {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 22px 20px 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      margin-bottom: 22px;
+    }
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #2f3c4d;
+    }
+    .hero p {
+      margin: 6px 0;
+      font-size: 0.98rem;
+    }
+
+    section {
+      margin-top: 20px;
+    }
+    section h2 {
+      font-size: 1.35rem;
+      margin: 0 0 8px;
+      color: #2f3c4d;
     }
     .card {
-      background: var(--card);
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      margin-bottom: 12px;
+    }
+    .two-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 18px;
+    }
+    @media (max-width: 720px) {
+      .two-columns {
+        grid-template-columns: 1fr;
+      }
+    }
+    ul { padding-left: 20px; margin: 6px 0; }
+    li { margin: 2px 0; }
+
+    .hero-image {
+      width: 100%;
       border-radius: 14px;
-      box-shadow: 0 4px 14px rgba(15,23,42,0.06);
-      padding: 22px 20px;
-      margin-bottom: 16px;
+      background: var(--accent-soft);
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
-    h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-    }
-    p { margin: 6px 0; }
-    .muted { color: var(--muted); font-size: 0.95rem; }
+
+    a { color: #355c8a; }
+
     footer {
       text-align: center;
-      padding: 16px 10px 22px;
+      padding: 16px 8px 26px;
       font-size: 0.85rem;
-      color: var(--muted);
+      color: var(--text-muted);
     }
-    a { color: var(--accent); }
-    .lang-section { display: none; }
-    .lang-section.active { display: block; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>寻屿 · Yunisle</h1>
-  <h2>The inner isle of loving, becoming, and being whole</h2>
+  <div class="subtitle">The inner isle of loving, becoming, and being whole · by Jingyun Wang</div>
 
-  <div class="lang-toggle">
-    <button id="btn-en" class="active">English</button>
-    <button id="btn-zh">中文</button>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#therapy">Therapy & Care</a>
+    <a href="#research">Research & Projects</a>
+    <a href="#writing">Writing</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="lang-switch">
+    EN | <a href="index-zh.html">中文</a>
   </div>
 </header>
 
 <main>
-  <!-- English section -->
-  <section id="en" class="lang-section active">
-    <div class="card">
-      <h3>Welcome to the Yunisle</h3>
-      <p>
-        Yunisle is the inner isle of loving, becoming, and being whole.
-        I am <strong>Jingyun</strong>, inviting you to live freely, feel deeply,
-        and step into your inner world.
-      </p>
-      <p>
-        Here, every soul finds its isle; every step carries a story,
-        echoing forward, shaping the self and the journey.
-      </p>
-      <p>
-        This is where you meet who you truly are, and where our most
-        authentic selves encounter, unfold, and co-create meaning together.
-      </p>
+  <section class="hero">
+    <div class="two-columns">
+      <div>
+        <div class="hero-tagline">
+          Yunisle, the inner isle of loving, becoming, and being whole.
+        </div>
+        <p>
+          I am <strong>Jingyun</strong>, inviting you to live freely, feel deeply,
+          and step into your inner world. Here, every soul finds its isle;
+          every step a story, echoing forward and shaping the self and journey.
+        </p>
+        <p>
+          This is a space for research, therapy, and quiet companionship on the path
+          toward a more authentic life.
+        </p>
+      </div>
+      <div>
+        <!-- 想放喜欢的图片，把这块替换为 <img src="images/yourphoto.jpg" class="hero-image"> -->
+        <div class="hero-image">
+          Add your favourite photo or artwork here (e.g. sea, clouds, islands).
+        </div>
+      </div>
     </div>
+  </section>
 
+  <section id="about">
+    <h2>About</h2>
     <div class="card">
-      <h3>What lives on this isle</h3>
-      <p class="muted">
-        Research · Therapy-informed reflections · Inner journeys ·
-        Writing about autonomy, relationships, and gentle change.
+      <p>
+        I am a developmental psychologist and counsellor working with young people,
+        families, and those who care for them. My work weaves together autonomy,
+        relationships, and mental health, often using intensive longitudinal designs
+        to trace the small steps of change.
       </p>
       <p>
-        I work at the intersection of developmental psychology, youth mental
-        health, and human connection. This space holds research, essays,
-        and offerings that honour complexity and compassion.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Contact</h3>
-      <p>
-        For collaboration, workshops, or counselling-related inquiries,
-        you can reach me at:
-        <br>
-        <a href="mailto:your@email">your@email</a>
+        Underneath the methods is a simple commitment: when people feel seen and held
+        with honesty and warmth, something true begins to move.
       </p>
     </div>
   </section>
 
-  <!-- Chinese section -->
-  <section id="zh" class="lang-section">
+  <section id="therapy">
+    <h2>Therapy & Care</h2>
     <div class="card">
-      <h3>欢迎来到「寻屿 · Yunisle」</h3>
       <p>
-        「寻屿」是一座关于<strong>爱、成长与成为完整自己</strong>的内在小岛。
-        我是<strong>景云</strong>（Jingyun），邀请你
-        <strong>活得更自由，感受得更深入</strong>，也更温柔地走近自己。
+        In therapy and guidance, I offer a grounded, gentle space for:
       </p>
+      <ul>
+        <li>Questions of identity, autonomy and “who am I becoming?”</li>
+        <li>Family, romantic and peer relationship patterns</li>
+        <li>Shame, self-worth and the fear of not being “enough”</li>
+        <li>Stress, sensitivity and emotional overwhelm</li>
+      </ul>
       <p>
-        在这里，每一个灵魂都能找到属于自己的小岛；<br>
-        每一步都是一个故事，向前回响，悄悄塑造着旅程，也塑造着「我」。
-      </p>
-      <p>
-        这是一个与你真正的自己相遇的地方；<br>
-        也是我们以真实之身彼此相逢、展开、共同编织意义的空间。
+        My approach integrates evidence-based methods with deep listening,
+        clear boundaries and compassion.
       </p>
     </div>
+  </section>
 
+  <section id="research">
+    <h2>Research & Projects</h2>
     <div class="card">
-      <h3>在这座小岛上，我们做什么</h3>
-      <p class="muted">
-        心理学 · 青少年与关系 · 咨询视角下的书写与反思 ·
-        关于自主、人际、与动机的温柔对话。
-      </p>
       <p>
-        我的工作在「发展心理学、心理健康与人际联结」的交界处展开。
-        这里会慢慢放入研究、文字、以及面向个体与关系的实践与邀请。
+        My research focuses on autonomy development, close relationships and
+        youth mental health, with a special interest in intensive longitudinal data.
+      </p>
+      <ul>
+        <li>Autonomy in the context of family, peers and school</li>
+        <li>Rumination, co-rumination and victimisation</li>
+        <li>Within-person processes captured by daily diaries and EMA</li>
+      </ul>
+      <p>
+        Selected work (replace with your real publications):
+      </p>
+      <ul>
+        <li>Wang, J. Y., et al. (2024). <em>Title of your key paper.</em> Journal.</li>
+        <li>Wang, J. Y., et al. (2023). <em>Another important paper.</em> Journal.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="writing">
+    <h2>Writing & Notes</h2>
+    <div class="card">
+      <p>
+        Here I collect short reflections on development, relationships, and the
+        everyday courage of feeling. (Later you can link to blog posts or essays.)
       </p>
     </div>
+  </section>
 
+  <section id="contact">
+    <h2>Contact</h2>
     <div class="card">
-      <h3>联系与合作</h3>
       <p>
-        若你对合作、讲座 / 工作坊、或心理工作有兴趣，欢迎写信给我：<br>
-        <a href="mailto:jingyun.wang@hotmail.com">jingyun.wang@hotmail.com</a>
+        Email: <a href="mailto:your@email">your@email</a>
+      </p>
+      <p>
+        For collaborations, research, or therapy-related enquiries,
+        you are welcome to write a brief message.
       </p>
     </div>
   </section>
@@ -190,25 +268,6 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-  const btnEn = document.getElementById('btn-en');
-  const btnZh = document.getElementById('btn-zh');
-  const en = document.getElementById('en');
-  const zh = document.getElementById('zh');
-
-  btnEn.addEventListener('click', () => {
-    btnEn.classList.add('active');
-    btnZh.classList.remove('active');
-    en.classList.add('active');
-    zh.classList.remove('active');
-  });
-
-  btnZh.addEventListener('click', () => {
-    btnZh.classList.add('active');
-    btnEn.classList.remove('active');
-    zh.classList.add('active');
-    en.classList.remove('active');
-  });
 </script>
-
 </body>
 </html>
