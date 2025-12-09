@@ -1,545 +1,133 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>寻屿 · Yunisle | Inner Isles of Becoming</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Yunisle · the inner isles of loving, becoming, and being whole — by Jingyun Wang." />
-
-  <!-- ====== 字体：一个优雅英文 + 一个中文无衬线 ====== -->
-  <!-- 如需本地加载或换字体，可以删掉这段，改用系统字体 -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <style>
-    /* ========================
-       基础配色（你可以改这里）
-       ======================== */
-    :root {
-      /* 背景：印象派云/海/星空的渐变色调 */
-      --bg-gradient: radial-gradient(circle at 10% 20%, #f7e8ff 0%, #c8dfff 25%, #7ca6d9 55%, #27496d 100%);
-      /* 半透明卡片背景 */
-      --card-bg: rgba(255, 255, 255, 0.87);
-      /* 主字体颜色（正文） */
-      --text-main: #1f2430;
-      /* 次要文字颜色（描述、注释） */
-      --text-muted: #5e6880;
-      /* 链接与强调色：柔和的暮光紫蓝 */
-      --accent: #6e81d8;
-      /* 悬停时的强调色 */
-      --accent-soft: #9aa7ff;
-      /* 导航背景半透明 */
-      --nav-bg: rgba(10, 20, 40, 0.45);
-      /* 轻微分割线颜色 */
-      --divider: rgba(255, 255, 255, 0.5);
-      /* 英文标题字体 */
-      --font-en: "Playfair Display", "Times New Roman", serif;
-      /* 中文与正文字体 */
-      --font-zh: "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      color: var(--text-main);
-      font-family: var(--font-zh);
-      background: var(--bg-gradient);
-      /* 背景加一点印象派“噪点”，更有画感，可选 */
-      background-attachment: fixed;
-    }
-
-    /* ========================
-       整体布局
-       ======================== */
-    .page-overlay {
-      /* 半透明蒙层，让文字清晰可见 */
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.20),
-        rgba(255, 255, 255, 0.05)
-      );
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 18px 60px;
-    }
-
-    /* ========================
-       顶部品牌 + 语言切换
-       ======================== */
-    header.site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 18px;
-      margin-bottom: 10px;
-      border-radius: 16px;
-      background: var(--nav-bg);
-      color: #f7f8ff;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .brand-block {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .brand-cn {
-      font-family: var(--font-zh);
-      font-size: 1.2rem;
-      letter-spacing: 0.15em;
-    }
-
-    .brand-en {
-      font-family: var(--font-en);
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
-    .brand-tagline {
-      font-size: 0.78rem;
-      opacity: 0.85;
-      max-width: 340px;
-      line-height: 1.4;
-    }
-
-    .lang-switch {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .lang-btn {
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      background: transparent;
-      color: #f7f7ff;
-      cursor: pointer;
-      font-family: var(--font-zh);
-    }
-
-    .lang-btn.active {
-      background: rgba(255, 255, 255, 0.92);
-      color: #2a3355;
-      font-weight: 500;
-    }
-
-    /* ========================
-       导航栏
-       ======================== */
-    nav.main-nav {
-      margin: 14px auto 24px;
-      max-width: 1100px;
-    }
-
-    .nav-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      list-style: none;
-      padding: 10px 16px;
-      margin: 0;
-      border-radius: 999px;
-      background: rgba(10, 20, 40, 0.38);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      justify-content: center;
-    }
-
-    .nav-list li a {
-      font-size: 0.86rem;
-      color: #f5f6ff;
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-      font-family: var(--font-zh);
-      white-space: nowrap;
-    }
-
-    .nav-list li a:hover {
-      border-color: rgba(255, 255, 255, 0.7);
-      background: rgba(255, 255, 255, 0.18);
-    }
-
-    /* ========================
-       通用区块样式（卡片）
-       ======================== */
-    section {
-      margin: 18px 0;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 18px;
-      padding: 22px 22px 24px;
-      box-shadow: 0 16px 40px rgba(10, 20, 40, 0.20);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* 印象派“光斑”效果，增加绘画感 */
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.9), transparent 70%);
-      opacity: 0.18;
-      top: -40px;
-      right: -50px;
-      pointer-events: none;
-    }
-
-    .card h1,
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      font-family: var(--font-en);
-      letter-spacing: 0.04em;
-    }
-
-    .card h1 {
-      font-size: 2.0rem;
-    }
-
-    .card h2 {
-      font-size: 1.4rem;
-    }
-
-    .card .subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    p {
-      margin: 6px 0 10px;
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-
-    .highlight-line {
-      font-family: var(--font-en);
-      font-size: 1.02rem;
-      color: var(--accent);
-      margin: 6px 0 12px;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 3px 9px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      background: rgba(110, 130, 216, 0.12);
-      color: var(--accent);
-      margin-right: 6px;
-      margin-bottom: 4px;
-    }
-
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 800px) {
-      .two-col {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header.site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-      .brand-tagline {
-        max-width: none;
-      }
-    }
-
-    ul {
-      padding-left: 18px;
-      margin: 6px 0 10px;
-    }
-
-    li {
-      margin-bottom: 4px;
-      font-size: 0.92rem;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--accent-soft);
-      text-decoration: underline;
-    }
-
-    hr.soft-divider {
-      border: none;
-      height: 1px;
-      background: var(--divider);
-      margin: 18px 0 12px;
-    }
-
-    footer {
-      color: #f0f2ff;
-      font-size: 0.78rem;
-      text-align: center;
-      padding: 14px 10px 22px;
-    }
-
-    /* ========================
-       语言视图切换
-       ======================== */
-    .lang-view {
-      display: none;
-    }
-    .lang-view.active {
-      display: block;
-    }
-
-    /* ========================
-       小提示 / 标签样式
-       ======================== */
-    .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .cn-heading {
-      font-size: 1.1rem;
-      font-family: var(--font-zh);
-      margin-bottom: 6px;
-      color: #1f2635;
-    }
-
-    .question-line {
-      font-style: italic;
-      font-size: 0.92rem;
-      color: var(--accent);
-      margin: 4px 0 10px;
-    }
-
-    .badge-row {
-      margin: 6px 0 10px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <title>Yunisle · Inner Isles of Becoming — Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-<div class="page-overlay">
-  <div class="container">
+<div class="background-fog"></div>
+<div class="page">
 
-    <!-- ========================
-         顶部品牌 + 语言切换
-         ======================== -->
-    <header class="site-header">
-      <div class="brand-block">
-        <!-- 品牌中文名称：你可以在这里改成「屿寻」等 -->
-        <div class="brand-cn">寻屿 · Yunisle</div>
-        <div class="brand-en">Inner Isles of Becoming</div>
-        <div class="brand-tagline">
-          Every step a story, echoing forward, shaping the soul of the journey — where your inner isle rises, gently.
-        </div>
-      </div>
-      <div class="lang-switch">
-        <!-- 点击按钮切换中英文视图 -->
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="zh">中文</button>
-      </div>
-    </header>
-
-    <!-- ========================
-         英文导航
-         ======================== -->
-    <nav class="main-nav lang-view active" id="nav-en">
-      <ul class="nav-list">
-        <li><a href="#en-home">Home</a></li>
-        <li><a href="#en-theory">Theory & Method</a></li>
-        <li><a href="#en-meet">Meet Yun</a></li>
-        <li><a href="#en-research">Research & Publications</a></li>
-        <li><a href="#en-topics">Topics & Journeys</a></li>
-        <li><a href="#en-contact">Contact</a></li>
-      </ul>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-title">寻屿 · Yunisle</div>
+      <div class="brand-subtitle">Inner isles of loving, becoming, and being whole</div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="theory.html">Inner Compass</a>
+      <a href="meet.html">Meet Yun</a>
+      <a href="publications.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="journeys.html">Journeys</a>
+      <a href="contact.html">Contact</a>
+      <a href="index-zh.html" class="lang-switch">中文</a>
     </nav>
+  </header>
 
-    <!-- ========================
-         中文导航
-         ======================== -->
-    <nav class="main-nav lang-view" id="nav-zh">
-      <ul class="nav-list">
-        <li><a href="#zh-home">主页</a></li>
-        <li><a href="#zh-theory">理念与方法</a></li>
-        <li><a href="#zh-meet">与云相遇</a></li>
-        <li><a href="#zh-research">研究与发表</a></li>
-        <li><a href="#zh-topics">话题与旅程</a></li>
-        <li><a href="#zh-contact">联系</a></li>
+  <section class="hero">
+    <div class="hero-main">
+      <h1>Where your inner isle rises.</h1>
+      <p class="lead">
+        Yunisle is a gentle space for people who are tired of being only <em>the expected one</em>,  
+        and who are ready to become a more honest, awake, and self-created presence.
+      </p>
+      <p class="tagline">
+        Through developmental psychology, intensive longitudinal thinking, and human warmth,  
+        we explore how to live more freely, feel more deeply, and rebuild our relationship  
+        with self, others, and time.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn-primary" href="journeys.html">Start the journey</a>
+        <a class="btn-ghost" href="meet.html">Meet Yun</a>
+      </div>
+    </div>
+
+    <aside class="hero-aside">
+      <div class="hero-aside-inner">
+        <h2>Questions we hold here</h2>
+        <p>What happens when you are no longer only living for others’ expectations?</p>
+        <p>What if your anxiety, numbness, and overthinking are invitations, not defects?</p>
+        <p>What becomes possible when your inner world is seen with clarity and compassion?</p>
+      </div>
+    </aside>
+  </section>
+
+  <main class="main">
+    <section class="card">
+      <div class="section-label">About Yunisle</div>
+      <h2>What this place is for</h2>
+      <p>
+        This project is a journey from “the expected person” to “the self-awakening being”.  
+        We use psychology as method and philosophy as spine to support a path from  
+        experience → awareness → action → self-creation.
+      </p>
+      <p>
+        Here, we work to rebuild how you meet yourself, others, and time — not as a performance,  
+        but as a living, breathing relationship.
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="section-label">Your pain points</div>
+      <h2>Is this you?</h2>
+      <ul class="item-list">
+        <li class="item">
+          <div class="item-title">You feel “good” on paper, but hollow inside.</div>
+          <div class="item-meta">From the outside, your life looks fine.  
+            Inside, you feel anxious, disconnected, or like you are living a script that is not yours.
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-title">You swing between over-control and collapse.</div>
+          <div class="item-meta">
+            Sometimes you are hyper-responsible; sometimes you feel frozen, numb, or exhausted by expectations.
+          </div>
+        </li>
+        <li class="item">
+          <div class="item-title">You long for a gentler, truer way of being.</div>
+          <div class="item-meta">
+            You sense there is a version of you that is freer, warmer, more grounded —  
+            but you don’t want quick fixes or empty slogans.
+          </div>
+        </li>
       </ul>
-    </nav>
+      <p>
+        If this speaks to you, you are already standing at the shore of your own inner isle.  
+        Yunisle is an invitation to walk a little further in.
+      </p>
+    </section>
 
-    <!-- ========================
-         英文内容区域
-         ======================== -->
-    <main class="lang-view active" id="site-en">
-      <!-- HOME EN -->
-      <section id="en-home">
-        <div class="card">
-          <div class="section-label">HOME · INVITATION</div>
-          <h1>The Yunisle</h1>
-          <div class="subtitle">The inner isle of loving, becoming, and being whole.</div>
+    <section class="card">
+      <div class="section-label">Co-creation</div>
+      <h2>What we can build together</h2>
+      <p>
+        Through research, writing, workshops, and counselling-inspired spaces,  
+        I walk with people as they:
+      </p>
+      <ul>
+        <li>name their experience with more truth and less judgment,</li>
+        <li>see the patterns that quietly shape their days,</li>
+        <li>experiment with new ways of relating to self and others,</li>
+        <li>and slowly create a life that fits like skin, not armor.</li>
+      </ul>
+      <p>
+        You are welcome here — with your questions, your contradictions, your half-finished stories.  
+        Every step carries a story, echoing forward, shaping the soul of the journey.
+      </p>
+    </section>
+  </main>
 
-          <div class="two-col">
-            <div>
-              <p class="highlight-line">
-                I am Jingyun, inviting you to live freely, feel deeply, and step into your inner world.
-              </p>
-              <p>
-                This is a space for people who have spent years being “who they were expected to be” and now feel a quiet pull
-                toward something truer. You might be standing at the edge of change — between countries, careers, identities,
-                relationships, or chapters of life.
-              </p>
-              <p class="question-line">
-                What if your doubt, exhaustion, and longing are not problems to fix, but doorways to a different way of living?
-              </p>
-              <p>
-                On the Yunisle, we walk a journey from <strong>experience → awareness → action → self-creation</strong>.
-                With psychology as method and philosophy as backbone, we rebuild how you relate to yourself, others, and time.
-              </p>
-            </div>
-            <div>
-              <p>
-                Here, every soul finds its isle; every step carries a story, echoing forward and shaping the self and journey.
-              </p>
-              <p>
-                This is where you meet who you truly are — and where our most authentic selves encounter one another,
-                unfold, and co-create meaning together.
-              </p>
-              <hr class="soft-divider" />
-              <p><strong>You are welcome here if you are:</strong></p>
-              <ul>
-                <li>In transition — moving countries, careers, or roles</li>
-                <li>Questioning old expectations and inherited scripts</li>
-                <li>Longing for deeper relationships, with self and others</li>
-                <li>Curious about how science and inner life can meet</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+  <footer class="site-footer">
+    © <span id="year"></span> 寻屿 · Yunisle · Designed & written by Jingyun Wang
+  </footer>
+</div>
 
-      <!-- THEORY & METHOD EN -->
-      <section id="en-theory">
-        <div class="card">
-          <div class="section-label">THEORY & METHOD</div>
-          <h2>Inner Isles · Theory & Method</h2>
-          <div class="subtitle">
-            Self-determination · exploration · insight · action · gentle, grounded change.
-          </div>
-
-          <div class="badge-row">
-            <span class="pill">Self-Determination Theory</span>
-            <span class="pill">Autonomy & Connection</span>
-            <span class="pill">Developmental Psychology</span>
-            <span class="pill">Phenomenology</span>
-          </div>
-
-          <div class="two-col">
-            <div>
-              <p>
-                The Yunisle is rooted in <strong>Self-Determination Theory</strong>, which sees human beings as wired for
-                autonomy, competence, and relatedness. When these needs are supported, we grow; when they are blocked,
-                we twist ourselves into shapes that no longer feel like home.
-              </p>
-              <p>
-                From a developmental lens, I pay attention to how your history — family, school, culture, and
-                relationships — has shaped your ways of coping, attaching, and striving.
-              </p>
-              <p>
-                From a philosophical lens, I draw on existential thought: the question is not “Who should I be?” but
-                “Who am I, if I dare to live as myself?”
-              </p>
-            </div>
-            <div>
-              <p><strong>Three movements guide our work together:</strong></p>
-              <ul>
-                <li><strong>Exploration</strong> — noticing experience with curiosity rather than judgment</li>
-                <li><strong>Insight</strong> — making sense of patterns, needs, and meanings</li>
-                <li><strong>Action</strong> — taking small, aligned steps in your real life</li>
-              </ul>
-              <hr class="soft-divider" />
-              <p><strong>Voices that resonate here:</strong></p>
-              <ul>
-                <li>“When we are no longer able to change a situation, we are challenged to change ourselves.” — Viktor Frankl</li>
-                <li>“The curious paradox is that when I accept myself just as I am, then I can change.” — Carl Rogers</li>
-                <li>“Freedom is what we do with what is done to us.” — Jean-Paul Sartre</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- MEET YUN EN -->
-      <section id="en-meet">
-        <div class="card">
-          <div class="section-label">MEET YUN</div>
-          <h2>Meet Yun</h2>
-          <div class="subtitle">
-            Developmental psychologist · counsellor · companion on inner journeys.
-          </div>
-
-          <div class="two-col">
-            <div>
-              <p>
-                I am <strong>Jingyun Wang</strong> — Yun — a developmental psychologist trained in China and the Netherlands,
-                with over a decade of experience in counselling, psycho-educational work, and group facilitation.
-              </p>
-              <p>
-                My research weaves autonomy, relationships, and youth mental health, often through intensive longitudinal
-                designs. My practice weaves evidence-based psychology with a deeply human, compassionate presence.
-              </p>
-              <p>
-                I care about people who feel “between worlds”: between cultures, languages, careers, identities, or
-                expectations. My work is not to fix you, but to walk beside you as you remember your own voice.
-              </p>
-            </div>
-            <div>
-              <p><strong>Some things I bring to our work:</strong></p>
-              <ul>
-                <li>Training across multiple therapeutic approaches</li>
-                <li>Experience with youth, families, and cross-cultural journeys</li>
-                <li>Research on autonomy, peer relations, and mental health</li>
-                <li>Love for both data and stories, structure and mystery</li>
-              </ul>
-              <hr class="soft-divider" />
-              <p><strong>Vision:</strong></p>
-              <p>
-                To help people move from being “the expected one” — the good child, good student, good worker — toward
-                becoming a self-aware, self-creating presence, in honest relationship with self and others.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESEARCH EN -->
-      <section id
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
