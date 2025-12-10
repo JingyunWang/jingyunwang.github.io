@@ -1,281 +1,915 @@
-<!DOCTYPE html>
-<html lang="zh-CN" data-lang="cn">
-  <head>
-    <meta charset="UTF-8" />
-    <title>云之岛 · 从被期待的人，到自我觉醒的存在</title>
-    <meta
-      name="description"
-      content="云之岛：一场从“被期待的人”到“自我觉醒的存在”的旅程。以心理学为方法，以哲学为骨架，和 Yun 一起共建理解与成长的空间。"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <!-- 背景云 / 光影 / 泡泡 -->
-    <div class="background-orbs">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-      <div class="orb orb-4"></div>
-    </div>
-    <div class="sparkles"></div>
+/* ========== 全局基础 ========== */
 
-    <!-- 顶部导航 -->
-    <header class="site-shell">
-      <nav class="navbar">
-        <a class="brand" href="index.html">
-          <div class="brand-mark"></div>
-          <div>
-            <div class="brand-text-cn">云之岛</div>
-            <div class="brand-text-en">Cloud · Island</div>
-          </div>
-        </a>
+:root {
+  --bg-gradient-top: #f7edf5;
+  --bg-gradient-middle: #e3f0ff;
+  --bg-gradient-bottom: #13233a;
 
-        <div class="nav-links">
-          <a class="nav-link active" href="index.html">
-            <span class="nav-cn">主页</span>
-            <span class="nav-en">Home</span>
-          </a>
-          <a class="nav-link" href="theory.html">
-            <span class="nav-cn">理念与方法</span>
-            <span class="nav-en">Framework</span>
-          </a>
-          <a class="nav-link" href="about.html">
-            <span class="nav-cn">遇见云</span>
-            <span class="nav-en">Meet Yun</span>
-          </a>
-          <a class="nav-link" href="journey.html">
-            <span class="nav-cn">旅程与话题</span>
-            <span class="nav-en">Journey</span>
-          </a>
-          <a class="nav-link" href="projects.html">
-            <span class="nav-cn">研究与项目</span>
-            <span class="nav-en">Projects</span>
-          </a>
-          <a class="nav-link" href="publications.html">
-            <span class="nav-cn">发表与论文</span>
-            <span class="nav-en">Publications</span>
-          </a>
+  --accent-gradient-start: #f6c1ff;
+  --accent-gradient-middle: #ffd7a3;
+  --accent-gradient-end: #a6c8ff;
 
-          <div class="lang-toggle">
-            <button class="lang-btn" data-lang-toggle="cn">中文</button>
-            <button class="lang-btn" data-lang-toggle="en">EN</button>
-          </div>
-        </div>
-      </nav>
-    </header>
+  --accent-soft: rgba(255, 255, 255, 0.55);
+  --accent-soft-strong: rgba(255, 255, 255, 0.85);
 
-    <!-- 页面主体 -->
-    <main class="page">
-      <!-- Hero 主区块 -->
-      <section class="hero card card-soft">
-        <div class="hero-main">
-          <div class="hero-tag">
-            <div class="hero-tag-dot"></div>
-            <span class="text-cn">从「被期待」到「自我觉醒」的长程旅程</span>
-            <span class="text-en"
-              >A long journey from expectations to awakening</span
-            >
-          </div>
+  --text-main: #1b2230;
+  --text-muted: #5c6474;
+  --text-light: #f8f9ff;
 
-          <h1 class="hero-title-cn text-cn">
-            本项目是一场<br />
-            从「被期待的人」到「自我觉醒的存在」的旅程。
-          </h1>
-          <p class="hero-title-en text-en">
-            This project is a journey<br />
-            from being “the person others expect”<br />
-            to becoming a consciously self-authored being.
-          </p>
+  --card-bg: rgba(255, 255, 255, 0.76);
+  --card-border: rgba(255, 255, 255, 0.65);
 
-          <p class="section-intro text-cn">
-            在这里，我们既不贩卖速效鸡汤，也不沉溺于无限自我剖析。<br />
-            我们尊重现实的重量，也尊重内心的细微震动。<br />
-            以心理学为方法，以哲学为骨架，你和我一起，重新编织：<br />
-            我与自我、他人、时间的关系。
-          </p>
-          <p class="section-intro text-en">
-            This is not a place for quick-fix inspiration, nor endless
-            self-dissection.<br />
-            We honour the weight of reality and the subtle tremors of the inner
-            world.<br />
-            With psychology as method and philosophy as backbone, we gently
-            rebuild<br />
-            how we relate to ourselves, others, and time — together.
-          </p>
+  --shadow-soft: 0 18px 45px rgba(15, 26, 58, 0.15);
+  --radius-xl: 26px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
 
-          <div class="hero-painpoints">
-            <h3 class="text-cn">也许，你正在经历：</h3>
-            <h3 class="text-en">You may find yourself here:</h3>
-            <ul>
-              <li class="text-cn">
-                总是活在他人的期待、标准和眼光里，久而久之，忘了自己想要什么。
-              </li>
-              <li class="text-cn">
-                理性上“都懂”，情绪却仍然反复，被关系、学业或工作消耗。
-              </li>
-              <li class="text-cn">
-                做了很多“自我提升”，却始终难以真正迈向行动和长期改变。
-              </li>
+  --nav-height: 72px;
+  --max-width: 1120px;
 
-              <li class="text-en">
-                Living under others’ expectations, standards, and gaze — until
-                you’re no longer sure what you truly want.
-              </li>
-              <li class="text-en">
-                “You understand everything in theory”, yet emotions keep
-                looping, drained by relationships, study, or work.
-              </li>
-              <li class="text-en">
-                You have tried many “self-improvement” tools, but lasting
-                movement and action remain out of reach.
-              </li>
-            </ul>
-          </div>
+  --transition-fast: 0.18s ease-out;
+  --transition-normal: 0.28s ease-out;
+}
 
-          <div class="btn-row">
-            <a href="journey.html" class="btn-gradient">
-              <span class="text-cn">走进这场旅程</span>
-              <span class="text-en">Enter the journey</span>
-            </a>
-            <a href="about.html" class="btn-ghost">
-              <span class="text-cn">遇见云 · Yun</span>
-              <span class="text-en">Meet Yun</span>
-            </a>
-          </div>
-        </div>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-        <!-- 右侧：共建呼吁 -->
-        <aside class="hero-side card">
-          <div class="hero-side-upper">
-            <div class="section-header">
-              <h2 class="section-title-cn text-cn">这不是一个「成品」空间</h2>
-              <h2 class="section-title-en text-en">
-                This is not a finished product
-              </h2>
-            </div>
-            <p class="hero-side-text text-cn">
-              云之岛，更像一块正在生成中的岛屿。<br />
-              我带来的是研究与实践、工具与视角；<br />
-              你带来的是真实问题、生命故事与思考。<br />
-              我们一起共建这座岛：<br />
-              让知识不只停留在论文里，而是落地到你的日常决策、关系选择与行动里。
-            </p>
-            <p class="hero-side-text text-en">
-              Cloud Island is not a polished product; it is an island in the
-              making.<br />
-              I bring research, practice, tools, and perspectives;<br />
-              you bring real questions, lived stories, and reflections.<br />
-              Together, we co-create a space where knowledge doesn’t remain in
-              papers,<br />
-              but flows into daily choices, relationships, and concrete action.
-            </p>
-          </div>
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  color: var(--text-main);
+  background: radial-gradient(circle at 0% 0%, #fff6fb 0, transparent 55%),
+              radial-gradient(circle at 100% 0%, #f3fbff 0, transparent 55%),
+              radial-gradient(circle at 50% 100%, #111d31 0, #090f1e 52%, #030712 100%);
+  min-height: 100vh;
+}
 
-          <div>
-            <p class="hero-side-title text-cn">你可以在这里找到：</p>
-            <p class="hero-side-title text-en">Here, you will find:</p>
-            <ul style="padding-left: 18px; margin-top: 6px">
-              <li class="text-cn">以自我决定理论为核心的成长框架</li>
-              <li class="text-cn">从探索 → 领悟 → 行动 → 自我创造的具体路径</li>
-              <li class="text-cn">与研究前沿接轨、又贴近现实处境的对话</li>
+/* 云端+岛屿感的叠加光影 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.42) 0, transparent 48%),
+    radial-gradient(circle at 80% 18%, rgba(200,225,255,0.42) 0, transparent 55%),
+    radial-gradient(circle at 20% 80%, rgba(255,230,210,0.35) 0, transparent 52%),
+    radial-gradient(circle at 80% 82%, rgba(96,126,192,0.42) 0, transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.88;
+  pointer-events: none;
+  z-index: -2;
+}
 
-              <li class="text-en">
-                A growth framework grounded in Self-Determination Theory
-              </li>
-              <li class="text-en">
-                Concrete pathways from exploration → insight → action → creative
-                self-authorship
-              </li>
-              <li class="text-en">
-                Dialogues rooted in cutting-edge research yet anchored in real
-                life
-              </li>
-            </ul>
-          </div>
-        </aside>
-      </section>
+/* 远处的“岛屿”剪影 */
+body::after {
+  content: "";
+  position: fixed;
+  left: -10%;
+  right: -10%;
+  bottom: -5%;
+  height: 32vh;
+  background:
+    radial-gradient(120% 220% at 10% 100%, rgba(0,0,0,0.4) 0, transparent 50%),
+    radial-gradient(120% 220% at 60% 100%, rgba(0,0,0,0.65) 0, transparent 52%),
+    radial-gradient(120% 220% at 110% 100%, rgba(0,0,0,0.4) 0, transparent 50%);
+  opacity: 0.75;
+  z-index: -1;
+}
 
-      <!-- 次级区块：共建邀请 -->
-      <section class="section">
-        <div class="card">
-          <div class="section-header">
-            <h2 class="section-title-cn text-cn">一起共建「云之岛」</h2>
-            <h2 class="section-title-en text-en">
-              Co-creating “Cloud Island”
-            </h2>
-          </div>
-          <div class="grid-2">
-            <div>
-              <p class="section-intro text-cn">
-                如果你愿意，不只是「来听一场讲座」或「上完一门课」，而是想认真经营自己的内在与人生路径——<br />
-                那么，我诚挚邀请你，把这里当作一个可以停靠、也可以再次起航的中转岛屿。
-              </p>
-              <p class="section-intro text-en">
-                If you are not only here for “one more talk” or “one more
-                course”,<br />
-                but truly want to work on your inner life and life trajectory,
-                <br />
-                then I invite you to treat this space as a harbour island — to
-                pause, then set sail again.
-              </p>
-            </div>
-            <div>
-              <p class="section-intro text-cn">
-                你可以通过：参与研究项目、加入工作坊与心理团体、阅读共创、以及一对一对话等方式，<br />
-                把你的问题、经验与观察，带进这座岛。<br />
-                你的每一次参与，都会反过来影响我如何设计未来的研究与课程。
-              </p>
-              <p class="section-intro text-en">
-                You can join by participating in research, workshops, group
-                spaces, co-reading,<br />
-                or 1:1 conversations. Your questions and experiences will shape
-                how I design future<br />
-                studies, programs, and supports — this island grows with you.
-              </p>
-            </div>
-          </div>
+/* 文本语言控制 */
+.lang-en {
+  display: none;
+}
 
-          <div class="btn-row">
-            <a href="projects.html" class="btn-ghost">
-              <span class="text-cn">看看我们已经共建了什么</span>
-              <span class="text-en">See what we’ve built so far</span>
-            </a>
-            <a href="journey.html" class="btn-gradient">
-              <span class="text-cn">我想加入/了解下一步</span>
-              <span class="text-en">I’d like to join / know more</span>
-            </a>
-          </div>
-        </div>
-      </section>
+body.lang-en-active .lang-zh {
+  display: none;
+}
 
-      <!-- 页脚：联系方式 -->
-      <footer class="footer">
-        <div class="footer-left">
-          <div class="text-cn">
-            云之岛 · 由 Yun 发起的长期实践与研究空间。<br />
-            若你愿意，从这里开始，慢慢把「过得还行」活成「由内而外地合一」。
-          </div>
-          <div class="text-en">
-            Cloud Island is a long-term practice &amp; research space initiated
-            by Yun.<br />
-            From “doing okay” towards a life that feels inwardly and outwardly
-            aligned.
-          </div>
-        </div>
-        <div class="footer-right">
-          <!-- 把 # 换成你真实链接 -->
-          <a class="contact-link" href="mailto:your_email@example.com"
-            >Email</a
-          >
-          <a class="contact-link" href="#" target="_blank">LinkedIn</a>
-          <a class="contact-link" href="#" target="_blank">Google Scholar</a>
-          <a class="contact-link" href="#" target="_blank">小红书</a>
-          <a class="contact-link" href="#" target="_blank">WeChat / 微信</a>
-        </div>
-      </footer>
-    </main>
+body.lang-en-active .lang-en {
+  display: inline;
+}
 
-    <script src="app.js"></script>
-  </body>
-</html>
+/* 通用布局 */
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-main {
+  flex: 1;
+  padding: 96px 20px 56px;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ========== 顶部导航 ========== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(20px);
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 14, 32, 0.88),
+    rgba(8,14,32,0.76),
+    transparent
+  );
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 25% 0%, #ffffff 0, transparent 55%),
+    radial-gradient(circle at 80% 30%, #ffe6c4 0, transparent 58%),
+    radial-gradient(circle at 20% 80%, #a8c8ff 0, transparent 60%);
+  box-shadow: 0 0 22px rgba(255,255,255,0.55);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 40% -40%;
+  background: linear-gradient(to right, rgba(255,255,255,0.9), transparent);
+  opacity: 0.9;
+  transform: translateX(-80%);
+  animation: brand-glow 7s ease-in-out infinite;
+}
+
+@keyframes brand-glow {
+  0%, 20% { transform: translateX(-80%); opacity: 0; }
+  30%, 50% { transform: translateX(40%); opacity: 0.85; }
+  60%, 100% { transform: translateX(120%); opacity: 0; }
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fdfdff;
+  letter-spacing: 0.08em;
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  color: rgba(227, 233, 255, 0.8);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-left: auto;
+}
+
+.nav-links a {
+  position: relative;
+  font-size: 13px;
+  text-decoration: none;
+  color: rgba(233, 239, 255, 0.78);
+  padding: 6px 9px;
+  border-radius: 999px;
+  transition: background var(--transition-fast), color var(--transition-fast),
+              transform var(--transition-fast);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  inset: auto 22% 0;
+  height: 1px;
+  border-radius: 999px;
+  background: linear-gradient(to right,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0.85),
+    rgba(255,255,255,0)
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-fast);
+}
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links a.active {
+  background: linear-gradient(
+    120deg,
+    rgba(246,193,255,0.18),
+    rgba(255,215,163,0.16),
+    rgba(166,200,255,0.18)
+  );
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(255,255,255,0.18);
+}
+
+/* 语言切换 */
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 14px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(12, 20, 42, 0.9);
+  border: 1px solid rgba(135, 150, 190, 0.55);
+}
+
+.lang-button {
+  border: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(226, 232, 255, 0.8);
+  transition: background var(--transition-fast), color var(--transition-fast),
+              box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.lang-button.active {
+  background: linear-gradient(
+    135deg,
+    rgba(246,193,255,0.9),
+    rgba(255,215,163,0.9),
+    rgba(166,200,255,0.9)
+  );
+  color: #0b1020;
+  box-shadow: 0 0 12px rgba(255,255,255,0.3);
+  transform: translateY(-0.5px);
+}
+
+/* 移动端导航 */
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.nav-toggle-line {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(240, 244, 255, 0.9);
+  margin: 3px 0;
+}
+
+/* ========== 按钮（流光渐变） ========== */
+
+.btn-gradient {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #141728;
+  background: linear-gradient(
+    135deg,
+    var(--accent-gradient-start),
+    var(--accent-gradient-middle),
+    var(--accent-gradient-end)
+  );
+  background-size: 200% 200%;
+  box-shadow: 0 12px 30px rgba(22, 18, 47, 0.3);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal),
+              background-position 3s ease-out;
+}
+
+.btn-gradient span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0% 0%, rgba(255,255,255,0.6) 0, transparent 45%),
+              radial-gradient(circle at 100% 100%, rgba(115,164,255,0.4) 0, transparent 52%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(12, 9, 35, 0.5);
+  background-position: 100% 0;
+}
+
+.btn-gradient:hover::before {
+  opacity: 1;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(225, 233, 255, 0.7);
+  background: rgba(10, 15, 32, 0.7);
+  color: #ebf0ff;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background var(--transition-normal), transform var(--transition-fast),
+              box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.btn-outline:hover {
+  background: rgba(22, 30, 58, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(3, 8, 24, 0.55);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+/* ========== 卡片与分区 ========== */
+
+.section {
+  margin-bottom: 56px;
+}
+
+.section-header {
+  margin-bottom: 24px;
+}
+
+.section-kicker {
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(230, 235, 255, 0.82);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 26px;
+  line-height: 1.3;
+  color: #fdfdff;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: rgba(219, 225, 248, 0.8);
+  max-width: 480px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-soft);
+  padding: 22px 24px;
+  backdrop-filter: blur(28px);
+}
+
+/* 布局辅助 */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 30px;
+  align-items: center;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.grid-2-vertical {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 32px;
+}
+
+/* ========== 首页 Hero ========== */
+
+.hero {
+  margin-top: 36px;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(243, 232, 255, 0.6);
+  background: rgba(14, 18, 40, 0.85);
+  color: rgba(242, 237, 255, 0.9);
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: 32px;
+  line-height: 1.3;
+  color: #fbfaff;
+  margin-bottom: 12px;
+}
+
+.hero-title span.highlight {
+  background: linear-gradient(
+    120deg,
+    #ffe0f0,
+    #fff5c7,
+    #d7e6ff
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-tagline {
+  font-size: 15px;
+  color: rgba(227, 233, 255, 0.88);
+  margin-bottom: 18px;
+}
+
+.hero-subtext {
+  font-size: 13px;
+  color: rgba(203, 212, 240, 0.9);
+  margin-bottom: 24px;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.hero-questions {
+  font-size: 13px;
+  color: rgba(211, 219, 244, 0.9);
+  border-left: 2px solid rgba(255, 255, 255, 0.55);
+  padding-left: 14px;
+}
+
+.hero-questions p {
+  margin: 4px 0;
+}
+
+/* 右侧“岛屿”视觉 */
+
+.hero-visual {
+  position: relative;
+  height: 280px;
+}
+
+.isle-orbit {
+  position: absolute;
+  inset: 0;
+  border-radius: 34px;
+  background: radial-gradient(circle at 20% 10%, rgba(255,255,255,0.9) 0, transparent 48%),
+              radial-gradient(circle at 80% 20%, rgba(255,221,193,0.9) 0, transparent 55%),
+              radial-gradient(circle at 50% 100%, rgba(100,140,220,0.95) 0, transparent 60%);
+  box-shadow: 0 24px 55px rgba(5, 10, 28, 0.8);
+  overflow: hidden;
+}
+
+.isle-orbit::after {
+  content: "";
+  position: absolute;
+  inset: 15% 5%;
+  background:
+    radial-gradient(120% 160% at 10% 100%, rgba(0,0,0,0.58) 0, transparent 55%),
+    radial-gradient(120% 160% at 60% 100%, rgba(0,0,0,0.7) 0, transparent 58%),
+    radial-gradient(120% 160% at 110% 100%, rgba(0,0,0,0.58) 0, transparent 53%);
+  opacity: 0.9;
+}
+
+/* 内部云层 */
+
+.isle-clouds {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255,255,255,0.9) 0, transparent 45%),
+    radial-gradient(circle at 75% 25%, rgba(234,244,255,0.95) 0, transparent 45%),
+    radial-gradient(circle at 30% 75%, rgba(255,228,220,0.95) 0, transparent 50%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+
+.isle-caption {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  right: 18px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(11, 15, 35, 0.75);
+  color: rgba(233, 238, 255, 0.96);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* ========== 列表+内容样式 ========== */
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  background: rgba(14, 20, 40, 0.75);
+  border: 1px solid rgba(173, 186, 220, 0.8);
+  color: rgba(227, 235, 255, 0.9);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+ul.clean-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+ul.clean-list li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+ul.clean-list li::before {
+  content: "·";
+  position: absolute;
+  left: 3px;
+  top: 0;
+  color: rgba(84, 108, 190, 0.95);
+}
+
+/* 引用 */
+
+.quote-block {
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  background: rgba(14, 17, 32, 0.9);
+  border: 1px solid rgba(178, 190, 230, 0.85);
+  color: rgba(235, 241, 255, 0.96);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.quote-text {
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.quote-author {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+/* ========== 联系方式 + 页脚 ========== */
+
+.contact-strip {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 18px;
+  align-items: center;
+  background: rgba(9, 16, 34, 0.92);
+  border-radius: var(--radius-xl);
+  padding: 14px 16px;
+  border: 1px solid rgba(167, 181, 220, 0.9);
+}
+
+.contact-title {
+  font-size: 13px;
+  color: rgba(234, 240, 255, 0.96);
+  margin-bottom: 2px;
+}
+
+.contact-subtitle {
+  font-size: 12px;
+  color: rgba(191, 203, 236, 0.9);
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.contact-links a,
+.contact-links span {
+  color: rgba(225, 233, 255, 0.98);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(160, 177, 225, 0.7);
+  background: rgba(11, 18, 40, 0.9);
+  white-space: nowrap;
+}
+
+.contact-links a:hover {
+  border-color: rgba(255, 255, 255, 0.96);
+}
+
+/* 页脚 */
+
+.site-footer {
+  border-top: 1px solid rgba(136, 153, 200, 0.75);
+  background: rgba(3, 7, 18, 0.9);
+  padding: 12px 20px 18px;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.2fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-main {
+  font-size: 11px;
+  color: rgba(226, 234, 255, 0.88);
+}
+
+.footer-main strong {
+  font-weight: 600;
+}
+
+.footer-center {
+  text-align: center;
+  font-size: 10px;
+  color: rgba(196, 208, 241, 0.9);
+}
+
+.footer-tagline {
+  font-size: 10px;
+  color: rgba(182, 196, 234, 0.9);
+  text-align: right;
+}
+
+/* ========== 各子页面一些专属样式 ========== */
+
+/* Theory */
+
+.timeline {
+  border-left: 1px dashed rgba(103, 123, 184, 0.8);
+  padding-left: 18px;
+  margin-left: 6px;
+}
+
+.timeline-item {
+  margin-bottom: 12px;
+}
+
+.badge-soft {
+  display: inline-flex;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  background: rgba(230, 236, 255, 0.9);
+  color: #1b2230;
+}
+
+/* Meet Yun */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 30px;
+  align-items: start;
+}
+
+.profile-photo {
+  width: 100%;
+  border-radius: 28px;
+  aspect-ratio: 4 / 5;
+  background:
+    linear-gradient(145deg, #f4ddff, #ffe6c4, #ceddff);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 22px 50px rgba(10, 12, 32, 0.85);
+}
+
+.profile-photo-inner {
+  position: absolute;
+  inset: 10px;
+  border-radius: 22px;
+  background: rgba(7, 10, 24, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(233, 240, 255, 0.8);
+  font-size: 12px;
+  text-align: center;
+  padding: 0 18px;
+}
+
+/* Research */
+
+.paper-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.paper-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border: 1px solid rgba(222, 230, 255, 0.9);
+}
+
+.paper-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.paper-meta {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.thesis-cover {
+  border-radius: 24px;
+  border: 1px solid rgba(214, 224, 255, 0.95);
+  background: linear-gradient(155deg, #fbe3ff, #ffe0bb, #d4e2ff);
+  padding: 20px 18px;
+  box-shadow: 0 18px 46px rgba(6, 10, 30, 0.85);
+}
+
+/* Projects */
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  border: 1px solid rgba(220, 230, 255, 0.9);
+  margin-bottom: 10px;
+}
+
+/* Topics */
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.path-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  align-items: center;
+}
+
+.path-node {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(241, 244, 255, 0.98);
+  border: 1px solid rgba(150, 164, 214, 0.95);
+}
+
+.path-arrow {
+  font-size: 13px;
+  color: rgba(230, 236, 255, 0.9);
+}
+
+/* ========== 响应式 ========== */
+
+@media (max-width: 880px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 56px;
+    background: rgba(4, 9, 24, 0.98);
+    padding: 12px 18px 14px;
+  }
+  .lang-toggle {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .hero-inner,
+  .grid-2,
+  .grid-3,
+  .grid-2-vertical,
+  .profile-grid,
+  .paper-list,
+  .topic-grid,
+  .contact-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hero-visual {
+    height: 220px;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .footer-center,
+  .footer-tagline {
+    text-align: left;
+  }
+  .page-main {
+    padding-top: 84px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-title {
+    font-size: 26px;
+  }
+  .section-title {
+    font-size: 22px;
+  }
+}
