@@ -1,41 +1,58 @@
-// 语言切换 & 当前导航高亮
 document.addEventListener("DOMContentLoaded", function () {
-  const defaultLang = localStorage.getItem("yunisle-lang") || "zh";
-  setLanguage(defaultLang);
+  var htmlEl = document.documentElement;
+  var zhBtn = document.getElementById("lang-zh");
+  var enBtn = document.getElementById("lang-en");
 
-  const langButtons = document.querySelectorAll("[data-lang-switch]");
-  langButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const lang = btn.getAttribute("data-lang-switch");
-      setLanguage(lang);
+  function setLanguage(lang) {
+    if (lang !== "zh" && lang !== "en") lang = "zh";
+    htmlEl.setAttribute("data-lang", lang);
+    try {
       localStorage.setItem("yunisle-lang", lang);
-    });
-  });
+    } catch (e) {
+      // 忽略本地存储错误
+    }
+    if (zhBtn && enBtn) {
+      if (lang === "zh") {
+        zhBtn.classList.add("active");
+        enBtn.classList.remove("active");
+      } else {
+        enBtn.classList.add("active");
+        zhBtn.classList.remove("active");
+      }
+    }
+  }
 
-  // 根据当前路径高亮导航
-  const path = window.location.pathname;
-  const navLinks = document.querySelectorAll(".nav-links a");
-  navLinks.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (path.endsWith(href) || (path === "/" && href === "index.html")) {
-      link.classList.add("nav-active");
+  // 初始化语言
+  var stored = null;
+  try {
+    stored = localStorage.getItem("yunisle-lang");
+  } catch (e) {
+    stored = null;
+  }
+  setLanguage(stored || "zh");
+
+  if (zhBtn) {
+    zhBtn.addEventListener("click", function () {
+      setLanguage("zh");
+    });
+  }
+  if (enBtn) {
+    enBtn.addEventListener("click", function () {
+      setLanguage("en");
+    });
+  }
+
+  // 导航高亮
+  var path = window.location.pathname || "";
+  var page = path.substring(path.lastIndexOf("/") + 1);
+  if (!page || page === "/") {
+    page = "index.html";
+  }
+  var navLinks = document.querySelectorAll(".site-nav a");
+  navLinks.forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (href && href === page) {
+      link.classList.add("active");
     }
   });
 });
-
-function setLanguage(lang) {
-  const nodes = document.querySelectorAll(".lang");
-  nodes.forEach((node) => {
-    if (node.getAttribute("data-lang") === lang) {
-      node.style.display = "";
-    } else {
-      node.style.display = "none";
-    }
-  });
-
-  const buttons = document.querySelectorAll("[data-lang-switch]");
-  buttons.forEach((btn) => {
-    const isActive = btn.getAttribute("data-lang-switch") === lang;
-    btn.classList.toggle("active", isActive);
-  });
-}
