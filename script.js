@@ -1,37 +1,32 @@
-// Language toggle handler
-function setLanguage(lang) {
-  const body = document.body;
-  const cnBtn = document.getElementById("lang-cn-btn");
-  const enBtn = document.getElementById("lang-en-btn");
-
-  if (!body || !cnBtn || !enBtn) return;
-
-  if (lang === "en") {
-    body.classList.add("en");
-    enBtn.classList.add("active");
-    cnBtn.classList.remove("active");
-    localStorage.setItem("yunisle-lang", "en");
-  } else {
-    body.classList.remove("en");
-    cnBtn.classList.add("active");
-    enBtn.classList.remove("active");
-    localStorage.setItem("yunisle-lang", "cn");
-  }
-}
-
+// 简单的中英文切换：默认中文，点击 EN 显示英文
 document.addEventListener("DOMContentLoaded", () => {
-  // Load saved language preference
-  const saved = localStorage.getItem("yunisle-lang");
-  setLanguage(saved === "en" ? "en" : "cn");
+  const cnBtn = document.querySelector("[data-lang='cn']");
+  const enBtn = document.querySelector("[data-lang='en']");
 
-  const cnBtn = document.getElementById("lang-cn-btn");
-  const enBtn = document.getElementById("lang-en-btn");
+  function setLang(lang) {
+    const cnBlocks = document.querySelectorAll(".lang-cn");
+    const enBlocks = document.querySelectorAll(".lang-en");
 
-  if (cnBtn) {
-    cnBtn.addEventListener("click", () => setLanguage("cn"));
+    if (lang === "cn") {
+      cnBlocks.forEach((el) => (el.style.display = "block"));
+      enBlocks.forEach((el) => (el.style.display = "none"));
+      document.documentElement.lang = "zh";
+      cnBtn.classList.add("active");
+      enBtn.classList.remove("active");
+    } else {
+      cnBlocks.forEach((el) => (el.style.display = "none"));
+      enBlocks.forEach((el) => (el.style.display = "block"));
+      document.documentElement.lang = "en";
+      enBtn.classList.add("active");
+      cnBtn.classList.remove("active");
+    }
   }
 
-  if (enBtn) {
-    enBtn.addEventListener("click", () => setLanguage("en"));
+  if (cnBtn && enBtn) {
+    cnBtn.addEventListener("click", () => setLang("cn"));
+    enBtn.addEventListener("click", () => setLang("en"));
   }
+
+  // 默认中文
+  setLang("cn");
 });
