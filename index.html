@@ -19,69 +19,69 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 
-  <!-- 首页一些微调样式：标题大小 / 重点色 / 气泡列表 -->
+  <!-- 首页微调样式：子标题放大、强调文字、漂亮项目符号、小气泡标签 -->
   <style>
-    .hero-title {
-      font-size: 2.4rem;
+    .hero-subtitle {
+      font-size: 1.04rem;
+      font-weight: 500;
     }
-    @media (max-width: 600px) {
-      .hero-title {
-        font-size: 1.9rem;
-      }
+    .hero-tagline {
+      font-size: 0.92rem;
     }
-    .em-rose {
-      color: #f28ba8;
+    .card-title-main {
+      font-size: 1.06rem;
       font-weight: 600;
     }
-    .em-blue {
-      color: #6d7ae8;
+    .emphasis {
       font-weight: 600;
+      color: #292842;
     }
-    .em-gold {
-      color: #f3b66f;
-      font-weight: 600;
+    .emphasis-soft {
+      font-weight: 500;
+      color: #44456b;
     }
-    .feature-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin: 0.8rem 0 0.4rem;
-      padding: 0.2rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 10px 22px rgba(120, 136, 210, 0.35);
-      font-size: 0.8rem;
-      color: #74789e;
-    }
-    .feature-pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #ffe1ed, #a7bcff);
-    }
-    .feature-list {
+
+    /* 自定义项目符号：小小渐变点 + 左缩进 */
+    .text-list {
       list-style: none;
-      margin: 0.3rem 0 0;
       padding-left: 0;
-      font-size: 0.9rem;
-      color: #5e617b;
+      margin: 0.4rem 0 0.2rem;
     }
-    .feature-list li {
+    .text-list li {
       position: relative;
       padding-left: 1.1rem;
       margin-bottom: 0.35rem;
+      font-size: 0.9rem;
     }
-    .feature-list li::before {
-      content: "✦";
+    .text-list li::before {
+      content: "";
       position: absolute;
-      left: 0;
-      top: 0.05rem;
-      font-size: 0.75rem;
-      color: #b0baff;
+      left: 0.2rem;
+      top: 0.58em;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #ffb8c6, #b3c5ff);
     }
-    /* 左下两卡之间距离略大一点，但整体高度仍接近右侧大卡 */
-    .home-left-column {
-      gap: 1.8rem;
+
+    /* 「你可以在这里找到」气泡 */
+    .card-chip-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.16rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 18px rgba(140, 155, 211, 0.35);
+      font-size: 0.78rem;
+      color: #7b7b98;
+      margin: 0.6rem 0 0.4rem;
+    }
+    .card-chip-label-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffe2f0, #b9c9ff);
     }
   </style>
 </head>
@@ -156,53 +156,35 @@
             </div>
             <h1 class="hero-title">
               <span class="lang-zh">
-                一个关于
-                <span class="em-rose">爱</span>、
-                <span class="em-blue">成为</span>
-                与
-                <span class="em-gold">完整</span>
-                的
+                一个关于爱、成为与完整的
                 <span class="highlight">内在之屿</span>
               </span>
               <span class="lang-en">
                 Yunisle, the inner island of
-                <span class="em-rose">love</span>,
-                <span class="em-blue">becoming</span>,
-                and
-                <span class="em-gold">wholeness</span>
+                <span class="highlight">loving, becoming, and being whole</span>
               </span>
             </h1>
             <p class="hero-subtitle lang-zh">
-              我是 <span class="em-blue">Jingyun</span>，一名发展心理学研究者与同行者。<br />
+              我是 <span class="emphasis">Jingyun</span>，一名发展心理学研究者与同行者。<br />
               这里是一段向内生长的旅程——一座关于
-              <span class="em-rose">爱与存在</span> 的小岛，邀请你慢下来，
+              <span class="emphasis-soft">爱、存在与成为</span> 的岛屿，邀请你慢下来，
               活得更自由，感受更深，在「被期待的人」与「真正的自己」之间，走完那段常被忽略的路。
             </p>
             <p class="hero-subtitle lang-en">
-              I am <span class="em-blue">Jingyun</span>, a developmental psychologist and fellow traveller.<br />
+              I am <span class="emphasis">Jingyun</span>, a developmental psychologist and fellow traveller.<br />
               This is a journey of inward growth—an isle of
-              <span class="em-rose">love</span> and
-              <span class="em-gold">being</span>, inviting you to slow down, live more freely,
-              feel more deeply, and walk the often-forgotten path between “who you are expected to be”
-              and who you truly are.
+              <span class="emphasis-soft">love, being, and becoming</span>.
+              You are invited to slow down, live more freely, feel more deeply, and walk
+              the often-forgotten path between “who you are expected to be” and who you truly are.
             </p>
             <p class="hero-tagline lang-zh">
-              在「寻屿 · Yunisle」，我们以
-              <span class="em-blue">心理学</span> 为方法，
-              以 <span class="em-gold">哲学</span> 为骨架，<br />
-              从 <span class="em-rose">经验</span> →
-              <span class="em-blue">意识</span> →
-              <span class="em-gold">行动</span> →
-              <span class="em-rose">自我创造</span>，
+              在寻屿 · Yunisle，我们以心理学为方法，以哲学为骨架，<br />
+              从 <span class="emphasis-soft">经验 → 意识 → 行动 → 自我创造</span> 出发，
               温柔而清晰地重整你与自己、他人、时间与命运的关系。
             </p>
             <p class="hero-tagline lang-en">
-              At Yunisle, <span class="em-blue">psychology</span> is our method and
-              <span class="em-gold">philosophy</span> our backbone.<br />
-              We move from <span class="em-rose">experience</span> →
-              <span class="em-blue">awareness</span> →
-              <span class="em-gold">action</span> →
-              <span class="em-rose">self-creation</span>,
+              At Yunisle, psychology is our method and philosophy our backbone.<br />
+              We move from <span class="emphasis-soft">experience → awareness → action → self-creation</span>,
               gently and clearly reweaving how you relate to yourself, others, time, and destiny.
             </p>
 
@@ -234,11 +216,11 @@
                 <p class="isle-title lang-zh">你是否也曾这样问自己？</p>
                 <p class="isle-title lang-en">Have you ever asked yourself…</p>
                 <p class="isle-subtitle lang-zh">
-                  这些问题，也许你已经在心里来回盘旋，只是还没找到一个足够安全的地方，把它们真正说出口。
+                  也许，你已经在心里问过许多次，只是一直没有一个足够安全的地方，来把这些疑问说出口。
                 </p>
                 <p class="isle-subtitle lang-en">
-                  These questions may have circled inside you for years, without yet
-                  finding a safe place to be spoken aloud.
+                  Perhaps you have asked these questions many times inside,
+                  without yet having a safe enough place to say them out loud.
                 </p>
               </div>
 
@@ -246,44 +228,46 @@
                 <div class="isle-list-item">
                   <div class="isle-bullet"></div>
                   <div class="lang-zh">
-                    「我现在的人生，究竟是在回应谁的期待？如果不再只活在『应该』里，我会允许自己成为什么样的人？」
+                    <span class="emphasis-soft">我现在的人生，是在回应谁的期待？</span>
+                    如果不再只活在「应该」里，我会活成怎样的人？
                   </div>
                   <div class="lang-en">
-                    “Whose expectations am I really living for? If I stopped living
-                    only by ‘shoulds’, who would I allow myself to become?”
+                    <span class="emphasis-soft">Whose expectations am I really living for?</span>
+                    If I stopped living only by “shoulds”, what kind of person would I become?
                   </div>
                 </div>
                 <div class="isle-list-item">
                   <div class="isle-bullet"></div>
                   <div class="lang-zh">
-                    「在关系里，我总是更会照顾别人，而不是照顾自己——那我真正的需要，要安放在哪里？」
+                    在关系里，我总是更会照顾别人，而不是照顾自己——
+                    那真正的需要，要被安放在哪里？
                   </div>
                   <div class="lang-en">
-                    “In relationships, I am better at caring for others than for
-                    myself—where do my own needs get to live?”
+                    In relationships I am good at holding others, not myself—
+                    where do my own needs get to live?
                   </div>
                 </div>
                 <div class="isle-list-item">
                   <div class="isle-bullet"></div>
                   <div class="lang-zh">
-                    「我已经努力『变得更好』这么久，为何心里仍觉得，好像始终少了那个真正的我？」
+                    我已经做了很多「让自己更好」的努力，为何还是觉得，
+                    好像始终少了那个真正的我？
                   </div>
                   <div class="lang-en">
-                    “I’ve worked so hard to ‘be better’—why does it still feel as
-                    if the real me is missing?”
+                    I have tried so hard to “improve myself”; why does it still feel
+                    as if the real me is missing?
                   </div>
                 </div>
               </div>
 
               <div class="isle-footer">
                 <p class="lang-zh">
-                  这些问句，并不是你「哪里不对」，而是你已经准备好，去靠近那座真正属于自己的
-                  <span class="em-rose">内在小岛</span>。
+                  这些问句，并不是你「哪里不对」，而是你已经准备好，
+                  去靠近那座真正属于自己的小岛。
                 </p>
                 <p class="lang-en">
                   These questions are not proof that something is wrong with you;
-                  they are signs that you are ready to approach the
-                  <span class="em-rose">inner isle</span> that is yours.
+                  they are signs that you are ready to come closer to the isle within.
                 </p>
               </div>
             </div>
@@ -294,7 +278,7 @@
       <!-- 底部三块：左上经历 + 左下转变 + 右侧成品空间 -->
       <section class="section section-narrow">
         <div class="container home-layout">
-          <!-- 左列：两个上下卡片 -->
+          <!-- 左列：两个上下卡片（与右侧顶部和底部对齐） -->
           <div class="home-left-column">
             <!-- 左下第一块：也许，你正在经历—— -->
             <div class="card">
@@ -314,31 +298,25 @@
                 </h3>
               </div>
               <div class="card-body">
+                <ul class="text-list lang-zh">
+                  <li>总是活在他人的期待、标准和眼光里，久而久之，忘了自己真正想要什么；</li>
+                  <li>在亲密关系、家庭、职场或跨文化生活中，一边讨好，一边又想抽离；</li>
+                  <li>理性上「都懂」，情绪却仍然起伏，被压力、焦虑或空心感牵着走；</li>
+                  <li>做了很多「自我提升」，却始终觉得行动和内在的渴望对不上。</li>
+                </ul>
+                <ul class="text-list lang-en">
+                  <li>Living for others’ expectations and standards for so long that you can barely remember what you truly want;</li>
+                  <li>In relationships, family, work, or cross-cultural life, you both please and want to pull away;</li>
+                  <li>You “understand everything” in your head, yet your emotions still rise and fall with pressure, anxiety, or emptiness;</li>
+                  <li>You have tried many forms of “self-improvement”, yet your actions and inner longing never quite match.</li>
+                </ul>
                 <p class="lang-zh">
-                  ⟡ 总是活在他人的期待、标准和眼光里，久而久之，忘了自己真正想要什么；<br />
-                  ⟡ 在亲密关系、家庭、职场或跨文化生活中，一边讨好，一边又想抽离；<br />
-                  ⟡ 理性上「都懂」，情绪却仍然起伏，被压力、焦虑或空心感牵着走；<br />
-                  ⟡ 做了很多「自我提升」，却始终觉得行动和内在的渴望对不上。
+                  在寻屿，我们先不急着修正你，而是一起看清这些经历的脉络：
+                  <span class="emphasis-soft">它们如何帮助你活到今天，又如何悄悄限制了你。</span>
                 </p>
                 <p class="lang-en">
-                  ⟡ Living for others’ expectations and standards for so long that
-                  you can barely remember what you truly want;<br />
-                  ⟡ In relationships, family, work, or cross-cultural life, you both
-                  please and want to pull away;<br />
-                  ⟡ You “understand everything” in your head, yet your emotions still
-                  rise and fall with pressure, anxiety, or emptiness;<br />
-                  ⟡ You have tried many forms of “self-improvement”, yet your actions
-                  and inner longing never quite match.
-                </p>
-                <p class="lang-zh">
-                  在寻屿，我们先不急着修正你，而是一起
-                  <span class="em-blue">看清这些经历的脉络</span>：
-                  它们如何帮助你活到今天，又如何在悄悄限制你。
-                </p>
-                <p class="lang-en">
-                  At Yunisle, we do not rush to “fix” you. We first
-                  <span class="em-blue">trace the threads</span> of these experiences—
-                  how they helped you survive, and how they now quietly limit you.
+                  At Yunisle, we do not rush to “fix” you. We first trace how these
+                  experiences helped you survive—and how they now quietly limit you.
                 </p>
               </div>
             </div>
@@ -363,27 +341,24 @@
               <div class="card-body">
                 <p class="lang-zh">
                   这段旅程，不是把你打造成一个「更完美的人」，而是一步步，让你
-                  <span class="em-rose">更像你自己</span>。<br />
+                  <span class="emphasis-soft">更像你自己</span>。<br />
                   我们会一起辨认：哪些是别人交给你的剧本，哪些是你愿意为自己保留的方向；
                   在一次次真实的选择里，练习把生命的主导权慢慢拿回手中。
                 </p>
                 <p class="lang-en">
                   This journey is not about polishing you into a “better product”,
-                  but about becoming, step by step,
-                  <span class="em-rose">more like yourself</span>.<br />
+                  but about becoming, step by step, <span class="emphasis-soft">more like yourself</span>.<br />
                   We discern which scripts were handed to you and which directions
                   truly belong to you; then, through real choices, you gradually
                   reclaim authorship of your life.
                 </p>
                 <p class="lang-zh">
                   当你不再只是「被期待的人」，你会发现：
-                  <span class="em-gold">「我可以是谁」</span>，
-                  本身就是一条值得细细行走的路。
+                  <span class="emphasis">原来「我可以是谁」，本身就是一条值得细细行走的路。</span>
                 </p>
                 <p class="lang-en">
                   As you are no longer only “the expected one”, you discover that
-                  <span class="em-gold">“who could I be?”</span> is itself a path worth
-                  walking slowly.
+                  <span class="emphasis">the question “who could I be?” is itself a path worth walking slowly.</span>
                 </p>
               </div>
             </div>
@@ -396,15 +371,10 @@
                 <div class="card-kicker">
                   <span class="card-kicker-dot"></span>
                   <span class="lang-zh">
-                    向内生长的旅程，<span class="em-rose">爱</span> ·
-                    <span class="em-blue">存在</span> ·
-                    <span class="em-gold">成为</span> 之屿。
+                    向内生长的旅程，爱、存在、成为之屿。
                   </span>
                   <span class="lang-en">
-                    A journey inward—an isle of
-                    <span class="em-rose">love</span>,
-                    <span class="em-blue">being</span>,
-                    and <span class="em-gold">becoming</span>.
+                    A journey inward—an isle of love, being, and becoming.
                   </span>
                 </div>
                 <h3 class="card-title-main lang-zh">这不是一个「成品」空间</h3>
@@ -414,8 +384,7 @@
               </div>
               <div class="card-body" style="flex:1;">
                 <p class="lang-zh">
-                  寻屿，更像一块正在生成中的
-                  <span class="em-blue">心灵岛屿</span>。<br />
+                  寻屿，更像一块正在生成中的岛屿。<br />
                   我带来的是研究与实践、工具与视角；你带来的，是具体的问题、真实的故事和细微的感受。
                   我们一起，让知识不只停留在纸上，而是落地在你的每一次选择、每一段关系与每一个小小行动里。
                 </p>
@@ -423,92 +392,37 @@
                   Yunisle is an island in the making.<br />
                   I bring research, practice, tools, and perspectives; you bring
                   concrete questions, real stories, and the subtle textures of your
-                  experience. Together, we make sure knowledge does not stay on the
+                  experience. Together we make sure knowledge does not stay on the
                   page, but enters your choices, relationships, and everyday actions.
                 </p>
 
-                <p class="lang-zh">
-                  这里不是单向的「被辅导」，而是一个可以多重身份出现的
-                  <span class="em-rose">共建场域</span>：
-                </p>
-                <p class="lang-en">
-                  This is not a place where you are merely “worked on”, but a
-                  <span class="em-rose">co-created field</span> where you can appear
-                  in many roles:
-                </p>
-                <p class="lang-zh">
-                  ⟡ 作为来访者，走进一对一谈话、心理团体与长期旅程；<br />
-                  ⟡ 作为合作者，一起设计项目、共写论文、开发实践与阅读计划；<br />
-                  ⟡ 作为同行者，让你的反馈与经验，反过来影响未来的课程与研究设计。
-                </p>
-                <p class="lang-en">
-                  ⟡ As a participant in one-to-one work, groups, or longer journeys;<br />
-                  ⟡ As a collaborator in designing projects, co-writing, or developing
-                    practices and reading paths;<br />
-                  ⟡ As a fellow traveller whose feedback and experience shape future
-                    offerings and research.
-                </p>
-
-                <!-- 气泡 + 条列：你可以在这里找到 -->
-                <div class="feature-pill">
-                  <span class="feature-pill-dot"></span>
+                <!-- 气泡：你可以在这里找到 -->
+                <div class="card-chip-label">
+                  <span class="card-chip-label-dot"></span>
                   <span class="lang-zh">你可以在这里找到：</span>
-                  <span class="lang-en">Here, you can find:</span>
+                  <span class="lang-en">Here, you’ll find:</span>
                 </div>
-                <ul class="feature-list">
-                  <li>
-                    <span class="lang-zh">
-                      以 <span class="em-blue">自我决定理论</span> 为核心的成长框架，
-                      帮你在爱自己与爱世界之间，找到更稳定的平衡点；
-                    </span>
-                    <span class="lang-en">
-                      A growth framework grounded in
-                      <span class="em-blue">self-determination theory</span>,
-                      helping you find steadier balance between loving yourself and
-                      loving the world;
-                    </span>
-                  </li>
-                  <li>
-                    <span class="lang-zh">
-                      从 <span class="em-rose">探索</span> →
-                      <span class="em-blue">领悟</span> →
-                      <span class="em-gold">行动</span> →
-                      <span class="em-rose">自我创造</span> 的具体路径，
-                      而不仅是一时的情绪安慰；
-                    </span>
-                    <span class="lang-en">
-                      A concrete path from
-                      <span class="em-rose">exploration</span> →
-                      <span class="em-blue">insight</span> →
-                      <span class="em-gold">action</span> →
-                      <span class="em-rose">self-creation</span>,
-                      rather than temporary reassurance;
-                    </span>
-                  </li>
-                  <li>
-                    <span class="lang-zh">
-                      与前沿研究接轨、又紧贴现实处境的
-                      <span class="em-blue">对话、练习与共写</span>，
-                      让你的故事真正进入学术与实践的版图。
-                    </span>
-                    <span class="lang-en">
-                      Conversations, practices, and co-writing that connect with
-                      <span class="em-blue">current research</span> while staying
-                      close to real life, so your story genuinely enters the map of
-                      science and practice.
-                    </span>
-                  </li>
+
+                <ul class="text-list lang-zh">
+                  <li>以自我决定理论为核心、兼顾现实处境的成长框架；</li>
+                  <li>从探索 → 领悟 → 行动 → 自我创造的清晰路径与练习；</li>
+                  <li>让研究与真实生活彼此对话的工作坊、长期旅程与研究项目。</li>
+                </ul>
+                <ul class="text-list lang-en">
+                  <li>A growth framework rooted in self-determination theory and grounded in real-life contexts;</li>
+                  <li>A clear pathway and practices from exploration → insight → action → self-creation;</li>
+                  <li>Workshops, longer journeys, and research projects where science and real life meet.</li>
                 </ul>
 
                 <p class="lang-zh">
-                  我想邀请你，不只是成为「更好的人」，而是一步步，成为
-                  <span class="em-rose">更像自己的自己</span>——
-                  在这里练习活得更自由，感受更深，也更温柔地安放自己的内在之屿。
+                  <span class="emphasis-soft">我想邀请你，不只是成为“更好的人”，</span>
+                  而是一步步，成为「你自己」——在这里练习活得更自由，感受更深，
+                  也更温柔地安放自己的内在之屿。
                 </p>
                 <p class="lang-en">
-                  My invitation is not simply to become “better”, but to become
-                  <span class="em-rose">more truly yourself</span>—to live more
-                  freely, feel more deeply, and gently anchor the inner isle that is yours.
+                  <span class="emphasis-soft">My invitation is not simply to become “better”,</span>
+                  but to become more truly yourself—to live more freely, feel more deeply,
+                  and gently anchor the isle within you.
                 </p>
               </div>
               <div class="card-actions">
