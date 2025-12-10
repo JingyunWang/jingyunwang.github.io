@@ -1,26 +1,58 @@
-// 语言切换：在 <html> 标签上切换 data-lang=cn/en
-(function () {
-  const root = document.documentElement;
-  const buttons = document.querySelectorAll(".lang-btn");
+document.addEventListener("DOMContentLoaded", function () {
+  var htmlEl = document.documentElement;
+  var zhBtn = document.getElementById("lang-zh");
+  var enBtn = document.getElementById("lang-en");
 
-  function setLang(lang) {
-    root.setAttribute("data-lang", lang);
-    buttons.forEach((btn) => {
-      if (btn.dataset.langToggle === lang) {
-        btn.classList.add("active");
+  function setLanguage(lang) {
+    if (lang !== "zh" && lang !== "en") lang = "zh";
+    htmlEl.setAttribute("data-lang", lang);
+    try {
+      localStorage.setItem("yunisle-lang", lang);
+    } catch (e) {
+      // 忽略本地存储错误
+    }
+    if (zhBtn && enBtn) {
+      if (lang === "zh") {
+        zhBtn.classList.add("active");
+        enBtn.classList.remove("active");
       } else {
-        btn.classList.remove("active");
+        enBtn.classList.add("active");
+        zhBtn.classList.remove("active");
       }
+    }
+  }
+
+  // 初始化语言
+  var stored = null;
+  try {
+    stored = localStorage.getItem("yunisle-lang");
+  } catch (e) {
+    stored = null;
+  }
+  setLanguage(stored || "zh");
+
+  if (zhBtn) {
+    zhBtn.addEventListener("click", function () {
+      setLanguage("zh");
+    });
+  }
+  if (enBtn) {
+    enBtn.addEventListener("click", function () {
+      setLanguage("en");
     });
   }
 
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const lang = btn.dataset.langToggle;
-      setLang(lang);
-    });
+  // 导航高亮
+  var path = window.location.pathname || "";
+  var page = path.substring(path.lastIndexOf("/") + 1);
+  if (!page || page === "/") {
+    page = "index.html";
+  }
+  var navLinks = document.querySelectorAll(".site-nav a");
+  navLinks.forEach(function (link) {
+    var href = link.getAttribute("href");
+    if (href && href === page) {
+      link.classList.add("active");
+    }
   });
-
-  // 默认中文
-  setLang("cn");
-})();
+});
