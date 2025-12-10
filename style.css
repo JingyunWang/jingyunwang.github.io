@@ -128,6 +128,7 @@ body {
 }
 
 /* 品牌区 */
+/* ——Logo 改成细彩色环 + 内部柔白，类似你截图里那种小圆岛 —— */
 .brand {
   display: flex;
   align-items: center;
@@ -136,26 +137,30 @@ body {
   color: inherit;
 }
 
-/* 柔光圆形 Logo：中心白、边缘蓝粉，接近参考图1/2 */
 .brand-mark {
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  background:
-    radial-gradient(circle at 30% 20%, #ffffff, #fdfbff 45%, #eef5ff 80%, #e3ecff),
-    conic-gradient(
-      from 210deg,
-      #ffd9e4,
-      #ffeec7,
-      #d6e6ff,
-      #c8f0ff,
-      #f0ccff,
-      #ffd9e4
-    );
   position: relative;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 200deg,
+    #ffd3d3,
+    #ffe5c2,
+    #f0f7ff,
+    #cbe0ff,
+    #f3d0ff,
+    #ffd3d3
+  );
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.95),
-    0 10px 26px rgba(76, 96, 155, 0.55);
+    0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 8px 22px rgba(96, 111, 177, 0.55);
 }
 
 .brand-mark::after {
@@ -166,15 +171,15 @@ body {
   background: radial-gradient(
     circle at 30% 20%,
     #ffffff,
-    #f8f5ff 55%,
-    #ebf3ff 100%
+    #fbf8ff 55%,
+    #eef3ff 100%
   );
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.96),
-    0 4px 10px rgba(147, 163, 214, 0.55);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.95),
+    0 3px 8px rgba(150, 164, 210, 0.45);
 }
 
-/* 保持 logo 中心不写字，图案更干净 */
+/* 保持中心无字，更干净 */
 .brand-initial {
   display: none;
 }
@@ -244,7 +249,7 @@ body {
   color: #252542;
 }
 
-/* 语言切换 */
+/* ====== 语言切换：做成截图那种胶囊轨道 + 渐变滑块 ====== */
 .lang-toggle {
   display: flex;
   align-items: center;
@@ -258,31 +263,66 @@ body {
 }
 
 .lang-toggle-buttons {
+  position: relative;
   display: inline-flex;
+  align-items: center;
   border-radius: 999px;
   padding: 2px;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 0 1px rgba(219, 225, 255, 0.9);
+  box-shadow:
+    0 0 0 1px rgba(220, 227, 255, 0.98),
+    0 8px 18px rgba(148, 160, 214, 0.4);
+  overflow: hidden;
+}
+
+/* 渐变高亮块 */
+.lang-toggle-buttons::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  width: 50%;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #ffbfd0, #f5d4a9, #c1c8ff);
+  box-shadow: 0 8px 16px rgba(144, 144, 210, 0.4);
+  transform: translateX(0%);
+  transition: transform 0.25s ease-out;
+}
+
+/* 根据当前语言移动高亮块 */
+html[data-lang="zh"] .lang-toggle-buttons::before {
+  transform: translateX(0%);
+}
+
+html[data-lang="en"] .lang-toggle-buttons::before {
+  transform: translateX(100%);
 }
 
 .lang-btn {
+  position: relative;
+  z-index: 1;
   border: none;
   background: transparent;
   font-size: 0.72rem;
-  padding: 0.24rem 0.6rem;
+  padding: 0.24rem 0.9rem;
   border-radius: 999px;
   cursor: pointer;
   color: var(--text-soft);
-  transition: background var(--transition-fast), color var(--transition-fast),
-    box-shadow var(--transition-fast), transform var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
+/* 当前语言字体更深、更稳 */
+html[data-lang="zh"] #lang-zh,
+html[data-lang="en"] #lang-en {
+  color: #24243f;
+  font-weight: 600;
+  transform: translateY(-0.3px);
+}
+
+/* 兼容旧的 active 用法（如果 script.js 里有加 class 也不会出错） */
 .lang-btn.active {
-  background: linear-gradient(120deg, var(--accent-1), var(--accent-2));
-  color: #222541;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85),
-    0 10px 20px rgba(109, 126, 184, 0.55);
-  transform: translateY(-0.5px);
+  color: #24243f;
+  font-weight: 600;
 }
 
 /* 语言显示控制 */
@@ -307,31 +347,7 @@ main {
   padding: 1.8rem 0 2.6rem;
 }
 
-.section-header {
-  margin-bottom: 1.6rem;
-}
-
-.section-kicker {
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  margin-bottom: 0.4rem;
-}
-
-.section-title {
-  font-size: 1.6rem;
-  line-height: 1.3;
-  margin: 0 0 0.4rem;
-}
-
-.section-subtitle {
-  font-size: 0.96rem;
-  color: var(--text-soft);
-  max-width: 600px;
-}
-
-/* ====== 首页 Hero ====== */
+/* ====== Hero ====== */
 .hero {
   padding: 3.2rem 0 2.2rem;
 }
@@ -383,7 +399,7 @@ main {
   margin-bottom: 1.4rem;
 }
 
-/* 按钮：流光渐变 */
+/* 按钮 */
 .btn {
   border-radius: 999px;
   padding: 0.7rem 1.6rem;
@@ -441,7 +457,7 @@ main {
   font-size: 0.8rem;
 }
 
-/* Hero 右侧：抽象岛屿卡片 */
+/* Hero 右侧卡 */
 .hero-panel {
   position: relative;
 }
@@ -590,7 +606,7 @@ main {
   margin-bottom: 0.3rem;
 }
 
-/* 标题小 icon（类似图三的小胶囊） */
+/* 标题小 icon 胶囊 */
 .card-kicker {
   display: inline-flex;
   align-items: center;
@@ -611,7 +627,7 @@ main {
   background: radial-gradient(circle at 30% 30%, #ffe2f0, #b9c9ff);
 }
 
-/* ====== 首页四宫格布局 ====== */
+/* ====== 首页四宫格 ====== */
 
 .home-grid {
   display: grid;
@@ -651,7 +667,7 @@ main {
   gap: 0.6rem;
 }
 
-/* ====== 内页 Hero（预留） ====== */
+/* ====== 内页预留样式（保持不变） ====== */
 .inner-hero {
   padding: 2.4rem 0 1.4rem;
 }
@@ -671,89 +687,7 @@ main {
   text-decoration: underline;
 }
 
-.inner-title {
-  font-size: 1.7rem;
-  margin: 0 0 0.3rem;
-}
-
-.inner-subtitle {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  max-width: 560px;
-}
-
-/* ====== 预留：其他页面布局（保持与之前版本兼容） ====== */
-.two-column {
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
-  gap: 2.3rem;
-}
-
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.18rem 0.6rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  background: rgba(255, 255, 255, 0.85);
-  color: var(--text-soft);
-}
-
-.pill-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
-}
-
-.definition {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin: 0.45rem 0;
-}
-
-.keywords {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
-}
-
-.keyword {
-  font-size: 0.75rem;
-  padding: 0.18rem 0.55rem;
-  border-radius: 999px;
-  border: 1px solid rgba(180, 189, 232, 0.8);
-  background: rgba(255, 255, 255, 0.9);
-  color: #3b3c57;
-}
-
-.quote-list {
-  display: grid;
-  gap: 0.9rem;
-  font-size: 0.86rem;
-  color: var(--text-muted);
-}
-
-.quote-item {
-  padding: 0.75rem 0.85rem;
-  border-radius: 13px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(208, 217, 250, 0.85);
-}
-
-.quote-line {
-  font-style: italic;
-  margin-bottom: 0.35rem;
-}
-
-.quote-author {
-  font-size: 0.78rem;
-  color: var(--text-soft);
-}
-
-/* ====== 页脚：深色卡片 + 按钮 ====== */
+/* ====== 页脚 ====== */
 .site-footer {
   margin-top: 3rem;
   padding: 2.6rem 0 1.6rem;
@@ -789,7 +723,7 @@ main {
 }
 
 .footer-contact-main {
-  max-width: 480px;
+  max-width: 520px;
 }
 
 .footer-contact-title {
@@ -853,26 +787,16 @@ main {
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
 }
 
-.footer-contact-ids {
-  font-size: 0.78rem;
-  color: rgba(207, 214, 255, 0.8);
-  text-align: right;
-  line-height: 1.5;
-}
-
-/* 版权行 */
+/* 版权行：压缩成小面积两行 */
 .footer-bottom-line {
   border-top: 1px solid rgba(90, 100, 150, 0.7);
-  padding-top: 1rem;
+  padding-top: 0.9rem;
   font-size: 0.76rem;
   color: rgba(214, 220, 255, 0.85);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.6rem;
+  line-height: 1.6;
 }
 
-/* ====== 响应式调整 ====== */
+/* ====== 响应式 ====== */
 @media (max-width: 960px) {
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
@@ -901,10 +825,6 @@ main {
 
   .contact-pill-row {
     justify-content: flex-start;
-  }
-
-  .footer-contact-ids {
-    text-align: left;
   }
 }
 
