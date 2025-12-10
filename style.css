@@ -58,7 +58,7 @@ body {
   background-attachment: fixed;
 }
 
-/* 云雾与岛屿的抽象光影层 */
+/* 云雾光影层 */
 .page-aura {
   position: fixed;
   inset: -10vh 0;
@@ -127,8 +127,7 @@ body {
   gap: 1rem;
 }
 
-/* 品牌区 */
-/* ——Logo 改成细彩色环 + 内部柔白，类似你截图里那种小圆岛 —— */
+/* 品牌区：细彩色环 + 柔白圆心 */
 .brand {
   display: flex;
   align-items: center;
@@ -179,7 +178,6 @@ body {
     0 3px 8px rgba(150, 164, 210, 0.45);
 }
 
-/* 保持中心无字，更干净 */
 .brand-initial {
   display: none;
 }
@@ -249,7 +247,7 @@ body {
   color: #252542;
 }
 
-/* ====== 语言切换：做成截图那种胶囊轨道 + 渐变滑块 ====== */
+/* 语言切换：胶囊轨道 + 渐变滑块 */
 .lang-toggle {
   display: flex;
   align-items: center;
@@ -275,7 +273,6 @@ body {
   overflow: hidden;
 }
 
-/* 渐变高亮块 */
 .lang-toggle-buttons::before {
   content: "";
   position: absolute;
@@ -289,7 +286,6 @@ body {
   transition: transform 0.25s ease-out;
 }
 
-/* 根据当前语言移动高亮块 */
 html[data-lang="zh"] .lang-toggle-buttons::before {
   transform: translateX(0%);
 }
@@ -311,7 +307,6 @@ html[data-lang="en"] .lang-toggle-buttons::before {
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-/* 当前语言字体更深、更稳 */
 html[data-lang="zh"] #lang-zh,
 html[data-lang="en"] #lang-en {
   color: #24243f;
@@ -319,7 +314,6 @@ html[data-lang="en"] #lang-en {
   transform: translateY(-0.3px);
 }
 
-/* 兼容旧的 active 用法（如果 script.js 里有加 class 也不会出错） */
 .lang-btn.active {
   color: #24243f;
   font-weight: 600;
@@ -457,7 +451,7 @@ main {
   font-size: 0.8rem;
 }
 
-/* Hero 右侧卡 */
+/* Hero 右侧卡片 */
 .hero-panel {
   position: relative;
 }
@@ -522,7 +516,7 @@ main {
 
 .isle-title {
   margin: 0.7rem 0 0.2rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .isle-subtitle {
@@ -597,15 +591,6 @@ main {
   margin: 0 0 0.6rem;
 }
 
-.card-body ul {
-  margin: 0.3rem 0 0;
-  padding-left: 1rem;
-}
-
-.card-body li {
-  margin-bottom: 0.3rem;
-}
-
 /* 标题小 icon 胶囊 */
 .card-kicker {
   display: inline-flex;
@@ -627,39 +612,6 @@ main {
   background: radial-gradient(circle at 30% 30%, #ffe2f0, #b9c9ff);
 }
 
-/* ====== 首页四宫格 ====== */
-
-.home-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.6rem;
-  align-items: stretch;
-}
-
-.card.home-card {
-  height: 100%;
-}
-
-.home-card-top-left {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.home-card-top-right {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.home-card-bottom-left {
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.home-card-bottom-right {
-  grid-column: 2;
-  grid-row: 2;
-}
-
 .card-actions {
   margin-top: 1rem;
   display: flex;
@@ -667,24 +619,23 @@ main {
   gap: 0.6rem;
 }
 
-/* ====== 内页预留样式（保持不变） ====== */
-.inner-hero {
-  padding: 2.4rem 0 1.4rem;
+/* ====== 首页底部三卡布局 ====== */
+.home-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.1fr);
+  gap: 1.6rem;
+  align-items: stretch;
 }
 
-.breadcrumb {
-  font-size: 0.75rem;
-  color: var(--text-soft);
-  margin-bottom: 0.4rem;
+.home-left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
-.breadcrumb a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.breadcrumb a:hover {
-  text-decoration: underline;
+.home-right-column {
+  display: flex;
+  flex-direction: column;
 }
 
 /* ====== 页脚 ====== */
@@ -706,7 +657,6 @@ main {
   gap: 1.6rem;
 }
 
-/* 大卡片 */
 .footer-contact-card {
   border-radius: 26px;
   padding: 1.5rem 1.7rem 1.6rem;
@@ -741,7 +691,6 @@ main {
   margin-top: 0.2rem;
 }
 
-/* 按钮区 */
 .footer-contact-actions {
   display: flex;
   flex-direction: column;
@@ -787,7 +736,7 @@ main {
   box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
 }
 
-/* 版权行：压缩成小面积两行 */
+/* 精简脚注行 */
 .footer-bottom-line {
   border-top: 1px solid rgba(90, 100, 150, 0.7);
   padding-top: 0.9rem;
@@ -810,7 +759,7 @@ main {
     padding: 0.7rem 0;
   }
 
-  .home-grid {
+  .home-layout {
     grid-template-columns: minmax(0, 1fr);
   }
 
