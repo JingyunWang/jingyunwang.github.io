@@ -1,307 +1,331 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-lang="cn">
+<html lang="zh" data-lang="zh">
   <head>
     <meta charset="UTF-8" />
-    <title>理念与方法 · Framework | 云之岛</title>
+    <title>寻屿 Yunisle · 理论与方法</title>
     <meta
       name="description"
-      content="以自我决定理论为核心，整合不同心理学流派与探索–领悟–行动的路径，为真实的人生问题搭建实践框架。"
+      content="寻屿理论与方法：自我决定理论、发展心理学、人本与存在主义等整合视角，连接探索—领悟—行动的实践路径。"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <div class="background-orbs">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3"></div>
-      <div class="orb orb-4"></div>
-    </div>
-    <div class="sparkles"></div>
-
-    <header class="site-shell">
-      <nav class="navbar">
-        <a class="brand" href="index.html">
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="index.html" class="brand">
           <div class="brand-mark"></div>
           <div>
-            <div class="brand-text-cn">云之岛</div>
-            <div class="brand-text-en">Cloud · Island</div>
+            <div class="brand-text-main">YUNISLE</div>
+            <div class="brand-text-sub lang lang-zh">寻屿 · 在云端遇见内心的岛</div>
+            <div class="brand-text-sub lang lang-en">
+              Yunisle · Inner isles above the clouds
+            </div>
           </div>
         </a>
-
-        <div class="nav-links">
-          <a class="nav-link" href="index.html">
-            <span class="nav-cn">主页</span>
-            <span class="nav-en">Home</span>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">
+            <span class="lang lang-zh">主页</span>
+            <span class="lang lang-en">Home</span>
           </a>
-          <a class="nav-link active" href="theory.html">
-            <span class="nav-cn">理念与方法</span>
-            <span class="nav-en">Framework</span>
+          <a href="theory.html" class="nav-link active">
+            <span class="lang lang-zh">理论与方法</span>
+            <span class="lang lang-en">Theory & Method</span>
           </a>
-          <a class="nav-link" href="about.html">
-            <span class="nav-cn">遇见云</span>
-            <span class="nav-en">Meet Yun</span>
+          <a href="meet-yun.html" class="nav-link">
+            <span class="lang lang-zh">遇见云</span>
+            <span class="lang lang-en">Meet Yun</span>
           </a>
-          <a class="nav-link" href="journey.html">
-            <span class="nav-cn">旅程与话题</span>
-            <span class="nav-en">Journey</span>
+          <a href="research.html" class="nav-link">
+            <span class="lang lang-zh">研究发表</span>
+            <span class="lang lang-en">Research</span>
           </a>
-          <a class="nav-link" href="projects.html">
-            <span class="nav-cn">研究与项目</span>
-            <span class="nav-en">Projects</span>
+          <a href="projects.html" class="nav-link">
+            <span class="lang lang-zh">实践与项目</span>
+            <span class="lang lang-en">Projects</span>
           </a>
-          <a class="nav-link" href="publications.html">
-            <span class="nav-cn">发表与论文</span>
-            <span class="nav-en">Publications</span>
+          <a href="topics.html" class="nav-link">
+            <span class="lang lang-zh">话题与旅程</span>
+            <span class="lang lang-en">Topics & Journeys</span>
           </a>
-
           <div class="lang-toggle">
-            <button class="lang-btn" data-lang-toggle="cn">中文</button>
-            <button class="lang-btn" data-lang-toggle="en">EN</button>
+            <button id="lang-zh-btn" class="active">中文</button>
+            <span>|</span>
+            <button id="lang-en-btn">EN</button>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
-    <main class="page">
-      <section class="section card card-soft">
-        <div class="section-header">
-          <h1 class="section-title-cn text-cn">理念与方法：在人间生活的心理学</h1>
-          <h1 class="section-title-en text-en">
-            Framework: Psychology for real, lived lives
-          </h1>
-        </div>
-
-        <p class="section-intro text-cn">
-          我的训练来自发展心理学、咨询与心理治疗、多种流派工作坊，以及跨文化的研究合作。<br />
-          但在这里，我不打算做“某某流派代言人”，而是诚实地回答一个问题：<br />
-          面对真实的人、真实的处境，到底什么能帮得上忙？
-        </p>
-        <p class="section-intro text-en">
-          My background spans developmental psychology, counselling and
-          psychotherapy, experiential trainings, and cross-cultural research.<br />
-          Yet here, I am not representing any single school. I am simply asking:
-          <br />
-          when we face real people in real conditions, what actually helps?
-        </p>
-      </section>
-
-      <!-- 自我决定理论 -->
+    <main>
       <section class="section">
-        <div class="card">
-          <div class="section-header">
-            <h2 class="section-title-cn text-cn">自我决定理论：需求感到位，人自然会长</h2>
-            <h2 class="section-title-en text-en">
-              Self-Determination Theory: when needs are met, growth follows
-            </h2>
+        <div class="container">
+          <div class="section-heading">
+            <div class="section-subtitle">
+              <span class="lang lang-zh">ROOTS &amp; PATHWAYS · 理论与方法</span>
+              <span class="lang lang-en">ROOTS &amp; PATHWAYS · Theory &amp; Method</span>
+            </div>
+            <h1 class="section-title">
+              <span class="lang lang-zh">
+                让理论为生命服务，而不是让生命去迎合理论
+              </span>
+              <span class="lang lang-en">
+                Theory in service of life, not life squeezed into theory
+              </span>
+            </h1>
           </div>
 
-          <div class="grid-2">
-            <div>
-              <p class="section-intro text-cn">
-                自我决定理论认为，人类有三种基本心理需要：<br />
-                <b>自主感、胜任感、联结感</b>。<br />
-                当这三者被长期压抑，人就会失去能量、方向感与自尊；<br />
-                当它们被看见、滋养，人会自然地想要学习、投入、创造。
-              </p>
-              <p class="section-intro text-en">
-                Self-Determination Theory proposes three basic psychological
-                needs:<br />
-                <b>autonomy, competence, and relatedness</b>.<br />
-                When these are chronically frustrated, we lose energy, direction
-                and self-respect.<br />
-                When they are supported, the desire to learn, engage and create
-                emerges naturally.
-              </p>
+          <p class="lang-block lang-block-zh">
+            在寻屿，理论不是冷冰冰的名词，而是帮助我们理解自己的一束束光。<br />
+            我主要整合以下视角，与来访者共同走过“探索 — 领悟 — 行动”的路径。
+          </p>
+          <p class="lang-block lang-block-en">
+            At Yunisle, theory is not a cold list of terms. It is light – helping
+            us see ourselves more clearly.<br />
+            I mainly integrate the following lenses, to support a shared process of
+            “exploration – insight – action”.
+          </p>
+
+          <div class="card-grid">
+            <!-- 自我决定理论 -->
+            <div class="card">
+              <div class="card-subtitle">SELF-DETERMINATION THEORY</div>
+              <div class="card-title">
+                <span class="lang lang-zh">自我决定理论：关系、安全感与选择的自由</span>
+                <span class="lang lang-en">
+                  Self-Determination Theory: Relatedness, safety, and choice
+                </span>
+              </div>
+              <div class="card-body">
+                <p class="lang-block lang-block-zh">
+                  自我决定理论认为，人天生有三大基本心理需要：自主、胜任、联结。<br />
+                  我们会一起看：你的生活中，这三种需要怎样被满足，也怎样被忽视？<br />
+                  当你重新拥有“可以选择”的感觉时，很多卡住的地方，会自然松动。
+                </p>
+                <p class="lang-block lang-block-en">
+                  Self-Determination Theory suggests humans have three basic
+                  psychological needs: autonomy, competence, and relatedness.<br />
+                  We will look together: how are these needs met – and unmet – in
+                  your life? When the sense of “I can choose” returns, many stuck
+                  places begin to soften on their own.
+                </p>
+              </div>
             </div>
-            <div>
-              <p class="section-intro text-cn">
-                在云之岛，我们不会只问：<br />
-                「你还可以更努力一点吗？」<br />
-                而是会一起审视：<br />
-                你的选择里，有多少是出于真正的“我愿意”？<br />
-                你在哪些领域，长期感到自己“不够好”？<br />
-                你和重要他人的关系，是消耗型，还是滋养型？
-              </p>
-              <p class="section-intro text-en">
-                On Cloud Island, we don’t just ask:<br />
-                “Can you push yourself harder?”<br />
-                Instead, we look together at:<br />
-                How much of your life is driven by genuine “I want to”, versus
-                “I must”?<br />
-                Where do you repeatedly feel “not good enough”?<br />
-                Are your key relationships depleting or nourishing?
-              </p>
+
+            <!-- 人本主义 -->
+            <div class="card">
+              <div class="card-subtitle">HUMANISTIC</div>
+              <div class="card-title">
+                <span class="lang lang-zh">人本主义：你已经拥有成长的种子</span>
+                <span class="lang lang-en">
+                  Humanistic: You already carry the seed of growth
+                </span>
+              </div>
+              <div class="card-body">
+                <p class="lang-block lang-block-zh">
+                  Rogers 曾说：“当我接纳自己如其所是，我就开始改变。”<br />
+                  在安全、尊重和真实的关系里，我们不急着修正你，而是允许你先“做自己”——
+                  在这个基础上，改变才有可能是出于内在，而不是单纯地讨好世界。
+                </p>
+                <p class="lang-block lang-block-en">
+                  Rogers wrote: “The curious paradox is that when I accept myself
+                  just as I am, then I can change.”<br />
+                  Within a safe, respectful, and genuine relationship, we don’t
+                  rush to correct you. We first allow you to be. From there, change
+                  can grow from within, rather than from pleasing the world.
+                </p>
+              </div>
+            </div>
+
+            <!-- 存在主义 -->
+            <div class="card">
+              <div class="card-subtitle">EXISTENTIAL</div>
+              <div class="card-title">
+                <span class="lang lang-zh">存在主义：在有限中，活出自己的回应</span>
+                <span class="lang lang-en">
+                  Existential: Your response within the finite
+                </span>
+              </div>
+              <div class="card-body">
+                <p class="lang-block lang-block-zh">
+                  存在主义提醒我们：孤独、自由、死亡、意义的缺席，这些不是“病”，而是人的共同命题。<br />
+                  我们会一起思考：在无法回避的不确定中，你想如何回应？你的价值观，如何真实地落在生活细节里？
+                </p>
+                <p class="lang-block lang-block-en">
+                  Existential approaches remind us: loneliness, freedom, death, and
+                  the absence of ready-made meaning are not “illnesses”, but shared
+                  human conditions.<br />
+                  We will ask: given this unavoidably uncertain world, how do you
+                  wish to respond? How might your values become embodied in the
+                  details of daily life?
+                </p>
+              </div>
+            </div>
+
+            <!-- 发展 / 家庭系统 -->
+            <div class="card">
+              <div class="card-subtitle">DEVELOPMENTAL &amp; SYSTEMIC</div>
+              <div class="card-title">
+                <span class="lang lang-zh">发展与家庭系统：理解你是如何走到今天</span>
+                <span class="lang lang-en">
+                  Developmental &amp; systemic: How you came to be here
+                </span>
+              </div>
+              <div class="card-body">
+                <p class="lang-block lang-block-zh">
+                  很多“现在的自己”，其实是过去为了生存和被爱而练习出的模式。<br />
+                  发展心理学与家庭系统视角，帮助我们尊重这些模式曾经的保护作用，同时温柔地问：
+                  “在今天，它们是否依然适合你？”
+                </p>
+                <p class="lang-block lang-block-en">
+                  Many patterns of “who I am now” were once creative strategies for
+                  survival and love.<br />
+                  Developmental and family-systems lenses help us honour how these
+                  patterns once protected you, while gently asking: “Are they still
+                  serving you today?”
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 探索-领悟-行动 模型 -->
+          <div class="section" style="margin-top: 26px">
+            <div class="section-heading">
+              <div class="section-subtitle">
+                <span class="lang lang-zh">EXPLORATION · INSIGHT · ACTION</span>
+                <span class="lang lang-en">EXPLORATION · INSIGHT · ACTION</span>
+              </div>
+              <h2 class="section-title">
+                <span class="lang lang-zh">从设问，到看见，再到行动的小步练习</span>
+                <span class="lang lang-en">
+                  From questions to seeing, to small, grounded actions
+                </span>
+              </h2>
+            </div>
+
+            <div class="card-grid">
+              <div class="card">
+                <div class="badge">
+                  <span class="lang lang-zh">阶段一 · 探索</span>
+                  <span class="lang lang-en">Phase 1 · Exploration</span>
+                </div>
+                <div class="card-body">
+                  <ul class="soft-list">
+                    <li class="lang lang-zh">
+                      把“说不清”的体验，用安全的语言慢慢讲出来。
+                    </li>
+                    <li class="lang lang-zh">
+                      学会区分：哪些是他人的期待，哪些是自己的声音。
+                    </li>
+                    <li class="lang lang-en">
+                      Put vague, tangled experiences into words in a safe space.
+                    </li>
+                    <li class="lang lang-en">
+                      Learn to separate external expectations from your own voice.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card">
+                <div class="badge">
+                  <span class="lang lang-zh">阶段二 · 领悟</span>
+                  <span class="lang lang-en">Phase 2 · Insight</span>
+                </div>
+                <div class="card-body">
+                  <ul class="soft-list">
+                    <li class="lang lang-zh">
+                      从理论出发，看清“原来我是这样应对孤独 / 冲突 / 不确定”。
+                    </li>
+                    <li class="lang lang-zh">
+                      理解：这些模式曾经如何保护我，也在现在如何限制我。
+                    </li>
+                    <li class="lang lang-en">
+                      See, through theory, how you’ve been responding to loneliness,
+                      conflict, and uncertainty.
+                    </li>
+                    <li class="lang lang-en">
+                      Understand how these patterns once protected you – and how they
+                      now limit your choices.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card">
+                <div class="badge">
+                  <span class="lang lang-zh">阶段三 · 行动与自我创造</span>
+                  <span class="lang lang-en">
+                    Phase 3 · Action &amp; self-creation
+                  </span>
+                </div>
+                <div class="card-body">
+                  <ul class="soft-list">
+                    <li class="lang lang-zh">
+                      不追求“完美改变”，只练习细小却真实的行为调整。
+                    </li>
+                    <li class="lang lang-zh">
+                      在一次次试探中，慢慢长出“属于我的生活节奏与选择”。
+                    </li>
+                    <li class="lang lang-en">
+                      No perfect makeovers – only small, honest behavioural
+                      experiments.
+                    </li>
+                    <li class="lang lang-en">
+                      Through repeated tries, a way of living that feels like your
+                      own quietly emerges.
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 流派对话：每个流派一句话 -->
-      <section class="section">
-        <div class="card">
-          <div class="section-header">
-            <h2 class="section-title-cn text-cn">不同流派，一场诚实的对话</h2>
-            <h2 class="section-title-en text-en">
-              A quiet dialogue between different schools
-            </h2>
+      <!-- 联系方式 & 页脚（同首页） -->
+      <section class="contact">
+        <div class="container contact">
+          <div>
+            <div class="contact-title">
+              <span class="lang lang-zh">如果你想进一步了解或合作</span>
+              <span class="lang lang-en">If you’d like to know or co-create</span>
+            </div>
+            <p class="lang-block lang-block-zh">
+              欢迎写信给我，简单介绍你的背景、目前的处境，以及你最在意的一个问题。
+            </p>
+            <p class="lang-block lang-block-en">
+              You’re welcome to write, briefly sharing who you are, where you are in
+              life, and one question that matters most to you right now.
+            </p>
           </div>
-
-          <div class="topic-grid">
-            <!-- 精神分析 -->
-            <div class="item">
-              <div class="item-title-cn text-cn">
-                「精神分析」对我们说：
-              </div>
-              <div class="item-title-en text-en">
-                Psychoanalysis whispers:
-              </div>
-              <p class="section-intro text-cn">
-                你不是突然这样的。很多当下的困惑，背后都有历史。<br />
-                当那些被压在无意识里的故事被说出，人会慢慢有余地，做出不一样的选择。
-              </p>
-              <p class="section-intro text-en">
-                You didn’t become this way overnight. Many current struggles have
-                a history.<br />
-                As long-buried stories surface into words, space opens up for new
-                choices.
-              </p>
-            </div>
-
-            <!-- 人本存在 -->
-            <div class="item">
-              <div class="item-title-cn text-cn">
-                「人本与存在主义」提醒：
-              </div>
-              <div class="item-title-en text-en">
-                Humanistic &amp; existential voices:
-              </div>
-              <p class="section-intro text-cn">
-                你不是一个“问题”，你是一个在努力活出自己的存在。<br />
-                自由总是伴着责任和焦虑，但那也是你作为主体的证明。
-              </p>
-              <p class="section-intro text-en">
-                You are not a “problem to be fixed”, you are a being trying to
-                live genuinely.<br />
-                Freedom always comes with anxiety and responsibility — that’s
-                the proof you’re alive as a subject.
-              </p>
-            </div>
-
-            <!-- CBT -->
-            <div class="item">
-              <div class="item-title-cn text-cn">
-                「认知行为」会说：
-              </div>
-              <div class="item-title-en text-en">CBT says:</div>
-              <p class="section-intro text-cn">
-                想法、情绪与行为相互影响。<br />
-                当你学会识别自动化思维，练习新的行为实验，生活的惯性就有机会被改写。
-              </p>
-              <p class="section-intro text-en">
-                Thoughts, emotions, and behaviours interact.<br />
-                When you learn to notice automatic thoughts and try new
-                behavioural experiments, your life’s inertia can start to shift.
-              </p>
-            </div>
-
-            <!-- 家庭系统 -->
-            <div class="item">
-              <div class="item-title-cn text-cn">
-                「家庭与系统视角」提醒我们：
-              </div>
-              <div class="item-title-en text-en">
-                Family &amp; systemic perspectives remind us:
-              </div>
-              <p class="section-intro text-cn">
-                很多“我就是这样”的背后，是角色、边界与代际模式。<br />
-                当你开始看见这些模式，你就不必一辈子替它们负责。
-              </p>
-              <p class="section-intro text-en">
-                Behind “this is just who I am” there are roles, boundaries, and
-                intergenerational patterns.<br />
-                Once you see the pattern, you no longer have to carry it
-                forever.
-              </p>
+          <div>
+            <div class="contact-links">
+              <a href="mailto:your-email@example.com" class="contact-link">
+                ✉ Email
+              </a>
+              <a href="#" class="contact-link">in · LinkedIn</a>
+              <a href="#" class="contact-link">G · Google Scholar</a>
+              <a href="#" class="contact-link">小红书 · RED</a>
+              <a href="#" class="contact-link">微信 · WeChat</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 探索-领悟-行动-自我创造 -->
-      <section class="section">
-        <div class="card card-soft">
-          <div class="section-header">
-            <h2 class="section-title-cn text-cn">
-              从探索 → 领悟 → 行动 → 自我创造
-            </h2>
-            <h2 class="section-title-en text-en">
-              From exploration → insight → action → self-creation
-            </h2>
+      <footer>
+        <div class="container site-footer">
+          <div class="lang-block lang-block-zh">
+            © 2025 寻屿 · Yunisle · Inner isles of becoming.<br />
+            All rights reserved. Text &amp; design by Jingyun Wang.<br />
+            Designed for gentle growth, deep feeling, and honest becoming.
           </div>
-
-          <div class="grid-2">
-            <div>
-              <p class="section-intro text-cn">
-                在项目与课程中，我们会反复走过四个向度：<br />
-                · 探索：把模糊的体验，变成可以被看见、描述的问题。<br />
-                · 领悟：用心理学与哲学的框架，为你的经验找到语言与结构。<br />
-                · 行动：设计可行、具体、有限但扎实的小步实验。<br />
-                · 自我创造：在一次次选择中，慢慢活成更贴近自己的样子。
-              </p>
-              <p class="section-intro text-en">
-                Across projects and programs, we move through four dimensions
-                again and again:<br />
-                · Exploration: turning vague feelings into questions that can be
-                seen and held.<br />
-                · Insight: using psychological and philosophical frames to name
-                and structure your experience.<br />
-                · Action: designing feasible, concrete, and limited but solid
-                experiments.<br />
-                · Self-creation: gradually living into a life closer to what
-                feels truly yours.
-              </p>
-            </div>
-            <div>
-              <p class="section-intro text-cn">
-                你不是来“被改变”的，你是来练习自己如何改变自己。<br />
-                而我，既是研究者，也是陪练；既尊重数据，也尊重你对自己生命的直觉判断。
-              </p>
-              <p class="section-intro text-en">
-                You are not here to be “fixed” by someone else. You are here to
-                practise how you change yourself.<br />
-                I am both researcher and sparring partner: I trust data, and I
-                also trust your intuition about your own life.
-              </p>
-            </div>
+          <div class="lang-block lang-block-en">
+            © 2025 Yunisle · Inner isles of becoming.<br />
+            All rights reserved. Text &amp; design by Jingyun Wang.<br />
+            Designed for gentle growth, deep feeling, and honest becoming.
           </div>
-        </div>
-      </section>
-
-      <!-- 页脚 -->
-      <footer class="footer">
-        <div class="footer-left">
-          <div class="text-cn">
-            若你愿意把这些理念变成自己的方法，欢迎走进「旅程与话题」模块，看看哪些路径与你当下最贴近。
-          </div>
-          <div class="text-en">
-            If you want to turn these ideas into your own methods, visit the
-            “Journey” section to see which pathways resonate with where you are
-            now.
-          </div>
-        </div>
-        <div class="footer-right">
-          <a class="contact-link" href="mailto:your_email@example.com"
-            >Email</a
-          >
-          <a class="contact-link" href="#" target="_blank">LinkedIn</a>
-          <a class="contact-link" href="#" target="_blank">Google Scholar</a>
-          <a class="contact-link" href="#" target="_blank">小红书</a>
-          <a class="contact-link" href="#" target="_blank">WeChat / 微信</a>
         </div>
       </footer>
     </main>
-
-    <script src="app.js"></script>
   </body>
 </html>
