@@ -1,35 +1,37 @@
-(function () {
-  const html = document.documentElement;
-  const zhBtn = document.getElementById("lang-zh-btn");
+// Language toggle handler
+function setLanguage(lang) {
+  const body = document.body;
+  const cnBtn = document.getElementById("lang-cn-btn");
   const enBtn = document.getElementById("lang-en-btn");
 
-  function setLang(lang) {
-    html.setAttribute("data-lang", lang);
-    if (zhBtn && enBtn) {
-      if (lang === "zh") {
-        zhBtn.classList.add("active");
-        enBtn.classList.remove("active");
-      } else {
-        enBtn.classList.add("active");
-        zhBtn.classList.remove("active");
-      }
-    }
-    try {
-      localStorage.setItem("siteLang", lang);
-    } catch (e) {}
+  if (!body || !cnBtn || !enBtn) return;
+
+  if (lang === "en") {
+    body.classList.add("en");
+    enBtn.classList.add("active");
+    cnBtn.classList.remove("active");
+    localStorage.setItem("yunisle-lang", "en");
+  } else {
+    body.classList.remove("en");
+    cnBtn.classList.add("active");
+    enBtn.classList.remove("active");
+    localStorage.setItem("yunisle-lang", "cn");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Load saved language preference
+  const saved = localStorage.getItem("yunisle-lang");
+  setLanguage(saved === "en" ? "en" : "cn");
+
+  const cnBtn = document.getElementById("lang-cn-btn");
+  const enBtn = document.getElementById("lang-en-btn");
+
+  if (cnBtn) {
+    cnBtn.addEventListener("click", () => setLanguage("cn"));
   }
 
-  const saved =
-    (typeof window !== "undefined" &&
-      window.localStorage &&
-      localStorage.getItem("siteLang")) ||
-    "zh";
-  setLang(saved);
-
-  if (zhBtn) {
-    zhBtn.addEventListener("click", () => setLang("zh"));
-  }
   if (enBtn) {
-    enBtn.addEventListener("click", () => setLang("en"));
+    enBtn.addEventListener("click", () => setLanguage("en"));
   }
-})();
+});
