@@ -1,626 +1,281 @@
-/* ===== 基础设置 ===== */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-:root {
-  --bg-gradient: linear-gradient(
-      135deg,
-      rgba(255, 240, 230, 0.95),
-      rgba(230, 235, 255, 0.98),
-      rgba(210, 220, 245, 1)
-    );
-  --bg-overlay: radial-gradient(
-      circle at 10% 20%,
-      rgba(255, 255, 255, 0.7),
-      transparent 55%
-    ),
-    radial-gradient(circle at 80% 10%, rgba(255, 245, 245, 0.6), transparent 60%),
-    radial-gradient(circle at 20% 80%, rgba(220, 230, 255, 0.5), transparent 55%),
-    radial-gradient(circle at 90% 70%, rgba(205, 215, 240, 0.8), transparent 60%);
-  --text-main: #1f2933;
-  --text-muted: #6b7280;
-  --accent-1: #f9c7c0;
-  --accent-2: #9ec5ff;
-  --accent-3: #c9b8ff;
-  --surface: rgba(255, 255, 255, 0.78);
-  --surface-soft: rgba(255, 255, 255, 0.55);
-  --border-soft: rgba(255, 255, 255, 0.7);
-  --shadow-soft: 0 18px 50px rgba(15, 23, 42, 0.16);
-  --radius-xl: 26px;
-  --transition-fast: 0.22s ease-out;
-  --max-width: 1080px;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui,
-    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  color: var(--text-main);
-  background:
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.65), rgba(15, 23, 42, 0.2)),
-    var(--bg-gradient);
-  position: relative;
-}
-
-/* 背景云 / 岛屿朦胧层 */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: var(--bg-overlay);
-  background-size: cover;
-  opacity: 0.9;
-  pointer-events: none;
-  z-index: -2;
-}
-
-/* 底部深色海面感 */
-body::after {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: -40%;
-  height: 60%;
-  background: radial-gradient(circle at 50% 0%, rgba(31, 41, 55, 0.5), transparent 60%),
-    linear-gradient(to bottom, transparent, rgba(15, 23, 42, 0.9));
-  z-index: -1;
-}
-
-/* ===== Layout  ===== */
-.site-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(18px);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.6));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-}
-
-.header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-}
-
-.brand-main {
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  font-size: 0.9rem;
-}
-
-.brand-sub {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  font-size: 0.86rem;
-}
-
-.nav a {
-  text-decoration: none;
-  color: var(--text-main);
-  position: relative;
-  padding-bottom: 3px;
-}
-
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
-  transition: width var(--transition-fast);
-}
-
-.nav a:hover::after {
-  width: 100%;
-}
-
-.nav a.active {
-  font-weight: 600;
-}
-
-.nav a.active::after {
-  width: 100%;
-}
-
-.lang-toggle {
-  display: inline-flex;
-  align-items: center;
-  background: var(--surface-soft);
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.14);
-}
-
-.lang-btn {
-  border: none;
-  padding: 4px 10px;
-  font-size: 0.78rem;
-  background: transparent;
-  cursor: pointer;
-  color: var(--text-muted);
-  transition: background var(--transition-fast), color var(--transition-fast),
-    transform var(--transition-fast);
-}
-
-.lang-btn.active {
-  background: linear-gradient(120deg, var(--accent-1), var(--accent-2));
-  color: #111827;
-  font-weight: 600;
-  transform: translateY(-0.5px);
-}
-
-/* ===== Main content ===== */
-
-.main {
-  flex: 1;
-}
-
-.page {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 32px 20px 80px;
-}
-
-/* Hero 区域 */
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-  gap: 40px;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.hero-text {
-  background: var(--surface);
-  border-radius: 38px;
-  padding: 28px 28px 26px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid var(--border-soft);
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-text::before {
-  content: "";
-  position: absolute;
-  top: -30%;
-  right: -15%;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.9), transparent 65%),
-    radial-gradient(circle at 70% 80%, rgba(255, 240, 250, 0.8), transparent 65%);
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-.hero-kicker {
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.hero-title {
-  font-size: 1.8rem;
-  line-height: 1.35;
-  margin: 0 0 14px;
-}
-
-.hero-subtitle {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 18px;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* 流光渐变按钮 */
-.btn-gradient {
-  position: relative;
-  border-radius: 999px;
-  padding: 10px 22px;
-  font-size: 0.9rem;
-  border: none;
-  cursor: pointer;
-  color: #111827;
-  font-weight: 600;
-  background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
-  background-size: 180% 180%;
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.25);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-    background-position 0.8s ease-out;
-}
-
-.btn-gradient:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.3);
-  background-position: 80% 20%;
-}
-
-.btn-ghost {
-  border-radius: 999px;
-  padding: 9px 20px;
-  font-size: 0.88rem;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(12px);
-  cursor: pointer;
-  color: #1f2933;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: background var(--transition-fast), border-color var(--transition-fast),
-    transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.9);
-  border-color: rgba(148, 163, 184, 0.9);
-  transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
-}
-
-/* Hero 右侧卡片：岛屿意象 / 快速介绍 */
-.hero-side {
-  position: relative;
-}
-
-.hero-card {
-  position: relative;
-  border-radius: 34px;
-  padding: 22px 20px;
-  background: radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.9), transparent 60%),
-    radial-gradient(circle at 100% 80%, rgba(190, 210, 255, 0.9), transparent 55%),
-    rgba(25, 37, 70, 0.92);
-  color: #e5edff;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
-  overflow: hidden;
-}
-
-.hero-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 120%, rgba(15, 23, 42, 0.9), transparent 65%);
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-.hero-card-inner {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-card-title {
-  font-size: 0.95rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  opacity: 0.85;
-  margin-bottom: 10px;
-}
-
-.hero-card-main {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  margin-bottom: 12px;
-}
-
-.hero-card-note {
-  font-size: 0.78rem;
-  opacity: 0.75;
-}
-
-/* 通用分节样式 */
-.section {
-  margin-top: 42px;
-}
-
-.section-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-.section-subtitle {
-  font-size: 0.86rem;
-  color: var(--text-muted);
-}
-
-.section-body {
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-  gap: 24px;
-}
-
-/* 卡片样式 */
-.card {
-  background: var(--surface-soft);
-  border-radius: var(--radius-xl);
-  padding: 18px 18px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.16);
-}
-
-.card-soft {
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.card-title {
-  font-size: 0.98rem;
-  margin-bottom: 8px;
-}
-
-.card-text {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.8;
-}
-
-.card-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.card-list li {
-  margin-bottom: 8px;
-}
-
-/* 简单标签 / pill */
-.pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 6px;
-}
-
-.pill {
-  font-size: 0.78rem;
-  padding: 4px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  background: rgba(255, 255, 255, 0.65);
-}
-
-/* 图片 / 头像区域 */
-.avatar-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 28px;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.28);
-  border: 2px solid rgba(255, 255, 255, 0.9);
-}
-
-/* 研究列表 */
-.research-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 0.9rem;
-}
-
-.research-item {
-  padding: 10px 0;
-  border-bottom: 1px dashed rgba(148, 163, 184, 0.5);
-}
-
-.research-item:last-child {
-  border-bottom: none;
-}
-
-.research-title {
-  font-weight: 500;
-  margin-bottom: 3px;
-}
-
-.research-meta {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* 项目列表 */
-.projects-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr);
-  gap: 18px;
-}
-
-/* 话题标签区 */
-.topic-tagline {
-  font-size: 0.95rem;
-  color: var(--text-muted);
-  line-height: 1.9;
-}
-
-.topic-steps {
-  font-size: 0.9rem;
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 0;
-}
-
-.topic-steps li {
-  margin-bottom: 10px;
-}
-
-/* ===== 联系方式 & 页脚 ===== */
-
-.footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(18px);
-  background: linear-gradient(
-    to top,
-    rgba(15, 23, 42, 0.85),
-    rgba(30, 41, 59, 0.75),
-    rgba(255, 255, 255, 0.05)
-  );
-  color: #e5edff;
-}
-
-.footer-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 24px 20px 28px;
-  display: grid;
-  grid-template-columns: minmax(0, 2.2fr) minmax(0, 2.4fr) minmax(0, 1.6fr);
-  gap: 18px;
-}
-
-.footer-brand-title {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.footer-brand-sub {
-  font-size: 0.82rem;
-  opacity: 0.8;
-}
-
-.footer-contacts-title {
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-
-.footer-contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 0.82rem;
-}
-
-.footer-contact-list li {
-  margin-bottom: 3px;
-}
-
-.footer-contact-list a {
-  color: #e5edff;
-  text-decoration: none;
-  opacity: 0.85;
-}
-
-.footer-contact-list a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-.footer-meta {
-  font-size: 0.78rem;
-  opacity: 0.8;
-  line-height: 1.7;
-}
-
-/* 语言显示控制 */
-.lang-cn {
-  display: block;
-}
-
-.lang-en {
-  display: none;
-}
-
-/* 小屏幕适配 */
-@media (max-width: 900px) {
-  .hero,
-  .section-body,
-  .projects-grid,
-  .footer-inner {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .hero {
-    margin-top: 20px;
-  }
-
-  .hero-side {
-    order: -1;
-  }
-}
-
-@media (max-width: 640px) {
-  .header-inner {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .nav {
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
-
-  .hero-text {
-    padding: 20px 16px 18px;
-  }
-
-  .page {
-    padding-inline: 16px;
-  }
-
-  .footer-inner {
-    padding-inline: 16px;
-  }
-}
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <title>云之岛 · 从被期待的人，到自我觉醒的存在</title>
+    <meta
+      name="description"
+      content="云之岛：一场从“被期待的人”到“自我觉醒的存在”的旅程。以心理学为方法，以哲学为骨架，和 Yun 一起共建理解与成长的空间。"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 背景云 / 光影 / 泡泡 -->
+    <div class="background-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+    </div>
+    <div class="sparkles"></div>
+
+    <!-- 顶部导航 -->
+    <header class="site-shell">
+      <nav class="navbar">
+        <a class="brand" href="index.html">
+          <div class="brand-mark"></div>
+          <div>
+            <div class="brand-text-cn">云之岛</div>
+            <div class="brand-text-en">Cloud · Island</div>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a class="nav-link active" href="index.html">
+            <span class="nav-cn">主页</span>
+            <span class="nav-en">Home</span>
+          </a>
+          <a class="nav-link" href="theory.html">
+            <span class="nav-cn">理念与方法</span>
+            <span class="nav-en">Framework</span>
+          </a>
+          <a class="nav-link" href="about.html">
+            <span class="nav-cn">遇见云</span>
+            <span class="nav-en">Meet Yun</span>
+          </a>
+          <a class="nav-link" href="journey.html">
+            <span class="nav-cn">旅程与话题</span>
+            <span class="nav-en">Journey</span>
+          </a>
+          <a class="nav-link" href="projects.html">
+            <span class="nav-cn">研究与项目</span>
+            <span class="nav-en">Projects</span>
+          </a>
+          <a class="nav-link" href="publications.html">
+            <span class="nav-cn">发表与论文</span>
+            <span class="nav-en">Publications</span>
+          </a>
+
+          <div class="lang-toggle">
+            <button class="lang-btn" data-lang-toggle="cn">中文</button>
+            <button class="lang-btn" data-lang-toggle="en">EN</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- 页面主体 -->
+    <main class="page">
+      <!-- Hero 主区块 -->
+      <section class="hero card card-soft">
+        <div class="hero-main">
+          <div class="hero-tag">
+            <div class="hero-tag-dot"></div>
+            <span class="text-cn">从「被期待」到「自我觉醒」的长程旅程</span>
+            <span class="text-en"
+              >A long journey from expectations to awakening</span
+            >
+          </div>
+
+          <h1 class="hero-title-cn text-cn">
+            本项目是一场<br />
+            从「被期待的人」到「自我觉醒的存在」的旅程。
+          </h1>
+          <p class="hero-title-en text-en">
+            This project is a journey<br />
+            from being “the person others expect”<br />
+            to becoming a consciously self-authored being.
+          </p>
+
+          <p class="section-intro text-cn">
+            在这里，我们既不贩卖速效鸡汤，也不沉溺于无限自我剖析。<br />
+            我们尊重现实的重量，也尊重内心的细微震动。<br />
+            以心理学为方法，以哲学为骨架，你和我一起，重新编织：<br />
+            我与自我、他人、时间的关系。
+          </p>
+          <p class="section-intro text-en">
+            This is not a place for quick-fix inspiration, nor endless
+            self-dissection.<br />
+            We honour the weight of reality and the subtle tremors of the inner
+            world.<br />
+            With psychology as method and philosophy as backbone, we gently
+            rebuild<br />
+            how we relate to ourselves, others, and time — together.
+          </p>
+
+          <div class="hero-painpoints">
+            <h3 class="text-cn">也许，你正在经历：</h3>
+            <h3 class="text-en">You may find yourself here:</h3>
+            <ul>
+              <li class="text-cn">
+                总是活在他人的期待、标准和眼光里，久而久之，忘了自己想要什么。
+              </li>
+              <li class="text-cn">
+                理性上“都懂”，情绪却仍然反复，被关系、学业或工作消耗。
+              </li>
+              <li class="text-cn">
+                做了很多“自我提升”，却始终难以真正迈向行动和长期改变。
+              </li>
+
+              <li class="text-en">
+                Living under others’ expectations, standards, and gaze — until
+                you’re no longer sure what you truly want.
+              </li>
+              <li class="text-en">
+                “You understand everything in theory”, yet emotions keep
+                looping, drained by relationships, study, or work.
+              </li>
+              <li class="text-en">
+                You have tried many “self-improvement” tools, but lasting
+                movement and action remain out of reach.
+              </li>
+            </ul>
+          </div>
+
+          <div class="btn-row">
+            <a href="journey.html" class="btn-gradient">
+              <span class="text-cn">走进这场旅程</span>
+              <span class="text-en">Enter the journey</span>
+            </a>
+            <a href="about.html" class="btn-ghost">
+              <span class="text-cn">遇见云 · Yun</span>
+              <span class="text-en">Meet Yun</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 右侧：共建呼吁 -->
+        <aside class="hero-side card">
+          <div class="hero-side-upper">
+            <div class="section-header">
+              <h2 class="section-title-cn text-cn">这不是一个「成品」空间</h2>
+              <h2 class="section-title-en text-en">
+                This is not a finished product
+              </h2>
+            </div>
+            <p class="hero-side-text text-cn">
+              云之岛，更像一块正在生成中的岛屿。<br />
+              我带来的是研究与实践、工具与视角；<br />
+              你带来的是真实问题、生命故事与思考。<br />
+              我们一起共建这座岛：<br />
+              让知识不只停留在论文里，而是落地到你的日常决策、关系选择与行动里。
+            </p>
+            <p class="hero-side-text text-en">
+              Cloud Island is not a polished product; it is an island in the
+              making.<br />
+              I bring research, practice, tools, and perspectives;<br />
+              you bring real questions, lived stories, and reflections.<br />
+              Together, we co-create a space where knowledge doesn’t remain in
+              papers,<br />
+              but flows into daily choices, relationships, and concrete action.
+            </p>
+          </div>
+
+          <div>
+            <p class="hero-side-title text-cn">你可以在这里找到：</p>
+            <p class="hero-side-title text-en">Here, you will find:</p>
+            <ul style="padding-left: 18px; margin-top: 6px">
+              <li class="text-cn">以自我决定理论为核心的成长框架</li>
+              <li class="text-cn">从探索 → 领悟 → 行动 → 自我创造的具体路径</li>
+              <li class="text-cn">与研究前沿接轨、又贴近现实处境的对话</li>
+
+              <li class="text-en">
+                A growth framework grounded in Self-Determination Theory
+              </li>
+              <li class="text-en">
+                Concrete pathways from exploration → insight → action → creative
+                self-authorship
+              </li>
+              <li class="text-en">
+                Dialogues rooted in cutting-edge research yet anchored in real
+                life
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <!-- 次级区块：共建邀请 -->
+      <section class="section">
+        <div class="card">
+          <div class="section-header">
+            <h2 class="section-title-cn text-cn">一起共建「云之岛」</h2>
+            <h2 class="section-title-en text-en">
+              Co-creating “Cloud Island”
+            </h2>
+          </div>
+          <div class="grid-2">
+            <div>
+              <p class="section-intro text-cn">
+                如果你愿意，不只是「来听一场讲座」或「上完一门课」，而是想认真经营自己的内在与人生路径——<br />
+                那么，我诚挚邀请你，把这里当作一个可以停靠、也可以再次起航的中转岛屿。
+              </p>
+              <p class="section-intro text-en">
+                If you are not only here for “one more talk” or “one more
+                course”,<br />
+                but truly want to work on your inner life and life trajectory,
+                <br />
+                then I invite you to treat this space as a harbour island — to
+                pause, then set sail again.
+              </p>
+            </div>
+            <div>
+              <p class="section-intro text-cn">
+                你可以通过：参与研究项目、加入工作坊与心理团体、阅读共创、以及一对一对话等方式，<br />
+                把你的问题、经验与观察，带进这座岛。<br />
+                你的每一次参与，都会反过来影响我如何设计未来的研究与课程。
+              </p>
+              <p class="section-intro text-en">
+                You can join by participating in research, workshops, group
+                spaces, co-reading,<br />
+                or 1:1 conversations. Your questions and experiences will shape
+                how I design future<br />
+                studies, programs, and supports — this island grows with you.
+              </p>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <a href="projects.html" class="btn-ghost">
+              <span class="text-cn">看看我们已经共建了什么</span>
+              <span class="text-en">See what we’ve built so far</span>
+            </a>
+            <a href="journey.html" class="btn-gradient">
+              <span class="text-cn">我想加入/了解下一步</span>
+              <span class="text-en">I’d like to join / know more</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 页脚：联系方式 -->
+      <footer class="footer">
+        <div class="footer-left">
+          <div class="text-cn">
+            云之岛 · 由 Yun 发起的长期实践与研究空间。<br />
+            若你愿意，从这里开始，慢慢把「过得还行」活成「由内而外地合一」。
+          </div>
+          <div class="text-en">
+            Cloud Island is a long-term practice &amp; research space initiated
+            by Yun.<br />
+            From “doing okay” towards a life that feels inwardly and outwardly
+            aligned.
+          </div>
+        </div>
+        <div class="footer-right">
+          <!-- 把 # 换成你真实链接 -->
+          <a class="contact-link" href="mailto:your_email@example.com"
+            >Email</a
+          >
+          <a class="contact-link" href="#" target="_blank">LinkedIn</a>
+          <a class="contact-link" href="#" target="_blank">Google Scholar</a>
+          <a class="contact-link" href="#" target="_blank">小红书</a>
+          <a class="contact-link" href="#" target="_blank">WeChat / 微信</a>
+        </div>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
