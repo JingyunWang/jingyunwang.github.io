@@ -1,40 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 默认语言
-  let currentLang = "cn";
+  const saved = localStorage.getItem("yunisle-lang");
+  const defaultLang = saved === "en" ? "en" : "zh";
+  setLang(defaultLang);
 
-  function applyLang(lang) {
-    currentLang = lang;
-
-    document
-      .querySelectorAll("[data-lang]")
-      .forEach((el) => (el.style.display = el.dataset.lang === lang ? "" : "none"));
-
-    document
-      .querySelectorAll("[data-lang-switch]")
-      .forEach((btn) => {
-        if (btn.dataset.langSwitch === lang) {
-          btn.classList.add("lang-btn-active");
-        } else {
-          btn.classList.remove("lang-btn-active");
-        }
-      });
-  }
-
-  // 语言切换按钮
-  document.querySelectorAll("[data-lang-switch]").forEach((btn) => {
+  document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
-      applyLang(btn.dataset.langSwitch);
+      const lang = btn.getAttribute("data-set-lang");
+      setLang(lang);
     });
   });
 
-  applyLang("cn");
+  function setLang(lang) {
+    document.body.classList.toggle("lang-zh", lang === "zh");
+    document.body.classList.toggle("lang-en", lang === "en");
 
-  // 导航当前高亮
-  const path = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href === path) {
-      link.classList.add("nav-link-active");
-    }
-  });
+    document.querySelectorAll("[data-lang]").forEach((el) => {
+      const elLang = el.getAttribute("data-lang");
+      el.style.display = elLang === lang ? "" : "none";
+    });
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      const btnLang = btn.getAttribute("data-set-lang");
+      btn.classList.toggle("active", btnLang === lang);
+    });
+
+    localStorage.setItem("yunisle-lang", lang);
+  }
 });
