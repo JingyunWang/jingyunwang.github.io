@@ -113,10 +113,10 @@ body {
   backdrop-filter: blur(18px);
   background: linear-gradient(
     120deg,
-    rgba(255, 255, 255, 0.85),
-    rgba(240, 245, 255, 0.92)
+    rgba(255, 255, 255, 0.86),
+    rgba(240, 245, 255, 0.94)
   );
-  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.85);
 }
 
 .site-header-inner {
@@ -136,24 +136,26 @@ body {
   color: inherit;
 }
 
-/* 更新后的柔光圆形 Logo，接近你给的参考图 */
+/* 柔光圆形 Logo：中心白、边缘蓝粉，接近参考图1/2 */
 .brand-mark {
   width: 36px;
   height: 36px;
   border-radius: 999px;
   background:
+    radial-gradient(circle at 30% 20%, #ffffff, #fdfbff 45%, #eef5ff 80%, #e3ecff),
     conic-gradient(
       from 210deg,
       #ffd9e4,
-      #fff2cf,
-      #dde5ff,
-      #e5f6ff,
+      #ffeec7,
+      #d6e6ff,
+      #c8f0ff,
+      #f0ccff,
       #ffd9e4
     );
   position: relative;
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.9),
-    0 10px 24px rgba(90, 104, 160, 0.45);
+    0 0 0 1px rgba(255, 255, 255, 0.95),
+    0 10px 26px rgba(76, 96, 155, 0.55);
 }
 
 .brand-mark::after {
@@ -165,14 +167,14 @@ body {
     circle at 30% 20%,
     #ffffff,
     #f8f5ff 55%,
-    #eef2ff 100%
+    #ebf3ff 100%
   );
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.85),
-    0 4px 10px rgba(150, 164, 210, 0.45);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.96),
+    0 4px 10px rgba(147, 163, 214, 0.55);
 }
 
-/* 先不在中心放字，让 logo 更简洁 */
+/* 保持 logo 中心不写字，图案更干净 */
 .brand-initial {
   display: none;
 }
@@ -556,20 +558,17 @@ main {
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.8rem;
   margin-bottom: 0.6rem;
 }
 
-.card-title {
-  font-size: 1.05rem;
-  margin: 0;
+.card-title-main {
+  font-size: 1.1rem;
+  margin: 0 0 0.15rem;
 }
 
-.card-tag {
-  font-size: 0.75rem;
+.card-title-sub {
+  font-size: 0.9rem;
+  margin: 0;
   color: var(--text-soft);
 }
 
@@ -591,12 +590,32 @@ main {
   margin-bottom: 0.3rem;
 }
 
-/* ====== 首页四宫格布局：也许 / 从被期待的人 / 成品空间 ====== */
+/* 标题小 icon（类似图三的小胶囊） */
+.card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.12rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 18px rgba(140, 155, 211, 0.35);
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  margin-bottom: 0.4rem;
+}
+
+.card-kicker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffe2f0, #b9c9ff);
+}
+
+/* ====== 首页四宫格布局 ====== */
 
 .home-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.6rem;
   align-items: stretch;
 }
@@ -605,40 +624,34 @@ main {
   height: 100%;
 }
 
-/* 左上：也许，你正在经历—— */
 .home-card-top-left {
   grid-column: 1;
   grid-row: 1;
 }
 
-/* 左下：从「被期待的人」到「自我觉醒的存在」 */
+.home-card-top-right {
+  grid-column: 2;
+  grid-row: 1;
+}
+
 .home-card-bottom-left {
   grid-column: 1;
   grid-row: 2;
 }
 
-/* 右侧：这不是一个「成品」空间（上下打通） */
-.home-card-right {
+.home-card-bottom-right {
   grid-column: 2;
-  grid-row: 1 / span 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  grid-row: 2;
 }
 
-.home-card-right .card-actions {
+.card-actions {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
 }
 
-.card-title-main {
-  font-size: 1.1rem;
-  margin: 0 0 0.4rem;
-}
-
-/* ====== 内页 Hero（理论 / 其他页面会用到） ====== */
+/* ====== 内页 Hero（预留） ====== */
 .inner-hero {
   padding: 2.4rem 0 1.4rem;
 }
@@ -669,7 +682,7 @@ main {
   max-width: 560px;
 }
 
-/* ====== theory 页面 ====== */
+/* ====== 预留：其他页面布局（保持与之前版本兼容） ====== */
 .two-column {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
@@ -740,171 +753,10 @@ main {
   color: var(--text-soft);
 }
 
-/* ====== meet-yun / 其他页面的基础布局（预留） ====== */
-.profile-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
-  gap: 2.4rem;
-  align-items: flex-start;
-}
-
-.avatar-card {
-  border-radius: 26px;
-  padding: 1.4rem 1.3rem 1.5rem;
-  background: radial-gradient(circle at 15% 0%, #ffffff 0%, #f5f3ff 45%, #edf1ff 100%);
-  box-shadow: var(--shadow-soft);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-}
-
-.avatar-placeholder {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #fdf3f7, #e8f0ff);
-  border: 1px dashed rgba(183, 195, 236, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.82rem;
-  color: var(--text-soft);
-  margin-bottom: 0.8rem;
-}
-
-.avatar-meta {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-top: 0.65rem;
-}
-
-.chip {
-  font-size: 0.75rem;
-  padding: 0.18rem 0.6rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(195, 206, 244, 0.9);
-}
-
-.profile-sections {
-  display: grid;
-  gap: 1.4rem;
-}
-
-.profile-section-title {
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.profile-section-body {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.profile-section-body ul {
-  margin: 0.2rem 0 0;
-  padding-left: 1rem;
-}
-
-/* ====== research 页面预留 ====== */
-.research-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.05fr);
-  gap: 2.1rem;
-}
-
-.paper-list {
-  font-size: 0.86rem;
-  color: var(--text-muted);
-}
-
-.paper-item {
-  margin-bottom: 0.8rem;
-}
-
-.paper-year {
-  font-size: 0.75rem;
-  color: var(--text-soft);
-}
-
-.paper-title {
-  margin: 0.15rem 0;
-}
-
-.paper-meta {
-  font-size: 0.82rem;
-  color: var(--text-soft);
-}
-
-.thesis-card {
-  border-radius: 22px;
-  padding: 1.3rem;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), #f3f1ff);
-  border: 1px solid rgba(211, 219, 255, 0.95);
-  box-shadow: var(--shadow-soft);
-}
-
-.thesis-cover-placeholder {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: 18px;
-  border: 1px dashed rgba(170, 184, 236, 0.9);
-  background: linear-gradient(135deg, #fdf6f2, #e7f0ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  color: var(--text-soft);
-  margin-bottom: 0.8rem;
-}
-
-.thesis-title {
-  font-size: 0.92rem;
-  margin: 0 0 0.2rem;
-}
-
-.thesis-meta {
-  font-size: 0.8rem;
-  color: var(--text-soft);
-}
-
-/* ====== topics 页面预留 ====== */
-.topic-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.4rem;
-}
-
-.topic-card {
-  border-radius: 18px;
-  padding: 1.1rem 1.1rem 1.2rem;
-  background: rgba(255, 255, 255, 0.94);
-  border: 1px solid rgba(206, 214, 250, 0.9);
-  box-shadow: 0 14px 28px rgba(23, 37, 87, 0.16);
-  font-size: 0.86rem;
-  color: var(--text-muted);
-}
-
-.topic-card-title {
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-.topic-card-tag {
-  font-size: 0.75rem;
-  color: var(--text-soft);
-  margin-bottom: 0.35rem;
-}
-
-/* ====== 联系方式 & 页脚 ====== */
+/* ====== 页脚：深色卡片 + 按钮 ====== */
 .site-footer {
   margin-top: 3rem;
-  padding: 2.3rem 0 1.6rem;
+  padding: 2.6rem 0 1.6rem;
   border-top: 1px solid rgba(207, 215, 248, 0.9);
   background: linear-gradient(
     180deg,
@@ -917,60 +769,107 @@ main {
 .footer-inner {
   display: flex;
   flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* 大卡片 */
+.footer-contact-card {
+  border-radius: 26px;
+  padding: 1.5rem 1.7rem 1.6rem;
+  background: radial-gradient(circle at 10% -10%, #313a75, #111630);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(87, 103, 181, 0.9);
+}
+
+.footer-contact-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 1.8rem;
 }
 
-.footer-contact {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
-  gap: 1.4rem;
+.footer-contact-main {
+  max-width: 480px;
 }
 
 .footer-contact-title {
-  font-size: 0.95rem;
-  margin-bottom: 0.3rem;
+  font-size: 0.98rem;
+  margin-bottom: 0.35rem;
 }
 
-.footer-contact-intro {
-  font-size: 0.85rem;
-  color: rgba(236, 239, 255, 0.7);
+.footer-contact-text {
+  font-size: 0.86rem;
+  color: rgba(226, 231, 255, 0.8);
+  margin: 0.1rem 0;
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
-  font-size: 0.83rem;
+.footer-contact-text + .footer-contact-text {
+  margin-top: 0.2rem;
 }
 
-.contact-item-label {
-  font-size: 0.78rem;
-  color: rgba(224, 229, 255, 0.8);
-  margin-bottom: 0.1rem;
+/* 按钮区 */
+.footer-contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
 }
 
-.contact-item-value a {
-  color: #fefeff;
+.contact-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: flex-end;
+}
+
+.contact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
   text-decoration: none;
+  border: 1px solid rgba(169, 185, 255, 0.85);
+  background: rgba(16, 24, 60, 0.95);
+  color: #f5f7ff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+  transition: background var(--transition-fast), transform var(--transition-fast),
+    box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 
-.contact-item-value a:hover {
-  text-decoration: underline;
+.contact-pill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #ffe5ef, #9ac2ff);
 }
 
-/* 底部版权三栏 */
-.footer-bottom {
-  border-top: 1px solid rgba(90, 100, 150, 0.6);
-  padding-top: 1.1rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr) minmax(0, 1.2fr);
-  gap: 1.2rem;
-  font-size: 0.75rem;
-  color: rgba(214, 220, 255, 0.8);
+.contact-pill:hover {
+  background: rgba(37, 48, 100, 0.98);
+  border-color: rgba(213, 222, 255, 0.98);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.7);
 }
 
-.footer-bottom strong {
-  font-weight: 600;
+.footer-contact-ids {
+  font-size: 0.78rem;
+  color: rgba(207, 214, 255, 0.8);
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* 版权行 */
+.footer-bottom-line {
+  border-top: 1px solid rgba(90, 100, 150, 0.7);
+  padding-top: 1rem;
+  font-size: 0.76rem;
+  color: rgba(214, 220, 255, 0.85);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem;
 }
 
 /* ====== 响应式调整 ====== */
@@ -989,28 +888,23 @@ main {
 
   .home-grid {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: auto;
   }
 
-  .home-card-top-left,
-  .home-card-bottom-left,
-  .home-card-right {
-    grid-column: auto;
-    grid-row: auto;
+  .footer-contact-layout {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .footer-contact {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-@media (max-width: 780px) {
-  .topic-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .footer-contact-actions {
+    align-items: flex-start;
   }
 
-  .footer-bottom {
-    grid-template-columns: minmax(0, 1fr);
+  .contact-pill-row {
+    justify-content: flex-start;
+  }
+
+  .footer-contact-ids {
+    text-align: left;
   }
 }
 
@@ -1030,13 +924,5 @@ main {
   .hero-actions {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .topic-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .contact-grid {
-    grid-template-columns: minmax(0, 1fr);
   }
 }
