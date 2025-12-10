@@ -19,18 +19,21 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 
-  <!-- 首页微调样式：子标题放大、强调文字、漂亮项目符号、小气泡标签 -->
+  <!-- 首页微调样式：子标题放大、强调文字、漂亮项目符号、小气泡标签、统一间距 -->
   <style>
     .hero-subtitle {
       font-size: 1.04rem;
       font-weight: 500;
+      margin-bottom: 0.6rem;
     }
     .hero-tagline {
       font-size: 0.92rem;
+      margin-top: 0.3rem;
     }
     .card-title-main {
       font-size: 1.06rem;
       font-weight: 600;
+      margin-top: 0.15rem;
     }
     .emphasis {
       font-weight: 600;
@@ -41,11 +44,39 @@
       color: #44456b;
     }
 
-    /* 自定义项目符号：小渐变点 + 左缩进 */
+    /* 提问卡使用 ⟡ 作为项目符号 */
+    .isle-list {
+      margin-top: 0.6rem;
+    }
+    .isle-list-item {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.9rem;
+    }
+    .isle-list-item .isle-bullet {
+      display: none;
+    }
+    .isle-list-item::before {
+      content: "⟡";
+      position: absolute;
+      left: 0.1rem;
+      top: 0.05rem;
+      font-size: 0.78rem;
+      color: #b49be5;
+    }
+
+    /* 卡片顶部 chip 与标题之间统一间距 */
+    .card-header .card-kicker,
+    .isle-card-header .isle-chip {
+      margin-bottom: 0.5rem;
+    }
+
+    /* 自定义项目符号：小渐变点 + 左缩进（用于下方列表） */
     .text-list {
       list-style: none;
       padding-left: 0;
-      margin: 0.4rem 0 0.2rem;
+      margin: 0.45rem 0 0.4rem;
     }
     .text-list li {
       position: relative;
@@ -64,6 +95,27 @@
       background: linear-gradient(120deg, #ffb8c6, #b3c5ff);
     }
 
+    /* Hero 要点列表（研究/故事/你此刻足够） */
+    .hero-keypoints {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.35rem 0 0.7rem;
+    }
+    .hero-keypoints li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+    .hero-keypoints li::before {
+      content: "•";
+      position: absolute;
+      left: 0.25rem;
+      top: 0.35em;
+      font-size: 0.7rem;
+      color: #c09cf2;
+    }
+
     /* 「你可以在这里找到」气泡 */
     .card-chip-label {
       display: inline-flex;
@@ -75,13 +127,29 @@
       box-shadow: 0 8px 18px rgba(140, 155, 211, 0.35);
       font-size: 0.78rem;
       color: #7b7b98;
-      margin: 0.6rem 0 0.4rem;
+      margin: 0.8rem 0 0.45rem;
     }
     .card-chip-label-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 30%, #ffe2f0, #b9c9ff);
+    }
+
+    /* 共建气泡：与上方形式一致，色调稍微更柔一点 */
+    .card-chip-secondary {
+      margin-top: 0.9rem;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 6px 16px rgba(150, 134, 210, 0.28);
+    }
+
+    /* 让卡片内段落的上下间距更统一 */
+    .card-body p {
+      margin: 0.4rem 0;
+      line-height: 1.7;
+    }
+    .isle-footer p {
+      margin-top: 0.3rem;
     }
   </style>
 </head>
@@ -175,21 +243,19 @@
               to finish all the answers at once;
               <span class="emphasis-soft">you only need to allow yourself to come a little closer, each time.</span>
             </p>
-            <p class="hero-tagline lang-zh">
-              在这里，研究、咨询与人生故事重新对话，让
-              <span class="emphasis-soft">「你正在经历的生活」成为最重要的教材。</span><br />
-              「每一步都带着故事的回响，塑造着旅程，也塑造着灵魂。」在寻屿，这些故事终于可以好好呼吸。<br />
-              你无需先变得更好，才值得被好好对待——
-              <span class="emphasis">此刻的你，就已经足以被温柔以待。</span>
-            </p>
-            <p class="hero-tagline lang-en">
-              Here, research, therapy, and lived stories come back into conversation, so
-              <span class="emphasis-soft">the life you are living right now becomes the most important text.</span><br />
-              “Every step carries a story, echoing forward and shaping the journey and the soul.”
-              On Yunisle, these stories finally get to breathe.<br />
-              You do not have to become “better” first in order to deserve care—
-              <span class="emphasis">who you are right now is already worthy of gentleness.</span>
-            </p>
+
+            <!-- 三条关键句：带项目符号 -->
+            <ul class="hero-keypoints lang-zh">
+              <li>在这里，研究、咨询与人生故事重新对话，让「你正在经历的生活」成为你的人生意义。</li>
+              <li>「每一步都带着故事的回响，塑造着旅程，也塑造着灵魂。」在寻屿，这些故事终于可以好好呼吸。</li>
+              <li>你无需先变得更好，才值得被好好对待——此刻的你，就已经足以被温柔以待。</li>
+            </ul>
+            <ul class="hero-keypoints lang-en">
+              <li>Here, research, therapy, and lived stories come back into conversation, so the life you are living now becomes the ground of meaning.</li>
+              <li>“Every step carries a story, echoing forward and shaping the journey and the soul.” On Yunisle, these stories finally get to breathe.</li>
+              <li>You do not have to become “better” first in order to deserve care—who you are right now is already worthy of gentleness.</li>
+            </ul>
+
             <p class="hero-tagline lang-zh">
               在这座云端小岛上，我们以心理学为方法，以哲学为骨架，沿着
               <span class="emphasis-soft">经验 → 意识 → 行动 → 自我创造</span> 的路径，
@@ -462,8 +528,16 @@
                   <li>Workshops, longer journeys, and co-created research where science and real life meet.</li>
                 </ul>
 
+                <!-- 共建气泡标题 -->
+                <div class="card-chip-label card-chip-secondary">
+                  <span class="card-chip-label-dot"></span>
+                  <span class="lang-zh">共建，而不是单向被改变</span>
+                  <span class="lang-en">Co-creation, not one-way fixing</span>
+                </div>
+
                 <p class="lang-zh">
-                  寻屿不是我的岛屿，而是 <span class="emphasis-soft">「我们一起长出来的岛屿」</span>：
+                  这里不是我的岛屿，而是
+                  <span class="emphasis-soft">「我们一起长出来的岛屿」</span>：
                   你可以是来访者、合作者、研究参与者，也是一路同行的人。<br />
                   我想邀请你，不只是成为“更好的人”，而是一步步，成为「你自己」——
                   活得更自由，感受更深，也学会温柔地安放心中的那座岛。
@@ -514,7 +588,7 @@
                 They do not need to be polished; they only need to be seen.
               </p>
               <p class="footer-contact-text lang-zh">
-                考虑到当下的研究/教学工作，我最多会在约 10 天内回复。
+                因为还有研究与教学工作，我最多会在约 10 天内回复。
               </p>
               <p class="footer-contact-text lang-en">
                 Alongside research and teaching, I usually respond within about ten days.
