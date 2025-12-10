@@ -3,341 +3,327 @@
   <head>
     <meta charset="UTF-8" />
     <title>寻屿 · Yunisle | 云端里的小岛，向内生长的旅程</title>
+    <meta
+      name="description"
+      content="寻屿 · Yunisle —— 一个关于爱、成为与完整的内在之屿。从“被期待的人”到“自我觉醒的存在”的旅程。"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
+    <script src="main.js" defer></script>
   </head>
+  <body class="lang-zh">
+    <div class="bg-cloud"></div>
 
-  <body>
-    <div class="site-shell">
-      <!-- HEADER -->
-      <header class="site-header">
-        <div class="header-inner">
-          <a href="index.html" class="brand">
-            <div class="brand-mark"></div>
-            <div>
-              <div class="brand-text-main" data-lang="cn">寻屿 · YUNISLE</div>
-              <div class="brand-text-main" data-lang="en">Yunisle · Inner Isles</div>
-              <div class="brand-text-sub">INNER ISLES OF BECOMING</div>
+    <!-- 顶部导航 -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="index.html" class="brand" aria-label="Yunisle Home">
+          <div class="brand-logo"></div>
+          <div>
+            <div class="brand-text-main" data-lang="zh">寻屿 · Yunisle</div>
+            <div class="brand-text-main" data-lang="en" style="display: none">
+              Yunisle
             </div>
+
+            <div class="brand-text-sub" data-lang="zh">
+              心灵岛屿 · 自我与生命探索
+            </div>
+            <div class="brand-text-sub" data-lang="en" style="display: none">
+              Inner isles of becoming
+            </div>
+          </div>
+        </a>
+
+        <nav class="main-nav">
+          <a href="index.html" class="nav-link current">
+            <span data-lang="zh">主页</span>
+            <span data-lang="en" style="display: none">Home</span>
           </a>
+          <a href="theory.html" class="nav-link">
+            <span data-lang="zh">理念与方法</span>
+            <span data-lang="en" style="display: none">Framework</span>
+          </a>
+          <a href="meet-yun.html" class="nav-link">
+            <span data-lang="zh">遇见云</span>
+            <span data-lang="en" style="display: none">Meet Yun</span>
+          </a>
+          <a href="research.html" class="nav-link">
+            <span data-lang="zh">研究与发表</span>
+            <span data-lang="en" style="display: none">Research</span>
+          </a>
+          <a href="projects.html" class="nav-link">
+            <span data-lang="zh">共创项目</span>
+            <span data-lang="en" style="display: none">Projects</span>
+          </a>
+          <a href="topics.html" class="nav-link">
+            <span data-lang="zh">旅程与话题</span>
+            <span data-lang="en" style="display: none">Journey</span>
+          </a>
+        </nav>
 
-          <nav class="nav">
-            <div class="nav-links">
-              <a href="index.html" class="nav-link">
-                <span data-lang="cn">主页</span>
-                <span data-lang="en">Home</span>
-              </a>
-              <a href="theory.html" class="nav-link">
-                <span data-lang="cn">理念与方法</span>
-                <span data-lang="en">Framework</span>
-              </a>
-              <a href="meet-yun.html" class="nav-link">
-                <span data-lang="cn">遇见云</span>
-                <span data-lang="en">Meet Yun</span>
-              </a>
-              <a href="research.html" class="nav-link">
-                <span data-lang="cn">研究与发表</span>
-                <span data-lang="en">Research</span>
-              </a>
-              <a href="projects.html" class="nav-link">
-                <span data-lang="cn">共创项目</span>
-                <span data-lang="en">Projects</span>
-              </a>
-              <a href="topics.html" class="nav-link">
-                <span data-lang="cn">话题与旅程</span>
-                <span data-lang="en">Topics</span>
-              </a>
-            </div>
-
-            <div class="lang-toggle" aria-label="Language toggle">
-              <button class="lang-btn" data-lang-switch="cn">中文</button>
-              <button class="lang-btn" data-lang-switch="en">EN</button>
-            </div>
-          </nav>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-set-lang="zh">中文</button>
+          <span class="lang-divider">|</span>
+          <button class="lang-btn" data-set-lang="en">EN</button>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main class="site-main">
-        <!-- HERO -->
-        <section class="hero">
-          <div class="container hero-inner">
-            <div>
-              <div class="chip">
-                <span class="chip-dot"></span>
-                <span data-lang="cn">云端里的小岛 · 心灵岛屿</span>
-                <span data-lang="en">An inner island in the clouds</span>
-              </div>
-
-              <h1 class="hero-title" data-lang="cn">
-                从「被期待的人」<br />到「自我觉醒的存在」
-              </h1>
-              <h1 class="hero-title" data-lang="en">
-                From being who you’re expected to be<br />to becoming who you truly are
-              </h1>
-
-              <p class="hero-tagline" data-lang="cn">
-                这里不是快速修复的心灵鸡汤，而是一座正在生成的岛屿。<br />
-                以心理学为方法，以哲学为骨架，我们一起走过
-                <strong>经验 → 意识 → 行动 → 自我创造</strong> 的路径，
-                重建与自我、他人、时间与命运的关系。
-              </p>
-              <p class="hero-tagline" data-lang="en">
-                This is not a place for quick fixes, but an island still in the making.  
-                With psychology as method and philosophy as backbone, we walk together along
-                the path of <strong>experience → awareness → action → self-creation</strong>,
-                rebuilding our relationship with self, others, time, and destiny.
-              </p>
-
-              <div class="hero-meta">
-                <span class="hero-badge" data-lang="cn">
-                  心理学 · 自我决定理论 · 发展视角
-                </span>
-                <span class="hero-badge" data-lang="en">
-                  Psychology · Self-Determination · Developmental lens
-                </span>
-                <span class="muted" data-lang="cn">
-                  一座为「诚实生活」而建的心灵岛屿。
-                </span>
-                <span class="muted" data-lang="en">
-                  An isle for living honestly, feeling deeply, and becoming whole.
-                </span>
-              </div>
-
-              <div class="btn-row">
-                <a href="topics.html" class="btn btn-primary">
-                  <span data-lang="cn">走进这场旅程</span>
-                  <span data-lang="en">Enter the journey</span>
-                </a>
-                <a href="projects.html" class="btn btn-ghost">
-                  <span data-lang="cn">与我一起共建 Yunisle</span>
-                  <span data-lang="en">Co-create Yunisle with me</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="hero-right">
-              <div class="isle-orbit">
-                <div class="isle-main">
-                  <div class="isle-main-inner">
-                    <div class="isle-title" data-lang="cn">云端里的小岛 · 向内生长的旅程</div>
-                    <div class="isle-title" data-lang="en">Yunisle · Inner isles of becoming</div>
-
-                    <p class="isle-quote" data-lang="cn">
-                      “生命的意义，不在外部的评判，而在内心的感受。”
-                    </p>
-                    <p class="isle-quote" data-lang="en">
-                      “The meaning of life is not in outer evaluation,  
-                      but in how it is felt from within.”
-                    </p>
-
-                    <div class="isle-bottom">
-                      <p data-lang="cn">
-                        我是 <strong>Jingyun</strong>，一名发展心理学研究者与实践者，
-                        邀请你在这里慢下来，诚实地看见自己，学习与生命并肩而行。
-                      </p>
-                      <p data-lang="en">
-                        I’m <strong>Jingyun</strong>, a developmental psychologist and explorer of inner life.  
-                        Here, I invite you to slow down, see yourself honestly, and walk alongside your own becoming.
-                      </p>
-
-                      <div class="isle-badge-row">
-                        <span class="isle-pill" data-lang="cn">发展心理学 · 青少年与家庭</span>
-                        <span class="isle-pill" data-lang="en">Development · Youth &amp; Families</span>
-
-                        <span class="isle-pill" data-lang="cn">自主性 · 关系 · 真实生活</span>
-                        <span class="isle-pill" data-lang="en">Autonomy · Relatedness · Honest living</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="orbit-cloud orbit-cloud-1">
-                  <span data-lang="cn">
-                    这里不是「成品」空间，而是共同研究与共创的岛屿。
-                  </span>
-                  <span data-lang="en">
-                    Not a finished product, but an island for shared inquiry and co-creation.
-                  </span>
-                </div>
-                <div class="orbit-cloud orbit-cloud-2">
-                  <span data-lang="cn">
-                    你带来真实的困惑与故事，我们一起把它们化为行动与新可能。
-                  </span>
-                  <span data-lang="en">
-                    You bring real questions and stories; together we turn them into action and new possibilities.
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Pain points / Questions -->
-        <section class="section">
-          <div class="container two-column">
-            <div class="glass-card">
-              <div class="section-heading">
-                <div class="section-eyebrow" data-lang="cn">也许，你正在经历</div>
-                <div class="section-eyebrow" data-lang="en">Perhaps you’re here because</div>
-                <h2 class="section-title" data-lang="cn">
-                  总是在回应「别人的期待」，却越来越听不见自己的声音？
-                </h2>
-                <h2 class="section-title" data-lang="en">
-                  You keep meeting everyone else’s expectations,<br />and yet you can’t hear your own voice clearly?
-                </h2>
-              </div>
-
-              <ul class="clean" data-lang="cn">
-                <li>在家庭、伴侣或工作关系中，习惯照顾他人，而很少诚实对待自己的需要。</li>
-                <li>理性上「都懂」，情绪却仍旧反复，卡在某些关系、选择或身份位置里。</li>
-                <li>在学业、职业、迁移或人生重大转折点前，摇摆在「我要什么」与「我应该怎样」之间。</li>
-                <li>做了很多努力和提升，却总感觉离真正的自己、想过的生活还有一段距离。</li>
-              </ul>
-
-              <ul class="clean" data-lang="en">
-                <li>In family, partnership, or work, you’re used to caring for others, but rarely honest about your own needs.</li>
-                <li>You “understand everything” rationally, yet emotions keep looping around the same relationships and choices.</li>
-                <li>At turning points – study, career, migration, commitment – you swing between “What do I want?” and “What should I do?”</li>
-                <li>You’ve tried hard and grown a lot, but still feel a gap between your current life and the one that feels truly yours.</li>
-              </ul>
-
-              <p class="lead" style="margin-top: 0.9rem" data-lang="cn">
-                如果这些描述有一点触动你，那么欢迎你停留片刻。<br />
-                寻屿不是要把你「修好」，而是陪你一起，看见你早已具备的力量。
-              </p>
-              <p class="lead" style="margin-top: 0.9rem" data-lang="en">
-                If any of this feels familiar, you’re welcome to stay a little.  
-                Yunisle is not here to “fix” you, but to walk with you as you rediscover the strength already within you.
-              </p>
-            </div>
-
-            <div class="glass-card-soft">
-              <div class="section-heading">
-                <div class="section-eyebrow" data-lang="cn">这不是一个「成品」空间</div>
-                <div class="section-eyebrow" data-lang="en">This is not a finished product</div>
-              </div>
-
-              <p class="lead" data-lang="cn">
-                这里，更像一块正在生成中的岛屿。<br />
-                我带来的，是研究与实践、工具与视角；你带来的，是真实问题、生命故事与思考。<br /><br />
-                我们一起共建这个岛，让知识不只停留在论文里，而是落地到你的日常选择、关系与行动里。
-              </p>
-              <p class="lead" data-lang="en">
-                This place is more like an island in the making.  
-                I bring research, clinical and educational practice, and tools;  
-                you bring real questions, life stories, and reflections.  
-                Together we co-build this isle, so knowledge doesn’t stay in papers,
-                but flows into your daily choices, relationships, and actions.
-              </p>
-
-              <div class="card-list" style="margin-top: 1.3rem">
-                <div>
-                  <div class="badge" data-lang="cn">你可以在这里找到</div>
-                  <div class="badge" data-lang="en">Here you’ll find</div>
-                  <ul class="clean" style="margin-top: 0.8rem" data-lang="cn">
-                    <li>以自我决定理论为核心的成长框架。</li>
-                    <li>从探索 → 领悟 → 行动 → 自我创造的具体路径。</li>
-                    <li>与研究前沿接轨、又贴近现实处境的对话与实践。</li>
-                  </ul>
-                  <ul class="clean" style="margin-top: 0.8rem" data-lang="en">
-                    <li>A growth framework grounded in Self-Determination Theory.</li>
-                    <li>Concrete pathways from exploration → insight → action → self-creation.</li>
-                    <li>Dialogue and practices that bridge cutting-edge research and real-life contexts.</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="btn-row">
-                <a href="theory.html" class="btn btn-ghost">
-                  <span data-lang="cn">了解理念与方法</span>
-                  <span data-lang="en">Explore the framework</span>
-                </a>
-                <a href="#contact" class="btn btn-primary">
-                  <span data-lang="cn">写信给云 · 开启共建</span>
-                  <span data-lang="en">Write to Yun · Start co-creating</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- FOOTER -->
-      <footer class="site-footer" id="contact">
-        <div class="container">
-          <div class="footer-top">
-            <div>
-              <div class="footer-heading" data-lang="cn">联系方式 · 与我共建这座小岛</div>
-              <div class="footer-heading" data-lang="en">Stay in touch · Co-create the isle</div>
-
-              <p class="footer-text" data-lang="cn">
-                如果你在研究、实践、咨询、教学或个人生命旅程中，对这些话题有所共鸣，
-                欢迎写信给我。因为还有科研与生活的安排，我会在 <strong>10 天内</strong> 回复。
-              </p>
-              <p class="footer-text" data-lang="en">
-                If any of these threads resonate with your research, practice, teaching,
-                or personal journey, you are warmly invited to write to me.
-                I aim to respond within <strong>10 days</strong>.
-              </p>
-
-              <p class="footer-note" data-lang="cn">
-                你可以用中文或英文来信，我们在云端相遇，再一起把岛屿慢慢建起。
-              </p>
-              <p class="footer-note" data-lang="en">
-                You are welcome to write in Chinese or English. Let’s meet in the clouds
-                and build this inner isle together.
-              </p>
-            </div>
-
-            <div class="footer-contacts">
-              <div>
-                <div class="footer-group-title">Email &amp; Academic</div>
-                <a class="footer-link" href="mailto:YOUR_EMAIL_HERE">
-                  yunisle · Email<br /><span>YOUR_EMAIL_HERE</span>
-                </a>
-                <a class="footer-link" href="https://scholar.google.com" target="_blank" rel="noopener">
-                  Google Scholar<br /><span>Research &amp; citations</span>
-                </a>
-                <a class="footer-link" href="https://www.linkedin.com" target="_blank" rel="noopener">
-                  LinkedIn<br /><span>Academic &amp; professional</span>
-                </a>
-              </div>
-              <div>
-                <div class="footer-group-title">Social</div>
-                <a class="footer-link" href="#" target="_blank" rel="noopener">
-                  小红书 · Yunisle<br /><span>日常感受与灵感</span>
-                </a>
-              </div>
-              <div>
-                <div class="footer-group-title">WeChat</div>
-                <span class="footer-link">
-                  微信（WeChat）<br /><span>请在邮件中说明来意，我会回复微信号</span>
-                </span>
-              </div>
-            </div>
+    <main class="page-shell">
+      <!-- Hero 区 -->
+      <section class="hero-grid">
+        <div class="card">
+          <div class="pill-label">
+            <span class="pill-dot"></span>
+            <span data-lang="zh">云端里的小岛 · 向内生长的旅程</span>
+            <span data-lang="en" style="display: none"
+              >An inner isle for gentle growth</span
+            >
           </div>
 
-          <div class="footer-bottom">
-            <div>
-              © 2025 寻屿 · Yunisle · Inner isles of becoming.<br />
-              All rights reserved.
+          <h1 class="hero-title-cn" data-lang="zh">
+            本项目是一场从「被期待的人」<br />到「自我觉醒的存在」的旅程。
+          </h1>
+          <h1 class="hero-title-cn" data-lang="en" style="display: none">
+            From “the person others expect”<br />to “who you are when awake to
+            yourself”.
+          </h1>
+
+          <p class="hero-subtitle-cn" data-lang="zh">
+            在这里，你不需要更“优秀”，你只需要足够真实。
+          </p>
+          <p class="hero-subtitle-cn" data-lang="en" style="display: none">
+            You are not here because you are not enough.<br />You are here
+            because you are honest.
+          </p>
+
+          <p class="hero-body" data-lang="zh">
+            寻屿 · Yunisle，以心理学为方法，以哲学为骨架。<br />
+            我们从经验 → 意识 → 行动 → 自我创造的路径出发，<br />
+            重新编织你与自我、他人、时间与命运的关系。<br />
+            这不是一碗“快速鸡汤”，而是一块正在生成中的心灵小岛——<br />
+            我们在这里相遇、对话、共同试验新的活法。
+          </p>
+          <p class="hero-body" data-lang="en" style="display: none">
+            At Yunisle, psychology is the method and philosophy is the frame.
+            <br />
+            We walk from experience → awareness → action → self-creation, <br />
+            rebuilding how you relate to yourself, others, time, and destiny.
+            <br />
+            This is not a quick fix. It is an inner island in formation, <br />
+            where we meet, speak honestly, and experiment with new ways of
+            living.
+          </p>
+
+          <p class="hero-tagline" data-lang="zh">
+            “生命的意义，不在外部的评判，而在内心的感受。”
+          </p>
+          <p class="hero-tagline" data-lang="en" style="display: none">
+            “The meaning of life is not in outer verdicts,<br />but in how life
+            is felt from within.”
+          </p>
+
+          <div class="hero-actions">
+            <a href="topics.html" class="btn-primary">
+              <span data-lang="zh">走进这场旅程</span>
+              <span data-lang="en" style="display: none">Enter the journey</span>
+              <span>↗</span>
+            </a>
+            <a href="projects.html" class="btn-ghost">
+              <span data-lang="zh">与我共建 · Co-create</span>
+              <span data-lang="en" style="display: none"
+                >Co-create with me</span
+              >
+            </a>
+          </div>
+        </div>
+
+        <div class="card-soft">
+          <h2 class="section-title" data-lang="zh">这不是一个「成品」空间</h2>
+          <h2 class="section-title" data-lang="en" style="display: none">
+            This is not a finished product
+          </h2>
+
+          <p class="hero-body" data-lang="zh">
+            云之岛，更像一块正在生成中的岛屿。<br />
+            我带来的是研究与实践、工具与视角；<br />
+            你带来的是真实问题、生命故事与思考。<br /><br />
+            我们一起共建这座岛：<br />
+            让知识不只停留在论文里，而是落地到你的日常决策、关系选择与行动里。
+          </p>
+
+          <p class="hero-body" data-lang="en" style="display: none">
+            Yunisle is not a polished product. It is land still rising from the
+            sea. <br />
+            I bring research, practice, tools, and theory. <br />
+            You bring real questions, stories, and the texture of your life.
+            <br /><br />
+            Together we co-create this isle, so knowledge does not stay inside
+            papers, <br />
+            but enters your decisions, your relationships, and the way you move
+            in the world.
+          </p>
+
+          <ul class="bullet-soft" data-lang="zh">
+            <li>如果你厌倦了“要更好”的期待，而更想知道“我真正要什么”。</li>
+            <li>如果你在亲密关系、学习与职业选择中，总在迎合与自我之间摇摆。</li>
+            <li>如果你想把心理学与哲学，用在自己的真实生活上。</li>
+          </ul>
+
+          <ul class="bullet-soft" data-lang="en" style="display: none">
+            <li>
+              If you are tired of “be better” and more curious about “what do I
+              truly want”.
+            </li>
+            <li>
+              If you keep swinging between pleasing others and staying with
+              yourself.
+            </li>
+            <li>
+              If you want psychology and philosophy to live inside your actual,
+              daily life.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 痛点设问 / 共建召唤 -->
+      <section style="margin-top: 32px">
+        <div class="columns-2">
+          <div class="card-soft">
+            <h2 class="section-title" data-lang="zh">
+              也许，你正在经历——
+            </h2>
+            <h2 class="section-title" data-lang="en" style="display: none">
+              Perhaps you are living through…
+            </h2>
+
+            <ul class="bullet-soft" data-lang="zh">
+              <li>总是活在他人的期待、标准和眼光里，久而久之，忘了自己想要什么。</li>
+              <li>
+                理性“都懂”，情绪却仍然反复，卡在亲密关系、学业或工作抉择。
+              </li>
+              <li>
+                做了很多“自我提升”，却始终难以真正迈向行动和长期改变。
+              </li>
+            </ul>
+
+            <ul class="bullet-soft" data-lang="en" style="display: none">
+              <li>
+                Living under expectations, standards, and evaluations, until you
+                can’t hear your own voice.
+              </li>
+              <li>
+                Understanding a lot in theory, yet your feelings still loop
+                around the same patterns in love, study, or work.
+              </li>
+              <li>
+                Trying many “self-improvement” tools, but struggling to turn
+                insight into steady action.
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-soft">
+            <h2 class="section-title" data-lang="zh">
+              我想邀请你，不只是成为“更好的人”，而是成为「你自己」。
+            </h2>
+            <h2 class="section-title" data-lang="en" style="display: none">
+              The invitation: not to be “better”, but to be deeply yourself.
+            </h2>
+
+            <p class="hero-body" data-lang="zh">
+              寻屿不是“老师讲，你来听”的课堂，而是一个正在生长的共创空间。<br /><br />
+              你可以：<br />
+              · 带着你的议题与故事，加入谈话、小组或长期旅程；<br />
+              · 作为合作者，一起设计项目、共写论文、开发实践；<br />
+              · 在这里探索：如何在爱自己与爱世界之间，找到属于你的路径。
+            </p>
+
+            <p class="hero-body" data-lang="en" style="display: none">
+              Yunisle is not a classroom where I speak and you listen. It is a
+              living, co-created space. <br /><br />
+              Here you can: <br />
+              · Bring your questions and stories into conversations and
+              journeys; <br />
+              · Co-design projects, write, and build practices together; <br />
+              · Explore how to love yourself and the world without abandoning
+              either.
+            </p>
+
+            <div style="margin-top: 18px">
+              <a href="projects.html" class="btn-primary">
+                <span data-lang="zh">查看共创机会</span>
+                <span data-lang="en" style="display: none"
+                  >See co-creation paths</span
+                >
+              </a>
             </div>
-            <div>
-              Text &amp; design by Jingyun Wang.<br />
-              Designed for gentle growth, deep feeling, and honest becoming.
+          </div>
+        </div>
+      </section>
+
+      <!-- 联系方式（全站复用） -->
+      <section class="contact-bar">
+        <div class="contact-text" data-lang="zh">
+          如果你在阅读时想起了自己的某段经历、某个问题，欢迎写信告诉我。<br />
+          因为还有研究与教学工作，我会在 10 天内认真回复每一封来信。
+        </div>
+        <div class="contact-text" data-lang="en" style="display: none">
+          If any part of this resonates with your own story, you are welcome to
+          reach out. <br />
+          I may be in the middle of research and teaching, but I answer every
+          message with care within 10 days.
+        </div>
+
+        <div class="contact-links">
+          <a href="mailto:YOUR_EMAIL_HERE" class="contact-link">
+            <span class="icon">✉️</span><span>Email</span>
+          </a>
+          <a href="https://www.linkedin.com/" class="contact-link" target="_blank">
+            <span class="icon">🔗</span><span>LinkedIn</span>
+          </a>
+          <a href="https://scholar.google.com/" class="contact-link" target="_blank">
+            <span class="icon">📚</span><span>Google Scholar</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="icon">📕</span><span>小红书</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span class="icon">💬</span><span data-lang="zh">微信</span
+            ><span data-lang="en" style="display: none">WeChat</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 页脚（全站复用） -->
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div>
+            <div data-lang="zh">
+              © 2025 寻屿 · Yunisle · Inner isles of becoming. All rights
+              reserved.
             </div>
-            <div>
-              云端里的小岛，向内生长的旅程。<br />
-              一个关于爱、成为与完整的内在之屿。
+            <div data-lang="en" style="display: none">
+              © 2025 Yunisle · Inner isles of becoming. All rights reserved.
+            </div>
+          </div>
+          <div class="footer-right">
+            <div data-lang="zh">
+              文本与设计：王靖云 · Designed for gentle growth, deep feeling, and
+              honest becoming.
+            </div>
+            <div data-lang="en" style="display: none">
+              Text & design: Jingyun Wang · Designed for gentle growth, deep
+              feeling, and honest becoming.
             </div>
           </div>
         </div>
       </footer>
-    </div>
+    </main>
   </body>
 </html>
