@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
 
-    <!-- topics.html 局部样式（在全站基础上做轻量增强） -->
+    <!-- topics.html 局部样式 -->
     <style>
       .hero-inner {
         padding-top: 5rem;
@@ -59,7 +59,7 @@
         font-size: 0.96rem;
         line-height: 1.9;
         color: #4c4e77;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.3rem;
       }
 
       .hero-tagline {
@@ -83,6 +83,33 @@
       .emphasis-soft {
         font-weight: 500;
         color: #4b4d74;
+      }
+
+      .hero-role-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin: 0.5rem 0 0.3rem;
+      }
+
+      .hero-role-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.14rem 0.6rem;
+        border-radius: 999px;
+        border: 1px solid rgba(210, 213, 248, 0.96);
+        background: rgba(255, 255, 255, 0.98);
+        font-size: 0.76rem;
+        color: #5c5f8a;
+        box-shadow: 0 8px 20px rgba(125, 138, 210, 0.35);
+      }
+
+      .hero-role-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, #ffd2e5, #becbff);
       }
 
       /* 右侧：话题气泡图 */
@@ -116,7 +143,7 @@
 
       .hero-bubble-wrap {
         position: relative;
-        min-height: 210px;
+        min-height: 220px;
         padding: 0.4rem 0.2rem 0.1rem;
       }
 
@@ -156,12 +183,17 @@
         right: 4%;
       }
       .bubble-5 {
-        bottom: 8%;
+        bottom: 14%;
         left: 16%;
       }
       .bubble-6 {
-        bottom: 2%;
-        right: 12%;
+        bottom: 4%;
+        right: 4%;
+      }
+      .bubble-7 {
+        bottom: 0%;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       .hero-topic-note {
@@ -206,7 +238,95 @@
         margin-right: 0.15rem;
       }
 
-      /* PART 1 · 生命节点话题卡片 */
+      /* PART 0 · 咨询与团体空间形式 */
+      .format-section {
+        padding-top: 1.8rem;
+        padding-bottom: 2.1rem;
+      }
+
+      .format-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin-top: 0.4rem;
+      }
+
+      @media (max-width: 1050px) {
+        .format-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .format-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .format-card {
+        border-radius: 1.3rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(205, 209, 246, 0.96);
+        box-shadow: 0 14px 32px rgba(118, 132, 199, 0.33);
+        padding: 0.85rem 0.95rem 0.95rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .format-card::before {
+        content: "⟡";
+        position: absolute;
+        right: 0.75rem;
+        top: 0.7rem;
+        font-size: 0.78rem;
+        color: rgba(189, 171, 255, 0.6);
+      }
+
+      .format-label {
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #a0a2c6;
+        margin-bottom: 0.1rem;
+      }
+
+      .format-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #2f2f4b;
+        margin-bottom: 0.12rem;
+      }
+
+      .format-title-en {
+        font-size: 0.8rem;
+        color: #6a6c96;
+        margin-bottom: 0.25rem;
+      }
+
+      .format-text {
+        font-size: 0.8rem;
+        color: #575a84;
+        line-height: 1.7;
+        margin-bottom: 0.18rem;
+      }
+
+      .format-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.28rem;
+        margin-top: 0.15rem;
+      }
+
+      .format-tag {
+        font-size: 0.72rem;
+        padding: 0.05rem 0.45rem;
+        border-radius: 999px;
+        border: 1px solid rgba(210, 214, 249, 0.9);
+        background: rgba(247, 248, 255, 0.97);
+        color: #7578a0;
+      }
+
+      /* PART 1 · 常见话题 */
       .topic-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -424,7 +544,7 @@
         line-height: 1.8;
       }
 
-      /* PART 3 · 已经走过的几条代表性旅程 */
+      /* PART 3 · 已经走过的旅程 */
       .gallery-section {
         padding-top: 2.1rem;
         padding-bottom: 2.4rem;
@@ -637,37 +757,64 @@
                 <span class="lang-en">Topics & journeys · starting from real questions</span>
               </h1>
 
+              <div class="hero-role-row">
+                <span class="hero-role-pill">
+                  <span class="hero-role-dot"></span>
+                  <span class="lang-zh">心理咨询师 · 个体咨询</span>
+                  <span class="lang-en">Counsellor · individual work</span>
+                </span>
+                <span class="hero-role-pill">
+                  <span class="hero-role-dot"></span>
+                  <span class="lang-zh">团体/工作坊带领者</span>
+                  <span class="lang-en">Group & workshop facilitator</span>
+                </span>
+                <span class="hero-role-pill">
+                  <span class="hero-role-dot"></span>
+                  <span class="lang-zh">人际关系工作坊主创</span>
+                  <span class="lang-en">Relational workshop designer</span>
+                </span>
+              </div>
+
               <p class="hero-subtitle lang-zh">
                 在这里，你不会看到「虚空的大词」，只有贴着生活的议题：<br />
                 <span class="emphasis-soft">
-                  学业与工作压力、亲子和人际关系、自主性与边界、跨文化与迁徙、自我探索、生命意义，还有 AI 与心理健康的交汇。
+                  复原力与心理健康、情绪与需求、自主性与关系、自我探索与接纳、人际互动与共情沟通，
+                  还包括学习与工作、跨文化与迁徙、AI 与心理健康的交汇。
                 </span>
               </p>
               <p class="hero-subtitle lang-en">
-                This page is about real-life questions rather than abstract labels:<br />
+                This page is about real-life themes:
                 <span class="emphasis-soft">
-                  pressure in school and work, parenting and close relationships, autonomy and boundaries,
-                  cross-cultural life, self-exploration, meaning-making – and where AI meets mental health.
+                  resilience and mental health, emotions and needs, autonomy and relationships,
+                  self-exploration and acceptance, interpersonal patterns and empathic communication –
+                  alongside study/work, cross-cultural life, and AI & mental health.
                 </span>
               </p>
 
               <p class="hero-tagline lang-zh">
-                每一个话题，都可以是一段<span class="emphasis">旅程</span>：有起点、有节奏、有回望；
-                你不需要「准备好」，只需要带着现在的自己来。
+                这些旅程，可能发生在
+                <span class="emphasis-soft">个体咨询、团体咨询、团体沙盘、心理教育工作坊或心理学读书会</span>里——
+                有时是一句被认真听见的话，有时是一个在沙盘里被看见的角色。
               </p>
               <p class="hero-tagline lang-en">
-                Each topic can become a <span class="emphasis">journey</span> with a beginning,
-                a rhythm, and a place to look back from. You don’t have to be “ready” – you just come as you are.
+                Journeys may unfold in
+                <span class="emphasis-soft">
+                  individual sessions, therapy groups, group sandplay, psychoeducational workshops, or reading circles
+                </span> – sometimes through one sentence that lands, sometimes through a role recognised in the sandtray.
               </p>
 
               <p class="hero-note lang-zh">
-                下方你会看到：<span class="emphasis-soft">常见话题</span>、<span class="emphasis-soft">我们可以如何设计旅程</span>，
-                以及我过去曾陪伴过的一些代表性路径。
+                下方你会看到：<span class="emphasis-soft">常见话题</span>、
+                <span class="emphasis-soft">我们会在哪些空间相遇</span>、
+                <span class="emphasis-soft">可以如何设计一段旅程</span>，
+                以及一些已经走过的路线。
               </p>
               <p class="hero-note lang-en">
-                Below you’ll find: <span class="emphasis-soft">common topics</span>,
-                <span class="emphasis-soft">how we can shape a journey</span>,
-                and a few examples of paths I’ve walked with others.
+                Below you’ll find:
+                <span class="emphasis-soft">common topics</span>,
+                <span class="emphasis-soft">the spaces we might meet in</span>,
+                <span class="emphasis-soft">how journeys can be shaped</span>,
+                and some routes I’ve walked with others.
               </p>
             </div>
 
@@ -704,18 +851,220 @@
                   <span class="en-hint">culture</span>
                 </div>
                 <div class="topic-bubble bubble-6">
-                  <span class="lang-zh">AI 与心理健康 / 自我探索与意义</span>
-                  <span class="lang-en" style="display:none;">AI & mental health / meaning</span>
-                  <span class="en-hint">future</span>
+                  <span class="lang-zh">自我探索与接纳 / 生命意义</span>
+                  <span class="lang-en" style="display:none;">Self-exploration & meaning</span>
+                  <span class="en-hint">meaning</span>
+                </div>
+                <div class="topic-bubble bubble-7">
+                  <span class="lang-zh">情绪与需求 · 共情沟通</span>
+                  <span class="lang-en" style="display:none;">Emotions, needs & empathy</span>
+                  <span class="en-hint">connection</span>
                 </div>
               </div>
               <p class="hero-topic-note lang-zh">
-                如果你看到某个关键字时，心里轻轻「咯噔」一下，那大概就是我们可以从那里开始的地方。
+                如果你看到某个词时，心里轻轻「咯噔」一下，那大概就是我们可以从那里开始的入口。
               </p>
               <p class="hero-topic-note lang-en">
-                If one word here makes something inside you flinch or light up,
+                If one of these words makes something inside you tighten or soften,
                 that’s usually a good place to start.
               </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 0 · 咨询与团体空间：我们会在哪些形式里相遇？ -->
+        <section class="section format-section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">咨询与团体空间 · 我们会在哪些形式里相遇？</span>
+              <span class="lang-en">Spaces we meet in · formats of the journey</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              这些年，我一直在不同空间里陪伴来访者和学员：<br />
+              <span class="emphasis-soft">
+                心理测评、个体咨询、团体咨询、团体沙盘、心理教育工作坊、心理学读书会……
+              </span>
+              它们像是不同形状的容器，承载的是同样的主题：复原力、情绪与需求、自主性与关系、自我探索与接纳、人际互动与共情沟通。
+            </p>
+            <p class="section-subtitle lang-en">
+              Over the years I’ve worked across several formats –
+              <span class="emphasis-soft">
+                assessment, individual counselling, group therapy, group sandplay, psychoeducational workshops,
+                and psychology reading circles
+              </span>.
+              They are different containers for similar themes: resilience, emotions and needs, autonomy and relationships,
+              self-acceptance, interpersonal patterns, and empathy.
+            </p>
+
+            <div class="format-grid">
+              <!-- Individual counselling -->
+              <div class="format-card">
+                <div class="format-label">
+                  <span class="lang-zh">FORMAT · 个体咨询</span>
+                  <span class="lang-en">FORMAT · Individual counselling</span>
+                </div>
+                <div class="format-title lang-zh">
+                  一对一空间：把最私人的故事讲清楚
+                </div>
+                <div class="format-title-en lang-en">
+                  One-to-one: telling your story in full sentences
+                </div>
+                <p class="format-text lang-zh">
+                  适合：希望细致梳理<span class="emphasis-soft">情绪与需求、自主性与关系、自我价值</span>的人。
+                  我会结合自我决定理论、关系取向与深度心理学视角，陪你一起看清模式、松动旧的角色。
+                </p>
+                <p class="format-text lang-en">
+                  For people wanting to untangle
+                  <span class="emphasis-soft">emotions, needs, autonomy, and self-worth</span>
+                  in depth. We work with SDT, relational and depth perspectives to see patterns and soften old roles.
+                </p>
+                <div class="format-tags">
+                  <span class="format-tag lang-zh">情绪与需求</span>
+                  <span class="format-tag lang-zh">自主性与边界</span>
+                  <span class="format-tag lang-en" style="display:none;">emotions & needs</span>
+                  <span class="format-tag lang-en" style="display:none;">autonomy</span>
+                </div>
+              </div>
+
+              <!-- Group counselling -->
+              <div class="format-card">
+                <div class="format-label">
+                  <span class="lang-zh">FORMAT · 团体咨询</span>
+                  <span class="lang-en">FORMAT · Group counselling</span>
+                </div>
+                <div class="format-title lang-zh">
+                  在一小群「同路人」中试着做自己
+                </div>
+                <div class="format-title-en lang-en">
+                  Practising being yourself among fellow travellers
+                </div>
+                <p class="format-text lang-zh">
+                  适合：在人际中反复遇到类似困扰的人。
+                  团体就像一面「活的镜子」，让你在安全边界内体验新的互动方式，练习表达、拒绝与连接。
+                </p>
+                <p class="format-text lang-en">
+                  For recurring struggles in relationships. A group becomes a “living mirror” where you can safely try new ways of relating – expressing, saying no, and staying present.
+                </p>
+                <div class="format-tags">
+                  <span class="format-tag lang-zh">人际互动</span>
+                  <span class="format-tag lang-zh">共情沟通</span>
+                  <span class="format-tag lang-en" style="display:none;">interpersonal</span>
+                  <span class="format-tag lang-en" style="display:none;">empathic dialogue</span>
+                </div>
+              </div>
+
+              <!-- Group sandplay -->
+              <div class="format-card">
+                <div class="format-label">
+                  <span class="lang-zh">FORMAT · 团体沙盘</span>
+                  <span class="lang-en">FORMAT · Group sandplay</span>
+                </div>
+                <div class="format-title lang-zh">
+                  在沙盘世界里，看见内在的自己
+                </div>
+                <div class="format-title-en lang-en">
+                  Seeing your inner world in the sandtray
+                </div>
+                <p class="format-text lang-zh">
+                  适合：语言难以触及的议题，如早期经验、创伤、复杂情绪。
+                  在沙盘中摆放与观照，让无意识的素材浮现，像荣格所说，把「影子」带进光里。
+                </p>
+                <p class="format-text lang-en">
+                  For themes hard to speak about – early experiences, trauma, complex feelings.
+                  Sandplay lets unconscious material surface, bringing “shadow” into light in a gentle way.
+                </p>
+                <div class="format-tags">
+                  <span class="format-tag lang-zh">深度体验</span>
+                  <span class="format-tag lang-zh">象征与意象</span>
+                  <span class="format-tag lang-en" style="display:none;">symbolic work</span>
+                </div>
+              </div>
+
+              <!-- Psychoeducational workshops -->
+              <div class="format-card">
+                <div class="format-label">
+                  <span class="lang-zh">FORMAT · 心理教育工作坊</span>
+                  <span class="lang-en">FORMAT · Psychoeducational workshops</span>
+                </div>
+                <div class="format-title lang-zh">
+                  把理论变成好用的「生活工具」
+                </div>
+                <div class="format-title-en lang-en">
+                  Turning theory into practical tools
+                </div>
+                <p class="format-text lang-zh">
+                  设计并主持关于<span class="emphasis-soft">
+                    复原力与心理健康、情绪与需求、自主性与关系、自我照顾
+                  </span>等主题的工作坊。
+                  适合学校、机构或团队一起参与。
+                </p>
+                <p class="format-text lang-en">
+                  I design and lead workshops on
+                  <span class="emphasis-soft">
+                    resilience, mental health, emotions and needs, autonomy and relationships, and self-care
+                  </span>.
+                  Ideal for schools, organisations, or teams.
+                </p>
+                <div class="format-tags">
+                  <span class="format-tag lang-zh">心理教育</span>
+                  <span class="format-tag lang-zh">动机与复原力</span>
+                  <span class="format-tag lang-en" style="display:none;">psychoeducation</span>
+                </div>
+              </div>
+
+              <!-- Reading circles -->
+              <div class="format-card">
+                <div class="format-label">
+                  <span class="lang-zh">FORMAT · 心理学读书会</span>
+                  <span class="lang-en">FORMAT · Psychology reading circles</span>
+                </div>
+                <div class="format-title lang-zh">
+                  一起读书，也一起读自己
+                </div>
+                <div class="format-title-en lang-en">
+                  Reading books, and reading ourselves
+                </div>
+                <p class="format-text lang-zh">
+                  以经典与当代心理学作品为线索，把理论与参与者的生活经验串联起来，
+                  在讨论中慢慢练习：理解、共情与自我反思。
+                </p>
+                <p class="format-text lang-en">
+                  Using classic and contemporary psychology texts as a thread,
+                  we connect theory with lived experience, practising understanding, empathy, and reflection together.
+                </p>
+                <div class="format-tags">
+                  <span class="format-tag lang-zh">自我探索</span>
+                  <span class="format-tag lang-zh">意义对话</span>
+                  <span class="format-tag lang-en" style="display:none;">self-exploration</span>
+                </div>
+              </div>
+
+              <!-- Assessment -->
+              <div class="format-card">
+                <div class="format-label">
+                  <span class="lang-zh">FORMAT · 心理测评与反馈</span>
+                  <span class="lang-en">FORMAT · Assessment & feedback</span>
+                </div>
+                <div class="format-title lang-zh">
+                  让测评不只是「分数」，而是一面温和的镜子
+                </div>
+                <div class="format-title-en lang-en">
+                  Turning tests into gentle mirrors, not labels
+                </div>
+                <p class="format-text lang-zh">
+                  在必要时，会运用适合的心理测评工具（如动机、自主性、人际、人格相关量表），
+                  并提供<span class="emphasis-soft">可理解、可实践</span>的反馈，而不是冰冷的结论。
+                </p>
+                <p class="format-text lang-en">
+                  When helpful, I use validated measures (e.g. motivation, autonomy, relationships, personality)
+                  and offer feedback that is <span class="emphasis-soft">understandable and actionable</span>,
+                  not just numbers.
+                </p>
+                <div class="format-tags">
+                  <span class="format-tag lang-zh">测评 + 咨询整合</span>
+                  <span class="format-tag lang-en" style="display:none;">assessment + counselling</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -728,14 +1077,14 @@
               <span class="lang-en">Key topics · crossroads in a life</span>
             </div>
             <p class="section-subtitle lang-zh">
-              下列话题，是我在咨询、团体与教学中最常遇见、也最愿意陪伴的几个方向。
-              你可以把它们当作<span class="inline-bubble lang-zh">「入口」</span>，
+              下列话题，是我在<span class="emphasis-soft">个体咨询、团体、工作坊与读书会</span>中最常遇见，
+              也最愿意陪伴的几个方向。你可以把它们当作<span class="inline-bubble lang-zh">「入口」</span>，
               选一个此刻对你最有共鸣的起点。
             </p>
             <p class="section-subtitle lang-en">
-              These are the themes I most often work with – and care deeply about.
-              Treat them as <span class="inline-bubble lang-en">doorways</span>:
-              choose the one that matches where you are now.
+              These are the themes I most frequently meet – and care deeply about –
+              in <span class="emphasis-soft">individual work, groups, workshops, and reading circles</span>.
+              Treat them as <span class="inline-bubble lang-en">doorways</span> and choose the one that fits where you are now.
             </p>
 
             <div class="topic-grid">
@@ -753,12 +1102,13 @@
                 </h3>
                 <p class="topic-text lang-zh">
                   明明很努力，却越来越提不起劲；一边自责「是不是我太懒」，一边觉得怎么做都不对。
-                  这里，我们会把你的动力放回<span class="emphasis-soft">家庭、学校/职场与自我期待</span>的系统里重新理解。
+                  我们会把你的动力放回<span class="emphasis-soft">家庭、学校/职场与自我期待</span>的系统里重新理解，
+                  而不是只用「意志力」给自己施压。
                 </p>
                 <p class="topic-text lang-en">
-                  You’ve tried your best yet feel increasingly drained. Part of
-                  you says “I’m lazy”; another part knows it’s not that simple.
-                  We put your motivation back into the systems of
+                  You’ve tried your best yet feel increasingly drained.
+                  Part of you says “I’m lazy”; another part knows it’s not that simple.
+                  We place your motivation back into the systems of
                   <span class="emphasis-soft">family, school/work, and self-expectations</span>.
                 </p>
                 <ul class="topic-list lang-zh">
@@ -766,7 +1116,7 @@
                   <li>「我到底是为谁在拼？」——为父母、为简历，还是为自己？</li>
                 </ul>
                 <ul class="topic-list lang-en">
-                  <li>Motivation dips around transitions (exams, moving schools, changing majors or jobs).</li>
+                  <li>Motivation dips around transitions (exams, changing majors or jobs).</li>
                   <li>“Who am I doing this for?” – parents, CV, or a future self.</li>
                 </ul>
               </article>
@@ -785,12 +1135,12 @@
                 </h3>
                 <p class="topic-text lang-zh">
                   一边不想让家人失望，一边又想为自己活一点；既舍不得，也想拉开一点距离。
-                  我们会在<span class="emphasis-soft">中国文化与代际期待</span>的脉络下，重新看待「孝顺」「独立」与界限。
+                  我们会在<span class="emphasis-soft">中国文化与代际期待</span>的脉络下，
+                  重新理解「孝顺」「独立」与界限，而不是简单地「断联」或「继续忍」。
                 </p>
                 <p class="topic-text lang-en">
-                  You don’t want to disappoint your family, yet you long for
-                  more space to live as yourself. Together we revisit
-                  “filial piety”, “independence”, and boundaries within
+                  You don’t want to disappoint your family, yet you long for more room to be yourself.
+                  We revisit “filial piety”, “independence”, and boundaries within
                   <span class="emphasis-soft">Chinese cultural and intergenerational contexts</span>.
                 </p>
                 <ul class="topic-list lang-zh">
@@ -818,14 +1168,14 @@
                 <p class="topic-text lang-zh">
                   总是在关系里用力讨好、控制，或者逃跑？我们会从<span class="emphasis-soft">
                     依恋、自主性与过往关系经验
-                  </span>出发，看你是如何学会「这样爱人和被爱」的。
+                  </span>出发，看你是如何学会「这样爱人和被爱」的，
+                  并在团体与工作坊中练习新的互动方式。
                 </p>
                 <p class="topic-text lang-en">
-                  If you find yourself pleasing, controlling, or fleeing in
-                  relationships, we explore how your ways of loving and being
-                  loved emerged from <span class="emphasis-soft">
-                    attachment, autonomy, and past relationship histories
-                  </span>.
+                  If you find yourself pleasing, controlling, or fleeing in relationships,
+                  we explore how your ways of loving and being loved emerged from
+                  <span class="emphasis-soft">attachment, autonomy, and past relationship histories</span>,
+                  and practise new patterns in groups and workshops.
                 </p>
                 <ul class="topic-list lang-zh">
                   <li>在爱里保有自主，而不是把自己全部交出去。</li>
@@ -851,12 +1201,12 @@
                 </h3>
                 <p class="topic-text lang-zh">
                   在一个地方读书、工作、恋爱，心却还留在另一个地方；既想留下，又挂念回去。
-                  我们会把<span class="emphasis-soft">移居、学业、职业与关系选择</span>放在同一条时间线上，看清你真正的优先级。
+                  我们会把<span class="emphasis-soft">移居、学业、职业与关系选择</span>放在同一条时间线上，
+                  看清你真正的优先级，而不是只根据「别人觉得好的路」做决定。
                 </p>
                 <p class="topic-text lang-en">
-                  You study, work, and love in one country while part of your
-                  heart lives elsewhere. We map your
-                  <span class="emphasis-soft">migration, study, work, and relationship choices</span>
+                  You study, work, and love in one country while part of your heart lives elsewhere.
+                  We map your <span class="emphasis-soft">migration, study, work, and relationship choices</span>
                   on a shared timeline to see your real priorities.
                 </p>
                 <ul class="topic-list lang-zh">
@@ -883,10 +1233,11 @@
                 </h3>
                 <p class="topic-text lang-zh">
                   不少来访者会说：「我已经完成了很多任务，但好像还没真正开始自己的生活」。
-                  我们会用<span class="emphasis-soft">发展心理学与存在主义</span>的视角，帮你看清此刻所处的阶段与可能性。
+                  我们会用<span class="emphasis-soft">发展心理学与存在主义</span>的视角，
+                  帮你看清此刻所处的阶段与可能性，在迷茫中整理出一条属于自己的方向感。
                 </p>
                 <p class="topic-text lang-en">
-                  Many people tell me, “I’ve ticked many boxes, but haven’t really begun my own life.”
+                  Many people tell me: “I’ve ticked many boxes, but haven’t really begun my own life.”
                   We use <span class="emphasis-soft">developmental and existential perspectives</span>
                   to locate where you are and what could come next.
                 </p>
@@ -915,11 +1266,12 @@
                 <p class="topic-text lang-zh">
                   当我们把心理支持带进 App、机器人或线上课程，怎样才能在追求效率的同时，
                   不丢失<span class="emphasis-soft">自主、关系与意义</span>这三个核心？
+                  这也是我在咨询与研究之外，持续探索的边界。
                 </p>
                 <p class="topic-text lang-en">
-                  When we move support into apps or AI tools, how do we stay
-                  loyal to <span class="emphasis-soft">autonomy, connection, and meaning</span>
-                  rather than just efficiency?
+                  When we move support into apps and AI tools, how do we protect
+                  <span class="emphasis-soft">autonomy, connection, and meaning</span>
+                  rather than just efficiency? This is a boundary I keep exploring alongside counselling and research.
                 </p>
                 <ul class="topic-list lang-zh">
                   <li>为 AI 心理工具做概念设计与伦理讨论。</li>
@@ -947,8 +1299,9 @@
               具体会根据你的时间、状态与资源微调。
             </p>
             <p class="section-subtitle lang-en">
-              Different questions call for different rhythms. The formats below
-              are <span class="inline-bubble lang-en">templates</span> we can adapt to your time, energy, and resources.
+              Different questions call for different rhythms.
+              The formats below are <span class="inline-bubble lang-en">templates</span>
+              we can adapt to your time, energy, and resources.
             </p>
 
             <div class="journey-layout">
@@ -1044,7 +1397,7 @@
                     8–12+ sessions · Rewriting a life story
                   </div>
                   <p class="journey-node-text lang-zh">
-                    适合：长期困扰（如长期完美主义、自我价值感低、复杂家庭背景），需要在时间中慢慢调整关系与自我位置。
+                    适合：长期困扰（如完美主义、自我价值感低、复杂家庭背景），需要在时间中慢慢调整关系与自我位置。
                   </p>
                   <p class="journey-node-text lang-en">
                     For long-standing issues (perfectionism, low self-worth,
@@ -1065,17 +1418,18 @@
                     Themed journeys · walking together
                   </div>
                   <p class="journey-node-text lang-zh">
-                    适合：想在安全结构中与他人同行的人，例如：学习动机小组、亲子共学、跨文化适应、AI 与心理健康对话等。
+                    适合：想在安全结构中与他人同行的人，例如：学习动机小组、亲子共学、跨文化适应、
+                    情绪与需求、人际互动、共情沟通，或 AI 与心理健康对话等。
                   </p>
                   <p class="journey-node-text lang-en">
-                    For those who want to walk with others: e.g. motivation
-                    groups, parent–teen programmes, cross-cultural circles, or AI & mental health dialogues.
+                    For those who want to walk with others: e.g. motivation groups, parent–teen programmes,
+                    cross-cultural circles, emotion & needs work, relational workshops, or AI & mental health dialogues.
                   </p>
                 </div>
               </div>
 
               <p class="journey-note lang-zh">
-                这些只是「起始模板」。真正的旅程，会根据你的节奏共同调整：<br />
+                这只是「起始模板」。真正的旅程，会根据你的节奏共同调整：<br />
                 <span class="emphasis-soft">
                   有时是一小段冲刺，有时是慢慢同行；有时在你生活平稳期提前铺路，有时在风浪中暂时托一托你。
                 </span>
@@ -1098,7 +1452,8 @@
               <span class="lang-en">Journeys I’ve walked with others · you might recognise yourself here</span>
             </div>
             <p class="section-subtitle lang-zh">
-              出于隐私保护，这里不会出现具体个人故事，只会以<span class="inline-bubble lang-zh">「路线地图」</span>的形式呈现。
+              出于隐私保护，这里不会出现具体个人故事，只会以
+              <span class="inline-bubble lang-zh">「路线地图」</span>的形式呈现。
             </p>
             <p class="section-subtitle lang-en">
               To protect confidentiality, these are not individual stories but
@@ -1120,18 +1475,20 @@
                 </div>
                 <p class="gallery-text lang-zh">
                   来访者通常从一句话开始：「我不确定要不要继续这样下去」——读这个专业、留在这个国家、或待在这个团队。
+                  我们会一边看现实条件，一边看内在需要与价值，而不是只问「哪个更体面」。
                 </p>
                 <p class="gallery-text lang-en">
                   Many journeys begin with: “I’m not sure I want to keep doing this” –
                   this major, this PhD, this job, or this country.
+                  We consider both practical constraints and inner needs/values, not only “what looks better”.
                 </p>
                 <ul class="gallery-list lang-zh">
                   <li>从「我必须成功」到「我可以定义什么是对我来说的成功」。</li>
                   <li>在转专业/转行/出国/回国的选择里，看清<span class="emphasis-soft">安全、自由、家庭与自我</span>的权重。</li>
-                  <li>把「学不会」「拖延」翻译成：系统给了你怎样的任务和压力。</li>
+                  <li>把「拖延」「学不会」翻译成：系统给了你怎样的任务和压力。</li>
                 </ul>
                 <ul class="gallery-list lang-en">
-                  <li>Moving from “I must be successful” to “I define what success means for me now”.</li>
+                  <li>Moving from “I must be successful” to “I define success for myself now”.</li>
                   <li>Weighing <span class="emphasis-soft">safety, freedom, family, and self</span>
                     in choices about changing majors, jobs, or countries.</li>
                   <li>Translating “I’m lazy” into a clearer picture of demands and supports in your environment.</li>
@@ -1182,7 +1539,7 @@
               <span class="lang-en">If you’d like to start a journey together</span>
             </div>
             <p class="section-subtitle lang-zh">
-              真正重要的不是「一次就解决所有问题」，而是先为自己开辟一小块稳定的空间。
+              真正重要的，不是「一次就解决所有问题」，而是先为自己开辟一小块稳定的空间。<br />
               大致流程会是这样——也会根据所在国家和合作形式微调：
             </p>
             <p class="section-subtitle lang-en">
@@ -1204,10 +1561,11 @@
                     A short email / message
                   </div>
                   <p class="lang-zh">
-                    用几句话写下你现在在意的主题、所在国家/时区，以及你更偏好的形式（线上/线下）。
+                    用几句话写下你现在在意的主题、所在国家/时区，以及你更偏好的形式（线上/线下、个体/团体）。
                   </p>
                   <p class="lang-en">
-                    A few lines about what you’re facing now, where you are (country/time zone), and preferred format (online/offline if available).
+                    A few lines about what you’re facing now, where you are (country/time zone),
+                    and preferred format (online/offline, individual/group).
                   </p>
                 </div>
 
@@ -1226,7 +1584,8 @@
                     我们会一起确认你最想先处理的部分，并评估是否适合由我来陪伴，或需要转介其他资源。
                   </p>
                   <p class="lang-en">
-                    We clarify your priorities and see whether I’m the right person to support you, or whether other resources are needed.
+                    We clarify your priorities and see whether I’m the right person to support you,
+                    or whether other resources are needed.
                   </p>
                 </div>
 
@@ -1242,10 +1601,11 @@
                     Designing the journey together
                   </div>
                   <p class="lang-zh">
-                    根据议题与实际条件，商量是单次聚焦、短程、深度旅程，还是团体/工作坊形式。
+                    根据议题与实际条件，商量是单次聚焦、短程、深度旅程，还是团体/沙盘/工作坊形式。
                   </p>
                   <p class="lang-en">
-                    We decide on format: single session, short/longer journey, or group/workshop, aligned with your constraints.
+                    We decide on format: single session, short/longer journey, or a group/sandplay/workshop format,
+                    aligned with your constraints.
                   </p>
                 </div>
 
@@ -1261,10 +1621,12 @@
                     Mid-way review & adjustment
                   </div>
                   <p class="lang-zh">
-                    在旅程中途，我们会一起回头看：什么对你有帮助？什么需要改变？确保节奏跟得上你的生命状态。
+                    在旅程中途，我们会一起回头看：什么对你有帮助？什么需要改变？
+                    确保节奏跟得上你的生命状态。
                   </p>
                   <p class="lang-en">
-                    We pause mid-way to see what helps, what doesn’t, and adjust pace and focus accordingly.
+                    We pause mid-way to see what helps, what doesn’t,
+                    and adjust pace and focus accordingly.
                   </p>
                 </div>
 
@@ -1280,10 +1642,12 @@
                     Closing & after-effects
                   </div>
                   <p class="lang-zh">
-                    我们会用一整次会谈来「好好收尾」，整理你获得的理解、工具和关系经验，让旅程的影响延续在你的日常里。
+                    我们会用一整次会谈来「好好收尾」，整理你获得的理解、工具和关系经验，
+                    让旅程的影响延续在你的日常里。
                   </p>
                   <p class="lang-en">
-                    We devote time to close intentionally, naming what you’ve gained so the impact can continue in your everyday life.
+                    We devote time to close intentionally, naming what you’ve gained,
+                    so the impact can continue in your everyday life.
                   </p>
                 </div>
               </div>
@@ -1293,8 +1657,8 @@
                 有时，把犹豫本身说出来，就是很好的第一步。
               </p>
               <p class="flow-note lang-en">
-                If you’re not ready to start but want to ask whether this might
-                fit you, you’re welcome to write just about that.
+                If you’re not ready to start but want to ask whether this might fit you,
+                you’re welcome to write just about that.
                 Naming hesitation is already a meaningful first step.
               </p>
             </div>
