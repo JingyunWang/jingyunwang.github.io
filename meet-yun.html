@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 
-  <!-- 本页局部样式：个人简介布局 + 标签 + 时间线 + 间距微调 -->
+  <!-- 本页局部样式 -->
   <style>
     .hero-inner {
       padding-top: 5rem;
@@ -40,8 +40,8 @@
 
     .meet-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 2.4fr);
-      gap: 2rem;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 2.5fr);
+      gap: 2.1rem;
       align-items: flex-start;
     }
     @media (max-width: 900px) {
@@ -58,7 +58,7 @@
     }
     .profile-photo {
       width: 100%;
-      max-width: 320px;
+      max-width: 280px;
       aspect-ratio: 4 / 5;
       border-radius: 1.6rem;
       background: radial-gradient(circle at 20% 0%, rgba(255, 232, 241, 0.9), transparent 55%),
@@ -82,24 +82,18 @@
       /* TODO: 替换为你的真实照片路径 */
       background-image: url("images/jingyun.jpg");
     }
-    .profile-photo-placeholder {
+    .profile-photo-caption {
       font-size: 0.82rem;
       color: #6b6c8f;
-      text-align: center;
-      padding: 0 1rem;
-    }
-
-    .profile-tagline {
-      font-size: 0.86rem;
-      color: #66668a;
       line-height: 1.7;
+      max-width: 18rem;
     }
 
     .profile-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.3rem;
+      margin-top: 0.4rem;
     }
     .profile-badge {
       font-size: 0.75rem;
@@ -159,7 +153,6 @@
       line-height: 1.7;
     }
 
-    /* 研究 / 资质 两列 */
     .two-col-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.8fr);
@@ -172,7 +165,6 @@
       }
     }
 
-    /* 议题标签 */
     .topic-tags {
       display: flex;
       flex-wrap: wrap;
@@ -188,7 +180,6 @@
       color: #4c4e7b;
     }
 
-    /* 旅程片段时间线 */
     .journey-timeline {
       margin-top: 0.5rem;
       border-left: 1px dashed rgba(180, 181, 222, 0.9);
@@ -251,7 +242,7 @@
 <body>
   <div class="page-aura"></div>
   <div class="page-wrapper">
-    <!-- 顶部导航（与首页一致） -->
+    <!-- 顶部导航 -->
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="index.html" class="brand">
@@ -285,13 +276,14 @@
             <span class="nav-label-cn lang-zh">研究发表</span>
             <span class="nav-label-en lang-en">Research</span>
           </a>
-          <a href="projects.html">
-            <span class="nav-label-cn lang-zh">共创项目</span>
-            <span class="nav-label-en lang-en">Projects</span>
-          </a>
+          <!-- 交换位置：先话题，再共创项目 -->
           <a href="topics.html">
             <span class="nav-label-cn lang-zh">话题与旅程</span>
             <span class="nav-label-en lang-en">Topics</span>
+          </a>
+          <a href="projects.html">
+            <span class="nav-label-cn lang-zh">共创项目</span>
+            <span class="nav-label-en lang-en">Projects</span>
           </a>
         </nav>
         <div class="lang-toggle">
@@ -306,7 +298,7 @@
     </header>
 
     <main>
-      <!-- 顶部：遇见云 · 谁在这座岛屿上点灯 -->
+      <!-- 顶部：遇见云 -->
       <section class="hero hero-inner">
         <div class="container">
           <h1 class="hero-title">
@@ -320,10 +312,9 @@
           </p>
           <p class="hero-subtitle lang-en">
             I’m <span class="emphasis">Jingyun</span>—a psychologist, counsellor, and group facilitator,
-            as well as a long-term traveller of my own inner world. After a decade of immersion in psychology,
-            I’ve grown deeply committed to this work. At the edge of research and real life,
-            I created this inner island, <span class="emphasis-soft">Yunisle</span>, for those who have long lived
-            by others’ expectations and are now quietly seeking their own way back.
+            as well as a long-term explorer of my own inner world. After a decade of immersion in psychology,
+            I created this inner island, <span class="emphasis-soft">Yunisle</span>, at the edge of research and real life,
+            as a harbour for those who have long lived by others’ expectations and are now quietly seeking their own way back.
           </p>
           <p class="hero-tagline lang-zh">
             在这里，你不会被当成一个「问题」，而是一段正在书写中的故事。
@@ -334,53 +325,34 @@
         </div>
       </section>
 
-      <!-- 关于我：照片 + 简介 -->
+      <!-- 区块 2：照片 + 我是谁 -->
       <section class="section section-narrow">
         <div class="container meet-grid">
+          <!-- 左侧：照片 + 一句话说明 -->
           <div class="profile-photo-wrap">
             <div class="profile-photo">
               <div class="profile-photo-inner">
                 <!-- 将 images/jingyun.jpg 替换为你的真实照片路径 -->
               </div>
             </div>
-            <p class="profile-tagline lang-zh">
-              这些年，我在中国与欧洲之间学习、工作与生活，在不同教育体系与文化语境中往返。
-              这让我比起「完美答案」，更相信一种缓慢而真实的练习：
-              <span class="emphasis-soft">在复杂世界里，仍然活得像自己。</span>
+            <p class="profile-photo-caption lang-zh">
+              在不同城市、教育体系与文化语境之间迁徙的这些年，我学会的不是「完美答案」，
+              而是一种更缓慢、也更真实的练习：<span class="emphasis-soft">在复杂世界里，仍然活得像自己。</span>
             </p>
-            <p class="profile-tagline lang-en">
-              Over the years, I’ve lived, studied, and worked across China and Europe.
-              Moving between systems and cultures has taught me to trust not in perfect answers,
-              but in a slow, honest practice of <span class="emphasis-soft">staying true to oneself in a complex world.</span>
+            <p class="profile-photo-caption lang-en">
+              Moving across cities, systems, and cultures, I didn’t find perfect answers.
+              Instead I learned a slower, more honest practice:
+              <span class="emphasis-soft">staying true to myself in a complex world.</span>
             </p>
-
-            <div class="profile-badges">
-              <span class="profile-badge lang-zh">🎓 应用心理学学士</span>
-              <span class="profile-badge lang-en">BA Applied Psychology</span>
-
-              <span class="profile-badge lang-zh">🎓 心理健康教育硕士</span>
-              <span class="profile-badge lang-en">MA Mental Health Education</span>
-
-              <span class="profile-badge lang-zh">🎓 心理学博士</span>
-              <span class="profile-badge lang-en">PhD in Psychology</span>
-
-              <span class="profile-badge lang-zh">🌿 动机与自主性研究员</span>
-              <span class="profile-badge lang-en">Motivation & autonomy researcher</span>
-
-              <span class="profile-badge lang-zh">🧭 国家三级心理咨询师</span>
-              <span class="profile-badge lang-en">National-level counsellor</span>
-
-              <span class="profile-badge lang-zh">👣 团体促动者 · 成长同行人</span>
-              <span class="profile-badge lang-en">Group facilitator · Companion in growth</span>
-            </div>
           </div>
 
+          <!-- 右侧：卡片 + badges -->
           <div>
             <div class="card">
               <div class="card-body">
                 <div class="section-title">
                   <span class="lang-zh">我是谁 · 在几个角色之间切换的人</span>
-                  <span class="lang-en">Who I am · A person moving between several roles</span>
+                  <span class="lang-en">Who I am · Moving between several roles</span>
                 </div>
                 <p class="lang-zh">
                   在职业上，我是一名<span class="emphasis-soft">动机与人际关系研究者</span>，
@@ -391,28 +363,22 @@
                 <p class="lang-en">
                   Professionally, I’m a <span class="emphasis-soft">researcher of motivation and relationships</span>,
                   and a <span class="emphasis-soft">counsellor and group facilitator</span>.
-                  In life, I think of myself as a <span class="emphasis-soft">companion in growth</span>,
+                  Personally, I see myself as a <span class="emphasis-soft">companion in growth</span>,
                   someone who is also still walking.
-                </p>
-                <p class="lang-zh">
-                  我喜欢把自己理解成四个交叠的身份：
-                </p>
-                <p class="lang-en">
-                  I often understand myself through four overlapping roles:
                 </p>
 
                 <ul class="text-list lang-zh">
                   <li><span class="emphasis">研究者：</span>以发展心理学与自我决定理论为底，研究自主性、动机、人际关系与心理健康。</li>
                   <li><span class="emphasis">心理咨询师：</span>受训于人本存在主义、心理动力、认知行为、慈悲聚焦、焦点解决、沙盘等取向。</li>
                   <li><span class="emphasis">团体带领者：</span>擅长整合多流派方法，营造安全、专业又有深度的探索空间。</li>
-                  <li><span class="emphasis">个人体验者：</span>长期以个体体验、团体、自我练习，磨练接纳、自主与共情的能力。</li>
+                  <li><span class="emphasis">个人体验者：</span>通过个体体验、团体、自我练习，长期练习接纳、自主与共情。</li>
                 </ul>
 
                 <ul class="text-list lang-en">
                   <li><span class="emphasis">Researcher:</span> grounded in developmental psychology and SDT, studying autonomy, motivation, relationships, and mental health.</li>
                   <li><span class="emphasis">Counsellor:</span> trained in humanistic–existential, psychodynamic, CBT, compassion-focused, solution-focused, sandplay and related approaches.</li>
                   <li><span class="emphasis">Group facilitator:</span> integrating methods to create safe, professional, and deep spaces for exploration.</li>
-                  <li><span class="emphasis">Personal explorer:</span> engaging in my own therapy, groups, and practices, continually learning acceptance, autonomy, and empathy from the inside out.</li>
+                  <li><span class="emphasis">Personal explorer:</span> through my own therapy, groups, and practices, continually learning acceptance, autonomy, and empathy.</li>
                 </ul>
 
                 <p class="lang-zh">
@@ -422,19 +388,40 @@
                   </span>
                 </p>
                 <p class="lang-en">
-                  If I had to summarise what I do in one line:<br />
+                  If I had to summarise my work in one line:<br />
                   <span class="emphasis">
                     I bring together scientific rigour and human warmth to accompany you
                     from “the expected self” toward a more present and whole you.
                   </span>
                 </p>
+
+                <!-- badges 紧跟在卡片内部，整体感更强 -->
+                <div class="profile-badges">
+                  <span class="profile-badge lang-zh">应用心理学学士</span>
+                  <span class="profile-badge lang-en">BA Applied Psychology</span>
+
+                  <span class="profile-badge lang-zh">心理健康教育硕士</span>
+                  <span class="profile-badge lang-en">MA Mental Health Education</span>
+
+                  <span class="profile-badge lang-zh">心理学博士</span>
+                  <span class="profile-badge lang-en">PhD in Psychology</span>
+
+                  <span class="profile-badge lang-zh">动机与自主性研究者</span>
+                  <span class="profile-badge lang-en">Motivation & autonomy researcher</span>
+
+                  <span class="profile-badge lang-zh">国家三级心理咨询师</span>
+                  <span class="profile-badge lang-en">National counsellor</span>
+
+                  <span class="profile-badge lang-zh">团体促动者 · 成长同行人</span>
+                  <span class="profile-badge lang-en">Group facilitator · Companion in growth</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 学术与专业背景 · 我站在怎样的土壤上 -->
+      <!-- 学术与专业背景 -->
       <section class="section section-narrow">
         <div class="container">
           <div class="section-title">
@@ -510,7 +497,7 @@
         </div>
       </section>
 
-      <!-- 我关注的议题 · 如果你在这些问题里看见自己 -->
+      <!-- 我关注的议题 -->
       <section class="section section-narrow">
         <div class="container">
           <div class="card">
@@ -569,7 +556,7 @@
         </div>
       </section>
 
-      <!-- 已经走过的一些片段 · 研究、团体与实践 -->
+      <!-- 已经走过的一些片段 -->
       <section class="section section-narrow">
         <div class="container">
           <div class="section-title">
@@ -600,7 +587,7 @@
                         一点点练习成为「更像自己」的样子。
                       </div>
                       <div class="journey-desc lang-en">
-                        Using longitudinal and multi-context studies to understand
+                        Using longitudinal and multi-context work to understand
                         how people practice becoming “more themselves” across family,
                         close relationships, peers, and school.
                       </div>
@@ -618,12 +605,12 @@
                       <div class="journey-desc lang-zh">
                         其中包括以
                         <span class="emphasis-soft">「设计自己的生命主线：赋能青少年的自主性、关系与心理健康」</span>
-                        为主题的系列项目，一起把「我是谁」「我要怎么走下去」变成具体可实践的研究与行动。
+                        为主题的系列项目，一起把「我是谁」「我要怎么走下去」变成可实践的研究与行动。
                       </div>
                       <div class="journey-desc lang-en">
                         This includes a series titled
                         <span class="emphasis-soft">
-                          “Designing one’s own life path: empowering youth autonomy, relationships, and mental health”,
+                          “Designing one’s life path: empowering youth autonomy, relationships, and mental health”,
                         </span>
                         turning “Who am I?” and “Where do I go next?” into concrete research and lived experiments.
                       </div>
@@ -683,7 +670,7 @@
                   </p>
                   <p class="lang-en">
                     For me, a <span class="emphasis">“safe space” is a relational practice</span>:
-                    a place where you can be honest without rushing yourself; where you may try
+                    somewhere you can be honest without rushing yourself; where you may try
                     to say what you’ve never said, or simply stay quiet and feel for a while.
                   </p>
                 </div>
@@ -693,7 +680,7 @@
         </div>
       </section>
 
-      <!-- 正在长成的愿景 · 这座岛，还会去向哪里 -->
+      <!-- 愿景 -->
       <section class="section section-narrow">
         <div class="container">
           <div class="card">
@@ -708,7 +695,7 @@
               </p>
               <p class="section-subtitle lang-en">
                 Yunisle is not a finished brand, but an island still in formation.
-                I hope that, together with you, it will grow into a few things like these:
+                I hope that, together with you, it will grow into something like this:
               </p>
 
               <ul class="text-list lang-zh">
@@ -720,7 +707,7 @@
               <ul class="text-list lang-en">
                 <li>A bilingual space where experiences from different cultures can be seen and respected;</li>
                 <li>Projects that hold both research depth and human warmth, so papers and real life nourish each other;</li>
-                <li>Longer journeys and co-created workshops that accompany you through turning points, supporting choices that feel more like you;</li>
+                <li>Longer journeys and co-created workshops that support choices that feel more like you;</li>
                 <li>An island kept for those “living by expectations”, where you can lay down your armour and practice being fully present as yourself.</li>
               </ul>
 
@@ -738,7 +725,7 @@
       </section>
     </main>
 
-    <!-- Footer / 联系方式（与首页一致） -->
+    <!-- Footer / 联系方式 -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-contact-card">
@@ -769,7 +756,7 @@
 
             <div class="footer-contact-actions">
               <div class="contact-pill-row">
-                <!-- 这里记得换成你的真实链接和账号 -->
+                <!-- 记得换成你的真实链接和账号 -->
                 <a href="mailto:your.email@example.com" class="contact-pill">
                   <span class="lang-zh">Email 邮箱</span>
                   <span class="lang-en">Email</span>
