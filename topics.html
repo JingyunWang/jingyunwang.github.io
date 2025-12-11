@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>话题与旅程 · 寻屿 Yunisle | Topics & Journeys</title>
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <!-- topics.html 局部样式（在全站基础上做轻量增强） -->
+    <style>
+      .hero-inner {
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.6fr);
+        gap: 2.1rem;
+        align-items: center;
+      }
+
+      @media (max-width: 960px) {
+        .hero-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .hero-kicker {
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9a9cc1;
+        margin-bottom: 0.3rem;
+      }
+
+      .hero-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        color: #26253f;
+      }
+
+      .hero-subtitle {
+        font-size: 0.96rem;
+        line-height: 1.9;
+        color: #4c4e77;
+        margin-bottom: 0.35rem;
+      }
+
+      .hero-tagline {
+        font-size: 0.88rem;
+        line-height: 1.85;
+        color: #676993;
+        margin-bottom: 0.2rem;
+      }
+
+      .hero-note {
+        font-size: 0.82rem;
+        color: #8b8eb5;
+        line-height: 1.8;
+      }
+
+      .emphasis {
+        font-weight: 600;
+        color: #26243f;
+      }
+
+      .emphasis-soft {
+        font-weight: 500;
+        color: #4b4d74;
+      }
+
+      /* 右侧：话题气泡图 */
+      .hero-topic-card {
+        border-radius: 1.9rem;
+        padding: 1.25rem 1.3rem 1.4rem;
+        background: radial-gradient(circle at 15% 0%, #fff4fd, #e4ecff);
+        border: 1px solid rgba(203, 209, 248, 0.95);
+        box-shadow: 0 24px 55px rgba(118, 131, 201, 0.65);
+      }
+
+      .pill-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.16rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 10px 22px rgba(143, 156, 212, 0.45);
+        font-size: 0.78rem;
+        color: #7a7c9b;
+        margin-bottom: 0.7rem;
+      }
+
+      .pill-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, #ffe3f0, #bac9ff);
+      }
+
+      .hero-bubble-wrap {
+        position: relative;
+        min-height: 210px;
+        padding: 0.4rem 0.2rem 0.1rem;
+      }
+
+      .topic-bubble {
+        position: absolute;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(210, 214, 249, 0.96);
+        box-shadow: 0 12px 30px rgba(122, 136, 211, 0.45);
+        padding: 0.4rem 0.7rem;
+        font-size: 0.8rem;
+        color: #4f527d;
+        white-space: nowrap;
+      }
+
+      .topic-bubble span.en-hint {
+        display: block;
+        font-size: 0.72rem;
+        color: #a1a4c7;
+        margin-top: 2px;
+      }
+
+      .bubble-1 {
+        top: 6%;
+        left: 8%;
+      }
+      .bubble-2 {
+        top: 0%;
+        right: 6%;
+      }
+      .bubble-3 {
+        top: 33%;
+        left: 2%;
+      }
+      .bubble-4 {
+        top: 32%;
+        right: 4%;
+      }
+      .bubble-5 {
+        bottom: 8%;
+        left: 16%;
+      }
+      .bubble-6 {
+        bottom: 2%;
+        right: 12%;
+      }
+
+      .hero-topic-note {
+        margin-top: 0.8rem;
+        font-size: 0.82rem;
+        color: #646691;
+        line-height: 1.7;
+      }
+
+      /* section 通用 */
+      .section {
+        padding-top: 2.1rem;
+        padding-bottom: 2.3rem;
+      }
+
+      .section-narrow {
+        max-width: 900px;
+        margin-inline: auto;
+      }
+
+      .section-title {
+        font-size: 1.12rem;
+        font-weight: 600;
+        color: #26253f;
+        margin-bottom: 0.3rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.88rem;
+        color: #646691;
+        line-height: 1.8;
+        margin-bottom: 0.7rem;
+      }
+
+      .inline-bubble {
+        display: inline-block;
+        padding: 0.02rem 0.45rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(210, 213, 248, 0.96);
+        font-size: 0.76rem;
+        margin-right: 0.15rem;
+      }
+
+      /* PART 1 · 生命节点话题卡片 */
+      .topic-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 1050px) {
+        .topic-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .topic-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .topic-card {
+        border-radius: 1.4rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(204, 207, 245, 0.96);
+        box-shadow: 0 14px 32px rgba(118, 132, 199, 0.33);
+        padding: 0.9rem 1rem 1rem;
+        position: relative;
+      }
+
+      .topic-card::before {
+        content: "✶";
+        position: absolute;
+        right: 0.8rem;
+        top: 0.7rem;
+        font-size: 0.8rem;
+        color: rgba(189, 171, 255, 0.7);
+      }
+
+      .topic-type-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.1rem 0.55rem;
+        border-radius: 999px;
+        border: 1px dashed rgba(209, 212, 246, 0.96);
+        background: rgba(248, 249, 255, 0.95);
+        font-size: 0.72rem;
+        color: #8b8db3;
+        margin-bottom: 0.22rem;
+      }
+
+      .topic-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #2f2e4b;
+        margin-bottom: 0.16rem;
+      }
+
+      .topic-title-en {
+        font-size: 0.8rem;
+        color: #6a6c96;
+        margin-bottom: 0.32rem;
+      }
+
+      .topic-text {
+        font-size: 0.82rem;
+        color: #575a84;
+        line-height: 1.7;
+        margin-bottom: 0.25rem;
+      }
+
+      .topic-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0.1rem 0 0;
+      }
+
+      .topic-list li {
+        position: relative;
+        padding-left: 0.9rem;
+        font-size: 0.8rem;
+        color: #656892;
+        margin-bottom: 0.18rem;
+        line-height: 1.6;
+      }
+
+      .topic-list li::before {
+        content: "▹";
+        position: absolute;
+        left: 0.1rem;
+        top: 0.06rem;
+        font-size: 0.7rem;
+        color: #c5a6ff;
+      }
+
+      /* PART 2 · 旅程形式：时间轴 */
+      .journey-section {
+        padding-top: 2.2rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .journey-layout {
+        border-radius: 1.6rem;
+        background: linear-gradient(120deg, #fff1fb, #e6f0ff);
+        box-shadow: 0 20px 46px rgba(120, 133, 205, 0.46);
+        border: 1px solid rgba(204, 209, 248, 0.96);
+        padding: 1.1rem 1.2rem 1.25rem;
+      }
+
+      .journey-header-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.7rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .journey-flow-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+
+      .journey-flow-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.18rem 0.6rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(210, 213, 248, 0.96);
+        font-size: 0.76rem;
+        color: #595c89;
+        box-shadow: 0 9px 22px rgba(125, 139, 210, 0.4);
+      }
+
+      .journey-flow-number {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #ffc9bf, #b9c6ff);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      .journey-timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 960px) {
+        .journey-timeline {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .journey-timeline {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .journey-node {
+        border-radius: 1.3rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(209, 212, 248, 0.96);
+        box-shadow: 0 14px 32px rgba(117, 130, 200, 0.36);
+        padding: 0.85rem 0.9rem 0.95rem;
+        position: relative;
+      }
+
+      .journey-node::before {
+        content: "◦";
+        position: absolute;
+        left: 0.8rem;
+        top: 0.75rem;
+        color: #c4a3ff;
+        font-size: 0.8rem;
+      }
+
+      .journey-node-label {
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: #a0a2c6;
+        margin-bottom: 0.08rem;
+        padding-left: 1.1rem;
+      }
+
+      .journey-node-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #2f304c;
+        margin-bottom: 0.14rem;
+        padding-left: 1.1rem;
+      }
+
+      .journey-node-text {
+        font-size: 0.8rem;
+        color: #595c88;
+        line-height: 1.7;
+        padding-left: 1.1rem;
+      }
+
+      .journey-note {
+        margin-top: 0.7rem;
+        font-size: 0.82rem;
+        color: #686a96;
+        line-height: 1.8;
+      }
+
+      /* PART 3 · 已经走过的几条代表性旅程 */
+      .gallery-section {
+        padding-top: 2.1rem;
+        padding-bottom: 2.4rem;
+      }
+
+      .journey-gallery {
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
+        gap: 1rem;
+      }
+
+      @media (max-width: 960px) {
+        .journey-gallery {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .gallery-left,
+      .gallery-right {
+        border-radius: 1.4rem;
+        border: 1px solid rgba(205, 209, 246, 0.96);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 14px 34px rgba(116, 129, 198, 0.35);
+        padding: 0.95rem 1rem 1.05rem;
+      }
+
+      .gallery-label {
+        font-size: 0.76rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #9ea1c5;
+        margin-bottom: 0.16rem;
+      }
+
+      .gallery-title {
+        font-size: 0.94rem;
+        font-weight: 600;
+        color: #2f304e;
+        margin-bottom: 0.25rem;
+      }
+
+      .gallery-text {
+        font-size: 0.82rem;
+        color: #575a86;
+        line-height: 1.8;
+        margin-bottom: 0.3rem;
+      }
+
+      .gallery-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0.1rem 0 0;
+      }
+
+      .gallery-list li {
+        position: relative;
+        padding-left: 0.9rem;
+        font-size: 0.8rem;
+        color: #636691;
+        margin-bottom: 0.2rem;
+        line-height: 1.7;
+      }
+
+      .gallery-list li::before {
+        content: "✧";
+        position: absolute;
+        left: 0.05rem;
+        top: 0.08rem;
+        font-size: 0.76rem;
+        color: #c3a6ff;
+      }
+
+      /* PART 4 · 实际合作流程 */
+      .flow-section {
+        padding-top: 2rem;
+        padding-bottom: 2.6rem;
+      }
+
+      .collab-flow {
+        border-radius: 1.5rem;
+        border: 1px solid rgba(210, 214, 249, 0.96);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 16px 40px rgba(117, 132, 204, 0.38);
+        padding: 1rem 1.1rem 1.1rem;
+      }
+
+      .flow-row {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.65rem;
+      }
+
+      @media (max-width: 1050px) {
+        .flow-row {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .flow-row {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .flow-step {
+        border-radius: 1.2rem;
+        border: 1px solid rgba(210, 214, 249, 0.96);
+        background: rgba(248, 249, 255, 0.96);
+        padding: 0.7rem 0.8rem 0.8rem;
+        font-size: 0.8rem;
+        color: #555782;
+        line-height: 1.7;
+        position: relative;
+      }
+
+      .flow-step-number {
+        font-size: 0.75rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9d9fc4;
+        margin-bottom: 0.12rem;
+      }
+
+      .flow-step-title {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #2f304b;
+        margin-bottom: 0.1rem;
+      }
+
+      .flow-note {
+        margin-top: 0.8rem;
+        font-size: 0.82rem;
+        color: #676996;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page-aura"></div>
+    <div class="page-wrapper">
+      <!-- 顶部导航 -->
+      <header class="site-header">
+        <div class="container site-header-inner">
+          <a href="index.html" class="brand">
+            <div class="brand-mark">
+              <div class="brand-initial"></div>
+            </div>
+            <div>
+              <div class="brand-text-main">寻屿 · YUNISLE</div>
+              <div class="brand-text-sub lang-zh">
+                心灵岛屿 · 自我探索 · 生命之旅
+              </div>
+              <div class="brand-text-sub lang-en">
+                Inner isles of becoming
+              </div>
+            </div>
+          </a>
+
+          <nav class="site-nav">
+            <a href="index.html">
+              <span class="nav-label-cn lang-zh">首页</span>
+              <span class="nav-label-en lang-en">Home</span>
+            </a>
+            <a href="theory.html">
+              <span class="nav-label-cn lang-zh">理论与路径</span>
+              <span class="nav-label-en lang-en">Theory & Methods</span>
+            </a>
+            <a href="meet-yun.html">
+              <span class="nav-label-cn lang-zh">遇见云</span>
+              <span class="nav-label-en lang-en">Meet Yun</span>
+            </a>
+            <a href="research.html">
+              <span class="nav-label-cn lang-zh">研究发表</span>
+              <span class="nav-label-en lang-en">Research</span>
+            </a>
+            <a href="topics.html">
+              <span class="nav-label-cn lang-zh">话题与旅程</span>
+              <span class="nav-label-en lang-en">Topics</span>
+            </a>
+            <a href="projects.html">
+              <span class="nav-label-cn lang-zh">共创项目</span>
+              <span class="nav-label-en lang-en">Projects</span>
+            </a>
+          </nav>
+
+          <div class="lang-toggle">
+            <span class="lang-toggle-label lang-zh">语言</span>
+            <span class="lang-toggle-label lang-en">Language</span>
+            <div class="lang-toggle-buttons">
+              <button id="lang-zh" class="lang-btn">中文</button>
+              <button id="lang-en" class="lang-btn">EN</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- HERO · 话题与旅程 -->
+        <section class="hero hero-inner">
+          <div class="container hero-grid">
+            <div>
+              <div class="hero-kicker">
+                <span class="lang-zh">TOPICS & JOURNEYS</span>
+                <span class="lang-en">TOPICS & JOURNEYS</span>
+              </div>
+              <h1 class="hero-title">
+                <span class="lang-zh">话题与旅程 · 从真实困惑出发的陪伴</span>
+                <span class="lang-en">Topics & journeys · starting from real questions</span>
+              </h1>
+
+              <p class="hero-subtitle lang-zh">
+                在这里，你不会看到「虚空的大词」，只有贴着生活的议题：<br />
+                <span class="emphasis-soft">
+                  学业与工作压力、亲子和人际关系、自主性与边界、跨文化与迁徙、自我探索、生命意义，还有 AI 与心理健康的交汇。
+                </span>
+              </p>
+              <p class="hero-subtitle lang-en">
+                This page is about real-life questions rather than abstract labels:<br />
+                <span class="emphasis-soft">
+                  pressure in school and work, parenting and close relationships, autonomy and boundaries,
+                  cross-cultural life, self-exploration, meaning-making – and where AI meets mental health.
+                </span>
+              </p>
+
+              <p class="hero-tagline lang-zh">
+                每一个话题，都可以是一段<span class="emphasis">旅程</span>：有起点、有节奏、有回望；
+                你不需要「准备好」，只需要带着现在的自己来。
+              </p>
+              <p class="hero-tagline lang-en">
+                Each topic can become a <span class="emphasis">journey</span> with a beginning,
+                a rhythm, and a place to look back from. You don’t have to be “ready” – you just come as you are.
+              </p>
+
+              <p class="hero-note lang-zh">
+                下方你会看到：<span class="emphasis-soft">常见话题</span>、<span class="emphasis-soft">我们可以如何设计旅程</span>，
+                以及我过去曾陪伴过的一些代表性路径。
+              </p>
+              <p class="hero-note lang-en">
+                Below you’ll find: <span class="emphasis-soft">common topics</span>,
+                <span class="emphasis-soft">how we can shape a journey</span>,
+                and a few examples of paths I’ve walked with others.
+              </p>
+            </div>
+
+            <div class="hero-topic-card">
+              <div class="pill-label">
+                <span class="pill-dot"></span>
+                <span class="lang-zh">一张「话题地图」：你可能会在哪一块停留</span>
+                <span class="lang-en">A topic map: where you might pause</span>
+              </div>
+              <div class="hero-bubble-wrap">
+                <div class="topic-bubble bubble-1">
+                  <span class="lang-zh">学习与工作动力</span>
+                  <span class="lang-en" style="display:none;">Study & work motivation</span>
+                  <span class="en-hint">motivation</span>
+                </div>
+                <div class="topic-bubble bubble-2">
+                  <span class="lang-zh">亲子与原生家庭</span>
+                  <span class="lang-en" style="display:none;">Parents & family of origin</span>
+                  <span class="en-hint">family</span>
+                </div>
+                <div class="topic-bubble bubble-3">
+                  <span class="lang-zh">人际关系与亲密</span>
+                  <span class="lang-en" style="display:none;">Friendship & intimacy</span>
+                  <span class="en-hint">relationships</span>
+                </div>
+                <div class="topic-bubble bubble-4">
+                  <span class="lang-zh">自主性与边界</span>
+                  <span class="lang-en" style="display:none;">Autonomy & boundaries</span>
+                  <span class="en-hint">autonomy</span>
+                </div>
+                <div class="topic-bubble bubble-5">
+                  <span class="lang-zh">跨文化与迁徙</span>
+                  <span class="lang-en" style="display:none;">Cross-cultural life</span>
+                  <span class="en-hint">culture</span>
+                </div>
+                <div class="topic-bubble bubble-6">
+                  <span class="lang-zh">AI 与心理健康 / 自我探索与意义</span>
+                  <span class="lang-en" style="display:none;">AI & mental health / meaning</span>
+                  <span class="en-hint">future</span>
+                </div>
+              </div>
+              <p class="hero-topic-note lang-zh">
+                如果你看到某个关键字时，心里轻轻「咯噔」一下，那大概就是我们可以从那里开始的地方。
+              </p>
+              <p class="hero-topic-note lang-en">
+                If one word here makes something inside you flinch or light up,
+                that’s usually a good place to start.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 1 · 常见话题：生命里几个关键节点 -->
+        <section class="section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">常见话题 · 生命里几个关键节点</span>
+              <span class="lang-en">Key topics · crossroads in a life</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              下列话题，是我在咨询、团体与教学中最常遇见、也最愿意陪伴的几个方向。
+              你可以把它们当作<span class="inline-bubble lang-zh">「入口」</span>，
+              选一个此刻对你最有共鸣的起点。
+            </p>
+            <p class="section-subtitle lang-en">
+              These are the themes I most often work with – and care deeply about.
+              Treat them as <span class="inline-bubble lang-en">doorways</span>:
+              choose the one that matches where you are now.
+            </p>
+
+            <div class="topic-grid">
+              <!-- Topic 1: Motivation & School/Work -->
+              <article class="topic-card">
+                <div class="topic-type-pill">
+                  <span class="lang-zh">适合：青少年 / 大学生 / 研究生 / 职场人</span>
+                  <span class="lang-en">For: teens · students · early career</span>
+                </div>
+                <h3 class="topic-title lang-zh">
+                  当「好好读书/工作」不再足够：学习与工作动力耗尽
+                </h3>
+                <h3 class="topic-title-en lang-en">
+                  When “work hard” stops working: motivation burnout
+                </h3>
+                <p class="topic-text lang-zh">
+                  明明很努力，却越来越提不起劲；一边自责「是不是我太懒」，一边觉得怎么做都不对。
+                  这里，我们会把你的动力放回<span class="emphasis-soft">家庭、学校/职场与自我期待</span>的系统里重新理解。
+                </p>
+                <p class="topic-text lang-en">
+                  You’ve tried your best yet feel increasingly drained. Part of
+                  you says “I’m lazy”; another part knows it’s not that simple.
+                  We put your motivation back into the systems of
+                  <span class="emphasis-soft">family, school/work, and self-expectations</span>.
+                </p>
+                <ul class="topic-list lang-zh">
+                  <li>中考/高考/升学或转专业、转行前后的动机起伏。</li>
+                  <li>「我到底是为谁在拼？」——为父母、为简历，还是为自己？</li>
+                </ul>
+                <ul class="topic-list lang-en">
+                  <li>Motivation dips around transitions (exams, moving schools, changing majors or jobs).</li>
+                  <li>“Who am I doing this for?” – parents, CV, or a future self.</li>
+                </ul>
+              </article>
+
+              <!-- Topic 2: Parents & Family -->
+              <article class="topic-card">
+                <div class="topic-type-pill">
+                  <span class="lang-zh">适合：青少年 / 青年 / 为人父母者</span>
+                  <span class="lang-en">For: adolescents · young adults · parents</span>
+                </div>
+                <h3 class="topic-title lang-zh">
+                  「不想再这么懂事了」：亲子与原生家庭
+                </h3>
+                <h3 class="topic-title-en lang-en">
+                  “I’m tired of being the good child”: parents & family of origin
+                </h3>
+                <p class="topic-text lang-zh">
+                  一边不想让家人失望，一边又想为自己活一点；既舍不得，也想拉开一点距离。
+                  我们会在<span class="emphasis-soft">中国文化与代际期待</span>的脉络下，重新看待「孝顺」「独立」与界限。
+                </p>
+                <p class="topic-text lang-en">
+                  You don’t want to disappoint your family, yet you long for
+                  more space to live as yourself. Together we revisit
+                  “filial piety”, “independence”, and boundaries within
+                  <span class="emphasis-soft">Chinese cultural and intergenerational contexts</span>.
+                </p>
+                <ul class="topic-list lang-zh">
+                  <li>「听话孩子」长大后，如何学会说“不”。</li>
+                  <li>父母如何从控制转向支持，让关系里有更多呼吸空间。</li>
+                </ul>
+                <ul class="topic-list lang-en">
+                  <li>Learning to say “no” after a childhood of being “the good kid”.</li>
+                  <li>Helping parents shift from control to support.</li>
+                </ul>
+              </article>
+
+              <!-- Topic 3: Relationships & Boundaries -->
+              <article class="topic-card">
+                <div class="topic-type-pill">
+                  <span class="lang-zh">适合：青年 / 伴侣 / 正在关系中摇摆的人</span>
+                  <span class="lang-en">For: young adults · partners · those in-between</span>
+                </div>
+                <h3 class="topic-title lang-zh">
+                  亲密关系与界限：在「靠近」与「不失去自己」之间
+                </h3>
+                <h3 class="topic-title-en lang-en">
+                  Intimacy & boundaries: staying close without losing yourself
+                </h3>
+                <p class="topic-text lang-zh">
+                  总是在关系里用力讨好、控制，或者逃跑？我们会从<span class="emphasis-soft">
+                    依恋、自主性与过往关系经验
+                  </span>出发，看你是如何学会「这样爱人和被爱」的。
+                </p>
+                <p class="topic-text lang-en">
+                  If you find yourself pleasing, controlling, or fleeing in
+                  relationships, we explore how your ways of loving and being
+                  loved emerged from <span class="emphasis-soft">
+                    attachment, autonomy, and past relationship histories
+                  </span>.
+                </p>
+                <ul class="topic-list lang-zh">
+                  <li>在爱里保有自主，而不是把自己全部交出去。</li>
+                  <li>从「我有问题」转向「我们的互动可以怎么不一样」。</li>
+                </ul>
+                <ul class="topic-list lang-en">
+                  <li>Keeping autonomy in love without shutting down connection.</li>
+                  <li>Moving from “I am the problem” to “how can we meet differently?”.</li>
+                </ul>
+              </article>
+
+              <!-- Topic 4: Cross-cultural & Migration -->
+              <article class="topic-card">
+                <div class="topic-type-pill">
+                  <span class="lang-zh">适合：留学生 / 海外华人 / 跨文化伴侣</span>
+                  <span class="lang-en">For: international students · migrants · cross-cultural couples</span>
+                </div>
+                <h3 class="topic-title lang-zh">
+                  在两种（或更多）文化之间生活
+                </h3>
+                <h3 class="topic-title-en lang-en">
+                  Living between cultures and countries
+                </h3>
+                <p class="topic-text lang-zh">
+                  在一个地方读书、工作、恋爱，心却还留在另一个地方；既想留下，又挂念回去。
+                  我们会把<span class="emphasis-soft">移居、学业、职业与关系选择</span>放在同一条时间线上，看清你真正的优先级。
+                </p>
+                <p class="topic-text lang-en">
+                  You study, work, and love in one country while part of your
+                  heart lives elsewhere. We map your
+                  <span class="emphasis-soft">migration, study, work, and relationship choices</span>
+                  on a shared timeline to see your real priorities.
+                </p>
+                <ul class="topic-list lang-zh">
+                  <li>如何在「安全」与「自由」之间做出不后悔的选择。</li>
+                  <li>在跨文化关系中，同时照顾两个人的背景与需求。</li>
+                </ul>
+                <ul class="topic-list lang-en">
+                  <li>Choosing between safety and freedom without abandoning either.</li>
+                  <li>Honouring both partners’ cultures in a relationship.</li>
+                </ul>
+              </article>
+
+              <!-- Topic 5: Self-exploration & Meaning -->
+              <article class="topic-card">
+                <div class="topic-type-pill">
+                  <span class="lang-zh">适合：在人生节点停下脚步的人</span>
+                  <span class="lang-en">For: anyone pausing at a life crossroads</span>
+                </div>
+                <h3 class="topic-title lang-zh">
+                  自我探索与生命意义：给「不知道想要什么」一点时间
+                </h3>
+                <h3 class="topic-title-en lang-en">
+                  Self-exploration & meaning: staying with “I don’t know yet”
+                </h3>
+                <p class="topic-text lang-zh">
+                  不少来访者会说：「我已经完成了很多任务，但好像还没真正开始自己的生活」。
+                  我们会用<span class="emphasis-soft">发展心理学与存在主义</span>的视角，帮你看清此刻所处的阶段与可能性。
+                </p>
+                <p class="topic-text lang-en">
+                  Many people tell me, “I’ve ticked many boxes, but haven’t really begun my own life.”
+                  We use <span class="emphasis-soft">developmental and existential perspectives</span>
+                  to locate where you are and what could come next.
+                </p>
+                <ul class="topic-list lang-zh">
+                  <li>从「我应该成为什么样的人」走向「我愿意成为什么样的人」。</li>
+                  <li>把迷茫视为过渡期，而不是失败证据。</li>
+                </ul>
+                <ul class="topic-list lang-en">
+                  <li>Shifting from “Who should I be?” to “Who am I willing to become?”</li>
+                  <li>Framing confusion as transition, not failure.</li>
+                </ul>
+              </article>
+
+              <!-- Topic 6: AI & Mental health / Digital life -->
+              <article class="topic-card">
+                <div class="topic-type-pill">
+                  <span class="lang-zh">适合：对 AI / 数字心理有兴趣的个体与团队</span>
+                  <span class="lang-en">For: individuals & teams working with AI</span>
+                </div>
+                <h3 class="topic-title lang-zh">
+                  AI 与心理健康：在效率时代保留「人味」
+                </h3>
+                <h3 class="topic-title-en lang-en">
+                  AI & mental health: keeping the human in the loop
+                </h3>
+                <p class="topic-text lang-zh">
+                  当我们把心理支持带进 App、机器人或线上课程，怎样才能在追求效率的同时，
+                  不丢失<span class="emphasis-soft">自主、关系与意义</span>这三个核心？
+                </p>
+                <p class="topic-text lang-en">
+                  When we move support into apps or AI tools, how do we stay
+                  loyal to <span class="emphasis-soft">autonomy, connection, and meaning</span>
+                  rather than just efficiency?
+                </p>
+                <ul class="topic-list lang-zh">
+                  <li>为 AI 心理工具做概念设计与伦理讨论。</li>
+                  <li>协助团队把发展心理学与自我决定理论，落在产品与干预流程中。</li>
+                </ul>
+                <ul class="topic-list lang-en">
+                  <li>Concept and ethics work for AI-based mental health tools.</li>
+                  <li>Embedding developmental and SDT insights into products and interventions.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 2 · 我们可以如何设计一段「旅程」 -->
+        <section class="section journey-section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">我们可以如何设计一段「旅程」</span>
+              <span class="lang-en">How we can shape a journey together</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              不同阶段、不同议题，需要不一样的节奏。<br />
+              下面是常用的几种旅程形式，你可以把它们看作<span class="inline-bubble lang-zh">打样</span>——
+              具体会根据你的时间、状态与资源微调。
+            </p>
+            <p class="section-subtitle lang-en">
+              Different questions call for different rhythms. The formats below
+              are <span class="inline-bubble lang-en">templates</span> we can adapt to your time, energy, and resources.
+            </p>
+
+            <div class="journey-layout">
+              <div class="journey-header-row">
+                <p class="section-subtitle lang-zh" style="margin-bottom:0;">
+                  总的来说，一段旅程大致会经历：
+                </p>
+                <p class="section-subtitle lang-en" style="margin-bottom:0;">
+                  In essence, most journeys move through:
+                </p>
+                <div class="journey-flow-pills">
+                  <span class="journey-flow-pill">
+                    <span class="journey-flow-number">1</span>
+                    <span class="lang-zh">探索现状</span>
+                    <span class="lang-en">Explore</span>
+                  </span>
+                  <span class="journey-flow-pill">
+                    <span class="journey-flow-number">2</span>
+                    <span class="lang-zh">看清模式</span>
+                    <span class="lang-en">Understand</span>
+                  </span>
+                  <span class="journey-flow-pill">
+                    <span class="journey-flow-number">3</span>
+                    <span class="lang-zh">接纳与调整</span>
+                    <span class="lang-en">Accept & reframe</span>
+                  </span>
+                  <span class="journey-flow-pill">
+                    <span class="journey-flow-number">4</span>
+                    <span class="lang-zh">做出选择</span>
+                    <span class="lang-en">Choose</span>
+                  </span>
+                  <span class="journey-flow-pill">
+                    <span class="journey-flow-number">5</span>
+                    <span class="lang-zh">实践与整合</span>
+                    <span class="lang-en">Act & integrate</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="journey-timeline">
+                <!-- Node 1 -->
+                <div class="journey-node">
+                  <div class="journey-node-label">
+                    <span class="lang-zh">FORMAT · 单次聚焦对话</span>
+                    <span class="lang-en">FORMAT · Single focus session</span>
+                  </div>
+                  <div class="journey-node-title lang-zh">
+                    1 次 × 75 分钟：先把最急的部分说清楚
+                  </div>
+                  <div class="journey-node-title lang-en">
+                    1 × 75 min · Clarifying what hurts most now
+                  </div>
+                  <p class="journey-node-text lang-zh">
+                    适合：在某个节点上卡住，需要一个安全空间理一理思路、做一个暂时决定的人。
+                  </p>
+                  <p class="journey-node-text lang-en">
+                    For when you’re stuck at a crossroads and need a safe place
+                    to think and make a provisional choice.
+                  </p>
+                </div>
+
+                <!-- Node 2 -->
+                <div class="journey-node">
+                  <div class="journey-node-label">
+                    <span class="lang-zh">FORMAT · 短程旅程</span>
+                    <span class="lang-en">FORMAT · Short journey</span>
+                  </div>
+                  <div class="journey-node-title lang-zh">
+                    3–5 次：理解一个模式，找到一个新选项
+                  </div>
+                  <div class="journey-node-title lang-en">
+                    3–5 sessions · Understanding one pattern
+                  </div>
+                  <p class="journey-node-text lang-zh">
+                    适合：围绕一个核心议题（如学习动力、亲子冲突、自我怀疑），想要既有理解，也有具体行动方案。
+                  </p>
+                  <p class="journey-node-text lang-en">
+                    For one focused theme (e.g. motivation, conflict with
+                    parents, self-doubt) where you want both insight and concrete steps.
+                  </p>
+                </div>
+
+                <!-- Node 3 -->
+                <div class="journey-node">
+                  <div class="journey-node-label">
+                    <span class="lang-zh">FORMAT · 深度旅程</span>
+                    <span class="lang-en">FORMAT · Deep journey</span>
+                  </div>
+                  <div class="journey-node-title lang-zh">
+                    8–12 次：重写一段生命叙事
+                  </div>
+                  <div class="journey-node-title lang-en">
+                    8–12+ sessions · Rewriting a life story
+                  </div>
+                  <p class="journey-node-text lang-zh">
+                    适合：长期困扰（如长期完美主义、自我价值感低、复杂家庭背景），需要在时间中慢慢调整关系与自我位置。
+                  </p>
+                  <p class="journey-node-text lang-en">
+                    For long-standing issues (perfectionism, low self-worth,
+                    complex family histories) that need time to untangle and reweave.
+                  </p>
+                </div>
+
+                <!-- Node 4 -->
+                <div class="journey-node">
+                  <div class="journey-node-label">
+                    <span class="lang-zh">FORMAT · 团体 / 工作坊</span>
+                    <span class="lang-en">FORMAT · Groups / workshops</span>
+                  </div>
+                  <div class="journey-node-title lang-zh">
+                    主题式旅程：一起走的一小段路
+                  </div>
+                  <div class="journey-node-title lang-en">
+                    Themed journeys · walking together
+                  </div>
+                  <p class="journey-node-text lang-zh">
+                    适合：想在安全结构中与他人同行的人，例如：学习动机小组、亲子共学、跨文化适应、AI 与心理健康对话等。
+                  </p>
+                  <p class="journey-node-text lang-en">
+                    For those who want to walk with others: e.g. motivation
+                    groups, parent–teen programmes, cross-cultural circles, or AI & mental health dialogues.
+                  </p>
+                </div>
+              </div>
+
+              <p class="journey-note lang-zh">
+                这些只是「起始模板」。真正的旅程，会根据你的节奏共同调整：<br />
+                <span class="emphasis-soft">
+                  有时是一小段冲刺，有时是慢慢同行；有时在你生活平稳期提前铺路，有时在风浪中暂时托一托你。
+                </span>
+              </p>
+              <p class="journey-note lang-en">
+                These are starting points. The real journey is tailored together:<br />
+                <span class="emphasis-soft">
+                  sometimes a short sprint, sometimes slow companionship; sometimes preparing in calm periods, sometimes holding you during storms.
+                </span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 3 · 已经走过的几条代表性旅程 -->
+        <section class="section gallery-section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">已经走过的几条旅程 · 你可能会在其中认出自己</span>
+              <span class="lang-en">Journeys I’ve walked with others · you might recognise yourself here</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              出于隐私保护，这里不会出现具体个人故事，只会以<span class="inline-bubble lang-zh">「路线地图」</span>的形式呈现。
+            </p>
+            <p class="section-subtitle lang-en">
+              To protect confidentiality, these are not individual stories but
+              <span class="inline-bubble lang-en">route sketches</span>
+              that integrate many journeys.
+            </p>
+
+            <div class="journey-gallery">
+              <div class="gallery-left">
+                <div class="gallery-label">
+                  <span class="lang-zh">STUDENT & YOUNG ADULT PATHS</span>
+                  <span class="lang-en">STUDENT & YOUNG ADULT PATHS</span>
+                </div>
+                <div class="gallery-title lang-zh">
+                  学习、职业与「我到底要成为什么样的人？」
+                </div>
+                <div class="gallery-title lang-en">
+                  Study, career, and “Who do I want to become?”
+                </div>
+                <p class="gallery-text lang-zh">
+                  来访者通常从一句话开始：「我不确定要不要继续这样下去」——读这个专业、留在这个国家、或待在这个团队。
+                </p>
+                <p class="gallery-text lang-en">
+                  Many journeys begin with: “I’m not sure I want to keep doing this” –
+                  this major, this PhD, this job, or this country.
+                </p>
+                <ul class="gallery-list lang-zh">
+                  <li>从「我必须成功」到「我可以定义什么是对我来说的成功」。</li>
+                  <li>在转专业/转行/出国/回国的选择里，看清<span class="emphasis-soft">安全、自由、家庭与自我</span>的权重。</li>
+                  <li>把「学不会」「拖延」翻译成：系统给了你怎样的任务和压力。</li>
+                </ul>
+                <ul class="gallery-list lang-en">
+                  <li>Moving from “I must be successful” to “I define what success means for me now”.</li>
+                  <li>Weighing <span class="emphasis-soft">safety, freedom, family, and self</span>
+                    in choices about changing majors, jobs, or countries.</li>
+                  <li>Translating “I’m lazy” into a clearer picture of demands and supports in your environment.</li>
+                </ul>
+              </div>
+
+              <div class="gallery-right">
+                <div class="gallery-label">
+                  <span class="lang-zh">RELATIONSHIP & FAMILY PATHS</span>
+                  <span class="lang-en">RELATIONSHIP & FAMILY PATHS</span>
+                </div>
+                <div class="gallery-title lang-zh">
+                  在关系里，既不消失，也不孤立
+                </div>
+                <div class="gallery-title lang-en">
+                  Staying present in relationships without disappearing
+                </div>
+                <p class="gallery-text lang-zh">
+                  很多旅程都从「我是不是太敏感/太冷漠/太自私」开始，最后落在：
+                  <span class="emphasis-soft">「原来在那样的环境里，我已经尽力了。接下来我想换一种方式对自己和别人负责。」</span>
+                </p>
+                <p class="gallery-text lang-en">
+                  Many journeys start with “Am I too sensitive / cold / selfish?”
+                  and end with: <span class="emphasis-soft">
+                    “I did my best in that environment. Now I want to relate differently to myself and others.”
+                  </span>
+                </p>
+                <ul class="gallery-list lang-zh">
+                  <li>陪伴父母与青少年一起，从「成绩至上」走向「关系与成长并重」。</li>
+                  <li>帮助伴侣看见：争吵背后，其实是各自的恐惧与渴望，而不是谁对谁错。</li>
+                  <li>协助长期背负家庭责任的人，慢慢学习「把自己也算进家庭的一员」。</li>
+                </ul>
+                <ul class="gallery-list lang-en">
+                  <li>Supporting parents and teens to move from “grades first” to “relationship and growth together”.</li>
+                  <li>Helping couples see the fear and longing beneath conflict, instead of just right or wrong.</li>
+                  <li>Working with those who have carried family roles alone to see themselves as part of the family, not just its backbone.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 4 · 如果你想和我一起开启一段旅程 -->
+        <section class="section flow-section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">如果你想和我一起，开启一段旅程</span>
+              <span class="lang-en">If you’d like to start a journey together</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              真正重要的不是「一次就解决所有问题」，而是先为自己开辟一小块稳定的空间。
+              大致流程会是这样——也会根据所在国家和合作形式微调：
+            </p>
+            <p class="section-subtitle lang-en">
+              The goal is not to “fix everything at once” but to carve out a small, steady space for yourself.
+              The process usually looks like this (adapted to country and format):
+            </p>
+
+            <div class="collab-flow">
+              <div class="flow-row">
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 01</span>
+                    <span class="lang-en">STEP 01</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    简短来信 / 留言
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    A short email / message
+                  </div>
+                  <p class="lang-zh">
+                    用几句话写下你现在在意的主题、所在国家/时区，以及你更偏好的形式（线上/线下）。
+                  </p>
+                  <p class="lang-en">
+                    A few lines about what you’re facing now, where you are (country/time zone), and preferred format (online/offline if available).
+                  </p>
+                </div>
+
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 02</span>
+                    <span class="lang-en">STEP 02</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    初次会谈 · 对焦与评估
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    First meeting · clarifying & assessing
+                  </div>
+                  <p class="lang-zh">
+                    我们会一起确认你最想先处理的部分，并评估是否适合由我来陪伴，或需要转介其他资源。
+                  </p>
+                  <p class="lang-en">
+                    We clarify your priorities and see whether I’m the right person to support you, or whether other resources are needed.
+                  </p>
+                </div>
+
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 03</span>
+                    <span class="lang-en">STEP 03</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    共同设计旅程
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    Designing the journey together
+                  </div>
+                  <p class="lang-zh">
+                    根据议题与实际条件，商量是单次聚焦、短程、深度旅程，还是团体/工作坊形式。
+                  </p>
+                  <p class="lang-en">
+                    We decide on format: single session, short/longer journey, or group/workshop, aligned with your constraints.
+                  </p>
+                </div>
+
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 04</span>
+                    <span class="lang-en">STEP 04</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    中程回顾与微调
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    Mid-way review & adjustment
+                  </div>
+                  <p class="lang-zh">
+                    在旅程中途，我们会一起回头看：什么对你有帮助？什么需要改变？确保节奏跟得上你的生命状态。
+                  </p>
+                  <p class="lang-en">
+                    We pause mid-way to see what helps, what doesn’t, and adjust pace and focus accordingly.
+                  </p>
+                </div>
+
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 05</span>
+                    <span class="lang-en">STEP 05</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    结束与余波 · 带着新工具继续生活
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    Closing & after-effects
+                  </div>
+                  <p class="lang-zh">
+                    我们会用一整次会谈来「好好收尾」，整理你获得的理解、工具和关系经验，让旅程的影响延续在你的日常里。
+                  </p>
+                  <p class="lang-en">
+                    We devote time to close intentionally, naming what you’ve gained so the impact can continue in your everyday life.
+                  </p>
+                </div>
+              </div>
+
+              <p class="flow-note lang-zh">
+                如果你现在还没准备好开始，只是想先看看「我适不适合来谈」，也完全可以写信来告诉我——
+                有时，把犹豫本身说出来，就是很好的第一步。
+              </p>
+              <p class="flow-note lang-en">
+                If you’re not ready to start but want to ask whether this might
+                fit you, you’re welcome to write just about that.
+                Naming hesitation is already a meaningful first step.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer / 联系方式 -->
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <div class="footer-contact-card">
+            <div class="footer-contact-layout">
+              <div class="footer-contact-main">
+                <h3 class="footer-contact-title lang-zh">
+                  如果这些话题和旅程，让你联想到自己的某一段路
+                </h3>
+                <h3 class="footer-contact-title lang-en">
+                  If these topics and journeys echo a road you’re on
+                </h3>
+                <p class="footer-contact-text lang-zh">
+                  欢迎你写信、留言，或在社交平台上找到我。你可以带着困惑、研究或项目想法、合作意向，
+                  也可以只是轻轻地说一句：「我好像在这里看见自己了」。
+                </p>
+                <p class="footer-contact-text lang-en">
+                  You’re warmly invited to reach out—with questions, project
+                  ideas, collaboration plans, or simply to say:
+                  “I recognised myself in something you wrote.”
+                </p>
+                <p class="footer-contact-text lang-zh">
+                  因为还有研究与教学工作，我通常会在约 10 天内回复。
+                </p>
+                <p class="footer-contact-text lang-en">
+                  Alongside research and teaching, I usually respond within about ten days.
+                </p>
+              </div>
+
+              <div class="footer-contact-actions">
+                <div class="contact-pill-row">
+                  <!-- 正式上线前请替换为真实链接与账号 -->
+                  <a href="mailto:your.email@example.com" class="contact-pill">
+                    <span class="lang-zh">Email 邮箱</span>
+                    <span class="lang-en">Email</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="contact-pill"
+                  >
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://scholar.google.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="contact-pill"
+                  >
+                    <span class="lang-zh">Google Scholar</span>
+                    <span class="lang-en">Google Scholar</span>
+                  </a>
+                  <a href="#" class="contact-pill">
+                    <span class="lang-zh">小红书</span>
+                    <span class="lang-en">Xiaohongshu</span>
+                  </a>
+                  <a href="#" class="contact-pill">
+                    <span class="lang-zh">微信</span>
+                    <span class="lang-en">WeChat</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom-line">
+            © 2025 寻屿 · YUNISLE. All rights reserved.<br />
+            这一座岛，慢慢与你一起被创造出来。<br />
+            Design by Jingyun Wang · designed for gentle growth, deep feeling, and honest becoming.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
