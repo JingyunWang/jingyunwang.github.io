@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>共创项目 · 寻屿 Yunisle | Co-created Projects</title>
+
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+
+    <!-- projects.html 局部样式（在全站基础上做轻量增强） -->
+    <style>
+      .hero-inner {
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.6fr);
+        gap: 2.1rem;
+        align-items: center;
+      }
+
+      @media (max-width: 960px) {
+        .hero-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .hero-kicker {
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9a9cc1;
+        margin-bottom: 0.3rem;
+      }
+
+      .hero-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        color: #26253f;
+      }
+
+      .hero-subtitle {
+        font-size: 0.96rem;
+        line-height: 1.9;
+        color: #4c4e77;
+        margin-bottom: 0.35rem;
+      }
+
+      .hero-tagline {
+        font-size: 0.88rem;
+        line-height: 1.85;
+        color: #676993;
+        margin-bottom: 0.2rem;
+      }
+
+      .hero-note {
+        font-size: 0.82rem;
+        color: #8b8eb5;
+        line-height: 1.8;
+      }
+
+      .emphasis {
+        font-weight: 600;
+        color: #26243f;
+      }
+
+      .emphasis-soft {
+        font-weight: 500;
+        color: #4b4d74;
+      }
+
+      /* 右侧：共创星图卡片 */
+      .hero-collab-card {
+        border-radius: 1.9rem;
+        padding: 1.25rem 1.3rem 1.4rem;
+        background: radial-gradient(circle at 15% 0%, #fff4fd, #e4ecff);
+        border: 1px solid rgba(203, 209, 248, 0.95);
+        box-shadow: 0 24px 55px rgba(118, 131, 201, 0.65);
+      }
+
+      .pill-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.16rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 10px 22px rgba(143, 156, 212, 0.45);
+        font-size: 0.78rem;
+        color: #7a7c9b;
+        margin-bottom: 0.7rem;
+      }
+
+      .pill-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: radial-gradient(circle at 30% 30%, #ffe3f0, #bac9ff);
+      }
+
+      .hero-orbit-wrap {
+        position: relative;
+        min-height: 220px;
+        padding: 0.4rem 0.2rem 0.1rem;
+      }
+
+      .collab-core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 1.7rem;
+        padding: 0.55rem 0.9rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(210, 214, 249, 0.96);
+        box-shadow: 0 12px 30px rgba(122, 136, 211, 0.45);
+        text-align: center;
+        max-width: 180px;
+        font-size: 0.78rem;
+        color: #4f527d;
+        line-height: 1.6;
+      }
+
+      .collab-orbit {
+        position: absolute;
+        border-radius: 999px;
+        border: 1px dashed rgba(198, 204, 248, 0.8);
+        opacity: 0.7;
+      }
+
+      .orbit-1 {
+        inset: 10% 12%;
+      }
+
+      .orbit-2 {
+        inset: 20% 20%;
+      }
+
+      .orbit-badge {
+        position: absolute;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(210, 214, 249, 0.96);
+        box-shadow: 0 12px 30px rgba(122, 136, 211, 0.45);
+        padding: 0.35rem 0.7rem;
+        font-size: 0.8rem;
+        color: #4f527d;
+        white-space: nowrap;
+      }
+
+      .orbit-badge span.en-hint {
+        display: block;
+        font-size: 0.72rem;
+        color: #a1a4c7;
+        margin-top: 2px;
+      }
+
+      .badge-1 {
+        top: 2%;
+        left: 8%;
+      }
+
+      .badge-2 {
+        top: 4%;
+        right: 6%;
+      }
+
+      .badge-3 {
+        bottom: 6%;
+        left: 4%;
+      }
+
+      .badge-4 {
+        bottom: 4%;
+        right: 10%;
+      }
+
+      .badge-5 {
+        left: 50%;
+        bottom: -4%;
+        transform: translateX(-50%);
+      }
+
+      .hero-collab-note {
+        margin-top: 0.8rem;
+        font-size: 0.82rem;
+        color: #646691;
+        line-height: 1.7;
+      }
+
+      /* section 通用 */
+      .section {
+        padding-top: 2.1rem;
+        padding-bottom: 2.3rem;
+      }
+
+      .section-narrow {
+        max-width: 900px;
+        margin-inline: auto;
+      }
+
+      .section-title {
+        font-size: 1.12rem;
+        font-weight: 600;
+        color: #26253f;
+        margin-bottom: 0.3rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.88rem;
+        color: #646691;
+        line-height: 1.8;
+        margin-bottom: 0.7rem;
+      }
+
+      .inline-bubble {
+        display: inline-block;
+        padding: 0.02rem 0.45rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(210, 213, 248, 0.96);
+        font-size: 0.76rem;
+        margin-right: 0.15rem;
+      }
+
+      /* PART 1 · 适合共创的伙伴类型 */
+      .partner-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.85rem;
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 1120px) {
+        .partner-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .partner-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .partner-card {
+        border-radius: 1.35rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(204, 207, 245, 0.96);
+        box-shadow: 0 14px 32px rgba(118, 132, 199, 0.33);
+        padding: 0.85rem 0.9rem 0.95rem;
+        position: relative;
+      }
+
+      .partner-card::before {
+        content: "✶";
+        position: absolute;
+        right: 0.75rem;
+        top: 0.7rem;
+        font-size: 0.78rem;
+        color: rgba(189, 171, 255, 0.7);
+      }
+
+      .partner-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 0.08rem 0.55rem;
+        border-radius: 999px;
+        border: 1px dashed rgba(209, 212, 246, 0.96);
+        background: rgba(248, 249, 255, 0.95);
+        font-size: 0.72rem;
+        color: #8b8db3;
+        margin-bottom: 0.2rem;
+      }
+
+      .partner-title {
+        font-size: 0.93rem;
+        font-weight: 600;
+        color: #2f2e4b;
+        margin-bottom: 0.14rem;
+      }
+
+      .partner-title-en {
+        font-size: 0.8rem;
+        color: #6a6c96;
+        margin-bottom: 0.28rem;
+      }
+
+      .partner-text {
+        font-size: 0.8rem;
+        color: #575a84;
+        line-height: 1.7;
+        margin-bottom: 0.18rem;
+      }
+
+      .partner-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0.1rem 0 0;
+      }
+
+      .partner-list li {
+        position: relative;
+        padding-left: 0.9rem;
+        font-size: 0.78rem;
+        color: #656892;
+        margin-bottom: 0.18rem;
+        line-height: 1.6;
+      }
+
+      .partner-list li::before {
+        content: "▹";
+        position: absolute;
+        left: 0.1rem;
+        top: 0.06rem;
+        font-size: 0.7rem;
+        color: #c5a6ff;
+      }
+
+      /* PART 2 · 项目形态：三条「共创通道」 */
+      .channel-section {
+        padding-top: 2.1rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .channel-layout {
+        border-radius: 1.6rem;
+        background: linear-gradient(120deg, #fff1fb, #e6f0ff);
+        box-shadow: 0 20px 46px rgba(120, 133, 205, 0.46);
+        border: 1px solid rgba(204, 209, 248, 0.96);
+        padding: 1rem 1.1rem 1.15rem;
+      }
+
+      .channel-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+      }
+
+      @media (max-width: 1050px) {
+        .channel-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .channel-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .channel-card {
+        border-radius: 1.35rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(210, 214, 249, 0.96);
+        box-shadow: 0 14px 32px rgba(117, 130, 200, 0.36);
+        padding: 0.85rem 0.95rem 0.95rem;
+        position: relative;
+      }
+
+      .channel-label {
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #a0a2c6;
+        margin-bottom: 0.1rem;
+      }
+
+      .channel-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #2f304c;
+        margin-bottom: 0.2rem;
+      }
+
+      .channel-text {
+        font-size: 0.8rem;
+        color: #595c88;
+        line-height: 1.7;
+        margin-bottom: 0.22rem;
+      }
+
+      .channel-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0.12rem 0 0;
+      }
+
+      .channel-list li {
+        position: relative;
+        padding-left: 0.9rem;
+        font-size: 0.78rem;
+        color: #636691;
+        margin-bottom: 0.18rem;
+        line-height: 1.6;
+      }
+
+      .channel-list li::before {
+        content: "✧";
+        position: absolute;
+        left: 0.05rem;
+        top: 0.08rem;
+        font-size: 0.76rem;
+        color: #c3a6ff;
+      }
+
+      .channel-note {
+        margin-top: 0.7rem;
+        font-size: 0.82rem;
+        color: #686a96;
+        line-height: 1.8;
+      }
+
+      /* PART 3 · 已有与设想中的项目片段 */
+      .snippet-section {
+        padding-top: 2.1rem;
+        padding-bottom: 2.4rem;
+      }
+
+      .snippet-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
+        gap: 1rem;
+      }
+
+      @media (max-width: 960px) {
+        .snippet-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .snippet-card {
+        border-radius: 1.4rem;
+        border: 1px solid rgba(205, 209, 246, 0.96);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 14px 34px rgba(116, 129, 198, 0.35);
+        padding: 0.95rem 1rem 1.05rem;
+      }
+
+      .snippet-label {
+        font-size: 0.76rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #9ea1c5;
+        margin-bottom: 0.16rem;
+      }
+
+      .snippet-title {
+        font-size: 0.94rem;
+        font-weight: 600;
+        color: #2f304e;
+        margin-bottom: 0.25rem;
+      }
+
+      .snippet-text {
+        font-size: 0.82rem;
+        color: #575a86;
+        line-height: 1.8;
+        margin-bottom: 0.3rem;
+      }
+
+      .snippet-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0.1rem 0 0;
+      }
+
+      .snippet-list li {
+        position: relative;
+        padding-left: 0.9rem;
+        font-size: 0.8rem;
+        color: #636691;
+        margin-bottom: 0.2rem;
+        line-height: 1.7;
+      }
+
+      .snippet-list li::before {
+        content: "◦";
+        position: absolute;
+        left: 0.1rem;
+        top: 0.08rem;
+        font-size: 0.76rem;
+        color: #c3a6ff;
+      }
+
+      /* PART 4 · 如何启动共创项目：简洁流程 */
+      .flow-section {
+        padding-top: 2rem;
+        padding-bottom: 2.6rem;
+      }
+
+      .collab-flow {
+        border-radius: 1.5rem;
+        border: 1px solid rgba(210, 214, 249, 0.96);
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 16px 40px rgba(117, 132, 204, 0.38);
+        padding: 1rem 1.1rem 1.1rem;
+      }
+
+      .flow-row {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.65rem;
+      }
+
+      @media (max-width: 1120px) {
+        .flow-row {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .flow-row {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .flow-step {
+        border-radius: 1.2rem;
+        border: 1px solid rgba(210, 214, 249, 0.96);
+        background: rgba(248, 249, 255, 0.96);
+        padding: 0.7rem 0.8rem 0.8rem;
+        font-size: 0.8rem;
+        color: #555782;
+        line-height: 1.7;
+        position: relative;
+      }
+
+      .flow-step-number {
+        font-size: 0.75rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #9d9fc4;
+        margin-bottom: 0.12rem;
+      }
+
+      .flow-step-title {
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: #2f304b;
+        margin-bottom: 0.1rem;
+      }
+
+      .flow-note {
+        margin-top: 0.8rem;
+        font-size: 0.82rem;
+        color: #676996;
+        line-height: 1.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page-aura"></div>
+    <div class="page-wrapper">
+      <!-- 顶部导航 -->
+      <header class="site-header">
+        <div class="container site-header-inner">
+          <a href="index.html" class="brand">
+            <div class="brand-mark">
+              <div class="brand-initial"></div>
+            </div>
+            <div>
+              <div class="brand-text-main">寻屿 · YUNISLE</div>
+              <div class="brand-text-sub lang-zh">
+                心灵岛屿 · 自我探索 · 生命之旅
+              </div>
+              <div class="brand-text-sub lang-en">
+                Inner isles of becoming
+              </div>
+            </div>
+          </a>
+
+          <nav class="site-nav">
+            <a href="index.html">
+              <span class="nav-label-cn lang-zh">首页</span>
+              <span class="nav-label-en lang-en">Home</span>
+            </a>
+            <a href="theory.html">
+              <span class="nav-label-cn lang-zh">理论与路径</span>
+              <span class="nav-label-en lang-en">Theory & Methods</span>
+            </a>
+            <a href="meet-yun.html">
+              <span class="nav-label-cn lang-zh">遇见云</span>
+              <span class="nav-label-en lang-en">Meet Yun</span>
+            </a>
+            <a href="research.html">
+              <span class="nav-label-cn lang-zh">研究发表</span>
+              <span class="nav-label-en lang-en">Research</span>
+            </a>
+            <a href="topics.html">
+              <span class="nav-label-cn lang-zh">话题与旅程</span>
+              <span class="nav-label-en lang-en">Topics</span>
+            </a>
+            <a href="projects.html">
+              <span class="nav-label-cn lang-zh">共创项目</span>
+              <span class="nav-label-en lang-en">Projects</span>
+            </a>
+          </nav>
+
+          <div class="lang-toggle">
+            <span class="lang-toggle-label lang-zh">语言</span>
+            <span class="lang-toggle-label lang-en">Language</span>
+            <div class="lang-toggle-buttons">
+              <button id="lang-zh" class="lang-btn">中文</button>
+              <button id="lang-en" class="lang-btn">EN</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- HERO · 共创项目 -->
+        <section class="hero hero-inner">
+          <div class="container hero-grid">
+            <div>
+              <div class="hero-kicker">
+                <span class="lang-zh">CO-CREATED PROJECTS</span>
+                <span class="lang-en">CO-CREATED PROJECTS</span>
+              </div>
+              <h1 class="hero-title">
+                <span class="lang-zh">共创项目 · 把研究落在真实的土壤里</span>
+                <span class="lang-en">Co-created projects · bringing research into real lives</span>
+              </h1>
+
+              <p class="hero-subtitle lang-zh">
+                我的工作，一直站在<span class="emphasis-soft">三条线</span>的交汇处：<br />
+                <span class="emphasis-soft">发展心理学与动机研究 · 咨询与团体实践 · 教学与系统设计</span>。<br />
+                共创项目，就是让这三条线，在你的学校、机构、团队或产品里交织成一条可行的路径。
+              </p>
+              <p class="hero-subtitle lang-en">
+                My work sits at the intersection of
+                <span class="emphasis-soft">
+                  developmental & motivation research · counselling and group work · teaching and system design
+                </span>.
+                Co-created projects weave these strands into something concrete in your school, organisation, team, or product.
+              </p>
+
+              <p class="hero-tagline lang-zh">
+                我关心的，不只是「项目好看」，而是：<br />
+                这个方案是不是<span class="emphasis-soft">真正支持自主性、人际关系、学习动机与身心健康</span>，
+                能不能在你们现有的现实中活下去。
+              </p>
+              <p class="hero-tagline lang-en">
+                What matters is not a “pretty” project but whether it
+                <span class="emphasis-soft">
+                  genuinely supports autonomy, relationships, learning motivation, and mental health
+                </span>
+                – and survives in your real-world constraints.
+              </p>
+
+              <p class="hero-note lang-zh">
+                下方你会看到：适合和我共创的伙伴类型、常见项目形态、一些项目片段，
+                以及如果你想合作，我们可以如何开始。
+              </p>
+              <p class="hero-note lang-en">
+                Below you’ll find: types of partners I work best with, common project formats,
+                some project snapshots, and how we could start something together.
+              </p>
+            </div>
+
+            <div class="hero-collab-card">
+              <div class="pill-label">
+                <span class="pill-dot"></span>
+                <span class="lang-zh">一张共创星图：谁可以和我一起做些什么</span>
+                <span class="lang-en">A collaboration map: who I work with</span>
+              </div>
+              <div class="hero-orbit-wrap">
+                <div class="collab-core">
+                  <span class="lang-zh">
+                    站在<span class="emphasis-soft">青少年与青年</span>的视角，
+                    一起设计对他们来说真的有用、也「用得下去」的项目。
+                  </span>
+                  <span class="lang-en" style="display:none;">
+                    Starting from the perspective of
+                    <span class="emphasis-soft">adolescents and young adults</span>,
+                    we design projects that are both meaningful and sustainable for them.
+                  </span>
+                </div>
+                <div class="collab-orbit orbit-1"></div>
+                <div class="collab-orbit orbit-2"></div>
+
+                <div class="orbit-badge badge-1">
+                  <span class="lang-zh">中学 / 大学 / 研究团队</span>
+                  <span class="lang-en" style="display:none;">Schools & universities</span>
+                  <span class="en-hint">education</span>
+                </div>
+                <div class="orbit-badge badge-2">
+                  <span class="lang-zh">心理中心 / 青年服务机构</span>
+                  <span class="lang-en" style="display:none;">Counselling & youth services</span>
+                  <span class="en-hint">care</span>
+                </div>
+                <div class="orbit-badge badge-3">
+                  <span class="lang-zh">企业 / 组织发展团队</span>
+                  <span class="lang-en" style="display:none;">Organisations & teams</span>
+                  <span class="en-hint">work</span>
+                </div>
+                <div class="orbit-badge badge-4">
+                  <span class="lang-zh">数字产品 / AI 心理健康项目</span>
+                  <span class="lang-en" style="display:none;">Digital & AI mental health</span>
+                  <span class="en-hint">digital</span>
+                </div>
+                <div class="orbit-badge badge-5">
+                  <span class="lang-zh">公益 / 社会创新项目</span>
+                  <span class="lang-en" style="display:none;">NGOs & social impact</span>
+                  <span class="en-hint">impact</span>
+                </div>
+              </div>
+              <p class="hero-collab-note lang-zh">
+                如果你正在做的事情，和 <span class="emphasis-soft">学习动机、亲子和人际、自主性、社会支持、
+                AI 与心理健康、自我探索或生命意义</span>有关，我们有很大机会能拼在一起。
+              </p>
+              <p class="hero-collab-note lang-en">
+                If your work touches
+                <span class="emphasis-soft">
+                  learning motivation, parenting and relationships, autonomy, social support,
+                  AI & mental health, self-exploration, or meaning-making
+                </span>, there is likely a good overlap between us.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 1 · 我适合和谁一起共创？ -->
+        <section class="section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">我适合和谁一起共创？</span>
+              <span class="lang-en">Who I’m a good collaborator for</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              简单来说：你既关心<span class="emphasis-soft">效果</span>，也在乎<span class="emphasis-soft">方法是否合乎人性</span>；
+              想把理论和数据用好，但不想让一线的学生、老师、来访者或员工被新的「形式主义」压垮。
+            </p>
+            <p class="section-subtitle lang-en">
+              In short, you care about <span class="emphasis-soft">impact</span> and about
+              <span class="emphasis-soft">humane methods</span>.
+              You want to use theory and data well without overburdening students, staff, or clients
+              with another layer of box-ticking.
+            </p>
+
+            <div class="partner-grid">
+              <!-- Partner 1 -->
+              <article class="partner-card">
+                <div class="partner-pill">
+                  <span class="lang-zh">教育系统 · 中学 / 大学</span>
+                  <span class="lang-en">Education · schools & universities</span>
+                </div>
+                <h3 class="partner-title lang-zh">
+                  在校内做一些真正被学生需要的事
+                </h3>
+                <h3 class="partner-title-en lang-en">
+                  Doing what students actually need on campus
+                </h3>
+                <p class="partner-text lang-zh">
+                  适合：教研组、学生工作部门、心理中心、过渡年级项目团队（如初中/高中/大学过渡）。
+                </p>
+                <p class="partner-text lang-en">
+                  For teaching teams, student support, counselling centres, and transition programmes
+                  (e.g. primary–secondary, secondary–university).
+                </p>
+                <ul class="partner-list lang-zh">
+                  <li>共建：学习动机与自主性提升项目。</li>
+                  <li>共建：亲师生三方对话/家长工作坊。</li>
+                  <li>共建：适应过渡期的团体课程或日记/追踪研究。</li>
+                </ul>
+                <ul class="partner-list lang-en">
+                  <li>Co-designing motivation and autonomy programmes.</li>
+                  <li>Parent–teacher–student dialogues and workshops.</li>
+                  <li>Transition-focused groups or diary/longitudinal studies.</li>
+                </ul>
+              </article>
+
+              <!-- Partner 2 -->
+              <article class="partner-card">
+                <div class="partner-pill">
+                  <span class="lang-zh">心理服务 · 青年支持机构</span>
+                  <span class="lang-en">Counselling & youth services</span>
+                </div>
+                <h3 class="partner-title lang-zh">
+                  让支持更系统、更可持续
+                </h3>
+                <h3 class="partner-title-en lang-en">
+                  Making support more systematic and sustainable
+                </h3>
+                <p class="partner-text lang-zh">
+                  适合：心理咨询中心、热线/在线支持、青年服务与公益机构。
+                </p>
+                <p class="partner-text lang-en">
+                  For counselling centres, helplines/online services, youth and community organisations.
+                </p>
+                <ul class="partner-list lang-zh">
+                  <li>共建：以自主性和关系为核心的团体/课程架构。</li>
+                  <li>共建：服务评估框架与追踪工具（问卷、日记、访谈）。</li>
+                  <li>共建：对一线助人者的督导与工作坊。</li>
+                </ul>
+                <ul class="partner-list lang-en">
+                  <li>Group curricula centred on autonomy and relatedness.</li>
+                  <li>Service evaluation frameworks and follow-up tools.</li>
+                  <li>Workshops and supervision models for frontline helpers.</li>
+                </ul>
+              </article>
+
+              <!-- Partner 3 -->
+              <article class="partner-card">
+                <div class="partner-pill">
+                  <span class="lang-zh">企业 / 组织发展团队</span>
+                  <span class="lang-en">Organisations & teams</span>
+                </div>
+                <h3 class="partner-title lang-zh">
+                  在效率与人之间，找到不自欺的平衡
+                </h3>
+                <h3 class="partner-title-en lang-en">
+                  Finding a non-self-deceptive balance between performance and people
+                </h3>
+                <p class="partner-text lang-zh">
+                  适合：关心员工心理健康、学习文化与长期发展，而不仅是短期 KPI 的团队。
+                </p>
+                <p class="partner-text lang-en">
+                  For teams who care about mental health, learning culture, and sustainable growth – not just KPIs.
+                </p>
+                <ul class="partner-list lang-zh">
+                  <li>共建：以自主性支持为核心的管理与反馈训练。</li>
+                  <li>共建：高压力岗位的心理健康与复原力项目。</li>
+                  <li>共建：员工发展对话工具（而不是形式主义打分表）。</li>
+                </ul>
+                <ul class="partner-list lang-en">
+                  <li>Autonomy-supportive leadership and feedback training.</li>
+                  <li>Mental health and resilience projects in high-pressure roles.</li>
+                  <li>Development conversations tools, not just rating forms.</li>
+                </ul>
+              </article>
+
+              <!-- Partner 4 -->
+              <article class="partner-card">
+                <div class="partner-pill">
+                  <span class="lang-zh">数字产品 / AI 心理健康</span>
+                  <span class="lang-en">Digital & AI mental health</span>
+                </div>
+                <h3 class="partner-title lang-zh">
+                  不只是「有一个 App」，而是它真的有人用
+                </h3>
+                <h3 class="partner-title-en lang-en">
+                  Beyond “having an app”: building something people use
+                </h3>
+                <p class="partner-text lang-zh">
+                  适合：想在产品中认真处理心理健康、动机、自我探索与社交支持的团队。
+                </p>
+                <p class="partner-text lang-en">
+                  For teams integrating mental health, motivation, self-exploration, or social support into products.
+                </p>
+                <ul class="partner-list lang-zh">
+                  <li>共建：基于动机与发展心理学的干预路径与内容架构。</li>
+                  <li>共建：用户旅程地图与伦理底线（不以「上瘾」为成功指标）。</li>
+                  <li>共建：实验设计、数据分析与科研合作发表。</li>
+                </ul>
+                <ul class="partner-list lang-en">
+                  <li>Intervention flows based on motivation and developmental science.</li>
+                  <li>User journey mapping and ethical boundaries (success ≠ addiction).</li>
+                  <li>Study design, data analysis, and research collaboration.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 2 · 三条常见「共创通道」 -->
+        <section class="section channel-section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">几类常见的「共创通道」</span>
+              <span class="lang-en">Common channels of co-creation</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              不同的资源与需求，可以走不同的通道。你可以把下面三类当作
+              <span class="inline-bubble lang-zh">「选项卡」</span>，看看哪一类跟你现在最贴近。
+            </p>
+            <p class="section-subtitle lang-en">
+              Depending on your context, we might lean more on one of these
+              <span class="inline-bubble lang-en">channels</span>.
+            </p>
+
+            <div class="channel-layout">
+              <div class="channel-grid">
+                <!-- Channel 1 -->
+                <div class="channel-card">
+                  <div class="channel-label">
+                    <span class="lang-zh">CHANNEL 01 · RESEARCH × PRACTICE</span>
+                    <span class="lang-en">CHANNEL 01 · RESEARCH × PRACTICE</span>
+                  </div>
+                  <div class="channel-title lang-zh">
+                    研究合作通道：从问题，到设计，到数据与发表
+                  </div>
+                  <div class="channel-title lang-en">
+                    Research collaboration: from questions to design and publications
+                  </div>
+                  <p class="channel-text lang-zh">
+                    适合：希望在真实场景里做<span class="emphasis-soft">纵向/日记研究、干预实验</span>的团队，
+                    并希望结果能反馈到实践与政策中。
+                  </p>
+                  <p class="channel-text lang-en">
+                    For teams wanting to run <span class="emphasis-soft">longitudinal/diary studies or interventions</span>
+                    in real-world settings and feed findings back into practice and policy.
+                  </p>
+                  <ul class="channel-list lang-zh">
+                    <li>一起打磨研究问题，使之贴近一线困惑（而不是只好看）。</li>
+                    <li>共建：研究设计、量表选择/编制、日记路径与伦理方案。</li>
+                    <li>数据分析（多水平、纵向模型、动机与关系变量）、论文与报告撰写。</li>
+                  </ul>
+                  <ul class="channel-list lang-en">
+                    <li>Sharpening questions from frontline realities, not just theory.</li>
+                    <li>Designing studies, measures, diaries, and ethical protocols.</li>
+                    <li>Analysing data, and co-authoring papers and practice reports.</li>
+                  </ul>
+                </div>
+
+                <!-- Channel 2 -->
+                <div class="channel-card">
+                  <div class="channel-label">
+                    <span class="lang-zh">CHANNEL 02 · PROGRAMMES & TRAINING</span>
+                    <span class="lang-en">CHANNEL 02 · PROGRAMMES & TRAINING</span>
+                  </div>
+                  <div class="channel-title lang-zh">
+                    课程 / 团体 / 工作坊通道：为真实人群设计可走完的路
+                  </div>
+                  <div class="channel-title lang-en">
+                    Programmes & trainings: designing journeys people can finish
+                  </div>
+                  <p class="channel-text lang-zh">
+                    适合：希望有系统性课程/团体，而不是零散讲座的学校、机构与企业。
+                  </p>
+                  <p class="channel-text lang-en">
+                    For partners wanting structured programmes or groups rather than one-off talks.
+                  </p>
+                  <ul class="channel-list lang-zh">
+                    <li>共建：青少年/青年心力与学习动机课程（线下/线上混合）。</li>
+                    <li>共建：家长、公教人员、管理者的心理学与沟通训练。</li>
+                    <li>共建：围绕自主性、人际、生命意义的系列团体或读书会框架。</li>
+                  </ul>
+                  <ul class="channel-list lang-en">
+                    <li>Youth-focused motivation and wellbeing courses (offline/online).</li>
+                    <li>Training for parents, educators, or managers in psychology-informed communication.</li>
+                    <li>Group and reading circle designs around autonomy, relationships, and meaning.</li>
+                  </ul>
+                </div>
+
+                <!-- Channel 3 -->
+                <div class="channel-card">
+                  <div class="channel-label">
+                    <span class="lang-zh">CHANNEL 03 · CONSULTING & DESIGN</span>
+                    <span class="lang-en">CHANNEL 03 · CONSULTING & DESIGN</span>
+                  </div>
+                  <div class="channel-title lang-zh">
+                    咨询与产品设计通道：为系统和产品做心理「体检」
+                  </div>
+                  <div class="channel-title lang-en">
+                    Consulting & design: a psychological “check-up” for systems and products
+                  </div>
+                  <p class="channel-text lang-zh">
+                    适合：已有现成项目或产品，希望从动机、自主性、人际与发展视角做升级，而不是推翻重来。
+                  </p>
+                  <p class="channel-text lang-en">
+                    For existing programmes or products that need upgrading through motivation,
+                    autonomy, relational, and developmental lenses.
+                  </p>
+                  <ul class="channel-list lang-zh">
+                    <li>项目/产品现状梳理：哪一部分在支持人，哪一部分在「耗人」。</li>
+                    <li>共建：更友好的用户旅程/学员路径，减少羞耻与「被管控感」。</li>
+                    <li>提出：循序渐进、现实可行的调整建议与评估指标。</li>
+                  </ul>
+                  <ul class="channel-list lang-en">
+                    <li>Mapping what supports people and what quietly drains them.</li>
+                    <li>Designing user journeys that reduce shame and control, and increase ownership.</li>
+                    <li>Offering phased, realistic recommendations and evaluation markers.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <p class="channel-note lang-zh">
+                很多合作会<span class="emphasis-soft">同时经过两三条通道</span>：
+                例如，一边做教师训练，一边用日记法/问卷收集学生数据，最后形成对学校有帮助的报告或论文。
+              </p>
+              <p class="channel-note lang-en">
+                Many collaborations move across two or three channels:
+                for example, combining teacher training with diary/questionnaire data and a final report or paper for the institution.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 3 · 已经/正在/期待中的项目片段 -->
+        <section class="section snippet-section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">一些已经走过、正在走、以及期待共创的项目片段</span>
+              <span class="lang-en">Snapshots of past, current, and hoped-for projects</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              出于合作与隐私保护，下方只会用<span class="inline-bubble lang-zh">「路线」</span>而非机构名称来呈现。
+              如果你在其中看见自己的位置，我们就有机会继续往下接。
+            </p>
+            <p class="section-subtitle lang-en">
+              To protect partners and participants, I describe
+              <span class="inline-bubble lang-en">routes</span> rather than naming institutions.
+              If you recognise your context here, we likely have something to explore together.
+            </p>
+
+            <div class="snippet-grid">
+              <!-- Education & youth -->
+              <article class="snippet-card">
+                <div class="snippet-label">
+                  <span class="lang-zh">EDUCATION & YOUTH</span>
+                  <span class="lang-en">EDUCATION & YOUTH</span>
+                </div>
+                <div class="snippet-title lang-zh">
+                  从「考试成绩」到「学习旅程」：动机与过渡项目
+                </div>
+                <div class="snippet-title lang-en">
+                  From test scores to learning journeys: motivation & transition projects
+                </div>
+                <p class="snippet-text lang-zh">
+                  基于对<span class="emphasis-soft">学习动机、学校压力、亲子与师生关系</span>的纵向研究，
+                  与学校和大学团队一起，将证据转化为现实可行的方案。
+                </p>
+                <p class="snippet-text lang-en">
+                  Drawing on longitudinal work on
+                  <span class="emphasis-soft">
+                    academic motivation, school stress, and family–school relationships
+                  </span>, I support teams in translating evidence into practice.
+                </p>
+                <ul class="snippet-list lang-zh">
+                  <li>为关键过渡年级共建：动机与心理健康讲座 + 小型团体 + 简易追踪工具包。</li>
+                  <li>协助导师/班主任设计：更支持自主性的班级管理与反馈方式。</li>
+                  <li>为大学生和研究生设计：关于完美主义、自主性与自我关怀的系列工作坊。</li>
+                </ul>
+                <ul class="snippet-list lang-en">
+                  <li>Co-building transition-year programmes: talks, groups, and light-touch tracking tools.</li>
+                  <li>Designing autonomy-supportive classroom and mentoring practices.</li>
+                  <li>Workshops for university students on perfectionism, autonomy, and self-compassion.</li>
+                </ul>
+              </article>
+
+              <!-- Digital, AI, organisations -->
+              <article class="snippet-card">
+                <div class="snippet-label">
+                  <span class="lang-zh">DIGITAL, AI & ORGANISATIONS</span>
+                  <span class="lang-en">DIGITAL, AI & ORGANISATIONS</span>
+                </div>
+                <div class="snippet-title lang-zh">
+                  在屏幕与制度之间，保留真实的「人」
+                </div>
+                <div class="snippet-title lang-en">
+                  Keeping the human in screens and structures
+                </div>
+                <p class="snippet-text lang-zh">
+                  面对数字化和 AI 的浪潮，我特别关注：在提升效率的同时，
+                  如何保护人的自主性、人际连接、学习乐趣与生命意义感。
+                </p>
+                <p class="snippet-text lang-en">
+                  In a world leaning into digital and AI solutions, I focus on protecting
+                  autonomy, connection, learning joy, and meaning while improving efficiency.
+                </p>
+                <ul class="snippet-list lang-zh">
+                  <li>为心理/教育类产品提供：动机与发展视角的内容结构与用户旅程建议。</li>
+                  <li>协助团队梳理：哪些设计会不自觉放大羞耻、比较与自责，哪里可以温柔纠偏。</li>
+                  <li>为组织开发：围绕青年员工发展、跨文化协作与心理健康的内部培训与对话空间。</li>
+                </ul>
+                <ul class="snippet-list lang-en">
+                  <li>Advising digital mental health and education products on content and user journeys.</li>
+                  <li>Identifying design elements that amplify shame, comparison, and self-blame – and correcting them.</li>
+                  <li>Developing internal trainings on young employees’ development, cross-cultural work, and wellbeing.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 4 · 如果你有一个「想一起做做看」的念头 -->
+        <section class="section flow-section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">如果你有一个「想一起做做看」的念头</span>
+              <span class="lang-en">If you have a “what if we did this together” idea</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              合作，不需要一上来就很「完美」。<br />
+              更现实的方式，是先用一个小而清晰的试点，来验证我们是否真的适合一起做事。
+            </p>
+            <p class="section-subtitle lang-en">
+              Collaboration doesn’t have to start perfectly.
+              A small, well-defined pilot is usually the most honest test of fit.
+            </p>
+
+            <div class="collab-flow">
+              <div class="flow-row">
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 01</span>
+                    <span class="lang-en">STEP 01</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    写信告诉我：你具体在烦恼什么
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    Write briefly about your context & pain points
+                  </div>
+                  <p class="lang-zh">
+                    用几段话介绍你的团队/机构、服务对象、所在国家/地区，以及你现在最在意的 1–2 个问题。
+                  </p>
+                  <p class="lang-en">
+                    A short description of your team, target group, country/region, and the 1–2 issues you care about most now.
+                  </p>
+                </div>
+
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 02</span>
+                    <span class="lang-en">STEP 02</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    线上沟通 · 对焦合作可能性
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    Online call · clarifying possibilities
+                  </div>
+                  <p class="lang-zh">
+                    我们一起判断：是否真的需要一个项目？还是先从一次讲座/内部讨论开始更合适。
+                  </p>
+                  <p class="lang-en">
+                    We decide together whether you need a full project, or whether a talk, workshop, or consultation is a better first step.
+                  </p>
+                </div>
+
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 03</span>
+                    <span class="lang-en">STEP 03</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    共定一个小而清晰的试点
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    Co-define a small, clear pilot
+                  </div>
+                  <p class="lang-zh">
+                    确定一个<span class="emphasis-soft">时间有限、目标明确、可评估</span>的小项目，
+                    把资源集中在最有可能产生实际改变的地方。
+                  </p>
+                  <p class="lang-en">
+                    We pick a pilot that is time-bounded, focused, and assessable, concentrating resources where change is actually possible.
+                  </p>
+                </div>
+
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 04</span>
+                    <span class="lang-en">STEP 04</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    实施 + 温和评估
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    Implementation + gentle evaluation
+                  </div>
+                  <p class="lang-zh">
+                    过程中，我们会用尽量不「打扰一线工作」的方式，收集少量但有意义的反馈与数据。
+                  </p>
+                  <p class="lang-en">
+                    We gather light but meaningful feedback and data without overburdening frontline staff or participants.
+                  </p>
+                </div>
+
+                <div class="flow-step">
+                  <div class="flow-step-number">
+                    <span class="lang-zh">STEP 05</span>
+                    <span class="lang-en">STEP 05</span>
+                  </div>
+                  <div class="flow-step-title lang-zh">
+                    一起判断：要不要放大、调整，或停在这里
+                  </div>
+                  <div class="flow-step-title lang-en">
+                    Decide together: scale, adjust, or close with clarity
+                  </div>
+                  <p class="lang-zh">
+                    我们会坦诚评估：这个合作是否值得放大？如果不适合，也会好好收尾，而不是无限拖延。
+                  </p>
+                  <p class="lang-en">
+                    We honestly assess whether to scale, adapt, or conclude the project – with a clear ending rather than endless extension.
+                  </p>
+                </div>
+              </div>
+
+              <p class="flow-note lang-zh">
+                如果你只是在「犹豫要不要做点什么」，也可以先给我发一封
+                <span class="emphasis-soft">不承诺任何合作</span>的邮件，
+                我们一起把这份犹豫梳理清楚，再决定要不要继续往前。
+              </p>
+              <p class="flow-note lang-en">
+                If you’re just unsure whether to start anything at all, you’re welcome to send a
+                <span class="emphasis-soft">zero-obligation</span> email.
+                We can clarify the hesitation first, then decide whether to move forward.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer / 联系方式 -->
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <div class="footer-contact-card">
+            <div class="footer-contact-layout">
+              <div class="footer-contact-main">
+                <h3 class="footer-contact-title lang-zh">
+                  如果你在这些共创项目中，看见了自己的位置
+                </h3>
+                <h3 class="footer-contact-title lang-en">
+                  If you see your work reflected in these projects
+                </h3>
+                <p class="footer-contact-text lang-zh">
+                  欢迎你带着一个大致的想法、一个模糊的问题，或者一份已经写好的项目草案来找我。
+                  我会从研究、实践与系统设计的交汇处，与您一起判断：怎样做，对真实的人最有意义。
+                </p>
+                <p class="footer-contact-text lang-en">
+                  You’re warmly invited to reach out with a rough idea, a fuzzy question,
+                  or a draft concept note. I’ll bring research, practice, and design together
+                  to help decide what would matter most for the real people you serve.
+                </p>
+                <p class="footer-contact-text lang-zh">
+                  因为还有研究与教学工作，我通常会在约 10 天内回复。
+                </p>
+                <p class="footer-contact-text lang-en">
+                  Alongside research and teaching, I usually respond within about ten days.
+                </p>
+              </div>
+
+              <div class="footer-contact-actions">
+                <div class="contact-pill-row">
+                  <!-- 正式上线前请替换为真实链接与账号 -->
+                  <a href="mailto:your.email@example.com" class="contact-pill">
+                    <span class="lang-zh">Email 邮箱</span>
+                    <span class="lang-en">Email</span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="contact-pill"
+                  >
+                    <span>LinkedIn</span>
+                  </a>
+                  <a
+                    href="https://scholar.google.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="contact-pill"
+                  >
+                    <span class="lang-zh">Google Scholar</span>
+                    <span class="lang-en">Google Scholar</span>
+                  </a>
+                  <a href="#" class="contact-pill">
+                    <span class="lang-zh">小红书</span>
+                    <span class="lang-en">Xiaohongshu</span>
+                  </a>
+                  <a href="#" class="contact-pill">
+                    <span class="lang-zh">微信</span>
+                    <span class="lang-en">WeChat</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom-line">
+            © 2025 寻屿 · YUNISLE. All rights reserved.<br />
+            这一座岛，慢慢与你一起被创造出来。<br />
+            Design by Jingyun Wang · designed for gentle growth, deep feeling, and honest becoming.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
