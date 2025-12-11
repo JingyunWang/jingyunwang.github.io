@@ -284,124 +284,130 @@
         color: #c1a2ff;
       }
 
-      /* 博士论文区域 */
-      .thesis-section {
-        padding-top: 2.2rem;
-        padding-bottom: 2.4rem;
-      }
 
-      .thesis-cover-strip {
-        position: relative;
-        border-radius: 1.6rem;
-        padding: 1.1rem 1.2rem;
-        display: grid;
-        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
-        gap: 1rem;
-        align-items: center;
-        overflow: hidden;
-        background:
-          linear-gradient(120deg, rgba(7, 10, 35, 0.96), rgba(46, 41, 86, 0.98)),
-          url("images/cover.png") center/cover no-repeat;
-        box-shadow: 0 24px 55px rgba(20, 20, 52, 0.9);
-      }
-      /* ↑ 将 assets/thesis-cover.jpg 替换为你的论文封面路径 */
+<!-- ========================= -->
+<!-- CSS · Thesis Section Style -->
+<!-- ========================= -->
+<style>
+/* 封面+光影 */
+.thesis-cover-strip.upgraded {
+  margin-top: 1.3rem;
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  padding: 1.6rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(215, 219, 250, 0.9);
+  box-shadow: 0 28px 65px rgba(120, 130, 200, 0.45);
+}
 
-      @media (max-width: 900px) {
-        .thesis-cover-strip {
-          grid-template-columns: minmax(0, 1fr);
-        }
-      }
+.thesis-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.82),
+    rgba(230, 235, 255, 0.7)
+  );
+  backdrop-filter: blur(6px);
+}
 
-      .thesis-cover-strip::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.2), transparent 55%);
-        opacity: 0.7;
-      }
+/* 内容主体（放在 overlay 上层） */
+.thesis-cover-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.2rem;
+}
 
-      .thesis-cover-content,
-      .thesis-meta-box {
-        position: relative;
-        z-index: 1;
-      }
+/* 标题区域 */
+.thesis-mark {
+  font-size: 0.75rem;
+  color: #7f82b1;
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.12em;
+}
 
-      .thesis-mark {
-        font-size: 0.76rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #b3b6ff;
-        margin-bottom: 0.2rem;
-      }
+/* 主标题 */
+.thesis-title-main {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #272744;
+  margin-bottom: 0.25rem;
+  line-height: 1.55;
+}
 
-      .thesis-title-main {
-        font-size: 1.02rem;
-        font-weight: 600;
-        color: #f3f4ff;
-        margin-bottom: 0.1rem;
-      }
+/* 副标题 */
+.thesis-title-sub {
+  font-size: 0.85rem;
+  color: #4c4e76;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
 
-      .thesis-title-sub {
-        font-size: 0.84rem;
-        color: #cacdff;
-        margin-bottom: 0.55rem;
-      }
+/* badges */
+.thesis-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
 
-      .thesis-badges {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.35rem;
-      }
+.thesis-badge {
+  padding: 0.2rem 0.6rem;
+  font-size: 0.72rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(210, 214, 250, 0.85);
+  box-shadow: 0 10px 22px rgba(134, 140, 195, 0.35);
+  color: #5c5e87;
+}
 
-      .thesis-badge {
-        font-size: 0.74rem;
-        padding: 0.16rem 0.6rem;
-        border-radius: 999px;
-        background: rgba(12, 14, 40, 0.85);
-        border: 1px solid rgba(173, 176, 255, 0.85);
-        color: #dde0ff;
-      }
+/* Key Insights Box */
+.thesis-meta-box {
+  position: relative;
+  z-index: 2;
+  border-radius: 1.5rem;
+  padding: 1.2rem 1.3rem 1.4rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(210, 215, 250, 0.95);
+  box-shadow: 0 22px 55px rgba(130, 140, 200, 0.5);
+}
 
-      .thesis-meta-box {
-        border-radius: 1.1rem;
-        background: rgba(10, 11, 35, 0.8);
-        padding: 0.75rem 0.85rem;
-        font-size: 0.8rem;
-        line-height: 1.7;
-        color: #d6d7ff;
-      }
+.thesis-meta-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  color: #9ca0c9;
+  margin-bottom: 0.6rem;
+}
 
-      .thesis-meta-label {
-        font-size: 0.74rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: #9ea1ff;
-        margin-bottom: 0.15rem;
-      }
+.thesis-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.5rem;
+}
 
-      .thesis-meta-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
-        gap: 0.55rem 0.9rem;
-      }
+@media (max-width: 720px) {
+  .thesis-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
-      @media (max-width: 640px) {
-        .thesis-meta-grid {
-          grid-template-columns: minmax(0, 1fr);
-        }
-      }
+/* insight title */
+.thesis-meta-item-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #2d2e48;
+  margin-bottom: 0.3rem;
+}
 
-      .thesis-meta-item-title {
-        font-size: 0.78rem;
-        font-weight: 600;
-        color: #eef0ff;
-        margin-bottom: 0.06rem;
-      }
+/* insight text */
+.thesis-meta-item-text {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #585a85;
+}
 
-      .thesis-meta-item-text {
-        font-size: 0.78rem;
-        color: #c3c5ff;
-      }
 
       /* 序言 / 过程 / 致谢 气泡卡 */
       .thesis-grid {
@@ -1022,133 +1028,175 @@
           </div>
         </section>
         
-        <!-- PART 2 · 博士论文 -->
-        <section class="section thesis-section">
-          <div class="container section-narrow">
-            <div class="section-title">
-              <span class="lang-zh">博士论文 · Autonomously Connected</span>
-              <span class="lang-en">PhD thesis · Autonomously Connected</span>
-            </div>
-            <p class="section-subtitle lang-zh">
-              这本论文，是一整座「青少年自主与关系」研究岛的核心：从日记到半年追踪，
-              既在回答学术问题，也在替许多家庭、老师和孩子，找到更温柔又不失界限的相处方式。
-            </p>
-            <p class="section-subtitle lang-en">
-              This thesis sits at the centre of my research island on autonomy
-              and relationships. From daily diaries to six-month follow-ups, it
-              answers academic questions while quietly reshaping how families and schools relate to young people.
-            </p>
+  <!-- ========================= -->
+<!-- PART 2 · 博士论文（升级版） -->
+<!-- ========================= -->
+<section class="section thesis-section">
+  <div class="container section-narrow">
 
-            <!-- 横向封面条（背景可放论文封面） -->
-            <div class="thesis-cover-strip">
-              <div class="thesis-cover-content">
-                <div class="thesis-mark">
-                  <span class="lang-zh">DOCTORAL THESIS · UTRECHT UNIVERSITY</span>
-                  <span class="lang-en">DOCTORAL THESIS · UTRECHT UNIVERSITY</span>
-                </div>
-                <div class="thesis-title-main lang-zh">
-                  Autonomously Connected：青少年在家庭、同伴与学校中的自主与联结
-                </div>
-                <div class="thesis-title-main lang-en">
-                  Autonomously Connected: Adolescent Autonomy in the Contexts of Family, Peer, and School
-                </div>
-                <div class="thesis-title-sub lang-zh">
-                  自我决定理论 · 纵向与日记设计 · 学校转衔
-                </div>
-                <div class="thesis-title-sub lang-en">
-                  Self-Determination Theory · longitudinal & diary designs · school transitions
-                </div>
-                <div class="thesis-badges">
-                  <span class="thesis-badge lang-zh">青少年是自己世界的共同作者</span>
-                  <span class="thesis-badge lang-en">Adolescents as co-authors, not products</span>
-                  <span class="thesis-badge lang-zh">自主与联结相互滋养，而非彼此对立</span>
-                  <span class="thesis-badge lang-en">Autonomy and relatedness nourish each other</span>
-                </div>
-              </div>
+    <!-- SECTION TITLE -->
+    <div class="section-title thesis-title">
+      <span class="lang-zh">博士论文 · Autonomously Connected</span>
+      <span class="lang-en">PhD Thesis · Autonomously Connected</span>
+    </div>
 
-              <div class="thesis-meta-box">
-                <div class="thesis-meta-label">
-                  <span class="lang-zh">DESIGN · 关键洞见</span>
-                  <span class="lang-en">DESIGN · KEY INSIGHTS</span>
-                </div>
-                <div class="thesis-meta-grid">
-                  <div>
-                    <div class="thesis-meta-item-title lang-zh">
-                      ① 每日循环：温暖 ↔ 自主
-                    </div>
-                    <div class="thesis-meta-item-title lang-en">
-                      ① Daily cycles: warmth ↔ autonomy
-                    </div>
-                    <p class="thesis-meta-item-text lang-zh">
-                      日记研究显示：<span class="emphasis-soft">今天多一点父母温暖，明天孩子就多一点自主感；</span>
-                      而当孩子今天更有自主感，明天也更敢以更成熟的方式与父母互动。
-                    </p>
-                    <p class="thesis-meta-item-text lang-en">
-                      Daily diaries reveal that <span class="emphasis-soft">
-                        more parental warmth today predicts more autonomy tomorrow
-                      </span>;
-                      on more autonomous days, adolescents also show up differently with their parents the next day.
-                    </p>
-                  </div>
-                  <div>
-                    <div class="thesis-meta-item-title lang-zh">
-                      ② 半年轨迹：关系如何塑造动机
-                    </div>
-                    <div class="thesis-meta-item-title lang-en">
-                      ② Six-month trajectories: relationships & motivation
-                    </div>
-                    <p class="thesis-meta-item-text lang-zh">
-                      半年追踪发现：持续的<span class="emphasis-soft">学校联结</span>，会慢慢托住内在学业动机；
-                      而不断累积的学业压力与负面师生关系，则推高受控动机、拉低兴趣。
-                    </p>
-                    <p class="thesis-meta-item-text lang-en">
-                      Over months, <span class="emphasis-soft">
-                        stable school connectedness
-                      </span> supports intrinsic motivation, while chronic academic
-                      pressure and strained teacher relationships increase controlled motivation and erode interest.
-                    </p>
-                  </div>
-                  <div>
-                    <div class="thesis-meta-item-title lang-zh">
-                      ③ 双向改变：孩子也在重塑系统
-                    </div>
-                    <div class="thesis-meta-item-title lang-en">
-                      ③ Bidirectional change: adolescents reshape systems
-                    </div>
-                    <p class="thesis-meta-item-text lang-zh">
-                      更高的自主水平，不只受家庭氛围影响，也会在半年后预测<span class="emphasis-soft">
-                        父母心理控制的降低
-                      </span>——孩子不是被动承受者，而是慢慢改变关系节奏的人。
-                    </p>
-                    <p class="thesis-meta-item-text lang-en">
-                      Higher autonomy not only depends on the environment; it
-                      also predicts <span class="emphasis-soft">
-                        later decreases in perceived psychological control
-                      </span>. Teens are not just products of systems – they help reshape them.
-                    </p>
-                  </div>
-                  <div>
-                    <div class="thesis-meta-item-title lang-zh">
-                      ④ 实务启示：同时守护自主与联结
-                    </div>
-                    <div class="thesis-meta-item-title lang-en">
-                      ④ Practice: holding autonomy & connection together
-                    </div>
-                    <p class="thesis-meta-item-text lang-zh">
-                      结果指向一个简单却不容易的方向：<span class="emphasis-soft">
-                        家庭和学校需要同时支持「你是被爱着的」和「你可以自己选择」，
-                      </span>孩子才有力气穿过转衔期与压力高峰。
-                    </p>
-                    <p class="thesis-meta-item-text lang-en">
-                      The core implication is simple but demanding:
-                      <span class="emphasis-soft">
-                        home and school must protect “you are loved” and “you can choose”
-                      </span> at the same time for adolescents to thrive under pressure.
-                    </p>
-                  </div>
-                </div>
-              </div>
+    <p class="section-subtitle lang-zh">
+      这本论文，是我“十年里与青少年同行”的一条主轴：  
+      由日记法到半年追踪，它不仅回答学术问题，也在帮助家庭、老师与孩子  
+      找回一种温柔但不失边界的相处方式 ——  
+      <span class="emphasis-soft">自主与联结，其实从不是对立面。</span>
+    </p>
+
+    <p class="section-subtitle lang-en">
+      This thesis represents a decade of walking alongside young people.  
+      Through daily diaries and six-month trajectories, it addresses academic questions  
+      while quietly supporting families and schools in rediscovering a  
+      gentler, more spacious way of relating —  
+      <span class="emphasis-soft">where autonomy and connection are not opposites, but companions.</span>
+    </p>
+
+
+    <!-- ========================= -->
+    <!-- 封面背景条（加入论文封面） -->
+    <!-- ========================= -->
+    <div class="thesis-cover-strip upgraded" style="
+      background-image: url('img/thesis-cover.jpg');
+    ">
+
+      <div class="thesis-cover-overlay"></div>
+
+      <div class="thesis-cover-content">
+
+        <div class="thesis-mark">
+          <span class="lang-zh">DOCTORAL THESIS · UTRECHT UNIVERSITY</span>
+          <span class="lang-en">DOCTORAL THESIS · UTRECHT UNIVERSITY</span>
+        </div>
+
+        <div class="thesis-title-main lang-zh">
+          Autonomously Connected：  
+          青少年在家庭、同伴与学校中的自主与联结
+        </div>
+        <div class="thesis-title-main lang-en">
+          Autonomously Connected:  
+          Adolescent Autonomy Across Family, Peer, and School Contexts
+        </div>
+
+        <div class="thesis-title-sub lang-zh">
+          自我决定理论 · 发展路径 · 纵向与日记研究 · 转衔期适应
+        </div>
+        <div class="thesis-title-sub lang-en">
+          Self-Determination Theory · developmental pathways · longitudinal & diary designs · school transitions
+        </div>
+
+        <!-- BADGES -->
+        <div class="thesis-badges">
+          <span class="thesis-badge lang-zh">青少年是自身成长故事的共同作者</span>
+          <span class="thesis-badge lang-en">Adolescents co-author their own becoming</span>
+
+          <span class="thesis-badge lang-zh">自主与联结，相互滋养，而非彼此排斥</span>
+          <span class="thesis-badge lang-en">Autonomy & relatedness nourish each other</span>
+        </div>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- DESIGN & KEY INSIGHTS -->
+      <!-- ========================= -->
+      <div class="thesis-meta-box">
+
+        <div class="thesis-meta-label">
+          <span class="lang-zh">DESIGN · 关键洞见</span>
+          <span class="lang-en">DESIGN · Key insights</span>
+        </div>
+
+        <div class="thesis-meta-grid">
+
+          <!-- INSIGHT 1 -->
+          <div>
+            <div class="thesis-meta-item-title lang-zh">
+              ① 日常循环：温暖如何成为自主的土壤
             </div>
+            <div class="thesis-meta-item-title lang-en">
+              ① Daily cycles: warmth as the soil of autonomy
+            </div>
+            <p class="thesis-meta-item-text lang-zh">
+              日记研究揭示了一个温柔的规律：  
+              <span class="emphasis-soft">当父母今天多一些情感支持，孩子明天就更能以自主的方式回应世界。</span>  
+              自主不是突然出现的，它在一天一天里慢慢长出来。
+            </p>
+            <p class="thesis-meta-item-text lang-en">
+              Daily diaries reveal a quiet truth:  
+              <span class="emphasis-soft">
+                parental warmth today nourishes a deeper sense of autonomy tomorrow.
+              </span>  
+              Autonomy is not a leap — it is a daily growth.
+            </p>
+          </div>
+
+          <!-- INSIGHT 2 -->
+          <div>
+            <div class="thesis-meta-item-title lang-zh">
+              ② 半年轨迹：联结托住动机，而压力削弱兴趣
+            </div>
+            <div class="thesis-meta-item-title lang-en">
+              ② Six-month trajectories: connectedness protects motivation
+            </div>
+            <p class="thesis-meta-item-text lang-zh">
+              追踪显示：稳定的<span class="emphasis-soft">学校联结</span>会慢慢托住内在动机；  
+              而持续升高的学业压力与紧张的师生关系，会推高受控动机、削弱兴趣。
+            </p>
+            <p class="thesis-meta-item-text lang-en">
+              Stable <span class="emphasis-soft">school connectedness</span> gradually supports intrinsic motivation,  
+              while escalating pressure and strained teacher relationships  
+              increase controlled motivation and erode curiosity.
+            </p>
+          </div>
+
+          <!-- INSIGHT 3 -->
+          <div>
+            <div class="thesis-meta-item-title lang-zh">
+              ③ 双向影响：孩子不是“被动结果”
+            </div>
+            <div class="thesis-meta-item-title lang-en">
+              ③ Bidirectionality: adolescents are not passive products
+            </div>
+            <p class="thesis-meta-item-text lang-zh">
+              更高的自主感，会在半年后预测<span class="emphasis-soft">父母心理控制的降低</span>。  
+              关系从来不是一方塑造另一方，而是彼此慢慢雕刻。
+            </p>
+            <p class="thesis-meta-item-text lang-en">
+              Higher autonomy predicts <span class="emphasis-soft">
+                later decreases in parental psychological control.
+              </span>  
+              Relationships are not one-way shaping — both sides sculpt each other.
+            </p>
+          </div>
+
+          <!-- INSIGHT 4 -->
+          <div>
+            <div class="thesis-meta-item-title lang-zh">
+              ④ 实务启示：守护「被爱着」与「能选择」
+            </div>
+            <div class="thesis-meta-item-title lang-en">
+              ④ Practice: holding both “you are loved” & “you can choose”
+            </div>
+            <p class="thesis-meta-item-text lang-zh">
+              想让青少年在压力与转衔期稳稳走过，关键不是控制更多，  
+              而是同时传递：  
+              <span class="emphasis-soft">你值得被爱，你也有自己的方向。</span>
+            </p>
+            <p class="thesis-meta-item-text lang-en">
+              Thriving under pressure does not come from tighter control,  
+              but from communicating both:  
+              <span class="emphasis-soft">you are loved, and you can choose.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
             <!-- 序言 / 过程 / 致谢 -->
             <div class="thesis-grid">
