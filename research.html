@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>研究发表 · 寻屿 Yunisle | Research</title>
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+
+  <!-- 本页局部样式 -->
+  <style>
+    .hero-inner {
+      padding-top: 5rem;
+      padding-bottom: 3rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.7fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .hero-title {
+      margin-bottom: 0.6rem;
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 500;
+      max-width: 46rem;
+      line-height: 1.8;
+      margin-bottom: 0.6rem;
+    }
+    .hero-tagline {
+      font-size: 0.9rem;
+      max-width: 48rem;
+      color: #66678e;
+      line-height: 1.8;
+    }
+
+    .pill-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.16rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 8px 18px rgba(140, 155, 211, 0.35);
+      font-size: 0.78rem;
+      color: #7b7b98;
+      margin-bottom: 0.45rem;
+    }
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ffe2f0, #b9c9ff);
+    }
+
+    .hero-side-card {
+      border-radius: 1.6rem;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 18px 45px rgba(113, 128, 187, 0.35);
+      padding: 1.6rem 1.7rem;
+      border: 1px solid rgba(198, 201, 243, 0.7);
+    }
+    .hero-side-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #3b3c65;
+      margin-bottom: 0.4rem;
+    }
+    .hero-side-text {
+      font-size: 0.86rem;
+      color: #6a6b94;
+      line-height: 1.8;
+      margin-bottom: 0.7rem;
+    }
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .hero-badge {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(249, 250, 255, 0.9);
+      border: 1px solid rgba(188, 193, 240, 0.9);
+      color: #4c4e7b;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #272742;
+      margin-bottom: 0.35rem;
+    }
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #66678e;
+      margin-bottom: 0.7rem;
+      line-height: 1.8;
+    }
+    .emphasis {
+      font-weight: 600;
+      color: #292842;
+    }
+    .emphasis-soft {
+      font-weight: 500;
+      color: #44456b;
+    }
+
+    /* 学位论文区块 */
+    .thesis-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 2fr);
+      gap: 1.8rem;
+      align-items: stretch;
+    }
+    @media (max-width: 960px) {
+      .thesis-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .thesis-cover-card {
+      border-radius: 1.8rem;
+      background: radial-gradient(circle at 20% 0%, rgba(255, 240, 252, 0.96), rgba(222, 231, 255, 0.96));
+      box-shadow: 0 22px 55px rgba(120, 133, 199, 0.55);
+      border: 1px solid rgba(207, 210, 246, 0.9);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .thesis-cover-placeholder {
+      width: 100%;
+      aspect-ratio: 3 / 4.3;
+      border-radius: 1.4rem;
+      background: linear-gradient(145deg, rgba(255, 251, 255, 0.96), rgba(228, 236, 255, 0.96));
+      box-shadow: inset 0 0 0 1px rgba(230, 233, 252, 0.9),
+        0 18px 40px rgba(127, 140, 207, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.86rem;
+      color: #9ba0c7;
+      text-align: center;
+      padding: 1.2rem;
+    }
+    .thesis-text-card {
+      border-radius: 1.8rem;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 18px 45px rgba(119, 132, 194, 0.4);
+      border: 1px solid rgba(202, 205, 244, 0.95);
+      padding: 1.5rem 1.7rem;
+    }
+    .thesis-title-main {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #29294a;
+      margin-bottom: 0.25rem;
+    }
+    .thesis-title-sub {
+      font-size: 0.9rem;
+      color: #7b7da2;
+      margin-bottom: 0.4rem;
+    }
+    .thesis-meta {
+      font-size: 0.82rem;
+      color: #8b8db3;
+      margin-bottom: 0.5rem;
+    }
+    .thesis-points {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 0.8rem;
+    }
+    .thesis-points li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+      color: #55577f;
+      line-height: 1.7;
+    }
+    .thesis-points li::before {
+      content: "⟡";
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      font-size: 0.8rem;
+      color: #c29cfb;
+    }
+
+    /* 期刊论文列表 */
+    .pub-section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+      align-items: stretch;
+    }
+    @media (max-width: 1100px) {
+      .pub-section-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 780px) {
+      .pub-section-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .pub-card {
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid rgba(206, 210, 246, 0.95);
+      box-shadow: 0 16px 40px rgba(118, 131, 199, 0.4);
+      padding: 1.2rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .pub-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9c9ec5;
+      margin-bottom: 0.1rem;
+    }
+    .pub-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #303158;
+      margin-bottom: 0.25rem;
+    }
+    .pub-desc {
+      font-size: 0.86rem;
+      color: #646695;
+      line-height: 1.7;
+    }
+    .pub-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.4rem 0 0;
+    }
+    .pub-item {
+      margin-bottom: 0.4rem;
+      font-size: 0.82rem;
+      color: #53557f;
+      line-height: 1.6;
+    }
+    .paper-title {
+      font-weight: 500;
+      color: #32345f;
+    }
+    .paper-meta {
+      display: block;
+      font-size: 0.78rem;
+      color: #9093bb;
+      margin-top: 0.08rem;
+    }
+
+    /* 进行中的工作 */
+    .wip-card {
+      border-radius: 1.5rem;
+      background: linear-gradient(140deg, rgba(255, 246, 253, 0.97), rgba(230, 237, 255, 0.97));
+      border: 1px solid rgba(208, 213, 248, 0.95);
+      box-shadow: 0 18px 46px rgba(122, 135, 205, 0.5);
+      padding: 1.3rem 1.5rem 1.4rem;
+    }
+    .wip-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0.3rem 0 0;
+    }
+    .wip-list li {
+      position: relative;
+      padding-left: 1.05rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.86rem;
+      color: #55577f;
+      line-height: 1.7;
+    }
+    .wip-list li::before {
+      content: "⟡";
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      font-size: 0.8rem;
+      color: #be99ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-aura"></div>
+  <div class="page-wrapper">
+    <!-- 顶部导航 -->
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a href="index.html" class="brand">
+          <div class="brand-mark">
+            <div class="brand-initial"></div>
+          </div>
+          <div>
+            <div class="brand-text-main">寻屿 · YUNISLE</div>
+            <div class="brand-text-sub lang-zh">
+              心灵岛屿 · 自我探索 · 生命之旅
+            </div>
+            <div class="brand-text-sub lang-en">
+              Inner isles of becoming
+            </div>
+          </div>
+        </a>
+        <nav class="site-nav">
+          <a href="index.html">
+            <span class="nav-label-cn lang-zh">首页</span>
+            <span class="nav-label-en lang-en">Home</span>
+          </a>
+          <a href="theory.html">
+            <span class="nav-label-cn lang-zh">理论与路径</span>
+            <span class="nav-label-en lang-en">Theory & Methods</span>
+          </a>
+          <a href="meet-yun.html">
+            <span class="nav-label-cn lang-zh">遇见云</span>
+            <span class="nav-label-en lang-en">Meet Yun</span>
+          </a>
+          <a href="research.html">
+            <span class="nav-label-cn lang-zh">研究发表</span>
+            <span class="nav-label-en lang-en">Research</span>
+          </a>
+          <a href="topics.html">
+            <span class="nav-label-cn lang-zh">话题与旅程</span>
+            <span class="nav-label-en lang-en">Topics</span>
+          </a>
+          <a href="projects.html">
+            <span class="nav-label-cn lang-zh">共创项目</span>
+            <span class="nav-label-en lang-en">Projects</span>
+          </a>
+        </nav>
+        <div class="lang-toggle">
+          <span class="lang-toggle-label lang-zh">语言</span>
+          <span class="lang-toggle-label lang-en">Language</span>
+          <div class="lang-toggle-buttons">
+            <button id="lang-zh" class="lang-btn">中文</button>
+            <button id="lang-en" class="lang-btn">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero：研究发表 · 从故事到证据 -->
+      <section class="hero hero-inner">
+        <div class="container hero-grid">
+          <div>
+            <h1 class="hero-title">
+              <span class="lang-zh">研究发表 · 从故事到证据</span>
+              <span class="lang-en">Research · Where stories meet evidence</span>
+            </h1>
+            <p class="hero-subtitle lang-zh">
+              在这里，你会看到我这些年围绕<span class="emphasis-soft">自主性、人际关系、青少年与心理健康</span>的研究足迹：
+              从家庭、同伴到学校与线上空间，从横断面到密集纵向追踪，
+              每一项工作，都是在回答同一个问题——
+              <span class="emphasis">人如何在复杂世界里，仍然活得像自己？</span>
+            </p>
+            <p class="hero-subtitle lang-en">
+              Here you’ll find my research around
+              <span class="emphasis-soft">autonomy, relationships, adolescence, and mental health</span>:
+              from family and peers to school and digital spaces, from cross-sectional designs to intensive longitudinal work.
+              Each study circles the same core question:
+              <span class="emphasis">How do we stay ourselves in a complicated world?</span>
+            </p>
+            <p class="hero-tagline lang-zh">
+              这页不是简历，而是一张地图：把论文与发表，放回它们真正关心的人——
+              也就是像你一样，在成长、关系与选择中摸索的人身上。
+            </p>
+            <p class="hero-tagline lang-en">
+              This page is less a CV and more a map:
+              placing publications back into the lives they care about—people like you,
+              navigating growth, relationships, and choice.
+            </p>
+          </div>
+
+          <aside class="hero-side-card">
+            <div class="pill-label">
+              <span class="pill-dot"></span>
+              <span class="lang-zh">研究，是另一种「陪伴」</span>
+              <span class="lang-en">Research as another form of accompaniment</span>
+            </div>
+            <div class="hero-side-title lang-zh">
+              我的学术工作，与「寻屿」的理念紧密相连。
+            </div>
+            <div class="hero-side-title lang-en">
+              My academic work is woven into the heart of Yunisle.
+            </div>
+            <p class="hero-side-text lang-zh">
+              我在论文里追问的问题——人如何发展出自主性？在亲密与期待之间如何不丢失自己？
+              日常生活中的情绪波动，如何与长期心理健康相连？——也都会回到这里，
+              化成可以被理解、被使用的语言与工具。
+            </p>
+            <p class="hero-side-text lang-en">
+              The questions I ask in papers—How does autonomy develop?
+              How do we stay present in relationships without losing ourselves?
+              How do daily emotional shifts connect to long-term mental health?—return here
+              as language and tools we can actually use.
+            </p>
+            <div class="hero-badge-row">
+              <span class="hero-badge lang-zh">青少年发展 · 家庭与同伴</span>
+              <span class="hero-badge lang-en">Adolescent development · Family & peers</span>
+
+              <span class="hero-badge lang-zh">自主性与动机 · 心理健康</span>
+              <span class="hero-badge lang-en">Autonomy & motivation · Mental health</span>
+
+              <span class="hero-badge lang-zh">密集纵向追踪 · 多层次模型</span>
+              <span class="hero-badge lang-en">Intensive longitudinal · Multilevel models</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 学位论文 -->
+      <section class="section section-narrow">
+        <div class="container">
+          <div class="section-title">
+            <span class="lang-zh">学位论文 · Dissertation</span>
+            <span class="lang-en">Dissertation</span>
+          </div>
+          <p class="section-subtitle lang-zh">
+            这篇论文，是我长时间围绕「自主性」和「关系」打磨出来的一座内在灯塔。
+            你可以把它看作「寻屿」的理论根基之一。
+          </p>
+          <p class="section-subtitle lang-en">
+            This dissertation is a long-built lighthouse around autonomy and relationships—
+            one of the theoretical foundations beneath Yunisle.
+          </p>
+
+          <div class="thesis-grid">
+            <div class="thesis-cover-card">
+              <div class="thesis-cover-placeholder lang-zh">
+                在这里放置学位论文封面<br />
+                （可以替换为论文封面图片）
+              </div>
+              <div class="thesis-cover-placeholder lang-en" style="display:none;">
+                Place your dissertation cover here<br />
+                (replace with a cover image if you like)
+              </div>
+            </div>
+            <div class="thesis-text-card">
+              <div class="thesis-title-main lang-zh">
+                内在之岛的成长：在家庭、同伴与学校之间发展自主性的青少年
+              </div>
+              <div class="thesis-title-main lang-en">
+                Growing an Inner Isle: Adolescent Autonomy Across Family, Peers, and School
+              </div>
+              <div class="thesis-title-sub lang-zh">
+                一项多波段、发展视角的追踪研究
+              </div>
+              <div class="thesis-title-sub lang-en">
+                A multi-wave, developmental study on autonomy and adjustment
+              </div>
+              <div class="thesis-meta lang-zh">
+                发展心理学博士论文 · Utrecht University · 年份（请在此替换）
+              </div>
+              <div class="thesis-meta lang-en">
+                PhD Dissertation in Developmental Psychology · Utrecht University · Year (to be updated)
+              </div>
+
+              <ul class="thesis-points lang-zh">
+                <li>从「被期待的孩子」到「可以自己做决定的青年」：追踪自主性在家庭、同伴与学校中的发展。</li>
+                <li>结合纵向问卷与密集日记数据，考察日常情绪、冲突与支持如何影响长期的心理健康。</li>
+                <li>提出一个整合模型：在温暖、结构与自主支持并存的环境中，青少年更有可能发展出稳定而柔韧的自我感。</li>
+              </ul>
+              <ul class="thesis-points lang-en">
+                <li>Traces how adolescents move from “expected child” to “self-directed young person”
+                  across family, peers, and school.</li>
+                <li>Combines longitudinal surveys with intensive diary data to link daily emotion,
+                  conflict, and support to long-term mental health.</li>
+                <li>Proposes an integrated model: when warmth, structure, and autonomy support co-exist,
+                  adolescents are more likely to develop a steady yet flexible sense of self.</li>
+              </ul>
+
+              <p class="section-subtitle lang-zh" style="margin-bottom:0;">
+                如果你正在做相关研究或教学，欢迎与我联系，我们可以一起讨论数据、方法与合作的可能性。
+              </p>
+              <p class="section-subtitle lang-en" style="margin-bottom:0;">
+                If your work touches similar themes, I’d be glad to connect—whether to discuss data,
+                methods, or future collaborations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 期刊论文 · 按主题分组 -->
+      <section class="section section-narrow">
+        <div class="container">
+          <div class="section-title">
+            <span class="lang-zh">期刊论文 · Peer-reviewed Articles</span>
+            <span class="lang-en">Peer-reviewed Articles</span>
+          </div>
+          <p class="section-subtitle lang-zh">
+            下面是部分已发表与在审稿件，按主题大致分为三类。
+            你可以把它们理解为三条线索：<span class="emphasis-soft">自主性与家庭/学校、同伴关系与心理健康、方法与密集纵向数据</span>。
+          </p>
+          <p class="section-subtitle lang-en">
+            Below are selected publications and manuscripts in review, grouped into three strands:
+            <span class="emphasis-soft">autonomy in family & school, peer relations and mental health, and methods with intensive longitudinal data</span>.
+          </p>
+
+          <div class="pub-section-grid">
+            <!-- 自主性与环境 -->
+            <div class="pub-card">
+              <div>
+                <div class="pub-label">
+                  <span class="lang-zh">线索一 · 自主性与成长环境</span>
+                  <span class="lang-en">Strand I · Autonomy & Context</span>
+                </div>
+                <div class="pub-title lang-zh">在关系里长出自己的声音</div>
+                <div class="pub-title lang-en">Finding one’s voice within relationships</div>
+                <p class="pub-desc lang-zh">
+                  聚焦家庭与学校环境中的自主支持、控制型养育与结构，
+                  如何共同塑造青少年的自我感、学习动机与幸福感。
+                </p>
+                <p class="pub-desc lang-en">
+                  Focused on how autonomy support, controlling practices, and structure in family and school
+                  shape adolescents’ sense of self, motivation, and well-being.
+                </p>
+              </div>
+              <ul class="pub-list">
+                <!-- 请在这里替换为真实论文信息 -->
+                <li class="pub-item lang-zh">
+                  <span class="paper-title">[在此填写论文标题 1]</span>
+                  <span class="paper-meta">期刊名称 · 年份 · 第一/合作者（请自行替换）</span>
+                </li>
+                <li class="pub-item lang-zh">
+                  <span class="paper-title">[在此填写论文标题 2]</span>
+                  <span class="paper-meta">期刊名称 · 年份 · 第一/合作者</span>
+                </li>
+
+                <li class="pub-item lang-en">
+                  <span class="paper-title">[Insert article title 1]</span>
+                  <span class="paper-meta">Journal · Year · Author order</span>
+                </li>
+                <li class="pub-item lang-en">
+                  <span class="paper-title">[Insert article title 2]</span>
+                  <span class="paper-meta">Journal · Year · Author order</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 同伴关系与心理健康 -->
+            <div class="pub-card">
+              <div>
+                <div class="pub-label">
+                  <span class="lang-zh">线索二 · 同伴、情绪与心理健康</span>
+                  <span class="lang-en">Strand II · Peers, emotion & mental health</span>
+                </div>
+                <div class="pub-title lang-zh">在期待与伤害之间，如何不丢失自己</div>
+                <div class="pub-title lang-en">Staying oneself between expectations and hurt</div>
+                <p class="pub-desc lang-zh">
+                  探索同伴关系质量、排斥与受欺负经历、反刍与共反刍，
+                  如何在时间中影响抑郁、焦虑、自我价值与复原力。
+                </p>
+                <p class="pub-desc lang-en">
+                  Examines how peer relationship quality, exclusion and victimisation, rumination and co-rumination
+                  relate over time to depression, anxiety, self-worth, and resilience.
+                </p>
+              </div>
+              <ul class="pub-list">
+                <!-- 请在这里替换为真实论文信息 -->
+                <li class="pub-item lang-zh">
+                  <span class="paper-title">[在此填写论文标题 3]</span>
+                  <span class="paper-meta">期刊名称 · 年份 · 第一/合作者</span>
+                </li>
+                <li class="pub-item lang-zh">
+                  <span class="paper-title">[在此填写论文标题 4]</span>
+                  <span class="paper-meta">期刊名称 · 年份 · 第一/合作者</span>
+                </li>
+
+                <li class="pub-item lang-en">
+                  <span class="paper-title">[Insert article title 3]</span>
+                  <span class="paper-meta">Journal · Year · Author order</span>
+                </li>
+                <li class="pub-item lang-en">
+                  <span class="paper-title">[Insert article title 4]</span>
+                  <span class="paper-meta">Journal · Year · Author order</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 方法与密集纵向数据 -->
+            <div class="pub-card">
+              <div>
+                <div class="pub-label">
+                  <span class="lang-zh">线索三 · 方法与密集纵向数据</span>
+                  <span class="lang-en">Strand III · Methods & Intensive Longitudinal Data</span>
+                </div>
+                <div class="pub-title lang-zh">把「每天的波动」读成故事</div>
+                <div class="pub-title lang-en">Reading day-to-day fluctuations as stories</div>
+                <p class="pub-desc lang-zh">
+                  运用多层次模型、DSEM 等方法分析日记数据，
+                  看见个体在时间中的变化轨迹，而不是被平均数淹没的差异。
+                </p>
+                <p class="pub-desc lang-en">
+                  Uses multilevel models, DSEM, and related approaches to analyse diary data,
+                  revealing individual change over time instead of hiding it in averages.
+                </p>
+              </div>
+              <ul class="pub-list">
+                <!-- 请在这里替换为真实论文信息 -->
+                <li class="pub-item lang-zh">
+                  <span class="paper-title">[在此填写方法论文标题 1]</span>
+                  <span class="paper-meta">期刊名称 · 年份 · 第一/合作者</span>
+                </li>
+                <li class="pub-item lang-zh">
+                  <span class="paper-title">[在此填写方法论文标题 2]</span>
+                  <span class="paper-meta">期刊名称 · 年份 · 第一/合作者</span>
+                </li>
+
+                <li class="pub-item lang-en">
+                  <span class="paper-title">[Insert methods paper title 1]</span>
+                  <span class="paper-meta">Journal · Year · Author order</span>
+                </li>
+                <li class="pub-item lang-en">
+                  <span class="paper-title">[Insert methods paper title 2]</span>
+                  <span class="paper-meta">Journal · Year · Author order</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 进行中的工作 · Works in progress -->
+      <section class="section section-narrow">
+        <div class="container">
+          <div class="section-title">
+            <span class="lang-zh">进行中的研究 · Works in Progress</span>
+            <span class="lang-en">Works in Progress</span>
+          </div>
+          <p class="section-subtitle lang-zh">
+            研究本身也是一条「从经验到自我创造」的路。
+            下面是目前正在推进或筹备中的几个方向，未来也会在「寻屿」的共创项目中与你相遇。
+          </p>
+          <p class="section-subtitle lang-en">
+            Research itself is a path from experience to self-creation.
+            These are ongoing or emerging lines of work that may later become part of Yunisle’s co-created projects.
+          </p>
+
+          <div class="wip-card">
+            <ul class="wip-list lang-zh">
+              <li>跨文化背景下，青少年在家庭期待与自我选择之间如何协商边界。</li>
+              <li>使用密集纵向数据，追踪日常情绪、反刍与人际事件对抑郁与复原力的影响。</li>
+              <li>把自我决定理论与在线学习平台设计结合，探讨如何在虚拟空间中支持自主性与连结感。</li>
+            </ul>
+            <ul class="wip-list lang-en">
+              <li>How adolescents in cross-cultural contexts negotiate boundaries between family expectations and self-chosen paths.</li>
+              <li>Using intensive longitudinal data to trace how daily emotion, rumination, and interpersonal events shape depression and resilience.</li>
+              <li>Integrating Self-Determination Theory into the design of online learning platforms to support autonomy and relatedness in digital spaces.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer / 联系方式 -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-contact-card">
+          <div class="footer-contact-layout">
+            <div class="footer-contact-main">
+              <h3 class="footer-contact-title lang-zh">
+                如果这些研究，让你想到自己的问题或合作的可能
+              </h3>
+              <h3 class="footer-contact-title lang-en">
+                If this research sparks questions or collaboration ideas
+              </h3>
+              <p class="footer-contact-text lang-zh">
+                欢迎你写信、留言，或在社交平台上找到我。无论是想深入理解某篇研究，
+                还是一起构思新的项目和实践路径，都非常欢迎你发出邀请。
+              </p>
+              <p class="footer-contact-text lang-en">
+                You’re very welcome to reach out—whether to better understand a study,
+                or to imagine new projects and practices together.
+              </p>
+              <p class="footer-contact-text lang-zh">
+                因为还有研究与教学工作，我通常会在约 10 天内回复。
+              </p>
+              <p class="footer-contact-text lang-en">
+                Alongside research and teaching, I usually respond within about ten days.
+              </p>
+            </div>
+
+            <div class="footer-contact-actions">
+              <div class="contact-pill-row">
+                <!-- 替换为你的真实链接 -->
+                <a href="mailto:your.email@example.com" class="contact-pill">
+                  <span class="lang-zh">Email 邮箱</span>
+                  <span class="lang-en">Email</span>
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" class="contact-pill">
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://scholar.google.com" target="_blank" rel="noreferrer" class="contact-pill">
+                  <span class="lang-zh">Google Scholar</span>
+                  <span class="lang-en">Google Scholar</span>
+                </a>
+                <a href="#" class="contact-pill">
+                  <span class="lang-zh">小红书</span>
+                  <span class="lang-en">Xiaohongshu</span>
+                </a>
+                <a href="#" class="contact-pill">
+                  <span class="lang-zh">微信</span>
+                  <span class="lang-en">WeChat</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom-line">
+          © 2025 寻屿 · YUNISLE. All rights reserved.<br />
+          这一座岛，慢慢与你一起被创造出来。<br />
+          Design by Jingyun Wang · designed for gentle growth, deep feeling, and honest becoming.
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
