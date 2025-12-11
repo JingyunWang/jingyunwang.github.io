@@ -31,11 +31,13 @@
     .hero-inner .hero-subtitle {
       font-size: 1rem;
       font-weight: 500;
-      max-width: 46rem;
+      max-width: 48rem;
+      line-height: 1.8;
     }
     .hero-inner .hero-tagline {
       font-size: 0.92rem;
       max-width: 50rem;
+      line-height: 1.8;
     }
 
     .section-title {
@@ -48,6 +50,7 @@
       font-size: 0.9rem;
       color: #66678e;
       margin-bottom: 0.7rem;
+      line-height: 1.8;
     }
     .emphasis {
       font-weight: 600;
@@ -104,7 +107,7 @@
       line-height: 1.7;
     }
 
-    /* 顶部双列布局 */
+    /* 顶部双列布局（图1） */
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.7fr);
@@ -125,21 +128,22 @@
       border: 1px solid rgba(198, 201, 243, 0.7);
     }
     .hero-side-title {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #3b3c65;
       margin-bottom: 0.4rem;
     }
-    .hero-side-tagline {
+    .hero-side-text {
       font-size: 0.86rem;
       color: #6a6b94;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.8;
     }
     .hero-badge-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
-      margin-top: 0.6rem;
+      margin-top: 0.2rem;
     }
     .hero-badge {
       font-size: 0.75rem;
@@ -150,30 +154,46 @@
       color: #4c4e7b;
     }
 
-    /* 自我决定理论：三列卡片 */
+    /* 自我决定理论（图2） */
     .needs-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.4rem;
+      align-items: stretch;
     }
     @media (max-width: 960px) {
       .needs-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
+    .need-card {
+      height: 100%;
+      border-radius: 1.4rem;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(202, 205, 244, 0.9);
+      box-shadow: 0 16px 40px rgba(116, 130, 197, 0.35);
+      padding: 1.1rem 1.2rem 1.2rem;
+    }
+    .need-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9b9dc2;
+      margin-bottom: 0.15rem;
+    }
     .need-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 600;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.12rem;
       color: #29294a;
     }
     .need-sub {
       font-size: 0.85rem;
       color: #7a7ba1;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.45rem;
     }
 
-    /* 生态系统区块 */
+    /* 生态系统区块（图3） */
     .eco-grid {
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.9fr);
@@ -192,11 +212,28 @@
       box-shadow: 0 18px 45px rgba(113, 128, 187, 0.35);
       padding: 1.7rem 1.8rem;
       border: 1px solid rgba(198, 201, 243, 0.7);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 0.8rem;
+    }
+
+    .eco-main-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.6rem;
+    }
+    .eco-main-list li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.88rem;
+      color: #5f618d;
+      line-height: 1.7;
+    }
+    .eco-main-list li::before {
+      content: "⟡";
+      position: absolute;
+      left: 0;
+      top: 0.1rem;
+      font-size: 0.8rem;
+      color: #c59cff;
     }
 
     .eco-right-rail {
@@ -256,7 +293,56 @@
       line-height: 1.7;
     }
 
-    /* 多流派名言区块 */
+    /* 路径流程卡（图4） */
+    .journey-card {
+      border-radius: 1.6rem;
+      background: rgba(255, 255, 255, 0.97);
+      box-shadow: 0 18px 45px rgba(119, 132, 194, 0.4);
+      border: 1px solid rgba(202, 205, 244, 0.9);
+      padding: 1.4rem 1.6rem 1.5rem;
+    }
+    .journey-road-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #3a3b64;
+      margin-bottom: 0.7rem;
+    }
+    .journey-road-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+    @media (max-width: 1180px) {
+      .journey-road-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 720px) {
+      .journey-road-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+    .journey-node {
+      border-radius: 1.4rem;
+      padding: 0.7rem 0.85rem;
+      background: linear-gradient(145deg, rgba(255, 246, 252, 0.96), rgba(233, 239, 255, 0.96));
+      border: 1px solid rgba(202, 207, 247, 0.95);
+      box-shadow: 0 12px 26px rgba(137, 149, 214, 0.4);
+      font-size: 0.82rem;
+      color: #42446a;
+      line-height: 1.65;
+    }
+    .journey-node-title {
+      font-weight: 600;
+      margin-bottom: 0.12rem;
+    }
+    .journey-node-en {
+      font-size: 0.76rem;
+      color: #8c8fb5;
+      margin-left: 0.1rem;
+    }
+
+    /* 多流派名言（图5） */
     .quote-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -289,54 +375,6 @@
     .quote-author {
       font-size: 0.78rem;
       color: #8b8db3;
-    }
-
-    /* 路径流程图 */
-    .journey-steps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin: 0.4rem 0 0.9rem;
-    }
-    .journey-step {
-      position: relative;
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      color: #383a63;
-      background: rgba(255, 255, 255, 0.96);
-      border: 1px solid rgba(192, 197, 243, 0.95);
-      box-shadow: 0 14px 32px rgba(125, 138, 206, 0.42);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      white-space: nowrap;
-    }
-    .journey-step-badge {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #ffe0ee, #b5c8ff);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.72rem;
-      color: #36375e;
-      font-weight: 600;
-    }
-    .journey-arrow {
-      font-size: 0.9rem;
-      color: #b0b3db;
-      align-self: center;
-    }
-
-    @media (max-width: 720px) {
-      .journey-steps {
-        gap: 0.5rem;
-      }
-      .journey-step {
-        font-size: 0.8rem;
-      }
     }
   </style>
 </head>
@@ -377,7 +415,7 @@
             <span class="nav-label-cn lang-zh">研究发表</span>
             <span class="nav-label-en lang-en">Research</span>
           </a>
-          <!-- 先话题，再项目 -->
+          <!-- 话题在前，项目在后 -->
           <a href="topics.html">
             <span class="nav-label-cn lang-zh">话题与旅程</span>
             <span class="nav-label-en lang-en">Topics</span>
@@ -399,36 +437,36 @@
     </header>
 
     <main>
-      <!-- Hero：这座岛屿的理论与骨架 -->
+      <!-- Hero：理论与路径 · 一座岛如何慢慢长成（图1） -->
       <section class="hero hero-inner">
         <div class="container hero-grid">
           <div>
             <h1 class="hero-title">
-              <span class="lang-zh">理论与路径 · 这座岛屿的骨架</span>
-              <span class="lang-en">Theory & Methods · The bones of this isle</span>
+              <span class="lang-zh">理论与路径 · 一座岛如何慢慢长成</span>
+              <span class="lang-en">Theory & Paths · How this isle slowly takes shape</span>
             </h1>
             <p class="hero-subtitle lang-zh">
-              在寻屿，我们不会用艰涩的专业词来「讲理论」，而是把理论当作
-              <span class="emphasis-soft">照亮生活的灯</span>：
-              让你知道，自己现在的样子，并不是「哪儿不对」，而是有心理学、发展与环境脉络可循。
+              在寻屿，我们不把理论当作高高在上的「教条」，而是当作帮你看清生活的
+              <span class="emphasis-soft">地图</span>：
+              理论提供结构，你的故事提供方向。这里，你会看到自我决定理论、生态系统视角，
+              以及一条从<span class="emphasis-soft">探索 → 了解 → 接纳 → 承诺 → 行动 → 自我创造</span>的路，
+              如何被织进真实的人生片段里。
             </p>
             <p class="hero-subtitle lang-en">
-              At Yunisle, theory is not a wall of jargon but a
-              <span class="emphasis-soft">lamp over real life</span>:
-              a way to see that how you are now is not “wrong”, but understandable
-              within psychological, developmental, and ecological contexts.
+              At Yunisle, theory is not a distant “doctrine” but a
+              <span class="emphasis-soft">map</span> for your real life:
+              theory gives structure, your stories give direction. Here you’ll see Self-Determination Theory,
+              an ecological lens, and a path of
+              <span class="emphasis-soft">Explore → Understand → Accept → Commit → Act → Self-create</span>
+              woven into concrete moments of living.
             </p>
             <p class="hero-tagline lang-zh">
-              这里的工作，大致站在三个支点上：
-              <span class="emphasis">自我决定理论</span>（你如何被支持、被限制）、
-              <span class="emphasis">生态系统视角</span>（你身处怎样的世界）、以及
-              <span class="emphasis">多流派对话</span>（不同心理学家的智慧，在你身上相遇）。
+              你不需要记住所有概念，只需要在这些框架中，找到那个对你此刻处境
+              <span class="emphasis-soft">最有共鸣的比喻与语言</span>。
             </p>
             <p class="hero-tagline lang-en">
-              Our work rests on three main pillars:
-              <span class="emphasis">Self-Determination Theory</span> (how you are supported or constrained),
-              an <span class="emphasis">ecological lens</span> (the worlds you move through),
-              and <span class="emphasis">dialogue across traditions</span> (letting different thinkers speak to your life).
+              You don’t need to memorise every concept; you only need to find the metaphors and language
+              that resonate most with where you are now.
             </p>
           </div>
 
@@ -444,182 +482,208 @@
             <div class="hero-side-title lang-en">
               When you understand what’s happening, change no longer rests only on willpower.
             </div>
-            <p class="hero-side-tagline lang-zh">
-              我们会一起，把你正在经历的困惑、关系与抉择，放回到发展阶段、关系经验与社会语境里。
+            <p class="hero-side-text lang-zh">
+              我们会一起，把你正在经历的困惑、关系与抉择，
+              放回发展阶段、关系经验与社会语境里。
               理论负责提供结构，而你负责提供真实的生活。
             </p>
-            <p class="hero-side-tagline lang-en">
-              Together, we place your confusion, relationships, and decisions back into
-              developmental stages, relational histories, and social context.
-              Theory offers structure; you offer real life.
+            <p class="hero-side-text lang-en">
+              Together, we place your questions, relationships, and choices back into developmental stages,
+              relational histories, and social context. Theory offers structure; you offer real life.
             </p>
             <div class="hero-badge-row">
-              <span class="hero-badge lang-zh">自我决定理论（Deci & Ryan）</span>
+              <span class="hero-badge lang-zh">自我决定理论（Deci &amp; Ryan）</span>
               <span class="hero-badge lang-en">Self-Determination Theory</span>
 
               <span class="hero-badge lang-zh">生态系统理论（Bronfenbrenner）</span>
               <span class="hero-badge lang-en">Ecological systems theory</span>
 
-              <span class="hero-badge lang-zh">人本 · 存在 · 动力 · 叙事</span>
-              <span class="hero-badge lang-en">Humanistic · Existential · Dynamic · Narrative</span>
+              <span class="hero-badge lang-zh">多流派对话 · 从精神分析到人本存在</span>
+              <span class="hero-badge lang-en">Dialogues across schools · From psychodynamic to humanistic-existential</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 自我决定理论：三大心理需要 -->
+      <!-- 一座岛的三个支点：自我决定理论（图2） -->
       <section class="section section-narrow">
         <div class="container">
           <div class="section-title">
-            <span class="lang-zh">自我决定理论：三大心理需要，不只是「努力不够」</span>
-            <span class="lang-en">Self-Determination Theory: Three needs beyond “trying harder”</span>
+            <span class="lang-zh">一座岛的三个支点：自我决定理论</span>
+            <span class="lang-en">Three pillars of the isle: Self-Determination Theory</span>
           </div>
           <p class="section-subtitle lang-zh">
-            自我决定理论（Self-Determination Theory, SDT）提醒我们：一个人是否有动力、是否能向内生长，
-            不只是「够不够自律」，而是看他的核心心理需要是否被看见与支持。
+            Deci 与 Ryan 提出的自我决定理论（Self-Determination Theory, SDT）告诉我们：
+            一个人是否正在活得有生命力，不只是「有没有动力」，而是
+            <span class="emphasis-soft">动力从哪里来、指向哪里</span>。
           </p>
           <p class="section-subtitle lang-en">
-            Self-Determination Theory (SDT) shows that our motivation and growth
-            are not just about “discipline”, but about whether our basic psychological needs
-            are seen and supported.
+            Self-Determination Theory (SDT) by Deci &amp; Ryan reminds us that vitality is not only about
+            “having motivation”, but about <span class="emphasis-soft">where it comes from and what it serves</span>.
+          </p>
+          <p class="section-subtitle lang-zh">
+            SDT 认为，每个人内心都有三个基本心理需要：<span class="emphasis-soft">自主、胜任、联结</span>。
+            当这三个需要被忽视或压抑时，我们会变得自责、犹豫，也难以爱自己；
+            当它们被看见和支持时，人会自然地朝向成长、意义感与自由。
+          </p>
+          <p class="section-subtitle lang-en">
+            SDT proposes three basic psychological needs:
+            <span class="emphasis-soft">autonomy, competence, and relatedness</span>.
+            When they are ignored or thwarted, we tend to feel guilty, hesitant, and unworthy;
+            when they are supported, we naturally move toward growth, meaning, and freedom.
           </p>
 
           <div class="needs-grid">
-            <div class="card">
-              <div class="card-body">
-                <div class="need-title lang-zh">自主 Autonomy</div>
-                <div class="need-sub lang-zh">
-                  「我是否可以，活成比较像自己的样子？」
-                </div>
-                <div class="need-sub lang-en">
-                  “Do I have room to live in a way that feels like me?”
-                </div>
-                <ul class="text-list lang-zh">
-                  <li>可以表达不同意见，而不总是担心「不乖」「不懂事」。</li>
-                  <li>重要决定不只是被安排，而是可以参与、可以选择。</li>
-                  <li>知道自己正在做的事，对自己的人生有意义。</li>
-                </ul>
-                <ul class="text-list lang-en">
-                  <li>Being able to disagree without always fearing you’re “too much” or “not good enough”.</li>
-                  <li>Having a say in important decisions, not only being assigned a role.</li>
-                  <li>Feeling that what you’re doing matters to your own life, not only to others’ expectations.</li>
-                </ul>
+            <!-- 自主 -->
+            <div class="need-card">
+              <div class="need-label">NEED · 自主 AUTONOMY</div>
+              <div class="need-title lang-zh">自主：我在为谁而活？</div>
+              <div class="need-title lang-en">Autonomy: Who am I living for?</div>
+              <div class="need-sub lang-zh">
+                感觉自己在做的事情，可以说「这是我愿意的」，而不是只是完成别人交给的任务。
               </div>
+              <div class="need-sub lang-en">
+                Feeling able to say “this is what I choose” rather than merely completing tasks others assign.
+              </div>
+              <ul class="text-list lang-zh">
+                <li>可以表达不同意见，而不总是担心「不乖」「不懂事」。</li>
+                <li>重要决定里，你的想法被认真考虑，而不是被默认忽略。</li>
+                <li>你在做的事，与自己认同的价值、想要的人生方向有关。</li>
+              </ul>
+              <ul class="text-list lang-en">
+                <li>Being able to disagree without always fearing you’re “too much” or “not good enough”.</li>
+                <li>Having your voice considered in important decisions, not silently dismissed.</li>
+                <li>Doing things that connect with your values and the kind of life you want.</li>
+              </ul>
             </div>
 
-            <div class="card">
-              <div class="card-body">
-                <div class="need-title lang-zh">胜任 Competence</div>
-                <div class="need-sub lang-zh">
-                  「我是否有机会，一点点变得更有把握？」
-                </div>
-                <div class="need-sub lang-en">
-                  “Do I have chances to grow my sense of capability?”
-                </div>
-                <ul class="text-list lang-zh">
-                  <li>有可以循序渐进练习的空间，而不是只被要求「一次做到完美」。</li>
-                  <li>有人看见你的努力过程，而不只是结果和分数。</li>
-                  <li>可以尝试、可以犯错，错误不会直接等于「我不行」。</li>
-                </ul>
-                <ul class="text-list lang-en">
-                  <li>Having space to practice gradually, not just pressure to get it “perfect” at once.</li>
-                  <li>Having your effort noticed, not only your outcomes and scores.</li>
-                  <li>Being allowed to try and fail without every mistake meaning “I’m a failure”.</li>
-                </ul>
+            <!-- 胜任 -->
+            <div class="need-card">
+              <div class="need-label">NEED · 胜任 COMPETENCE</div>
+              <div class="need-title lang-zh">胜任：我有能力慢慢做好</div>
+              <div class="need-title lang-en">Competence: I can grow into this</div>
+              <div class="need-sub lang-zh">
+                在挑战中不会只剩下无力感，而是曾经体验到「我在一点点变得更会」。
               </div>
+              <div class="need-sub lang-en">
+                Facing challenges with more than helplessness—having experiences of “I’m slowly getting better at this.”
+              </div>
+              <ul class="text-list lang-zh">
+                <li>有可以循序渐进练习的空间，而不是只被要求「一次做到完美」。</li>
+                <li>有人看见你的努力与过程，而不仅是分数和结果。</li>
+                <li>失败不再等同于「我很差」，而是被视为成长过程的一部分。</li>
+              </ul>
+              <ul class="text-list lang-en">
+                <li>Having room to practice gradually instead of being pushed to be perfect at once.</li>
+                <li>Having your effort and process seen, not only grades or outcomes.</li>
+                <li>Seeing failure as part of learning rather than proof that “I am a failure”.</li>
+              </ul>
             </div>
 
-            <div class="card">
-              <div class="card-body">
-                <div class="need-title lang-zh">连接 Relatedness</div>
-                <div class="need-sub lang-zh">
-                  「在关系里，我是否可以既被爱，也保留自己？」
-                </div>
-                <div class="need-sub lang-en">
-                  “Can I feel loved and still be myself in relationships?”
-                </div>
-                <ul class="text-list lang-zh">
-                  <li>有可以诚实说出脆弱与需要的关系，而不总是担心被嫌弃。</li>
-                  <li>在家人、伴侣、同事、同学面前，可以逐渐做回真实的自己。</li>
-                  <li>不再只用讨好、隐忍、照顾别人，来换取被留在关系里的资格。</li>
-                </ul>
-                <ul class="text-list lang-en">
-                  <li>Having relationships where you can show vulnerability and needs without constant fear of rejection.</li>
-                  <li>Gradually being able to show your real self with family, partners, colleagues, and friends.</li>
-                  <li>Not relying solely on pleasing, over-caring, or self-erasure to stay in connection.</li>
-                </ul>
+            <!-- 联结 -->
+            <div class="need-card">
+              <div class="need-label">NEED · 联结 RELATEDNESS</div>
+              <div class="need-title lang-zh">联结：我被看见，也能去爱</div>
+              <div class="need-title lang-en">Relatedness: Being seen and able to love</div>
+              <div class="need-sub lang-zh">
+                在重要关系中，既能感到被理解、被接纳，也能带着自己的心出现在关系里。
               </div>
+              <div class="need-sub lang-en">
+                In important relationships, feeling understood and accepted, while bringing your full self into the connection.
+              </div>
+              <ul class="text-list lang-zh">
+                <li>有可以说出脆弱与需要的关系，而不总是担心给别人添麻烦。</li>
+                <li>不再只靠讨好、压抑自己来维系关系，而是练习带着真实的自己靠近他人。</li>
+                <li>慢慢学会：我可以同时被爱、也保有自己。</li>
+              </ul>
+              <ul class="text-list lang-en">
+                <li>Relationships where you can share needs and vulnerability without constant fear of burdening others.</li>
+                <li>Not relying solely on pleasing or self-erasure to keep connections, but approaching others as your real self.</li>
+                <li>Gradually learning: I can be loved and still remain myself.</li>
+              </ul>
             </div>
           </div>
 
           <p class="section-subtitle lang-zh">
-            在寻屿，我们不会只看「你做不到什么」，而是一起梳理：
-            <span class="emphasis-soft">这些心理需要，在你的成长里是如何被支持、被压抑、又如何慢慢被你捡回来的。</span>
+            动机，也在从<span class="emphasis-soft">「被逼着做」走向「愿意去做」</span>的光谱上流动：
+            从「被控制」「怕辜负」，慢慢靠近「认同」「自我决定」。
           </p>
           <p class="section-subtitle lang-en">
-            At Yunisle, we don’t only ask “What can’t you do?” but trace
-            <span class="emphasis-soft">
-              how these needs have been supported, suppressed, and reclaimed across your life.
-            </span>
+            Motivation flows along a spectrum from
+            <span class="emphasis-soft">“forced to act” toward “willing to act”</span>:
+            from control and fear of letting others down toward identification and self-determination.
+          </p>
+          <p class="section-subtitle lang-zh">
+            在寻屿，我们会一起检视：哪些选择，是出于恐惧与讨好；哪些，是出于价值与愿意。
+            这不是为了评判，而是为了让你有机会，重新把生命的节奏，调回自己愿意承担的轨道上。
+          </p>
+          <p class="section-subtitle lang-en">
+            At Yunisle, we look together at which choices come from fear and pleasing,
+            and which arise from values and willingness—not to judge you, but to help you
+            bring your life back onto a rhythm you can stand behind.
           </p>
         </div>
       </section>
 
-      <!-- 生态系统视角：不只是「我有问题」 -->
+      <!-- 生态系统视角（图3） -->
       <section class="section section-narrow">
         <div class="container">
           <div class="section-title">
             <span class="lang-zh">不只是「我有问题」：生态系统视角</span>
-            <span class="lang-en">Not just “my problem”: an ecological lens</span>
+            <span class="lang-en">Not just “my problem”: An ecological perspective</span>
           </div>
           <p class="section-subtitle lang-zh">
             发展心理学家 Bronfenbrenner 提醒我们：
             一个人从来不是「孤立存在」，而是活在多层系统的交织里——家庭、学校、组织、文化与时代。
-            很多你以为是「我的性格问题」，其实与整个生态系统的支持与限制有关。
+            很多你以为是「我的性格问题」，其实深深地与整个生态系统的支持与限制有关。
           </p>
           <p class="section-subtitle lang-en">
-            Developmental psychologist Bronfenbrenner reminds us:
-            no one exists in isolation. We live within multiple, layered systems—family, school,
-            organisations, culture, and history. Much of what feels like a “personal defect”
-            is deeply tied to how these systems support or constrain us.
+            Bronfenbrenner’s ecological theory reminds us that nobody exists in isolation.
+            We live within layered systems—family, school, organisations, culture, history.
+            Much of what feels like a “personal flaw” is closely tied to how these systems support or constrain you.
           </p>
 
           <div class="eco-grid">
             <!-- 左侧主卡片 -->
             <div class="eco-main-card">
-              <div>
-                <div class="pill-label">
-                  <span class="pill-dot"></span>
-                  <span class="lang-zh">把视角从「我哪里不行」移向「我身处怎样的环境」</span>
-                  <span class="lang-en">Shifting from “What’s wrong with me?” to “What context am I in?”</span>
-                </div>
-                <p class="card-body lang-zh">
-                  在寻屿，我们会一边看你的内在感受，一边看你所处的外在环境：
-                  <span class="emphasis-soft">
-                    能否支持你的自主？是否认可你的价值？是否给过你试错与成长的空间？
-                  </span>
-                  这样，你不必再把所有重担都归因到「是我不够好」。
-                </p>
-                <p class="card-body lang-en">
-                  At Yunisle, we hold both your inner experience and your outer environments:
-                  <span class="emphasis-soft">
-                    Do they support your autonomy? Affirm your worth? Offer room to try, fail, and grow?
-                  </span>
-                  This way, the weight doesn’t fall solely on “I’m not good enough.”
-                </p>
+              <div class="pill-label">
+                <span class="pill-dot"></span>
+                <span class="lang-zh">把视角从「我哪里不行」转向「我身处怎样的环境」</span>
+                <span class="lang-en">From “What’s wrong with me?” to “What context am I in?”</span>
               </div>
-              <div>
-                <p class="card-body lang-zh">
-                  有时，你感到疲惫，不是因为你「太脆弱」，而是因为你长期在一个
-                  <span class="emphasis-soft">缺乏支持、充满矛盾信息的系统里努力活着</span>。
-                  看到这一点，本身就是一种松一口气的开始。
-                </p>
-                <p class="card-body lang-en">
-                  Sometimes your exhaustion doesn’t mean you’re “too weak”, but that you’ve been trying
-                  to live in a system that offers little support and many conflicting signals.
-                  Seeing this clearly can already be a small exhale.
-                </p>
-              </div>
+              <p class="card-body lang-zh">
+                在寻屿，我们会一边看你的内在感受，一边看你所处的外在环境：
+                能否支持你的自主？是否认可你的价值？是否给过你试错与成长的空间？
+                这样，你不必再把所有重担都归因到「是我不够好」。
+              </p>
+              <p class="card-body lang-en">
+                At Yunisle, we hold both your inner experience and your outer environments:
+                Do they support your autonomy? Affirm your worth? Offer room to try, fail, and grow?
+                This way, the weight no longer falls solely on “I’m not good enough”.
+              </p>
+              <ul class="eco-main-list">
+                <li class="lang-zh">
+                  我们会一起梳理：哪些是你个人的选择，哪些是环境长期施加的压力与信息。
+                </li>
+                <li class="lang-zh">
+                  当你看见「不是只有我这样」，你就有机会从自责，转向对自己更温柔、更真实的理解。
+                </li>
+                <li class="lang-en">
+                  We map out which parts are your own choices and which are long-standing pressures and messages from your context.
+                </li>
+                <li class="lang-en">
+                  Seeing that “it’s not just me” opens space to move from self-blame toward a gentler, more accurate understanding of yourself.
+                </li>
+              </ul>
+              <p class="card-body lang-zh">
+                有时，你感到筋疲力尽，不是因为你「太脆弱」，而是因为你长期在一个缺乏支持、
+                甚至充满矛盾信号的系统里努力生活。看到这一点，本身就是一种松一口气的开始。
+              </p>
+              <p class="card-body lang-en">
+                Sometimes exhaustion doesn’t mean you’re “too weak”.
+                It means you’ve been trying to live for a long time in systems that offer little support and many conflicting signals.
+                Recognising this can already be the first gentle exhale.
+              </p>
             </div>
 
             <!-- 右侧四层生态 rail -->
@@ -632,12 +696,12 @@
                 <div class="eco-level-title lang-zh">与你同住、同事、同学、亲密关系</div>
                 <div class="eco-level-title lang-en">People you live, study, and work with</div>
                 <p class="eco-level-text lang-zh">
-                  这些关系里，是否有空间说出「我真正的感受」？
-                  是否总是需要懂事、乖巧、完美，才觉得自己值得被留下？
+                  这些关系里，是否有空间说出「我真正的感受」？是否总是需要懂事、乖巧、完美，
+                  才觉得自己值得被留下？
                 </p>
                 <p class="eco-level-text lang-en">
-                  In these close ties, is there room to express “how I really feel”?
-                  Do you feel you must always be mature, agreeable, or perfect to deserve staying?
+                  In these close ties, is there room to say “how I really feel”?
+                  Or do you feel you must always be mature, agreeable, or perfect to deserve staying?
                 </p>
               </div>
 
@@ -645,14 +709,14 @@
                 <div class="eco-level-label lang-zh">MESO · 系统之间</div>
                 <div class="eco-level-label lang-en">MESO · Between systems</div>
                 <div class="eco-level-title lang-zh">家庭、学校、职场如何彼此影响</div>
-                <div class="eco-level-title lang-en">Family, school, and workplace interactions</div>
+                <div class="eco-level-title lang-en">Family, school &amp; workplace interactions</div>
                 <p class="eco-level-text lang-zh">
-                  例如：一个重「乖巧」的家庭 + 高压的学校氛围，
+                  例如：一个重视「乖巧」的家庭 + 高压的学校氛围，
                   会如何共同塑造你对自己的看法？为什么你总觉得「稍微松懈一点就会出事」？
                 </p>
                 <p class="eco-level-text lang-en">
-                  For example, how do a “be good” family and a high-pressure school
-                  jointly shape your self-view—and the sense that “if I relax, everything will fall apart”?
+                  For example, how do a “be good” family and a high-pressure school together shape
+                  your self-view—and the sense that “if I relax, everything will fall apart”?
                 </p>
               </div>
 
@@ -660,14 +724,14 @@
                 <div class="eco-level-label lang-zh">EXO / MACRO · 更大的世界</div>
                 <div class="eco-level-label lang-en">EXO / MACRO · Wider worlds</div>
                 <div class="eco-level-title lang-zh">制度、文化、历史与时代</div>
-                <div class="eco-level-title lang-en">Structures, culture, history, and era</div>
+                <div class="eco-level-title lang-en">Structures, culture, history &amp; era</div>
                 <p class="eco-level-text lang-zh">
                   社会对「好学生」「好孩子」「成功」的想象，
                   如何在不知不觉中，变成你对自己的苛求与标准？
                 </p>
                 <p class="eco-level-text lang-en">
-                  How do cultural images of “good student”, “good child”, or “success”
-                  quietly turn into your self-criticism and impossible standards?
+                  How do images of the “good student”, “good child”, or “successful person”
+                  quietly become your own inner demands and standards?
                 </p>
               </div>
 
@@ -681,8 +745,8 @@
                   它们在时间里回响，也在今天推动你走向新的可能。
                 </p>
                 <p class="eco-level-text lang-en">
-                  Your childhood, adolescence, moves, and turning points do not disappear.
-                  They echo through time, shaping how you walk into new possibilities today.
+                  Your childhood, adolescence, moves, and turning points do not disappear;
+                  they echo through time, shaping how you walk into new possibilities today.
                 </p>
               </div>
             </div>
@@ -690,7 +754,127 @@
         </div>
       </section>
 
-      <!-- 多流派对话：和不同心理学家的相遇 -->
+      <!-- 从探索到自我创造：寻屿的旅程路径（图4） -->
+      <section class="section section-narrow">
+        <div class="container">
+          <div class="section-title">
+            <span class="lang-zh">从探索到自我创造：寻屿的旅程路径</span>
+            <span class="lang-en">From exploration to self-creation: The Yunisle journey</span>
+          </div>
+          <p class="section-subtitle lang-zh">
+            我们不会给出一张「你准答案」的单，而是一起走一条
+            <span class="emphasis-soft">探索 → 了解 → 接纳 → 承诺 → 行动 → 自我创造</span>的路。
+            这条路既来自前沿研究与理论，也来自许多真实生命的长线练习。
+          </p>
+          <p class="section-subtitle lang-en">
+            Instead of handing you a “correct answer sheet”, we walk a path of
+            <span class="emphasis-soft">Explore → Understand → Accept → Commit → Act → Self-create</span>.
+            This path is grounded both in research and in many people’s lived practice over time.
+          </p>
+
+          <div class="journey-card">
+            <div class="journey-road-title">
+              <span class="lang-zh">这条路，大致长这样：</span>
+              <span class="lang-en">The path roughly looks like this:</span>
+            </div>
+            <div class="journey-road-grid">
+              <div class="journey-node">
+                <div class="journey-node-title">
+                  <span class="lang-zh">探索 · Exploration</span>
+                  <span class="journey-node-en lang-en">Exploration</span>
+                </div>
+                <p class="lang-zh">
+                  先允许自己把故事摊开来，说清楚「我到底是怎么走到这里」。
+                </p>
+                <p class="lang-en">
+                  Allowing your story to be laid out, tracing how you arrived where you are now.
+                </p>
+              </div>
+
+              <div class="journey-node">
+                <div class="journey-node-title">
+                  <span class="lang-zh">了解 · Understanding</span>
+                  <span class="journey-node-en lang-en">Understanding</span>
+                </div>
+                <p class="lang-zh">
+                  结合理论与你的经历，看见恐惧、愤怒、麻木背后，其实在捍卫的需要与边界。
+                </p>
+                <p class="lang-en">
+                  Using theory and your history to see which needs and boundaries lie beneath fear,
+                  anger, or numbness.
+                </p>
+              </div>
+
+              <div class="journey-node">
+                <div class="journey-node-title">
+                  <span class="lang-zh">接纳 · Acceptance</span>
+                  <span class="journey-node-en lang-en">Acceptance</span>
+                </div>
+                <p class="lang-zh">
+                  不再用「别人标准」鞭打自己，而是承认：在当时的资源与处境下，我已经尽力了。
+                </p>
+                <p class="lang-en">
+                  Dropping others’ harsh standards and acknowledging that, given your context,
+                  you have already done your best.
+                </p>
+              </div>
+
+              <div class="journey-node">
+                <div class="journey-node-title">
+                  <span class="lang-zh">承诺 · Commitment</span>
+                  <span class="journey-node-en lang-en">Commitment</span>
+                </div>
+                <p class="lang-zh">
+                  从「别人期待我怎样」转向「我愿意为哪些价值负责」，
+                  找到一个对你来说真实的小承诺。
+                </p>
+                <p class="lang-en">
+                  Moving from “what others expect” to “which values I’m willing to stand for”,
+                  finding a small but genuine commitment.
+                </p>
+              </div>
+
+              <div class="journey-node">
+                <div class="journey-node-title">
+                  <span class="lang-zh">行动 · Action</span>
+                  <span class="journey-node-en lang-en">Action</span>
+                </div>
+                <p class="lang-zh">
+                  不是一次「用力要改变」，而是一个个具体、可实践的小步，让新的体验慢慢累积。
+                </p>
+                <p class="lang-en">
+                  Not one huge push to “fix everything”, but small, concrete steps that gradually create new experience.
+                </p>
+              </div>
+
+              <div class="journey-node">
+                <div class="journey-node-title">
+                  <span class="lang-zh">自我创造 · Self-Creation</span>
+                  <span class="journey-node-en lang-en">Self-Creation</span>
+                </div>
+                <p class="lang-zh">
+                  让经验、选择与关系慢慢对齐，活成一个更像自己、也更能安放自己的故事版本。
+                </p>
+                <p class="lang-en">
+                  Letting experiences, choices, and relationships align into a life story
+                  that feels more like you—and kinder to you.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p class="section-subtitle lang-zh">
+            这条路径不会线性前进，也会有反复与停顿——那都很正常。
+            重要的不是「用理论把自己管好」，而是用理论，为自己腾出新的可能性。
+          </p>
+          <p class="section-subtitle lang-en">
+            This path is rarely linear; it includes pauses and detours, which are all normal.
+            The goal is not to use theory to police yourself, but to open new possibilities for your life.
+          </p>
+        </div>
+      </section>
+
+      <!-- 多流派对话（图5） -->
       <section class="section section-narrow">
         <div class="container">
           <div class="section-title">
@@ -698,16 +882,14 @@
             <span class="lang-en">Dialogues across traditions: Different voices meeting in your life</span>
           </div>
           <p class="section-subtitle lang-zh">
-            在寻屿，我们不会把你「塞进」某一个流派，
-            而是让不同理论在你的人生故事里展开对话：
+            在寻屿，我们不会把你「塞进」某一个流派，而是让不同理论在你的人生故事里展开对话：
             既有精神分析对无意识与早期经验的凝视，也有人本与存在主义对自由与责任的关照，
-            还有动机理论、系统视角与叙事实践的加持。
+            还有动机理论、系统视角与叙事实践的支持。
           </p>
           <p class="section-subtitle lang-en">
-            We don’t force you into one school of thought. Instead, we let theories
-            converse within your story: psychoanalytic depth on early experience,
-            humanistic and existential attention to freedom and responsibility,
-            alongside motivation theory, systemic thinking, and narrative practice.
+            We don’t force you into one school of thought. Instead, we invite theories to converse inside your story:
+            psychoanalytic depth on early experience and the unconscious, humanistic and existential concern for
+            freedom and responsibility, together with motivation theory, systemic thinking, and narrative practice.
           </p>
 
           <div class="quote-grid">
@@ -723,11 +905,10 @@
 
             <div class="quote-card">
               <p class="quote-text lang-zh">
-                「我们成为自己，不是通过逃离矛盾，而是学会与内在的光影共处。」
+                「我并成为自己，不是通过逃离矛盾，而是学会与内在的光影共处。」
               </p>
               <p class="quote-text lang-en">
-                “We become ourselves not by escaping contradictions,
-                but by learning to live with our inner light and shadow.”
+                “We become ourselves not by escaping contradictions, but by learning to live with our inner light and shadow.”
               </p>
               <div class="quote-author">C. G. Jung · 分析心理学</div>
             </div>
@@ -737,8 +918,7 @@
                 「真正的相遇，是在一个人敢于诚实说出心声，而另一个人选择不逃开的那一刻。」
               </p>
               <p class="quote-text lang-en">
-                “A real encounter begins when one dares to speak honestly,
-                and the other chooses not to turn away.”
+                “A real encounter begins when one dares to speak honestly, and the other chooses not to turn away.”
               </p>
               <div class="quote-author">Irvin Yalom · 存在主义治疗</div>
             </div>
@@ -758,158 +938,28 @@
                 「人所能成为的一切，他们就必须努力成为；否则，内在便会一直轻轻地不安。」
               </p>
               <p class="quote-text lang-en">
-                “What a person can become, they must strive to become—or an inner unease will remain.”
+                “What a person can become, they must strive to become—or an inner unease will quietly remain.”
               </p>
               <div class="quote-author">Abraham Maslow · 需要与自我实现</div>
             </div>
 
             <div class="quote-card">
               <p class="quote-text lang-zh">
-                「当环境支持我们的自主、胜任与连结时，人会自然地朝向成长；当环境压缩这些需要时，症状便成为求救的语言。」
+                「当环境支持我们的自主、胜任与连结时，人会自然地朝向成长；
+                当环境扭曲这些需要时，症状便成为求救的语言。」
               </p>
               <p class="quote-text lang-en">
                 “When autonomy, competence, and relatedness are supported, people move naturally toward growth;
-                when they are thwarted, symptoms become the language of distress.”
+                when they are distorted, symptoms become the language of distress.”
               </p>
-              <div class="quote-author">Deci & Ryan · 自我决定理论</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 探索 → 了解 → 接纳 → 承诺 → 行动 → 自我创造 -->
-      <section class="section section-narrow">
-        <div class="container">
-          <div class="section-title">
-            <span class="lang-zh">从探索，到自我创造：我们一起走的一条路</span>
-            <span class="lang-en">From exploration to self-creation: A path we walk together</span>
-          </div>
-          <p class="section-subtitle lang-zh">
-            具体到与你的工作上，寻屿会把以上理论，编织成一条可以一步步走的路径：
-            <span class="emphasis-soft">探索 → 了解 → 接纳 → 承诺 → 行动 → 自我创造</span>。
-          </p>
-          <p class="section-subtitle lang-en">
-            In practice, we weave these theories into a stepwise path we can walk together:
-            <span class="emphasis-soft">Explore → Understand → Accept → Commit → Act → Self-create</span>.
-          </p>
-
-          <div class="journey-steps">
-            <div class="journey-step">
-              <span class="journey-step-badge">1</span>
-              <span class="lang-zh">探索 · Explore</span>
-              <span class="lang-en">Explore</span>
-            </div>
-            <span class="journey-arrow">⟶</span>
-            <div class="journey-step">
-              <span class="journey-step-badge">2</span>
-              <span class="lang-zh">了解 · Understand</span>
-              <span class="lang-en">Understand</span>
-            </div>
-            <span class="journey-arrow">⟶</span>
-            <div class="journey-step">
-              <span class="journey-step-badge">3</span>
-              <span class="lang-zh">接纳 · Accept</span>
-              <span class="lang-en">Accept</span>
-            </div>
-            <span class="journey-arrow">⟶</span>
-            <div class="journey-step">
-              <span class="journey-step-badge">4</span>
-              <span class="lang-zh">承诺 · Commit</span>
-              <span class="lang-en">Commit</span>
-            </div>
-            <span class="journey-arrow">⟶</span>
-            <div class="journey-step">
-              <span class="journey-step-badge">5</span>
-              <span class="lang-zh">行动 · Act</span>
-              <span class="lang-en">Act</span>
-            </div>
-            <span class="journey-arrow">⟶</span>
-            <div class="journey-step">
-              <span class="journey-step-badge">6</span>
-              <span class="lang-zh">自我创造 · Self-create</span>
-              <span class="lang-en">Self-create</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-body">
-              <p class="lang-zh">
-                ⟡ <span class="emphasis">探索：</span>
-                先把你现在的处境、困惑与关系摊开来看。我们会用提问与绘图、时间线、小练习等方式，
-                让你看清：我正在经历什么？这些感受与反应，从何而来？
-              </p>
-              <p class="lang-en">
-                ⟡ <span class="emphasis">Explore:</span>
-                We begin by laying out your current situations, questions, and relationships.
-                Through questions, mapping, timelines, and small exercises we ask:
-                What am I going through? Where do these feelings and reactions come from?
-              </p>
-
-              <p class="lang-zh">
-                ⟡ <span class="emphasis">了解：</span>
-                结合自我决定理论与生态系统视角，把「症状」翻译成「需求」与「历史」，
-                从「我怎么这么糟」转向「在这样的环境里，我是如何一路撑到现在」。
-              </p>
-              <p class="lang-en">
-                ⟡ <span class="emphasis">Understand:</span>
-                Using SDT and ecological theory, we translate “symptoms” into needs and history:
-                shifting from “What’s wrong with me?” to “How have I survived this context so far?”
-              </p>
-
-              <p class="lang-zh">
-                ⟡ <span class="emphasis">接纳：</span>
-                不是消极认命，而是承认：<span class="emphasis-soft">在那样的资源与约束下，我已经尽力了。</span>
-                让羞耻与自责慢慢退场，为新的选择腾出空间。
-              </p>
-              <p class="lang-en">
-                ⟡ <span class="emphasis">Accept:</span>
-                Not resignation, but acknowledgement that
-                <span class="emphasis-soft">given your resources and constraints, you really have tried.</span>
-                This softens shame and guilt, making room for new choices.
-              </p>
-
-              <p class="lang-zh">
-                ⟡ <span class="emphasis">承诺：</span>
-                与其再许下「我要完全变成另一个人」，不如一起找到
-                <span class="emphasis-soft">一个可行、并与你的价值对齐的小承诺</span>：
-                比如更诚实地面对一个关系、更温柔地对待一部分自己。
-              </p>
-              <p class="lang-en">
-                ⟡ <span class="emphasis">Commit:</span>
-                Instead of vowing to become “a totally different person”, we look for
-                <span class="emphasis-soft">a small, realistic commitment that aligns with your values</span>:
-                perhaps a more honest conversation, or a kinder stance toward a part of yourself.
-              </p>
-
-              <p class="lang-zh">
-                ⟡ <span class="emphasis">行动：</span>
-                把承诺落在具体的行为、节奏与边界上；我们会一起检查环境中的支持与阻力，
-                找到「下一步足够小，但足以带来新体验」的行动。
-              </p>
-              <p class="lang-en">
-                ⟡ <span class="emphasis">Act:</span>
-                We translate commitment into behaviour, pacing, and boundaries, checking for supports
-                and barriers around you to find actions that are “small enough to take, big enough to feel”.
-              </p>
-
-              <p class="lang-zh">
-                ⟡ <span class="emphasis">自我创造：</span>
-                长期来看，你会逐渐感到：自己不是被动地「被定义」，而是在现实与限制之中，
-                一点点<span class="emphasis-soft">塑造自己的生命叙事</span>——这也是「寻屿」最在意的部分。
-              </p>
-              <p class="lang-en">
-                ⟡ <span class="emphasis">Self-create:</span>
-                Over time, you may feel less like someone merely “defined by others”
-                and more like a person who, even within limits, is actively
-                <span class="emphasis-soft">shaping their own life story</span>—the heart of Yunisle’s work.
-              </p>
+              <div class="quote-author">Deci &amp; Ryan · 自我决定理论</div>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer / 联系方式 -->
+    <!-- Footer / 联系方式（与其他页面保持一致） -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-contact-card">
@@ -926,9 +976,8 @@
                 它们都不需要被修饰，只需要被认真地看见。
               </p>
               <p class="footer-contact-text lang-en">
-                You are warmly invited to reach out—by email or on any platform
-                below—with your questions, stories, doubts, and curiosity.
-                They do not need to be polished; they only need to be seen.
+                You’re warmly invited to reach out—by email or on any platform below—with your questions,
+                stories, doubts, and curiosity. They don’t need to be polished; they only need to be seen.
               </p>
               <p class="footer-contact-text lang-zh">
                 因为还有研究与教学工作，我最多会在约 10 天内回复。
@@ -940,7 +989,7 @@
 
             <div class="footer-contact-actions">
               <div class="contact-pill-row">
-                <!-- 替换为你的真实链接 -->
+                <!-- 替换为真实链接与账号 -->
                 <a href="mailto:your.email@example.com" class="contact-pill">
                   <span class="lang-zh">Email 邮箱</span>
                   <span class="lang-en">Email</span>
