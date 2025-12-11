@@ -159,6 +159,7 @@
       line-height: 1.7;
     }
 
+    /* 研究 / 资质 两列 */
     .two-col-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.8fr);
@@ -171,6 +172,7 @@
       }
     }
 
+    /* 议题标签 */
     .topic-tags {
       display: flex;
       flex-wrap: wrap;
@@ -186,6 +188,7 @@
       color: #4c4e7b;
     }
 
+    /* 旅程片段时间线 */
     .journey-timeline {
       margin-top: 0.5rem;
       border-left: 1px dashed rgba(180, 181, 222, 0.9);
@@ -243,19 +246,12 @@
       border-radius: 999px;
       background: radial-gradient(circle at 30% 30%, #ffe2f0, #b9c9ff);
     }
-
-    .emoji-line {
-      font-size: 0.86rem;
-      color: #60618a;
-      margin-top: 0.45rem;
-      line-height: 1.7;
-    }
   </style>
 </head>
 <body>
   <div class="page-aura"></div>
   <div class="page-wrapper">
-    <!-- 顶部导航 -->
+    <!-- 顶部导航（与首页一致） -->
     <header class="site-header">
       <div class="container site-header-inner">
         <a href="index.html" class="brand">
@@ -289,13 +285,13 @@
             <span class="nav-label-cn lang-zh">研究发表</span>
             <span class="nav-label-en lang-en">Research</span>
           </a>
-          <a href="topics.html">
-            <span class="nav-label-cn lang-zh">话题与旅程</span>
-            <span class="nav-label-en lang-en">Topics</span> 
-          </a>
           <a href="projects.html">
             <span class="nav-label-cn lang-zh">共创项目</span>
             <span class="nav-label-en lang-en">Projects</span>
+          </a>
+          <a href="topics.html">
+            <span class="nav-label-cn lang-zh">话题与旅程</span>
+            <span class="nav-label-en lang-en">Topics</span>
           </a>
         </nav>
         <div class="lang-toggle">
@@ -318,25 +314,22 @@
             <span class="lang-en">Meet Yun · The one tending the island light</span>
           </h1>
           <p class="hero-subtitle lang-zh">
-            我是 <span class="emphasis">Jingyun</span> —— 心理学研究者、心理工作者，也是长期的自我探索者。
-            寻屿，是我在研究与人生的交界处，为「长期活在别人期待里」的人预留的一座内在小岛：
-            你可以在这里放下「要表现好」，重新练习，以
-            <span class="emphasis-soft">更自由、更诚实、更温柔</span>的方式活下去。
+            我是 <span class="emphasis">Jingyun</span> —— 心理学研究者、心理咨询与团体带领者，也是一名长期的自我探索者。
+            扎根心理学十年，<span class="emphasis-soft">终生热爱</span>，我在研究与人生的交界处，搭建了这座名为「寻屿 Yunisle」的心灵小岛：
+            为那些长期活在「别人期待」里，却开始悄悄想要回到「自己」的人，留一块可以靠岸的地方。
           </p>
           <p class="hero-subtitle lang-en">
-            I’m <span class="emphasis">Jingyun</span>—a psychologist, practitioner, and long-term explorer of my inner world.
-            Yunisle is an inner island I hold at the intersection of research and life,
-            for those who have spent years living up to expectations.
-            Here, you are invited to lay performance down for a while and practice living with
-            <span class="emphasis-soft">more freedom, honesty, and gentleness.</span>
+            I’m <span class="emphasis">Jingyun</span>—a psychologist, counsellor, and group facilitator,
+            as well as a long-term traveller of my own inner world. After a decade of immersion in psychology,
+            I’ve grown deeply committed to this work. At the edge of research and real life,
+            I created this inner island, <span class="emphasis-soft">Yunisle</span>, for those who have long lived
+            by others’ expectations and are now quietly seeking their own way back.
           </p>
           <p class="hero-tagline lang-zh">
-            每一次对话、每一个项目，都尽量同时照顾两件事：
-            <span class="emphasis-soft">科学的严谨，和一个人真实的呼吸。</span>
+            在这里，你不会被当成一个「问题」，而是一段正在书写中的故事。
           </p>
           <p class="hero-tagline lang-en">
-            In every conversation and project, I try to hold two things together:
-            <span class="emphasis-soft">the rigour of science and the breathing space of being human.</span>
+            Here, you are not treated as a “problem”, but as a story still being written.
           </p>
         </div>
       </section>
@@ -347,78 +340,92 @@
           <div class="profile-photo-wrap">
             <div class="profile-photo">
               <div class="profile-photo-inner">
-                <!-- 在此处放入你的照片，或暂时保留为色块背景 -->
+                <!-- 将 images/jingyun.jpg 替换为你的真实照片路径 -->
               </div>
             </div>
             <p class="profile-tagline lang-zh">
-              在不同城市和文化之间生活、学习与工作，让我比起「完美答案」，
-              更相信<span class="emphasis-soft">人与自己、与世界缓慢和解的过程</span>。
-              这也是「寻屿」的起点：哪怕环境嘈杂，你仍然可以为自己保留一块安静的内在之岛。
+              这些年，我在中国与欧洲之间学习、工作与生活，在不同教育体系与文化语境中往返。
+              这让我比起「完美答案」，更相信一种缓慢而真实的练习：
+              <span class="emphasis-soft">在复杂世界里，仍然活得像自己。</span>
             </p>
             <p class="profile-tagline lang-en">
-              Living, studying, and working across different cities and cultures has taught me
-              to trust less in “perfect answers” and more in the
-              <span class="emphasis-soft">slow process of making peace with oneself and the world</span>.
-              This is where Yunisle begins: even in a noisy world, you can still keep an inner isle of your own.
+              Over the years, I’ve lived, studied, and worked across China and Europe.
+              Moving between systems and cultures has taught me to trust not in perfect answers,
+              but in a slow, honest practice of <span class="emphasis-soft">staying true to oneself in a complex world.</span>
             </p>
 
             <div class="profile-badges">
               <span class="profile-badge lang-zh">🎓 应用心理学学士</span>
+              <span class="profile-badge lang-en">BA Applied Psychology</span>
+
               <span class="profile-badge lang-zh">🎓 心理健康教育硕士</span>
+              <span class="profile-badge lang-en">MA Mental Health Education</span>
+
               <span class="profile-badge lang-zh">🎓 心理学博士</span>
-              <span class="profile-badge lang-en">BA · Applied Psychology</span>
-              <span class="profile-badge lang-en">MEd · Mental Health Education</span>
-              <span class="profile-badge lang-en">PhD · Psychology</span>
+              <span class="profile-badge lang-en">PhD in Psychology</span>
 
-              <span class="profile-badge lang-zh">国家级心理咨询师（三级）</span>
-              <span class="profile-badge lang-en">National Counselor (Level 3)</span>
+              <span class="profile-badge lang-zh">🌿 动机与自主性研究员</span>
+              <span class="profile-badge lang-en">Motivation & autonomy researcher</span>
 
-              <span class="profile-badge lang-zh">动机 & 人际关系 & 自主性研究者</span>
-              <span class="profile-badge lang-en">Motivation · Relationships · Autonomy</span>
+              <span class="profile-badge lang-zh">🧭 国家三级心理咨询师</span>
+              <span class="profile-badge lang-en">National-level counsellor</span>
+
+              <span class="profile-badge lang-zh">👣 团体促动者 · 成长同行人</span>
+              <span class="profile-badge lang-en">Group facilitator · Companion in growth</span>
             </div>
-
-            <p class="emoji-line lang-zh">
-              🎓 扎根十年，终生热爱：心理学本硕博 | 亲密关系 & 自主性<br />
-              🌳 团体促动者：整合取向 · 人本存在 · 心理动力<br />
-              👣 成长同行人：接纳 | 探索 | 信任<br />
-              🕊 INFJ · 阅读 · 写作 · 创意表达 · 旅行 · 动物 · 大自然
-            </p>
-            <p class="emoji-line lang-en">
-              🎓 Ten+ years in psychology: BA–MA–PhD | intimacy & autonomy<br />
-              🌳 Group facilitator: integrative, humanistic–existential, psychodynamic lenses<br />
-              👣 Companion in growth: acceptance | exploration | trust<br />
-              🕊 INFJ · reading · writing · creative work · travel · animals · nature
-            </p>
           </div>
 
           <div>
             <div class="card">
               <div class="card-body">
                 <div class="section-title">
-                  <span class="lang-zh">我是谁 · 除了「头衔」之外</span>
-                  <span class="lang-en">Who I am · Beyond the titles</span>
+                  <span class="lang-zh">我是谁 · 在几个角色之间切换的人</span>
+                  <span class="lang-en">Who I am · A person moving between several roles</span>
                 </div>
                 <p class="lang-zh">
-                  学历和训练给了我一套看世界的工具，但真正塑造我的，
-                  是那些在咨询室、教室与小组里，和人一起坐在问题中、坐在沉默里的日子。
+                  在职业上，我是一名<span class="emphasis-soft">动机与人际关系研究者</span>，
+                  也是一名<span class="emphasis-soft">心理咨询师与团体带领者</span>；
+                  在人生上，我则视自己为一名<span class="emphasis-soft">成长同行人</span>，
+                  和你一样，也还在路上。
                 </p>
                 <p class="lang-en">
-                  Degrees and training gave me tools, but what shaped me most are
-                  the days of sitting with people—in questions, in silence—in
-                  counseling rooms, classrooms, and small groups.
+                  Professionally, I’m a <span class="emphasis-soft">researcher of motivation and relationships</span>,
+                  and a <span class="emphasis-soft">counsellor and group facilitator</span>.
+                  In life, I think of myself as a <span class="emphasis-soft">companion in growth</span>,
+                  someone who is also still walking.
                 </p>
+                <p class="lang-zh">
+                  我喜欢把自己理解成四个交叠的身份：
+                </p>
+                <p class="lang-en">
+                  I often understand myself through four overlapping roles:
+                </p>
+
+                <ul class="text-list lang-zh">
+                  <li><span class="emphasis">研究者：</span>以发展心理学与自我决定理论为底，研究自主性、动机、人际关系与心理健康。</li>
+                  <li><span class="emphasis">心理咨询师：</span>受训于人本存在主义、心理动力、认知行为、慈悲聚焦、焦点解决、沙盘等取向。</li>
+                  <li><span class="emphasis">团体带领者：</span>擅长整合多流派方法，营造安全、专业又有深度的探索空间。</li>
+                  <li><span class="emphasis">个人体验者：</span>长期以个体体验、团体、自我练习，磨练接纳、自主与共情的能力。</li>
+                </ul>
+
+                <ul class="text-list lang-en">
+                  <li><span class="emphasis">Researcher:</span> grounded in developmental psychology and SDT, studying autonomy, motivation, relationships, and mental health.</li>
+                  <li><span class="emphasis">Counsellor:</span> trained in humanistic–existential, psychodynamic, CBT, compassion-focused, solution-focused, sandplay and related approaches.</li>
+                  <li><span class="emphasis">Group facilitator:</span> integrating methods to create safe, professional, and deep spaces for exploration.</li>
+                  <li><span class="emphasis">Personal explorer:</span> engaging in my own therapy, groups, and practices, continually learning acceptance, autonomy, and empathy from the inside out.</li>
+                </ul>
+
                 <p class="lang-zh">
                   如果要用一句话概括我在做的事：<br />
                   <span class="emphasis">
-                    用心理学与哲学，陪你把「我是谁、我要怎样活」这两个问题，
-                    变成一条可以一步一步走的路。
+                    用科学的严谨与人的温度，陪你从「被期待的人」，走向更在场、更完整的自己。
                   </span>
                 </p>
                 <p class="lang-en">
-                  In one sentence, my work is about:<br />
+                  If I had to summarise what I do in one line:<br />
                   <span class="emphasis">
-                    using psychology and philosophy to turn “Who am I?” and
-                    “How do I want to live?” into a path you can actually walk, step by step.
+                    I bring together scientific rigour and human warmth to accompany you
+                    from “the expected self” toward a more present and whole you.
                   </span>
                 </p>
               </div>
@@ -435,70 +442,66 @@
             <span class="lang-en">Academic & professional roots · The soil I stand on</span>
           </div>
           <div class="two-col-grid">
-            <!-- 左：训练与研究 -->
             <div>
               <div class="card">
                 <div class="card-body">
                   <div class="section-subtitle lang-zh">
-                    「扎根十年，终生热爱」——心理学，一直是我理解世界与安放自我的方式。
+                    扎根十年，路径大致是这样：
                   </div>
                   <div class="section-subtitle lang-en">
-                    “Ten years of roots, a lifetime of love”—psychology is how I’ve
-                    learned to understand the world and make a home within myself.
+                    Over roughly a decade, my path has looked something like this:
                   </div>
                   <ul class="text-list lang-zh">
-                    <li>应用心理学学士、心理健康教育硕士、心理学博士，持续耕耘发展心理学与青少年研究。</li>
-                    <li>动机、自主性与人际关系研究者，关注人在关系与制度交织中的选择与挣扎。</li>
-                    <li>国家级心理咨询师（三级），兼具研究与一线心理工作的视角。</li>
-                    <li>指导 <span class="emphasis-soft">12 名本科生与 2 名硕士生</span>，共同完成与成长、自主性和关系相关的研究项目。</li>
-                    <li>其中一条主线项目为：
-                      <span class="emphasis-soft">「设计属于自己的路」：支持青少年在自主性、人际连结与心理韧性上的成长。</span>
-                    </li>
+                    <li>应用心理学学士：在真实情境中理解人的情绪、行为与人际互动。</li>
+                    <li>心理健康教育硕士：走近咨询、团体与校园心理服务的实践现场。</li>
+                    <li>心理学博士：以发展视角研究青少年与青年人的自主性、亲密关系与心理健康。</li>
+                    <li>动机与自主性研究员：参与跨文化动机、自我决定理论与生态系统研究。</li>
+                    <li>国家三级心理咨询师：在统一标准下接受系统训练与伦理规范要求。</li>
                   </ul>
                   <ul class="text-list lang-en">
-                    <li>BA in Applied Psychology, MA in Mental Health Education, and PhD in Psychology, with a focus on developmental and youth studies.</li>
-                    <li>Researcher in motivation, autonomy, and relationships, attentive to how people choose and struggle within systems and relationships.</li>
-                    <li>National-level counseling qualification, holding both research and frontline practice perspectives.</li>
-                    <li>Supervised <span class="emphasis-soft">12 undergraduate and 2 master’s students</span> on projects around growth, autonomy, and relationships.</li>
-                    <li>One core theme:
-                      <span class="emphasis-soft">
-                        “Designing Your Own Path”: supporting adolescents’ autonomy, connection, and psychological resilience.
-                      </span>
-                    </li>
+                    <li>BA in Applied Psychology: understanding emotion, behaviour, and relationships in real-life settings.</li>
+                    <li>MA in Mental Health Education: moving closer to counselling, groups, and university mental health services.</li>
+                    <li>PhD in Psychology: studying autonomy, close relationships, and mental health in adolescence and young adulthood.</li>
+                    <li>Motivation & autonomy researcher: working with cross-cultural projects on SDT and ecological perspectives.</li>
+                    <li>National-level counsellor: trained and supervised under formal standards and ethics.</li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <!-- 右：取向与风格 -->
             <div>
               <div class="card">
                 <div class="card-body">
                   <div class="section-subtitle lang-zh">
-                    专业训练方面，我是一名<span class="emphasis-soft">「整合取向」心理工作者</span>：
-                    会根据你的处境，灵活地使用不同流派的方法，而不是把你塞进某一个理论框。
+                    这些训练并不是为了堆砌头衔，而是为了确保：
+                    <span class="emphasis-soft">当我陪你看自己时，有足够扎实又灵活的工具。</span>
                   </div>
                   <div class="section-subtitle lang-en">
-                    In my clinical training, I work in an
-                    <span class="emphasis-soft">integrative way</span>:
-                    drawing from multiple approaches according to your context,
-                    rather than forcing you into one theoretical box.
+                    These trainings are not about collecting titles, but about ensuring I have
+                    <span class="emphasis-soft">solid and flexible tools when we look at your life together.</span>
                   </div>
-                  <ul class="text-list lang-zh">
-                    <li>个人体验与成长：长期在自我探索、人际关系、自我接纳与正念实践中打磨自己。</li>
-                    <li>受训取向：人本—存在、慈悲聚焦、认知行为、心理动力、团体动力、焦点解决、沙盘、投射绘画等。</li>
-                    <li>团体带领者：擅长营造安全、专业而有深度的探索空间，让不同生命故事彼此看见。</li>
-                  </ul>
-                  <ul class="text-list lang-en">
-                    <li>Personal work: ongoing exploration around self-acceptance, relationships, empathy, autonomy, and mindfulness.</li>
-                    <li>Training includes: humanistic–existential, compassion-focused, CBT, psychodynamic, group dynamics, solution-focused, sandplay, and projective drawing.</li>
-                    <li>As a group facilitator, I focus on creating spaces that are safe, professional, and deep—where different life stories can truly meet.</li>
-                  </ul>
                   <p class="lang-zh">
-                    对我来说，<span class="emphasis">「方法」永远服务于人，而不是相反。</span>
+                    在方法上，我不拘泥于单一流派，而是整合：
+                    <span class="emphasis-soft">
+                      人本与存在主义的接纳与真实、心理动力的深度理解、认知行为与焦点解决的具体行动、
+                      以及慈悲聚焦与正念带来的温柔与觉察。
+                    </span>
                   </p>
                   <p class="lang-en">
-                    For me, <span class="emphasis">methods exist to serve people, never the other way around.</span>
+                    Methodologically, I don’t stay within one school. I integrate:
+                    <span class="emphasis-soft">
+                      the acceptance and genuineness of humanistic–existential work, the depth of psychodynamic thinking,
+                      the concreteness of CBT and solution-focused work, and the kindness and awareness brought by
+                      compassion-focused and mindfulness-based approaches.
+                    </span>
+                  </p>
+                  <p class="lang-zh">
+                    简单来说：我们既会<span class="emphasis-soft">认真理解你是怎么走到今天的</span>，
+                    也会一起<span class="emphasis-soft">寻找可以从明天开始尝试的一个小改变</span>。
+                  </p>
+                  <p class="lang-en">
+                    Put simply: we will <span class="emphasis-soft">take your story seriously</span>,
+                    and we will also <span class="emphasis-soft">look for small, realistic changes</span> you can begin to try.
                   </p>
                 </div>
               </div>
@@ -507,7 +510,7 @@
         </div>
       </section>
 
-      <!-- 我关注的议题 -->
+      <!-- 我关注的议题 · 如果你在这些问题里看见自己 -->
       <section class="section section-narrow">
         <div class="container">
           <div class="card">
@@ -517,47 +520,49 @@
                 <span class="lang-en">What I care about · If you see yourself in these questions</span>
               </div>
               <p class="section-subtitle lang-zh">
-                许多来到寻屿的人，都有类似的感觉：<br />
-                外表看起来「很懂事、很优秀」，内心却常常疲惫、犹豫，像是一直在演一个版本的自己。
+                很多来到寻屿的人，都在身份、关系与方向之间摇摆：
+                一边努力扮演「合格的大人/学生/子女/伴侣」，一边又隐隐觉得，
+                有一个更真实的自己还在等一个被看见的机会。
               </p>
               <p class="section-subtitle lang-en">
-                Many who arrive at Yunisle share a familiar sense:<br />
-                outwardly “good, capable, sensible”, yet inwardly tired, torn, and feeling like they are always performing a version of themselves.
+                Many who come to Yunisle stand between identities, relationships, and directions:
+                trying to be a “good adult / student / child / partner”, while sensing that a more
+                authentic self is still waiting to be seen.
               </p>
 
               <div class="topic-tags">
                 <span class="topic-tag lang-zh">长期活在他人期待里的「好学生 / 好孩子 / 好人」</span>
-                <span class="topic-tag lang-en">Long-term “good student / child / person” modes</span>
+                <span class="topic-tag lang-en">Long-term “good student / good child / good person” modes</span>
 
-                <span class="topic-tag lang-zh">「我到底要什么？」与自主性困惑</span>
-                <span class="topic-tag lang-en">“What do I really want?” & autonomy</span>
+                <span class="topic-tag lang-zh">自主性与「我真正要什么」的困惑</span>
+                <span class="topic-tag lang-en">Autonomy & “What do I really want?”</span>
 
-                <span class="topic-tag lang-zh">亲密关系、家庭与边界</span>
-                <span class="topic-tag lang-en">Intimacy, family, and boundaries</span>
+                <span class="topic-tag lang-zh">亲密关系、家庭冲突与边界</span>
+                <span class="topic-tag lang-en">Intimacy, family conflict & boundaries</span>
 
-                <span class="topic-tag lang-zh">跨文化迁徙、留学与身份重建</span>
-                <span class="topic-tag lang-en">Cross-cultural life, study, and identity</span>
+                <span class="topic-tag lang-zh">跨文化迁徙、留学与重新安放自我</span>
+                <span class="topic-tag lang-en">Cross-cultural life & re-anchoring the self</span>
 
-                <span class="topic-tag lang-zh">完美主义、拖延、自责与「内在批评者」</span>
-                <span class="topic-tag lang-en">Perfectionism, procrastination, guilt & the inner critic</span>
+                <span class="topic-tag lang-zh">完美主义、拖延、自责与耗竭</span>
+                <span class="topic-tag lang-en">Perfectionism, procrastination, guilt & burnout</span>
 
-                <span class="topic-tag lang-zh">学业 / 职业转折期的迷茫与选择</span>
-                <span class="topic-tag lang-en">Uncertainty in academic or career transitions</span>
+                <span class="topic-tag lang-zh">学业 / 职业转折期的迷茫</span>
+                <span class="topic-tag lang-en">Uncertainty at academic / career turning points</span>
 
-                <span class="topic-tag lang-zh">与自我、身体和情绪的关系</span>
-                <span class="topic-tag lang-en">Relationship with self, body, and emotions</span>
+                <span class="topic-tag lang-zh">与自我、身体与时间的关系</span>
+                <span class="topic-tag lang-en">Relationship with self, body & time</span>
 
-                <span class="topic-tag lang-zh">如何在爱自己与爱世界之间找到路径</span>
-                <span class="topic-tag lang-en">Finding a path between loving self and loving the world</span>
+                <span class="topic-tag lang-zh">在爱自己与爱世界之间找到路</span>
+                <span class="topic-tag lang-en">Finding a path between loving self & loving the world</span>
               </div>
 
               <p class="card-body lang-zh">
-                如果你在这些字里行间看见了自己的一点影子，<br />
-                那么，你已经比想象中，更接近自己的那座岛。
+                如果你在这些字里行间，看见了自己的一点影子，
+                那么，你已经离自己的那座岛更近了一小步。
               </p>
               <p class="card-body lang-en">
-                If you recognise yourself between these lines,<br />
-                you are already closer to your own inner isle than you might think.
+                If you recognise yourself between these lines, you have already stepped
+                a little closer to your own island.
               </p>
             </div>
           </div>
@@ -577,62 +582,69 @@
                 <div class="card-body">
                   <div class="card-chip-label">
                     <span class="card-chip-label-dot"></span>
-                    <span class="lang-zh">与「成为谁」有关的研究</span>
-                    <span class="lang-en">Research around “who we become”</span>
+                    <span class="lang-zh">与「成为谁」有关的研究与指导</span>
+                    <span class="lang-en">Research & supervision around “who we become”</span>
                   </div>
                   <div class="journey-timeline">
                     <div class="journey-item">
-                      <div class="journey-year lang-zh">博士阶段</div>
-                      <div class="journey-year lang-en">PhD years</div>
+                      <div class="journey-year lang-zh">研究主线</div>
+                      <div class="journey-year lang-en">Research focus</div>
                       <div class="journey-title lang-zh">
-                        自主性、亲子与同伴关系、学校环境的纵向研究
+                        自主性、动机、人际关系与心理健康
                       </div>
                       <div class="journey-title lang-en">
-                        Longitudinal work on autonomy, family & peers, and school context
+                        Autonomy, motivation, relationships, and mental health
                       </div>
                       <div class="journey-desc lang-zh">
-                        关注青少年如何在家庭、同伴与学校的交织中，练习成为「更像自己」的人。
+                        通过纵向与多情境研究，理解人如何在家庭、亲密关系、同伴与学校之间，
+                        一点点练习成为「更像自己」的样子。
                       </div>
                       <div class="journey-desc lang-en">
-                        Exploring how adolescents practice becoming “more themselves” within family, peer, and school expectations.
+                        Using longitudinal and multi-context studies to understand
+                        how people practice becoming “more themselves” across family,
+                        close relationships, peers, and school.
                       </div>
                     </div>
 
                     <div class="journey-item">
-                      <div class="journey-year lang-zh">合作项目</div>
-                      <div class="journey-year lang-en">Collaborations</div>
+                      <div class="journey-year lang-zh">本科与硕士指导</div>
+                      <div class="journey-year lang-en">Student supervision</div>
                       <div class="journey-title lang-zh">
-                        动机、自主性与心理健康的跨情境研究
+                        指导 12 名本科生与 2 名硕士生的探索项目
                       </div>
                       <div class="journey-title lang-en">
-                        Motivation, autonomy, and mental health across contexts
+                        Supervising 12 undergraduates and 2 master’s students in exploration projects
                       </div>
                       <div class="journey-desc lang-zh">
-                        从课堂到日常生活，观察人在不同情境中如何寻找意义与方向感。
+                        其中包括以
+                        <span class="emphasis-soft">「设计自己的生命主线：赋能青少年的自主性、关系与心理健康」</span>
+                        为主题的系列项目，一起把「我是谁」「我要怎么走下去」变成具体可实践的研究与行动。
                       </div>
                       <div class="journey-desc lang-en">
-                        From classrooms to daily life, observing how people seek meaning and direction across settings.
+                        This includes a series titled
+                        <span class="emphasis-soft">
+                          “Designing one’s own life path: empowering youth autonomy, relationships, and mental health”,
+                        </span>
+                        turning “Who am I?” and “Where do I go next?” into concrete research and lived experiments.
                       </div>
                     </div>
 
                     <div class="journey-item">
-                      <div class="journey-year lang-zh">指导与教学</div>
-                      <div class="journey-year lang-en">Supervision & teaching</div>
+                      <div class="journey-year lang-zh">教与学</div>
+                      <div class="journey-year lang-en">Teaching & learning</div>
                       <div class="journey-title lang-zh">
-                        「设计属于自己的路」与相关学生项目
+                        在课堂与督导中共创「可以提问」的空间
                       </div>
                       <div class="journey-title lang-en">
-                        “Designing Your Own Path” & student projects
+                        Co-creating classrooms and supervisions where questions are welcome
                       </div>
                       <div class="journey-desc lang-zh">
-                        和学生一起，把「学术研究」做成一场关乎
-                        <span class="emphasis-soft">自主性、人际连结与心理韧性</span>的生命练习，
-                        而不只是完成一篇论文。
+                        不只是完成作业或论文，而是练习问出：
+                        <span class="emphasis-soft">「我真正关心什么？我希望怎样与世界连接？」</span>
                       </div>
                       <div class="journey-desc lang-en">
-                        Working with students to turn “academic research” into a lived exercise
-                        in <span class="emphasis-soft">autonomy, connection, and resilience</span>,
-                        rather than just producing a thesis.
+                        Not just finishing assignments or theses, but practising questions like:
+                        <span class="emphasis-soft">“What do I truly care about? How do I want to connect with the world?”</span>
                       </div>
                     </div>
                   </div>
@@ -649,28 +661,30 @@
                     <span class="lang-en">Practicing in real life · Groups & spaces</span>
                   </div>
                   <p class="lang-zh">
-                    除了研究，我也一直在不同场域中，搭建可以「慢一点、真一点」的空间：
+                    这些年，我持续带领或共同发起：
                   </p>
                   <p class="lang-en">
-                    Beyond research, I keep building spaces where life can be a little slower and more honest:
+                    In recent years, I’ve been leading or co-creating:
                   </p>
                   <ul class="text-list lang-zh">
-                    <li>以自我探索、人际关系与亲密为主题的心理团体与长期小组；</li>
-                    <li>围绕动机、自主性与成长的工作坊、对话与阅读空间；</li>
-                    <li>在大学与青年环境中，为转折期的学生提供陪伴与思考的角落。</li>
+                    <li>围绕「自我探索、关系与边界」的心理团体与长期小组；</li>
+                    <li>以动机、自主性、完美主义与自我接纳为主题的工作坊与对谈；</li>
+                    <li>为处在「转折期」的学生与青年，提供陪伴与整理的空间。</li>
                   </ul>
                   <ul class="text-list lang-en">
-                    <li>Psychological groups and long-term circles on self-exploration, relationships, and intimacy;</li>
-                    <li>Workshops and conversations on motivation, autonomy, and growth;</li>
-                    <li>Spaces for students and young adults navigating transitions in academic and life stages.</li>
+                    <li>Psychological groups and long-term circles on self-exploration, relationships, and boundaries;</li>
+                    <li>Workshops and conversations on motivation, autonomy, perfectionism, and self-acceptance;</li>
+                    <li>Spaces for students and young adults navigating transitions to pause, reflect, and reorient.</li>
                   </ul>
                   <p class="lang-zh">
-                    对我来说，所谓「安全的空间」，不是轻易承诺你不会受伤，
-                    而是<span class="emphasis">在可以受触动的前提下，被认真地看见与尊重。</span>
+                    对我来说，<span class="emphasis">「安全的空间」是一种可以被练习的关系</span>：
+                    在这里，你既可以坦诚，也可以保留自己的节奏；
+                    可以尝试说出以前不敢说的话，也可以选择先沉默和感受。
                   </p>
                   <p class="lang-en">
-                    For me, a “safe space” does not mean promising you will never feel pain,
-                    but <span class="emphasis">being deeply seen and respected even as you are moved and challenged.</span>
+                    For me, a <span class="emphasis">“safe space” is a relational practice</span>:
+                    a place where you can be honest without rushing yourself; where you may try
+                    to say what you’ve never said, or simply stay quiet and feel for a while.
                   </p>
                 </div>
               </div>
@@ -679,7 +693,7 @@
         </div>
       </section>
 
-      <!-- 正在长成的愿景 -->
+      <!-- 正在长成的愿景 · 这座岛，还会去向哪里 -->
       <section class="section section-narrow">
         <div class="container">
           <div class="card">
@@ -689,33 +703,33 @@
                 <span class="lang-en">Growing visions · Where this isle is heading</span>
               </div>
               <p class="section-subtitle lang-zh">
-                寻屿不是一个「已经完工」的品牌，而是一块一起长出来的岛屿。
-                我希望它慢慢变成这样：
+                寻屿不是一个「已经完工」的品牌，而是一块还在长出的岛屿。
+                我希望，未来它可以与你一起，长成这样几件事：
               </p>
               <p class="section-subtitle lang-en">
-                Yunisle is not a finished brand, but an island we are growing together.
-                I hope it will slowly become a place like this:
+                Yunisle is not a finished brand, but an island still in formation.
+                I hope that, together with you, it will grow into a few things like these:
               </p>
 
               <ul class="text-list lang-zh">
-                <li>一个可以在中文和英文之间切换的心灵空间，让不同文化中的经验被理解与对话；</li>
-                <li>兼具研究深度与人味的项目，让论文与真实生活互相滋养，而不是彼此割裂；</li>
-                <li>陪伴转折期的长期旅程与共创工作坊，帮助你在重要选择前后，活得更像自己；</li>
-                <li>一座让「被期待的人」可以卸下铠甲，练习成为「在场的自己」的内在之岛。</li>
+                <li>一个可以用中英文对话的空间，让不同文化中的经验被看见与尊重；</li>
+                <li>兼具科研深度与人味的项目，让论文与真实生活互相滋养，而不是彼此割裂；</li>
+                <li>陪伴关键转折期的长期旅程与共创工作坊，帮你练习做出更像自己的选择；</li>
+                <li>一座为「被期待的人」预留的岛屿，让你可以卸下铠甲，练习成为「在场的自己」。</li>
               </ul>
               <ul class="text-list lang-en">
-                <li>A bilingual inner space where experiences across cultures can be understood and held in dialogue;</li>
-                <li>Projects that carry both research depth and human warmth, so papers and real life nourish each other;</li>
-                <li>Longer journeys and co-created workshops supporting you through key transitions, in ways that feel more like you;</li>
-                <li>An inner island where “the expected one” can lay down armour and practice being fully present as themselves.</li>
+                <li>A bilingual space where experiences from different cultures can be seen and respected;</li>
+                <li>Projects that hold both research depth and human warmth, so papers and real life nourish each other;</li>
+                <li>Longer journeys and co-created workshops that accompany you through turning points, supporting choices that feel more like you;</li>
+                <li>An island kept for those “living by expectations”, where you can lay down your armour and practice being fully present as yourself.</li>
               </ul>
 
               <p class="card-body lang-zh">
-                如果你愿意，你不只是来访者，也可以是这座岛的
+                如果你愿意，你不只是「来访者」，也可以是这座岛的
                 <span class="emphasis-soft">共建者、见证者与讲述者</span>。
               </p>
               <p class="card-body lang-en">
-                If you’d like, you are not only welcome as a visitor, but also as a
+                If you’d like, you are welcome not only as a “client”, but as a
                 <span class="emphasis-soft">co-creator, witness, and storyteller</span> of this isle.
               </p>
             </div>
@@ -724,7 +738,7 @@
       </section>
     </main>
 
-    <!-- Footer / 联系方式 -->
+    <!-- Footer / 联系方式（与首页一致） -->
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-contact-card">
