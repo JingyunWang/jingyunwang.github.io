@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="zh-CN" data-lang="zh">
   <head>
@@ -21,7 +20,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
 
-    <!-- research.html 局部样式（更精炼 · 更有艺术感） -->
+    <!-- research.html 局部样式（在全站基础上做轻量增强） -->
     <style>
       .hero-inner {
         padding-top: 5rem;
@@ -30,8 +29,8 @@
 
       .hero-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1.9fr) minmax(0, 1.35fr);
-        gap: 2.1rem;
+        grid-template-columns: minmax(0, 1.9fr) minmax(0, 1.4fr);
+        gap: 2.2rem;
         align-items: center;
       }
 
@@ -42,15 +41,15 @@
       }
 
       .hero-kicker {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: #9a9cc1;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.3rem;
       }
 
       .hero-title {
-        font-size: 1.55rem;
+        font-size: 1.6rem;
         font-weight: 600;
         margin-bottom: 0.4rem;
         color: #26253f;
@@ -64,51 +63,35 @@
       }
 
       .hero-tagline {
-        font-size: 0.9rem;
-        line-height: 1.9;
+        font-size: 0.88rem;
+        line-height: 1.85;
         color: #676993;
         margin-bottom: 0.2rem;
       }
 
       .hero-note {
-        font-size: 0.84rem;
+        font-size: 0.82rem;
         color: #8b8eb5;
         line-height: 1.8;
       }
 
       .emphasis {
         font-weight: 600;
-        color: #252341;
+        color: #26243f;
       }
+
       .emphasis-soft {
         font-weight: 500;
-        color: #464873;
+        color: #4b4d74;
       }
 
-      /* 右侧：研究快照卡片（集成主研究脉络） */
+      /* 右侧研究快照卡片 */
       .hero-research-card {
-        border-radius: 1.9rem;
-        padding: 1.25rem 1.35rem 1.4rem;
+        border-radius: 1.8rem;
+        padding: 1.25rem 1.3rem 1.4rem;
         background: radial-gradient(circle at 15% 0%, #fff4fd, #e4ecff);
-        border: 1px solid rgba(203, 209, 248, 0.96);
-        box-shadow: 0 26px 55px rgba(118, 131, 201, 0.63);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .hero-research-card::before {
-        content: "";
-        position: absolute;
-        inset: -40%;
-        background: radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.55), transparent 60%),
-          radial-gradient(circle at 90% 100%, rgba(188, 201, 255, 0.4), transparent 60%);
-        opacity: 0.7;
-        pointer-events: none;
-      }
-
-      .hero-research-inner {
-        position: relative;
-        z-index: 1;
+        border: 1px solid rgba(203, 209, 248, 0.95);
+        box-shadow: 0 26px 55px rgba(118, 131, 201, 0.6);
       }
 
       .pill-label {
@@ -121,7 +104,7 @@
         box-shadow: 0 10px 22px rgba(143, 156, 212, 0.45);
         font-size: 0.78rem;
         color: #7a7c9b;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.7rem;
       }
 
       .pill-dot {
@@ -135,7 +118,7 @@
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0.6rem;
-        margin-bottom: 0.7rem;
+        margin-bottom: 0.8rem;
       }
 
       @media (max-width: 640px) {
@@ -145,61 +128,65 @@
       }
 
       .metric-pill {
-        border-radius: 1.15rem;
-        background: rgba(255, 255, 255, 0.97);
+        border-radius: 1.2rem;
+        background: rgba(255, 255, 255, 0.96);
         border: 1px solid rgba(205, 210, 248, 0.96);
-        padding: 0.55rem 0.7rem;
-        box-shadow: 0 14px 32px rgba(124, 137, 210, 0.4);
-        font-size: 0.8rem;
+        padding: 0.5rem 0.65rem;
+        text-align: left;
+        box-shadow: 0 12px 30px rgba(124, 137, 210, 0.38);
       }
 
-      .metric-label-strong {
+      .metric-title {
         font-size: 0.78rem;
-        font-weight: 600;
-        color: #272744;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: #999cc6;
         margin-bottom: 0.08rem;
       }
 
-      .metric-label-sub {
-        font-size: 0.76rem;
-        color: #8b8db4;
-        line-height: 1.5;
+      .metric-main {
+        font-size: 0.86rem;
+        font-weight: 600;
+        color: #2b2b45;
+        margin-bottom: 0.05rem;
       }
 
-      .metric-label-sub span.symbol {
-        font-size: 0.72rem;
-        margin: 0 0.1rem;
+      .metric-sub {
+        font-size: 0.78rem;
+        color: #8689b0;
+        line-height: 1.6;
       }
 
-      .hero-research-tags {
+      /* 小逻辑流 · Data → Insight → Practice */
+      .logic-flow {
         display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-        margin-bottom: 0.55rem;
-      }
-
-      .hero-tag-pill {
-        font-size: 0.75rem;
-        padding: 0.18rem 0.6rem;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.98);
-        border: 1px solid rgba(210, 213, 248, 0.96);
-        color: #5c5f86;
-        display: inline-flex;
         align-items: center;
-        gap: 0.18rem;
+        gap: 0.45rem;
+        font-size: 0.76rem;
+        margin-bottom: 0.6rem;
+        color: #6f719b;
       }
 
-      .hero-tag-pill span.bullet {
-        font-size: 0.8rem;
+      .logic-node {
+        padding: 0.16rem 0.55rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(211, 214, 249, 0.96);
+        box-shadow: 0 9px 20px rgba(129, 140, 211, 0.35);
+      }
+
+      .logic-arrow {
+        font-size: 0.86rem;
+        opacity: 0.7;
       }
 
       .hero-research-text {
-        font-size: 0.83rem;
+        font-size: 0.82rem;
         color: #626491;
         line-height: 1.8;
       }
 
+      /* section 通用 */
       .section {
         padding-top: 2.1rem;
         padding-bottom: 2.3rem;
@@ -211,57 +198,113 @@
       }
 
       .section-title {
-        font-size: 1.14rem;
+        font-size: 1.12rem;
         font-weight: 600;
         color: #26253f;
-        margin-bottom: 0.35rem;
+        margin-bottom: 0.3rem;
       }
 
       .section-subtitle {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
         color: #646691;
-        line-height: 1.85;
+        line-height: 1.8;
         margin-bottom: 0.7rem;
       }
 
-      /* 博士论文 · 横向封面条（加强 DESIGN & KEY INSIGHTS） */
+      /* 三条主线 · 小矩形卡片 */
+      .theme-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.9rem;
+        margin-top: 0.5rem;
+      }
+
+      @media (max-width: 1024px) {
+        .theme-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 720px) {
+        .theme-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      .theme-card {
+        border-radius: 1.4rem;
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(204, 207, 245, 0.96);
+        box-shadow: 0 14px 36px rgba(118, 132, 199, 0.35);
+        padding: 0.9rem 1rem 0.95rem;
+      }
+
+      .theme-kicker {
+        font-size: 0.74rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #a0a2c5;
+        margin-bottom: 0.1rem;
+      }
+
+      .theme-title {
+        font-size: 0.93rem;
+        font-weight: 600;
+        color: #2d2c4b;
+        margin-bottom: 0.18rem;
+      }
+
+      .theme-text {
+        font-size: 0.82rem;
+        color: #5b5d86;
+        line-height: 1.7;
+      }
+
+      .theme-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 0.25rem 0 0;
+      }
+
+      .theme-list li {
+        position: relative;
+        padding-left: 0.9rem;
+        font-size: 0.8rem;
+        color: #666893;
+        margin-bottom: 0.18rem;
+        line-height: 1.6;
+      }
+
+      .theme-list li::before {
+        content: "▹";
+        position: absolute;
+        left: 0.1rem;
+        top: 0.06rem;
+        font-size: 0.7rem;
+        color: #c1a2ff;
+      }
+
+      /* 博士论文区域 */
       .thesis-section {
-        padding-top: 2.3rem;
+        padding-top: 2.2rem;
         padding-bottom: 2.4rem;
       }
 
       .thesis-cover-strip {
-        border-radius: 1.8rem;
-        background:
-          linear-gradient(120deg, rgba(10, 10, 24, 0.92), rgba(38, 37, 72, 0.95)),
-          url("assets/thesis-cover-placeholder.jpg") center/cover no-repeat;
-        /* ↑ 请在正式上线前，把上面 URL 换成真实的论文封面图片路径 */
-        color: #f3f3ff;
-        padding: 1.2rem 1.4rem;
+        position: relative;
+        border-radius: 1.6rem;
+        padding: 1.1rem 1.2rem;
         display: grid;
-        grid-template-columns: minmax(0, 2.15fr) minmax(0, 1.45fr);
-        gap: 1.1rem;
+        grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.4fr);
+        gap: 1rem;
         align-items: center;
-        box-shadow: 0 26px 55px rgba(10, 10, 28, 0.92);
-        margin-bottom: 1.1rem;
-        position: relative;
         overflow: hidden;
+        background:
+          linear-gradient(120deg, rgba(7, 10, 35, 0.96), rgba(46, 41, 86, 0.98)),
+          url("assets/thesis-cover.jpg") center/cover no-repeat;
+        box-shadow: 0 24px 55px rgba(20, 20, 52, 0.9);
       }
-
-      .thesis-cover-strip::before {
-        content: "";
-        position: absolute;
-        inset: -40%;
-        background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.13), transparent 55%),
-          radial-gradient(circle at 100% 100%, rgba(120, 132, 255, 0.45), transparent 60%);
-        opacity: 0.8;
-        pointer-events: none;
-      }
-
-      .thesis-cover-inner {
-        position: relative;
-        z-index: 1;
-      }
+      /* ↑ 将 assets/thesis-cover.jpg 替换为你的论文封面路径 */
 
       @media (max-width: 900px) {
         .thesis-cover-strip {
@@ -269,23 +312,38 @@
         }
       }
 
+      .thesis-cover-strip::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.2), transparent 55%);
+        opacity: 0.7;
+      }
+
+      .thesis-cover-content,
+      .thesis-meta-box {
+        position: relative;
+        z-index: 1;
+      }
+
       .thesis-mark {
-        font-size: 0.8rem;
-        letter-spacing: 0.16em;
+        font-size: 0.76rem;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
         color: #b3b6ff;
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.2rem;
       }
 
       .thesis-title-main {
         font-size: 1.02rem;
         font-weight: 600;
-        margin-bottom: 0.15rem;
+        color: #f3f4ff;
+        margin-bottom: 0.1rem;
       }
 
       .thesis-title-sub {
         font-size: 0.84rem;
-        color: #c7c9ff;
+        color: #cacdff;
         margin-bottom: 0.55rem;
       }
 
@@ -299,19 +357,18 @@
         font-size: 0.74rem;
         padding: 0.16rem 0.6rem;
         border-radius: 999px;
-        background: rgba(16, 18, 40, 0.9);
-        border: 1px solid rgba(160, 164, 255, 0.9);
+        background: rgba(12, 14, 40, 0.85);
+        border: 1px solid rgba(173, 176, 255, 0.85);
+        color: #dde0ff;
       }
 
       .thesis-meta-box {
-        border-radius: 1.15rem;
-        background: rgba(9, 10, 30, 0.84);
-        padding: 0.8rem 0.9rem;
+        border-radius: 1.1rem;
+        background: rgba(10, 11, 35, 0.8);
+        padding: 0.75rem 0.85rem;
         font-size: 0.8rem;
-        line-height: 1.75;
+        line-height: 1.7;
         color: #d6d7ff;
-        position: relative;
-        z-index: 1;
       }
 
       .thesis-meta-label {
@@ -319,43 +376,39 @@
         text-transform: uppercase;
         letter-spacing: 0.14em;
         color: #9ea1ff;
-        margin-bottom: 0.2rem;
-        display: flex;
-        align-items: center;
-        gap: 0.35rem;
+        margin-bottom: 0.15rem;
       }
 
-      .thesis-meta-label::before {
-        content: "◎";
-        font-size: 0.8rem;
+      .thesis-meta-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+        gap: 0.55rem 0.9rem;
       }
 
-      .thesis-meta-list {
-        list-style: none;
-        margin: 0.2rem 0 0;
-        padding: 0;
+      @media (max-width: 640px) {
+        .thesis-meta-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
       }
 
-      .thesis-meta-list li {
-        position: relative;
-        padding-left: 1.05rem;
-        margin-bottom: 0.25rem;
-      }
-
-      .thesis-meta-list li::before {
-        content: "↳";
-        position: absolute;
-        left: 0.1rem;
-        top: 0.05rem;
+      .thesis-meta-item-title {
         font-size: 0.78rem;
-        color: #b7baff;
+        font-weight: 600;
+        color: #eef0ff;
+        margin-bottom: 0.06rem;
       }
 
-      /* 序言 / 过程 / 致谢 三卡片 */
+      .thesis-meta-item-text {
+        font-size: 0.78rem;
+        color: #c3c5ff;
+      }
+
+      /* 序言 / 过程 / 致谢 气泡卡 */
       .thesis-grid {
         display: grid;
         grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr) minmax(0, 1.4fr);
-        gap: 1rem;
+        gap: 0.9rem;
+        margin-top: 1rem;
       }
 
       @media (max-width: 1024px) {
@@ -371,30 +424,40 @@
       }
 
       .thesis-card {
+        position: relative;
         border-radius: 1.3rem;
         background: rgba(255, 255, 255, 0.98);
         border: 1px solid rgba(205, 209, 246, 0.96);
-        box-shadow: 0 16px 34px rgba(118, 131, 199, 0.36);
-        padding: 0.95rem 1.05rem 1.05rem;
+        box-shadow: 0 14px 32px rgba(118, 131, 199, 0.32);
+        padding: 0.85rem 0.95rem 0.95rem;
+      }
+
+      .thesis-card::before {
+        content: "☲";
+        position: absolute;
+        right: 0.9rem;
+        top: 0.65rem;
+        font-size: 0.78rem;
+        color: rgba(179, 167, 244, 0.7);
       }
 
       .thesis-card-label {
-        font-size: 0.76rem;
+        font-size: 0.74rem;
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: #9c9fc6;
-        margin-bottom: 0.15rem;
+        margin-bottom: 0.1rem;
       }
 
       .thesis-card-title {
-        font-size: 0.94rem;
+        font-size: 0.92rem;
         font-weight: 600;
         color: #2f2f4d;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.18rem;
       }
 
       .thesis-card-text {
-        font-size: 0.84rem;
+        font-size: 0.82rem;
         color: #5b5d86;
         line-height: 1.75;
       }
@@ -402,76 +465,78 @@
       .thesis-card-list {
         list-style: none;
         padding-left: 0;
-        margin-top: 0.2rem;
+        margin-top: 0.25rem;
       }
 
       .thesis-card-list li {
         position: relative;
-        padding-left: 1rem;
-        font-size: 0.82rem;
+        padding-left: 0.9rem;
+        font-size: 0.8rem;
         color: #61638e;
-        margin-bottom: 0.22rem;
-        line-height: 1.7;
+        margin-bottom: 0.18rem;
+        line-height: 1.6;
       }
 
       .thesis-card-list li::before {
-        content: "·";
+        content: "•";
         position: absolute;
-        left: 0.25rem;
+        left: 0.2rem;
         top: 0.16rem;
-        font-size: 0.78rem;
+        font-size: 0.7rem;
         color: #c3a6ff;
       }
 
-      /* 发表列表（更精简：研究方向 + Take-home） */
+      /* 期刊论文一览 */
       .pub-section {
         padding-top: 2.2rem;
         padding-bottom: 2.4rem;
       }
 
       .pub-intro {
-        font-size: 0.86rem;
+        font-size: 0.84rem;
         color: #646691;
         line-height: 1.8;
-        margin-bottom: 0.65rem;
+        margin-bottom: 0.7rem;
       }
 
       .pub-filter-row {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.4rem;
+        gap: 0.35rem;
         margin-bottom: 0.7rem;
       }
 
       .pub-filter-pill {
         font-size: 0.75rem;
-        padding: 0.18rem 0.6rem;
+        padding: 0.14rem 0.55rem;
         border-radius: 999px;
         border: 1px dashed rgba(204, 207, 245, 0.95);
         color: #6a6d96;
-        background: rgba(255, 255, 255, 0.95);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
-      }
-
-      .pub-filter-pill::before {
-        content: "◦";
-        font-size: 0.8rem;
+        background: rgba(255, 255, 255, 0.96);
       }
 
       .pub-grid {
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        gap: 0.8rem;
+        gap: 0.7rem;
       }
 
       .pub-card {
-        border-radius: 1.3rem;
+        position: relative;
+        border-radius: 1.25rem;
         background: rgba(255, 255, 255, 0.99);
         border: 1px solid rgba(205, 209, 246, 0.96);
-        box-shadow: 0 12px 30px rgba(118, 131, 199, 0.3);
-        padding: 0.9rem 1rem 1rem;
+        box-shadow: 0 11px 28px rgba(118, 131, 199, 0.3);
+        padding: 0.85rem 0.95rem 0.95rem;
+      }
+
+      .pub-card::before {
+        content: "◎";
+        position: absolute;
+        left: 0.9rem;
+        top: 0.85rem;
+        font-size: 0.78rem;
+        color: #bca7ff;
       }
 
       .pub-header {
@@ -480,41 +545,48 @@
         justify-content: space-between;
         gap: 0.4rem;
         margin-bottom: 0.3rem;
+        padding-left: 1.2rem;
       }
 
       .pub-year-journal {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         color: #8a8db3;
       }
 
       .pub-tag {
         font-size: 0.74rem;
-        padding: 0.1rem 0.55rem;
+        padding: 0.1rem 0.5rem;
         border-radius: 999px;
         background: rgba(244, 245, 255, 0.98);
         border: 1px solid rgba(210, 213, 248, 0.98);
         color: #6d6f99;
       }
 
+      .pub-title,
+      .pub-title-en {
+        padding-left: 1.2rem;
+      }
+
       .pub-title {
         font-size: 0.9rem;
         font-weight: 600;
         color: #2e2f4b;
-        margin-bottom: 0.1rem;
+        margin-bottom: 0.08rem;
       }
 
       .pub-title-en {
         font-size: 0.8rem;
         color: #5e6190;
         line-height: 1.6;
-        margin-bottom: 0.25rem;
+        margin-bottom: 0.28rem;
       }
 
       .pub-fields {
         display: grid;
-        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
         column-gap: 0.9rem;
-        row-gap: 0.35rem;
+        row-gap: 0.25rem;
+        padding-left: 1.2rem;
       }
 
       @media (max-width: 720px) {
@@ -524,34 +596,23 @@
       }
 
       .pub-field {
-        font-size: 0.82rem;
+        font-size: 0.8rem;
         color: #5c5f88;
-        line-height: 1.75;
+        line-height: 1.7;
       }
 
       .pub-field-label {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.25rem;
+        display: inline-block;
         font-size: 0.74rem;
         text-transform: uppercase;
         letter-spacing: 0.14em;
         color: #a2a4c6;
-        margin-bottom: 0.08rem;
-      }
-
-      .pub-field-label::before {
-        content: "↻";
-        font-size: 0.8rem;
-      }
-
-      .pub-field-label.takehome::before {
-        content: "☞";
-        font-size: 0.86rem;
+        margin-bottom: 0.04rem;
       }
 
       .pub-link {
         margin-top: 0.3rem;
+        padding-left: 1.2rem;
         font-size: 0.78rem;
       }
 
@@ -565,21 +626,21 @@
         border-bottom-style: solid;
       }
 
-      /* 未来研究方向 */
+      /* 未来方向 */
       .future-section {
         padding-top: 2.1rem;
-        padding-bottom: 2.6rem;
+        padding-bottom: 2.5rem;
       }
 
       .future-layout {
         border-radius: 1.5rem;
         background: linear-gradient(120deg, #fff1fb, #e6f0ff);
-        box-shadow: 0 20px 46px rgba(120, 133, 205, 0.46);
+        box-shadow: 0 18px 44px rgba(120, 133, 205, 0.46);
         border: 1px solid rgba(204, 209, 248, 0.96);
-        padding: 1.1rem 1.25rem 1.25rem;
+        padding: 1.1rem 1.2rem 1.2rem;
         display: grid;
         grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.4fr);
-        gap: 1.15rem;
+        gap: 1.1rem;
       }
 
       @media (max-width: 960px) {
@@ -589,33 +650,33 @@
       }
 
       .future-main-text {
-        font-size: 0.86rem;
+        font-size: 0.84rem;
         color: #555884;
-        line-height: 1.85;
-        margin-bottom: 0.3rem;
+        line-height: 1.8;
+        margin-bottom: 0.35rem;
       }
 
       .future-list {
         list-style: none;
         padding-left: 0;
-        margin: 0.2rem 0 0;
+        margin: 0.15rem 0 0;
       }
 
       .future-list li {
         position: relative;
-        padding-left: 1rem;
-        font-size: 0.82rem;
+        padding-left: 0.9rem;
+        font-size: 0.8rem;
         color: #5e618f;
-        margin-bottom: 0.22rem;
-        line-height: 1.8;
+        margin-bottom: 0.2rem;
+        line-height: 1.7;
       }
 
       .future-list li::before {
-        content: "➤";
+        content: "⟡";
         position: absolute;
-        left: 0.12rem;
-        top: 0.02rem;
-        font-size: 0.74rem;
+        left: 0.1rem;
+        top: 0.06rem;
+        font-size: 0.72rem;
         color: #c29fff;
       }
 
@@ -630,8 +691,8 @@
         border-radius: 1.2rem;
         background: rgba(255, 255, 255, 0.97);
         border: 1px solid rgba(207, 211, 249, 0.96);
-        padding: 0.85rem 0.9rem;
-        font-size: 0.82rem;
+        padding: 0.8rem 0.9rem;
+        font-size: 0.8rem;
         color: #5b5d86;
         line-height: 1.8;
       }
@@ -641,15 +702,18 @@
         letter-spacing: 0.16em;
         text-transform: uppercase;
         color: #9fa1c6;
-        margin-bottom: 0.2rem;
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
+        margin-bottom: 0.18rem;
       }
 
-      .future-side-label::before {
-        content: "✽";
-        font-size: 0.86rem;
+      /* 小提示泡泡 */
+      .inline-bubble {
+        display: inline-block;
+        padding: 0.02rem 0.45rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(210, 213, 248, 0.96);
+        font-size: 0.76rem;
+        margin-right: 0.15rem;
       }
     </style>
   </head>
@@ -714,147 +778,243 @@
       </header>
 
       <main>
-        <!-- HERO · 研究岛的总览 -->
+        <!-- HERO -->
         <section class="hero hero-inner">
           <div class="container hero-grid">
             <div>
               <div class="hero-kicker">
-                <span class="lang-zh">RESEARCH · ISLAND OF DATA & STORIES</span>
-                <span class="lang-en">RESEARCH · DATA WITH A HUMAN HEART</span>
+                <span class="lang-zh">RESEARCH · DATA WITH A HEART</span>
+                <span class="lang-en">RESEARCH · DATA WITH A HEART</span>
               </div>
               <h1 class="hero-title">
-                <span class="lang-zh">研究与发表 · 一座岛的证据与回声</span>
-                <span class="lang-en">Research & Publications · Evidence that echoes real lives</span>
+                <span class="lang-zh">研究与发表 · 一座岛的证据与故事</span>
+                <span class="lang-en">Research & Publications · Evidence that echoes lives</span>
               </h1>
 
               <p class="hero-subtitle lang-zh">
-                我的研究一路围绕着三个词展开：
-                <span class="emphasis">动机、关系、自主性</span>。<br />
-                我关心的，是在家庭、同伴、学校与数字世界中，
-                青少年如何一边被影响，一边也在反过来重塑自己的世界。
-                这些工作既是期刊论文，也是我在咨询室、团体与课堂中不断修正的
-                <span class="emphasis-soft">实践地图</span>。
+                我的研究一直围绕三个核心：<span class="emphasis">学习动机、亲子与人际关系、自主性</span>。<br />
+                我关心的是：<span class="emphasis-soft">在家庭、同伴、学校和数字世界里，青少年如何一边被影响，一边也在反过来塑造自己的生命轨迹</span>。
               </p>
               <p class="hero-subtitle lang-en">
-                My work circles three words:
-                <span class="emphasis">motivation, relationships, autonomy</span>.<br />
-                I study how adolescents are shaped by families, peers, schools, and
-                digital spaces — and how they reshape those worlds in return.
-                Each paper is both scholarship and a
-                <span class="emphasis-soft">map for practice</span>, revised in therapy rooms, groups, and classrooms.
+                My work turns around three axes:
+                <span class="emphasis">learning motivation, family & peer relationships, and autonomy</span>.<br />
+                I study how adolescents are shaped by families, schools, peers, and digital worlds –
+                and how they, in turn, reshape these worlds.
               </p>
 
               <p class="hero-tagline lang-zh">
-                你不需要读完所有文献，只需要知道：<br />
-                <span class="emphasis-soft">这些结论，已经在许多真实的孩子与家庭身上，被一遍遍看见。</span>
+                这些论文不是冷冰冰的数字，而是<span class="emphasis-soft">从真实孩子和家庭身上总结出的规律</span>，
+                再带回到咨询室、课堂和团体里，反复打磨。
               </p>
               <p class="hero-tagline lang-en">
-                You don’t need to read every article. You only need to know:<br />
-                <span class="emphasis-soft">
-                  these findings have already appeared again and again in real adolescents and real families.
-                </span>
+                These papers are not just numbers. They are patterns distilled
+                from real families and students, brought back into therapy rooms,
+                classrooms, and groups, then refined again.
               </p>
 
               <p class="hero-note lang-zh">
-                这一页，会把研究浓缩成几个可以直接拿来用的问题与结论，
-                让它们离你的家庭、课堂或工作现场，近一点，再近一点。
+                在这一页，你可以快速看到：每项研究关注什么问题、用了什么视角，以及对家长、老师、心理工作者和合作者意味着什么。
               </p>
               <p class="hero-note lang-en">
-                This page distils the work into questions and take-home
-                messages you can actually use — in your family, classroom, or practice.
+                On this page, you’ll quickly see what each study asks, how it
+                looks at the question, and what it offers for parents, educators,
+                practitioners, and collaborators.
               </p>
             </div>
 
             <div class="hero-research-card">
-              <div class="hero-research-inner">
-                <div class="pill-label">
-                  <span class="pill-dot"></span>
-                  <span class="lang-zh">一眼看见：这座「研究岛」在做什么</span>
-                  <span class="lang-en">At a glance: what this research isle does</span>
-                </div>
+              <div class="pill-label">
+                <span class="pill-dot"></span>
+                <span class="lang-zh">一眼看见：这座「研究岛」的轮廓</span>
+                <span class="lang-en">At a glance: the shape of this research isle</span>
+              </div>
 
-                <!-- 主研究脉络整合为三个气泡 -->
-                <div class="hero-research-metrics">
-                  <div class="metric-pill">
-                    <div class="metric-label-strong lang-zh">➊ 学习动机 &amp; 学校转衔</div>
-                    <div class="metric-label-strong lang-en">➊ Learning motivation &amp; school transitions</div>
-                    <div class="metric-label-sub lang-zh">
-                      从<span class="symbol">⌛</span>时间维度，追踪孩子在升学节点上的
-                      学业热情、压力与学校联结。
-                    </div>
-                    <div class="metric-label-sub lang-en">
-                      Tracks how motivation, stress, and school relatedness shift
-                      across key transitions.
-                    </div>
+              <div class="hero-research-metrics">
+                <div class="metric-pill">
+                  <div class="metric-title">
+                    <span class="lang-zh">核心轴线</span>
+                    <span class="lang-en">Core axes</span>
                   </div>
-                  <div class="metric-pill">
-                    <div class="metric-label-strong lang-zh">➋ 亲子 / 同伴关系中的自主</div>
-                    <div class="metric-label-strong lang-en">➋ Autonomy in family &amp; peer ties</div>
-                    <div class="metric-label-sub lang-zh">
-                      看<span class="symbol">↔</span>父母养育、朋友支持与青少年自主如何双向影响，
-                      孩子如何从「被安排」走向「能选择」。
-                    </div>
-                    <div class="metric-label-sub lang-en">
-                      Studies how parenting and friendships
-                      <span class="symbol">↔</span> autonomy,
-                      and how teens move from being managed to choosing.
-                    </div>
+                  <div class="metric-main lang-zh">动机 × 关系 × 自主性</div>
+                  <div class="metric-main lang-en">Motivation × relationships × autonomy</div>
+                  <div class="metric-sub lang-zh">
+                    从家庭、同伴到学校与线上世界，一以贯之。
                   </div>
-                  <div class="metric-pill">
-                    <div class="metric-label-strong lang-zh">➌ 慈悲、社会支持与少数压力</div>
-                    <div class="metric-label-strong lang-en">➌ Compassion, support &amp; minority stress</div>
-                    <div class="metric-label-sub lang-zh">
-                      理解当一个人长期被否定时，为何会害怕被爱、害怕温柔，
-                      以及社群支持如何托住脆弱。
-                    </div>
-                    <div class="metric-label-sub lang-en">
-                      Explores why some learn to fear care itself and how
-                      social support — especially for minorities — protects mental health.
-                    </div>
+                  <div class="metric-sub lang-en">
+                    Spanning home, peers, school, and online worlds.
                   </div>
                 </div>
-
-                <!-- 标签气泡 + 受众提示 -->
-                <div class="hero-research-tags">
-                  <span class="hero-tag-pill">
-                    <span class="bullet">◉</span>
-                    <span class="lang-zh">纵向 &amp; 日记研究</span>
-                    <span class="lang-en">Longitudinal &amp; diary</span>
-                  </span>
-                  <span class="hero-tag-pill">
-                    <span class="bullet">◉</span>
-                    <span class="lang-zh">家庭 · 同伴 · 学校 · 线上情境</span>
-                    <span class="lang-en">Family · peers · school · online</span>
-                  </span>
-                  <span class="hero-tag-pill">
-                    <span class="bullet">◉</span>
-                    <span class="lang-zh">理论 × 实务：可落实的结论</span>
-                    <span class="lang-en">Theory × practice: usable insights</span>
-                  </span>
+                <div class="metric-pill">
+                  <div class="metric-title">
+                    <span class="lang-zh">研究方法</span>
+                    <span class="lang-en">Methods</span>
+                  </div>
+                  <div class="metric-main lang-zh">纵向 + 日记设计</div>
+                  <div class="metric-main lang-en">Longitudinal + diary</div>
+                  <div class="metric-sub lang-zh">
+                    追踪「同一个人」在时间里的细微起伏。
+                  </div>
+                  <div class="metric-sub lang-en">
+                    Tracing within-person change instead of one-time snapshots.
+                  </div>
                 </div>
+                <div class="metric-pill">
+                  <div class="metric-title">
+                    <span class="lang-zh">落地场域</span>
+                    <span class="lang-en">Practice fields</span>
+                  </div>
+                  <div class="metric-main lang-zh">科研 × 咨询 × 教学</div>
+                  <div class="metric-main lang-en">Research × therapy × teaching</div>
+                  <div class="metric-sub lang-zh">
+                    让证据回到课堂、家庭和咨询室，而不是只留在期刊。
+                  </div>
+                  <div class="metric-sub lang-en">
+                    Bringing evidence back to classrooms, homes, and therapy – not just journals.
+                  </div>
+                </div>
+              </div>
 
-                <p class="hero-research-text lang-zh">
-                  如果你是<span class="emphasis-soft">家长、老师、心理工作者，或潜在研究合作者</span>，
-                  你会在这里看到：<br />
-                  <span class="emphasis-soft">
-                    哪些微小的日常互动，会在半年、一年后，悄悄改变孩子的自主性、动机与心理健康。
-                  </span>
+              <div class="logic-flow">
+                <span class="logic-node lang-zh">数据 Data</span>
+                <span class="logic-node lang-en" style="display:none;">Data</span>
+                <span class="logic-arrow">⟶</span>
+                <span class="logic-node lang-zh">理解 Insight</span>
+                <span class="logic-node lang-en" style="display:none;">Insight</span>
+                <span class="logic-arrow">⟶</span>
+                <span class="logic-node lang-zh">行动 Practice</span>
+                <span class="logic-node lang-en" style="display:none;">Practice</span>
+              </div>
+
+              <p class="hero-research-text lang-zh">
+                如果你是<span class="emphasis-soft">家长、老师、心理工作者，或潜在的研究合作者</span>，
+                可以把这里当作一份「研究导航图」：帮你迅速找到与你关心议题最贴近的那几篇。
+              </p>
+              <p class="hero-research-text lang-en">
+                If you’re a <span class="emphasis-soft">parent, educator, practitioner, or collaborator</span>,
+                treat this as a navigation map to the studies most relevant to your questions.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PART 1 · 三条主研究脉络 -->
+        <section class="section">
+          <div class="container section-narrow">
+            <div class="section-title">
+              <span class="lang-zh">三条主线：动机 · 关系 · 自主性</span>
+              <span class="lang-en">Three threads: motivation · relationships · autonomy</span>
+            </div>
+            <p class="section-subtitle lang-zh">
+              我的所有论文，大致可以放进三条主线里。你可以把它们想象成三条并行的「研究河流」，
+              在不同阶段汇入同一片海：<span class="emphasis-soft">青少年如何在关系里，慢慢活成更像自己的自己。</span>
+            </p>
+            <p class="section-subtitle lang-en">
+              Most of my work sits in three streams that eventually flow into
+              the same sea: <span class="emphasis-soft">
+                how young people grow into themselves through the relationships around them.
+              </span>
+            </p>
+
+            <div class="theme-grid">
+              <!-- Theme 1 -->
+              <div class="theme-card">
+                <div class="theme-kicker">
+                  <span class="lang-zh">THEME 01 · SCHOOL & MOTIVATION</span>
+                  <span class="lang-en">THEME 01 · SCHOOL & MOTIVATION</span>
+                </div>
+                <div class="theme-title lang-zh">
+                  学校转衔里的学习动机
+                </div>
+                <div class="theme-title lang-en">
+                  Learning motivation across school transitions
+                </div>
+                <p class="theme-text lang-zh">
+                  追踪孩子在小升初、中学阶段的<span class="emphasis-soft">学习动力、学校联结与压力</span>，
+                  不再只问「有没有动力」，而是问：动力是被什么托起、又被什么耗尽。
                 </p>
-                <p class="hero-research-text lang-en">
-                  If you’re a <span class="emphasis-soft">
-                    parent, educator, clinician, or collaborator
-                  </span>, this is where you’ll see:<br />
-                  <span class="emphasis-soft">
-                    which everyday interactions quietly shift adolescents’ autonomy,
-                    motivation, and mental health months down the line.
-                  </span>
+                <p class="theme-text lang-en">
+                  I follow <span class="emphasis-soft">
+                    motivation, school connectedness, and stress
+                  </span> across transitions, asking not “Do you have motivation?”
+                  but “What holds it up, and what wears it down?”
                 </p>
+                <ul class="theme-list lang-zh">
+                  <li>看清家庭与学校压力如何慢慢挤压兴趣与好奇心。</li>
+                  <li>找到支持内在动机的关键节点与保护因素。</li>
+                </ul>
+                <ul class="theme-list lang-en">
+                  <li>Trace how family/school stress slowly squeezes out curiosity.</li>
+                  <li>Identify key moments and supports that protect intrinsic motivation.</li>
+                </ul>
+              </div>
+
+              <!-- Theme 2 -->
+              <div class="theme-card">
+                <div class="theme-kicker">
+                  <span class="lang-zh">THEME 02 · FAMILY & PEERS</span>
+                  <span class="lang-en">THEME 02 · FAMILY & PEERS</span>
+                </div>
+                <div class="theme-title lang-zh">
+                  在爱与界限中长出的自主
+                </div>
+                <div class="theme-title lang-en">
+                  Autonomy growing within love and boundaries
+                </div>
+                <p class="theme-text lang-zh">
+                  一系列纵向研究，从<span class="emphasis-soft">父母养育、同伴支持、同伴压力</span>出发，看青少年如何一边被养育，
+                  一边也在回头改变亲密关系的节奏和边界。
+                </p>
+                <p class="theme-text lang-en">
+                  Longitudinal work on <span class="emphasis-soft">
+                    parenting, friend support, and peer pressure
+                  </span> shows how adolescents are raised – and how they slowly
+                  reshape the very relationships that raise them.
+                </p>
+                <ul class="theme-list lang-zh">
+                  <li>父母如何在「关心」与「控制」之间找到新的平衡。</li>
+                  <li>青少年如何在压力中保有自己的声音和选择。</li>
+                </ul>
+                <ul class="theme-list lang-en">
+                  <li>How parents can balance caring with letting go.</li>
+                  <li>How teens keep their voice under peer pressure.</li>
+                </ul>
+              </div>
+
+              <!-- Theme 3 -->
+              <div class="theme-card">
+                <div class="theme-kicker">
+                  <span class="lang-zh">THEME 03 · COMPASSION & SUPPORT</span>
+                  <span class="lang-en">THEME 03 · COMPASSION & SUPPORT</span>
+                </div>
+                <div class="theme-title lang-zh">
+                  当人害怕温柔时，如何仍然被支持
+                </div>
+                <div class="theme-title lang-en">
+                  When kindness feels dangerous: support & mental health
+                </div>
+                <p class="theme-text lang-zh">
+                  从<span class="emphasis-soft">害怕慈悲、情绪性进食、LGB 群体的社会支持</span>切入，
+                  关注长期被否定的人，如何学会再次靠近温柔。
+                </p>
+                <p class="theme-text lang-en">
+                  Through <span class="emphasis-soft">
+                    fears of compassion, emotional eating, and support in LGB communities
+                  </span>, I study how people who learned to fear tenderness can slowly move back toward it.
+                </p>
+                <ul class="theme-list lang-zh">
+                  <li>在中国文化里，重新命名「不敢软弱」背后的真实需要。</li>
+                  <li>为咨询与团体设计更安全的支持环境提供依据。</li>
+                </ul>
+                <ul class="theme-list lang-en">
+                  <li>Rename “not allowed to be weak” as a need for safety and dignity.</li>
+                  <li>Inform safer spaces in therapy and groups.</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- PART 1 · 博士论文：Autonomously Connected -->
+        <!-- PART 2 · 博士论文 -->
         <section class="section thesis-section">
           <div class="container section-narrow">
             <div class="section-title">
@@ -862,19 +1022,18 @@
               <span class="lang-en">PhD thesis · Autonomously Connected</span>
             </div>
             <p class="section-subtitle lang-zh">
-              这本论文，是我在乌得勒支大学完成的博士旅程，也是整座「青少年自主 × 关系 × 学校转衔」研究岛的核心。
-              它把自我决定理论、生态系统视角和密集纵向数据放在一起，看清孩子在现实生活中的起伏。
+              这本论文，是一整座「青少年自主与关系」研究岛的核心：从日记到半年追踪，
+              既在回答学术问题，也在替许多家庭、老师和孩子，找到更温柔又不失界限的相处方式。
             </p>
             <p class="section-subtitle lang-en">
-              This thesis, completed at Utrecht University, sits at the centre
-              of my work on autonomy, relationships, and school transitions.
-              It brings SDT, an ecological lens, and intensive longitudinal
-              data together to trace adolescents’ real-life ups and downs.
+              This thesis sits at the centre of my research island on autonomy
+              and relationships. From daily diaries to six-month follow-ups, it
+              answers academic questions while quietly reshaping how families and schools relate to young people.
             </p>
 
-            <!-- 横向封面条（封面背景） -->
+            <!-- 横向封面条（背景可放论文封面） -->
             <div class="thesis-cover-strip">
-              <div class="thesis-cover-inner">
+              <div class="thesis-cover-content">
                 <div class="thesis-mark">
                   <span class="lang-zh">DOCTORAL THESIS · UTRECHT UNIVERSITY</span>
                   <span class="lang-en">DOCTORAL THESIS · UTRECHT UNIVERSITY</span>
@@ -886,39 +1045,100 @@
                   Autonomously Connected: Adolescent Autonomy in the Contexts of Family, Peer, and School
                 </div>
                 <div class="thesis-title-sub lang-zh">
-                  自我决定理论 · 日记与纵向设计 · 学校转衔
+                  自我决定理论 · 纵向与日记设计 · 学校转衔
                 </div>
                 <div class="thesis-title-sub lang-en">
-                  SDT · diary &amp; longitudinal designs · school transition
+                  Self-Determination Theory · longitudinal & diary designs · school transitions
                 </div>
                 <div class="thesis-badges">
                   <span class="thesis-badge lang-zh">青少年是自己世界的共同作者</span>
-                  <span class="thesis-badge lang-en">Adolescents co-author their worlds</span>
-                  <span class="thesis-badge lang-zh">自主与联结不是对立，而是互相托举</span>
-                  <span class="thesis-badge lang-en">Autonomy &amp; relatedness lift each other</span>
+                  <span class="thesis-badge lang-en">Adolescents as co-authors, not products</span>
+                  <span class="thesis-badge lang-zh">自主与联结相互滋养，而非彼此对立</span>
+                  <span class="thesis-badge lang-en">Autonomy and relatedness nourish each other</span>
                 </div>
               </div>
 
               <div class="thesis-meta-box">
                 <div class="thesis-meta-label">
-                  <span class="lang-zh">DESIGN &amp; KEY INSIGHTS</span>
-                  <span class="lang-en">DESIGN &amp; KEY INSIGHTS</span>
+                  <span class="lang-zh">DESIGN · 关键洞见</span>
+                  <span class="lang-en">DESIGN · KEY INSIGHTS</span>
                 </div>
-                <ul class="thesis-meta-list lang-zh">
-                  <li>日记研究：在同一个孩子身上看到——今天多一点<span class="emphasis-soft">父母温暖</span>，明天就多一点<span class="emphasis-soft">自主</span>。</li>
-                  <li>半年追踪：自主水平升高，伴随着<span class="emphasis-soft">父母心理控制在之后逐渐降低</span>。</li>
-                  <li>学校层面：更强的<span class="emphasis-soft">学校联结</span>预测之后更高的内在学业动机；
-                    学业压力与负向师生关系，则推高<span class="emphasis-soft">受控动机</span>。</li>
-                  <li>结论：当家庭和学校同时支持自主与联结时，孩子会更有<span class="emphasis-soft">弹性与方向感</span>地走过转衔。</li>
-                </ul>
-                <ul class="thesis-meta-list lang-en">
-                  <li>Daily diary: For the same teen, more <span class="emphasis-soft">parental warmth</span> today predicts more <span class="emphasis-soft">autonomy</span> tomorrow.</li>
-                  <li>Six-month follow-ups: higher autonomy is followed by <span class="emphasis-soft">lower perceived psychological control</span> over time.</li>
-                  <li>School: stronger <span class="emphasis-soft">school relatedness</span> predicts later intrinsic motivation,
-                    whereas pressure and negative teacher ties feed more controlled motivation.</li>
-                  <li>In short: when home and school support both autonomy and relatedness,
-                    adolescents navigate transitions with more <span class="emphasis-soft">resilience and direction</span>.</li>
-                </ul>
+                <div class="thesis-meta-grid">
+                  <div>
+                    <div class="thesis-meta-item-title lang-zh">
+                      ① 每日循环：温暖 ↔ 自主
+                    </div>
+                    <div class="thesis-meta-item-title lang-en">
+                      ① Daily cycles: warmth ↔ autonomy
+                    </div>
+                    <p class="thesis-meta-item-text lang-zh">
+                      日记研究显示：<span class="emphasis-soft">今天多一点父母温暖，明天孩子就多一点自主感；</span>
+                      而当孩子今天更有自主感，明天也更敢以更成熟的方式与父母互动。
+                    </p>
+                    <p class="thesis-meta-item-text lang-en">
+                      Daily diaries reveal that <span class="emphasis-soft">
+                        more parental warmth today predicts more autonomy tomorrow
+                      </span>;
+                      on more autonomous days, adolescents also show up differently with their parents the next day.
+                    </p>
+                  </div>
+                  <div>
+                    <div class="thesis-meta-item-title lang-zh">
+                      ② 半年轨迹：关系如何塑造动机
+                    </div>
+                    <div class="thesis-meta-item-title lang-en">
+                      ② Six-month trajectories: relationships & motivation
+                    </div>
+                    <p class="thesis-meta-item-text lang-zh">
+                      半年追踪发现：持续的<span class="emphasis-soft">学校联结</span>，会慢慢托住内在学业动机；
+                      而不断累积的学业压力与负面师生关系，则推高受控动机、拉低兴趣。
+                    </p>
+                    <p class="thesis-meta-item-text lang-en">
+                      Over months, <span class="emphasis-soft">
+                        stable school connectedness
+                      </span> supports intrinsic motivation, while chronic academic
+                      pressure and strained teacher relationships increase controlled motivation and erode interest.
+                    </p>
+                  </div>
+                  <div>
+                    <div class="thesis-meta-item-title lang-zh">
+                      ③ 双向改变：孩子也在重塑系统
+                    </div>
+                    <div class="thesis-meta-item-title lang-en">
+                      ③ Bidirectional change: adolescents reshape systems
+                    </div>
+                    <p class="thesis-meta-item-text lang-zh">
+                      更高的自主水平，不只受家庭氛围影响，也会在半年后预测<span class="emphasis-soft">
+                        父母心理控制的降低
+                      </span>——孩子不是被动承受者，而是慢慢改变关系节奏的人。
+                    </p>
+                    <p class="thesis-meta-item-text lang-en">
+                      Higher autonomy not only depends on the environment; it
+                      also predicts <span class="emphasis-soft">
+                        later decreases in perceived psychological control
+                      </span>. Teens are not just products of systems – they help reshape them.
+                    </p>
+                  </div>
+                  <div>
+                    <div class="thesis-meta-item-title lang-zh">
+                      ④ 实务启示：同时守护自主与联结
+                    </div>
+                    <div class="thesis-meta-item-title lang-en">
+                      ④ Practice: holding autonomy & connection together
+                    </div>
+                    <p class="thesis-meta-item-text lang-zh">
+                      结果指向一个简单却不容易的方向：<span class="emphasis-soft">
+                        家庭和学校需要同时支持「你是被爱着的」和「你可以自己选择」，
+                      </span>孩子才有力气穿过转衔期与压力高峰。
+                    </p>
+                    <p class="thesis-meta-item-text lang-en">
+                      The core implication is simple but demanding:
+                      <span class="emphasis-soft">
+                        home and school must protect “you are loved” and “you can choose”
+                      </span> at the same time for adolescents to thrive under pressure.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -931,24 +1151,31 @@
                   <span class="lang-en">PREFACE · BEGINNING</span>
                 </div>
                 <div class="thesis-card-title lang-zh">
-                  从「要懂事」到「我能不能为自己活？」
+                  从「好好读书」到「我在为谁而活？」
                 </div>
                 <div class="thesis-card-title lang-en">
-                  From “be good” to “can I live for myself?”
+                  From “study hard” to “who am I living for?”
                 </div>
                 <p class="thesis-card-text lang-zh">
-                  这本论文背后的核心问题是：<br />
+                  如果要用一句话概括这本论文：<br />
                   <span class="emphasis-soft">
-                    在一个不断被要求「要懂事、要优秀」的环境里，一个孩子还剩下多少为自己做决定的空间？
+                    「当一个孩子被一次次要求懂事、优秀时，他/她还能为自己保留多少空间？」
                   </span>
                 </p>
                 <p class="thesis-card-text lang-en">
-                  At its core, the thesis asks:<br />
+                  If I had to compress the thesis into one line, it would be:<br />
                   <span class="emphasis-soft">
-                    in an environment that keeps saying “be good, be outstanding”,
-                    how much room is left for a child to live for themselves?
+                    “How much room for selfhood remains when a child is constantly told to be good and outstanding?”
                   </span>
                 </p>
+                <ul class="thesis-card-list lang-zh">
+                  <li>用数据重新理解「叛逆」：是在替自主与尊严发声。</li>
+                  <li>用模型重新理解「不想学」：是被压力压得透不过气。</li>
+                </ul>
+                <ul class="thesis-card-list lang-en">
+                  <li>Re-read “rebellion” as defending autonomy and dignity.</li>
+                  <li>Re-read “no motivation” as being crushed by pressure.</li>
+                </ul>
               </div>
 
               <!-- Journey / Process -->
@@ -958,25 +1185,31 @@
                   <span class="lang-en">JOURNEY · PROCESS</span>
                 </div>
                 <div class="thesis-card-title lang-zh">
-                  一边做研究，一边学会不只怪自己
+                  一边研究，一边学会不只怪自己
                 </div>
                 <div class="thesis-card-title lang-en">
                   Doing research while learning not to blame myself alone
                 </div>
                 <p class="thesis-card-text lang-zh">
-                  在反复建模、写作和推翻的过程中，我和许多受试者一起，看见了同一件事：<br />
-                  <span class="emphasis-soft">
+                  论文的写作是反复推翻、重建的过程。<br />
+                  在看别人的数据时，我也在学习：<span class="emphasis-soft">
                     原来很多痛苦，不是「我不够好」，而是系统不够友善。
                   </span>
                 </p>
                 <p class="thesis-card-text lang-en">
-                  Through cycles of modelling, writing, and rebuilding, I saw
-                  the same truth participants hinted at:<br />
+                  While analysing others’ lives, I also learned that
                   <span class="emphasis-soft">
-                    much suffering is not a sign of being “not good enough”
-                    but of unsupportive systems.
+                    much of our pain is not personal failure, but unfriendly systems.
                   </span>
                 </p>
+                <ul class="thesis-card-list lang-zh">
+                  <li>看到：一点点额外的温暖，真的会在明天变成更多自主。</li>
+                  <li>确认：稳固的学校联结，能在转衔期托住学习热情。</li>
+                </ul>
+                <ul class="thesis-card-list lang-en">
+                  <li>Seeing how a bit more warmth becomes more autonomy by tomorrow.</li>
+                  <li>Confirming that strong school connection holds motivation through transitions.</li>
+                </ul>
               </div>
 
               <!-- Acknowledgements -->
@@ -986,55 +1219,63 @@
                   <span class="lang-en">ACKNOWLEDGEMENTS · GRATITUDE</span>
                 </div>
                 <div class="thesis-card-title lang-zh">
-                  这本书，是许多关系一起写出来的
+                  这本论著，是许多关系一起写出来的
                 </div>
                 <div class="thesis-card-title lang-en">
-                  This book was written by many relationships
+                  This thesis was written by many relationships
                 </div>
                 <p class="thesis-card-text lang-zh">
-                  致谢页上，是家人、导师、合作者、朋友，以及无数匿名的青少年和家庭。
+                  从家人、导师、合作者，到无数匿名的青少年和家庭——
                   他们在问卷和日记里写下的每一句话，构成了这本论文真正的心跳。
                 </p>
                 <p class="thesis-card-text lang-en">
-                  The acknowledgements name family, supervisors, collaborators,
-                  friends, and countless anonymous adolescents and families.
-                  Their words in surveys and diaries are the heartbeat of this work.
+                  From family and supervisors to anonymous adolescents and
+                  parents, every line they wrote in surveys and diaries became the heartbeat of this work.
                 </p>
+                <ul class="thesis-card-list lang-zh">
+                  <li>家人：在不总理解的前提下，仍持续支持。</li>
+                  <li>导师与合作者：在严格与温柔之间，为试错留出了空间。</li>
+                </ul>
+                <ul class="thesis-card-list lang-en">
+                  <li>Family: supporting me even without full understanding.</li>
+                  <li>Mentors & collaborators: holding both rigour and kindness.</li>
+                </ul>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- PART 2 · 期刊论文一览：研究方向 & Take-home message -->
+        <!-- PART 3 · 期刊论文一览：研究问题 & 核心启示 -->
         <section class="section pub-section">
           <div class="container section-narrow">
             <div class="section-title">
-              <span class="lang-zh">期刊论文一览 · 研究问题 &amp; Take-home message</span>
-              <span class="lang-en">Peer-reviewed papers · Focus &amp; take-home</span>
+              <span class="lang-zh">期刊论文一览 · 研究问题与核心启示</span>
+              <span class="lang-en">Peer-reviewed papers · Questions & take-aways</span>
             </div>
             <p class="pub-intro lang-zh">
-              每篇文章都浓缩成两个核心：<span class="emphasis-soft">研究方向/问题</span>，
-              以及你真正需要带走的<span class="emphasis-soft">take-home message</span>。
-              你可以把它们当作一组小小的「证据卡」。
+              每篇论文都按照同一结构呈现：
+              <span class="inline-bubble lang-zh">研究焦点</span>
+              <span class="inline-bubble lang-zh">核心启示</span><br />
+              你可以快速判断：这项研究是否与你关心的孩子、来访者、课堂或项目有关。
             </p>
             <p class="pub-intro lang-en">
-              Each paper here is distilled into two cores:
-              <span class="emphasis-soft">research focus</span> and a
-              <span class="emphasis-soft">take-home message</span>.
-              Think of them as compact “evidence cards”.
+              Each paper follows the same structure:
+              <span class="inline-bubble lang-en">Focus</span>
+              <span class="inline-bubble lang-en">Take-home</span><br />
+              so you can quickly see how it might speak to your child, students, clients, or project.
             </p>
 
             <div class="pub-filter-row">
               <span class="pub-filter-pill lang-zh">学习动机 &amp; 学校转衔</span>
-              <span class="pub-filter-pill lang-en">Learning motivation &amp; transitions</span>
-              <span class="pub-filter-pill lang-zh">亲子/人际关系 &amp; 自主性</span>
-              <span class="pub-filter-pill lang-en">Family/peers &amp; autonomy</span>
-              <span class="pub-filter-pill lang-zh">慈悲 · 少数压力 · 心理健康</span>
-              <span class="pub-filter-pill lang-en">Compassion · minority stress · mental health</span>
+              <span class="pub-filter-pill lang-en">Motivation &amp; school transitions</span>
+              <span class="pub-filter-pill lang-zh">亲子与同伴关系 · 自主性</span>
+              <span class="pub-filter-pill lang-en">Parenting & peers · autonomy</span>
+              <span class="pub-filter-pill lang-zh">社会支持 · 慈悲 · 心理健康</span>
+              <span class="pub-filter-pill lang-en">Support · compassion · mental health</span>
             </div>
 
             <div class="pub-grid">
-              <!-- Thesis (as first card,简短呈现) -->
+              <!-- Thesis as first item -->
               <article class="pub-card">
                 <div class="pub-header">
                   <div class="pub-year-journal">
@@ -1054,37 +1295,36 @@
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      自我决定理论框架下，考察在家庭、同伴和学校三大情境中，
-                      <span class="emphasis-soft">青少年的自主与联结如何双向影响</span>，特别是在学校转衔期间。
+                      以自我决定理论为主轴，从日记与纵向数据出发，回答一个核心问题：<br />
+                      <span class="emphasis-soft">
+                        「在家庭、同伴与学校里，自主与联结是互相对立，还是可以一起成长？」
+                      </span>
                     </p>
                     <p class="lang-en">
-                      Within SDT, examines how
+                      Using SDT with diary and longitudinal designs, the thesis asks:<br />
                       <span class="emphasis-soft">
-                        autonomy and relatedness mutually shape each other
+                        “Are autonomy and relatedness in families, peers, and schools in conflict – or can they grow together?”
                       </span>
-                      across family, peer, and school contexts during transitions.
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      自主和联结不是「二选一」：<br />
-                      <span class="emphasis-soft">
-                        温暖的关系，会长成更有主见的孩子；而被认真对待的自主，也会反过来减少控制、增加信任。
+                      自主与联结不是二选一：<span class="emphasis-soft">
+                        真诚的温暖会为自主打底，真实的自主也会一点点降低控制、提升关系质量。
                       </span>
                     </p>
                     <p class="lang-en">
-                      Autonomy and relatedness are not a trade-off:<br />
+                      Autonomy and relatedness are not a trade-off:
                       <span class="emphasis-soft">
-                        warm relationships foster stronger autonomy, and real autonomy
-                        gradually invites less control and more trust.
+                        genuine warmth lays the ground for autonomy, and real autonomy gradually invites less control and better relationships.
                       </span>
                     </p>
                   </div>
@@ -1103,8 +1343,8 @@
                     2025 · Learning and Instruction
                   </div>
                   <div class="pub-tag">
-                    <span class="lang-zh">学校转衔 · 学业动机</span>
-                    <span class="lang-en">School transition · motivation</span>
+                    <span class="lang-zh">学习动机 × 压力轨迹</span>
+                    <span class="lang-en">Motivation × stress trajectories</span>
                   </div>
                 </div>
                 <div class="pub-title lang-zh">
@@ -1116,36 +1356,31 @@
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      从时间的角度，追踪孩子在<span class="emphasis-soft">小升初</span>阶段，
-                      学业动机如何与家庭和学校压力一起改变：<br />
-                      谁的动机被压力「吃掉」，谁又能撑过高压期？
+                      在小升初阶段，<span class="emphasis-soft">学业动机</span>如何与来自家庭和学校的压力一起变化？
+                      孩子会走出哪些不同的「动机-压力轨迹」？
                     </p>
                     <p class="lang-en">
-                      Follows how academic motivation changes alongside
-                      <span class="emphasis-soft">family and school stress</span>
-                      across the transition: whose motivation collapses under pressure,
-                      and whose remains more stable?
+                      Across the transition to secondary school, how does
+                      <span class="emphasis-soft">academic motivation</span> co-develop with family and school stress?
+                      Which “motivation–stress profiles” do students follow?
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      在转衔期，动机低落往往不是「孩子不上进」，而是<span class="emphasis-soft">
-                        家庭期待、考试压力和学校氛围同时叠加
-                      </span>的结果。调整系统，比单纯催促更有用。
+                      中学转衔是一个<span class="emphasis-soft">压力系统的重组</span>，
+                      而不是单纯「课程变难」。与其只说孩子「不够努力」，不如一同调节家庭期望和学校要求，让兴趣有空间存活。
                     </p>
                     <p class="lang-en">
-                      During transitions, low motivation is usually
-                      <span class="emphasis-soft">
-                        a system response to stacked family expectations and school pressures
-                      </span>, not laziness. Adjusting systems helps more than nagging.
+                      The transition is a <span class="emphasis-soft">re-organisation of stress systems</span>,
+                      not just harder content. Instead of labelling students as “unmotivated”, we can adjust expectations so curiosity can breathe.
                     </p>
                   </div>
                 </div>
@@ -1168,7 +1403,7 @@
                   </div>
                 </div>
                 <div class="pub-title lang-zh">
-                  社交网站使用、网络欺凌与青少年抑郁：交叉滞后研究
+                  社交网站使用、网络欺凌与青少年抑郁：交叉滞后分析
                 </div>
                 <div class="pub-title-en lang-en">
                   Social network site usage, cyberbullying, and adolescent depression: A cross-lagged panel analysis
@@ -1176,36 +1411,34 @@
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      探索<span class="emphasis-soft">「上网多久」</span>、
-                      <span class="emphasis-soft">网络欺凌经历</span>与抑郁在时间上的互相影响，
-                      超越简单的「少刷手机就好」。
+                      「多刷手机」本身是否有害？还是<span class="emphasis-soft">网络欺凌经历</span>才是关键？
+                      本研究追踪社交媒体使用、被欺凌和抑郁之间的相互影响。
                     </p>
                     <p class="lang-en">
-                      Examines how <span class="emphasis-soft">
-                        SNS use, cyberbullying, and depression
-                      </span> influence each other over time — beyond “just use your phone less”.
+                      Is it mere <span class="emphasis-soft">time online</span> that harms adolescents,
+                      or the <span class="emphasis-soft">cyberbullying</span> they encounter?
+                      This study models the links between SNS use, cybervictimisation, and depression.
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      关键不在于「完全不用手机」，而在于<span class="emphasis-soft">
-                        孩子是否在一个安全、有支持的线上环境里，
-                        出现欺凌时有没有大人和同伴可以一起面对。
+                      真正需要被改变的，不只是使用时长，而是<span class="emphasis-soft">
+                        孩子所处的线上环境是否安全，有没有大人和同伴一起面对网络伤害。
                       </span>
                     </p>
                     <p class="lang-en">
-                      The key is not “no phones”, but
-                      <span class="emphasis-soft">
-                        safer online climates and support when harm happens
-                      </span> — so adolescents don’t face cyberbullying alone.
+                      What needs changing is less the number of hours online and
+                      more <span class="emphasis-soft">
+                        whether young people have safe digital spaces and support when harm occurs.
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -1228,7 +1461,7 @@
                   </div>
                 </div>
                 <div class="pub-title lang-zh">
-                  导航学校转衔：自我效能、学校联结与内在学业动机
+                  导航学校转衔：自我效能、学校联结与内在学业动机的个体内关联
                 </div>
                 <div class="pub-title-en lang-en">
                   Navigating the school transition: Within-person associations between adolescents’ academic self-efficacy, school relatedness, and intrinsic academic motivation
@@ -1236,37 +1469,34 @@
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      在同一个孩子身上，当某段时间他/她<span class="emphasis-soft">
-                        更有把握、更喜欢学校
-                      </span>时，那段时间的内在学业动机会不会同步升高？
+                      不比较「谁更好」，而是看同一个孩子：当他/她<span class="emphasis-soft">
+                        比平时更有能力感、更有学校归属感
+                      </span>时，内在动机会不会随之上升？
                     </p>
                     <p class="lang-en">
-                      For the same adolescent, do periods of
-                      <span class="emphasis-soft">
-                        feeling more capable and more connected to school
-                      </span> coincide with boosts in intrinsic motivation?
+                      Rather than comparing students, this paper asks:
+                      when a given adolescent feels <span class="emphasis-soft">
+                        more efficacious and more connected than usual
+                      </span>, does intrinsic motivation rise too?
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      孩子的「学习热情」不是固定人格，而是对<span class="emphasis-soft">
-                        「我行不行、我在不在这个学校里有位置」
-                      </span>的即时回应。每一次被老师和同学真诚看见，都会在动机上留下痕迹。
+                      动机不是天生固定的，而是对「我在这里有位置、我有机会学会」的即时回应。
+                      学校里每一次真实的被看见，都会在数据里留下痕迹。
                     </p>
                     <p class="lang-en">
-                      “Motivated” is not a personality type; it’s a live response
-                      to <span class="emphasis-soft">
-                        “Can I do this?” and “Do I belong here?”
-                      </span>.
-                      Every genuine moment of being seen at school matters.
+                      Motivation is not fixed but a live response to
+                      “Do I belong here?” and “Can I succeed here?”.
+                      Every moment of authentic recognition in school leaves a trace.
                     </p>
                   </div>
                 </div>
@@ -1285,7 +1515,7 @@
                   </div>
                   <div class="pub-tag">
                     <span class="lang-zh">父母自主支持 · 自主 · 同伴压力</span>
-                    <span class="lang-en">Autonomy support · autonomy · peer resistance</span>
+                    <span class="lang-en">Autonomy support · autonomy · peer pressure</span>
                   </div>
                 </div>
                 <div class="pub-title lang-zh">
@@ -1297,37 +1527,33 @@
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      当父母少一点「替你决定」，多一点<span class="emphasis-soft">「我信你可以自己判断」</span>时，
-                      青少年在面对同伴压力时，是否更有能力说「不」？
+                      当父母说「我相信你可以自己选择」而不是「听我的就对了」时，
+                      青少年是否更有力量对同伴说「这次我不想跟」？
                     </p>
                     <p class="lang-en">
-                      When parents offer less “I decide for you” and more
-                      <span class="emphasis-soft">“I trust your judgement”</span>,
-                      are adolescents better able to resist peer pressure?
+                      When parents convey “I trust your choices” instead of “Do as I say”,
+                      are adolescents better able to say “no” to peers?
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      想让孩子有主见，关键不是盯得更紧，而是<span class="emphasis-soft">
-                        在安全边界内，把选择权一点点还给他/她。
+                      保护孩子不盲从的关键，不是更严厉的管控，而是<span class="emphasis-soft">
+                        在安全边界内，把真实的决定权一点点还给他们。
                       </span>
-                      被信任过的孩子，更有底气对错误的邀约说「这次我不跟」。
                     </p>
                     <p class="lang-en">
-                      If you want teens with their own mind, the answer is not
-                      tighter control but
+                      Guarding against negative peer influence is less about tighter control and more about
                       <span class="emphasis-soft">
-                        gradually returning choice within safe limits.
+                        returning real decision-making power within safe limits.
                       </span>
-                      Trusted teens stand stronger among peers.
                     </p>
                   </div>
                 </div>
@@ -1346,7 +1572,7 @@
                   </div>
                   <div class="pub-tag">
                     <span class="lang-zh">心理控制 · 朋友支持 · 自主</span>
-                    <span class="lang-en">Psych. control · friend support · autonomy</span>
+                    <span class="lang-en">Psychological control · friend support · autonomy</span>
                   </div>
                 </div>
                 <div class="pub-title lang-zh">
@@ -1358,38 +1584,35 @@
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      当父母经常用<span class="emphasis-soft">内疚、否定、冷处理</span>来控制，
-                      青少年的自主如何变化？稳定的朋友支持能不能当作一个缓冲垫？
+                      当父母用内疚、冷淡、否定情绪来「教孩子做人」时，青少年的自主如何变化？
+                      温暖的友谊能缓冲多少负面影响？
                     </p>
                     <p class="lang-en">
-                      How do <span class="emphasis-soft">
+                      How does <span class="emphasis-soft">
                         parental psychological control
-                      </span> and friend support jointly shape autonomy over time?
-                      Can warm friendships buffer controlling parenting?
+                      </span> (guilt, emotional withdrawal, invalidation) shape autonomy,
+                      and how far can supportive friendships buffer these effects?
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      在高心理控制环境里长大的孩子，并不是「太黏人」，
-                      而是被迫在爱与自我之间做取舍。<br />
-                      <span class="emphasis-soft">
-                        降低羞辱和内疚式管教 + 增加同伴支持，是帮他们长出自主的关键组合。
-                      </span>
+                      自主不会在「越管越紧」的土壤里长出来，而是在<span class="emphasis-soft">
+                        被尊重、又被稳稳爱着
+                      </span>的关系里一点点形成；朋友可以成为重要的安全网。
                     </p>
                     <p class="lang-en">
-                      Adolescents in highly controlling homes are not “over-dependent”;
-                      they are negotiating between love and selfhood.<br />
-                      <span class="emphasis-soft">
-                        Less shaming control plus stronger peer support
-                      </span> is a powerful recipe for autonomy.
+                      Autonomy does not grow in soil of “the stricter, the better”,
+                      but in relationships that are <span class="emphasis-soft">
+                        both respectful and reliably loving
+                      </span>; friendships can be a vital safety net.
                     </p>
                   </div>
                 </div>
@@ -1420,38 +1643,33 @@
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      为何有些人一听到「对自己好一点」就浑身不自在？<br />
-                      这项研究从早期养育与<span class="emphasis-soft">自我接纳</span>切入，
-                      看害怕慈悲是如何形成的。
+                      为什么有些人<span class="emphasis-soft">不敢对自己好，也不习惯向别人求助</span>？
+                      本研究从早期养育、自我接纳与害怕慈悲的链条来理解。
                     </p>
                     <p class="lang-en">
-                      Why do some people feel deeply uneasy about
-                      “being kind to yourself”? The study links parenting,
-                      <span class="emphasis-soft">self-acceptance</span>, and fears of compassion.
+                      Why do some people <span class="emphasis-soft">
+                        struggle to be kind to themselves or ask for help
+                      </span>?
+                      This paper links early parenting, self-acceptance, and fears of compassion.
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      很多人不是「不愿意成长」，而是从小被教会：温柔会带来失望或羞耻。<br />
-                      <span class="emphasis-soft">
-                        提升自我接纳，是解除「害怕被爱」的关键入口。
-                      </span>
+                      很多「不够自律」背后，其实是从小被教会：温柔不安全、脆弱会被嫌弃。
+                      重建<span class="emphasis-soft">自我接纳</span>，是走向疗愈的关键一步。
                     </p>
                     <p class="lang-en">
-                      Many don’t resist growth; they have learned that softness leads
-                      to disappointment or shame.<br />
-                      <span class="emphasis-soft">
-                        Strengthening self-acceptance is a key doorway
-                        to easing the fear of care.
-                      </span>
+                      Behind what looks like “lack of discipline” often lies a
+                      history that taught: tenderness is unsafe. Rebuilding
+                      <span class="emphasis-soft">self-acceptance</span> is a central step in healing.
                     </p>
                   </div>
                 </div>
@@ -1462,7 +1680,7 @@
                 </p>
               </article>
 
-              <!-- 2023 International Journal of Sexual Health -->
+              <!-- 2023 IJ Sexual Health -->
               <article class="pub-card">
                 <div class="pub-header">
                   <div class="pub-year-journal">
@@ -1482,33 +1700,35 @@
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      在中国语境下，不同来源的支持（家庭、朋友、伴侣、社群）如何影响
-                      LGB 个体的自尊与心理困扰？
+                      在中国文化与社会脉络下，来自<span class="emphasis-soft">
+                        家庭、朋友、伴侣和社群
+                      </span>的支持如何影响 LGB 个体的自尊与心理健康？
                     </p>
                     <p class="lang-en">
-                      In Chinese contexts, how do support from family, friends,
-                      partners, and community relate to LGB people’s self-esteem
-                      and distress?
+                      In Chinese contexts, how do support from
+                      <span class="emphasis-soft">
+                        family, friends, partners, and community
+                      </span> relate to self-esteem and distress among LGB people?
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      很多 LGB 个体，是靠<span class="emphasis-soft">「自己选来的家人」——朋友和伴侣</span>撑过来。<br />
-                      对实务工作者来说，建立安全的社群空间，
-                      和改变家庭一样重要。
+                      很多 LGB 个体，是靠<span class="emphasis-soft">
+                        「自己选来的家人」——朋友与伴侣
+                      </span>撑过来。对实务工作者来说，打造安全社群，与改变原生家庭同样重要。
                     </p>
                     <p class="lang-en">
-                      Many LGB individuals survive through
-                      <span class="emphasis-soft">chosen family — friends and partners</span>.<br />
-                      For practitioners, building safe community spaces is as crucial as family work.
+                      Many LGB individuals survive with
+                      <span class="emphasis-soft">“chosen family” – friends and partners</span>.
+                      For practitioners, building safe communities is as crucial as working with families.
                     </p>
                   </div>
                 </div>
@@ -1531,41 +1751,43 @@
                   </div>
                 </div>
                 <div class="pub-title lang-zh">
-                  害怕慈悲、情绪调节困难与情绪性进食
+                  害怕慈悲、情绪调节困难与情绪性进食：一项调节中介模型
                 </div>
                 <div class="pub-title-en lang-en">
-                  The relationship between fears of compassion, emotion regulation difficulties, and emotional eating in college students
+                  The relationship between fears of compassion, emotion regulation difficulties, and emotional eating in college students: A moderated mediation model
                 </div>
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      害怕温柔、害怕被安慰，会不会让人更难调节情绪，
-                      进而更容易用「吃」来麻痹自己？
+                      当一个人害怕温柔、害怕被安慰时，会不会更难调节情绪，
+                      从而更容易用「吃」来安抚自己？
                     </p>
                     <p class="lang-en">
-                      Does fearing compassion make it harder to regulate
-                      emotions and increase emotional eating as a coping strategy?
+                      When people fear compassion and comfort, do they struggle
+                      more with regulating emotions and turn more often to
+                      <span class="emphasis-soft">emotional eating</span>?
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      很多所谓「意志力差」，其实是在没有安全情感资源时，
-                      <span class="emphasis-soft">用食物托住情绪</span>的尝试。
-                      治疗上，需要同时练习情绪调节，也练习和温柔建立新关系。
+                      很多所谓「管不住嘴」，其实是<span class="emphasis-soft">
+                        在缺乏安全情感资源时，只好靠食物来托住自己。
+                      </span>介入需要同时工作在情绪调节和与温柔建立更安全的关系上。
                     </p>
                     <p class="lang-en">
-                      What looks like “weak willpower” is often an attempt to
-                      <span class="emphasis-soft">hold emotions through food</span>
-                      when safe care is missing. We need both regulation skills
-                      and a new relationship with kindness.
+                      What looks like “lack of willpower” is often
+                      <span class="emphasis-soft">
+                        trying to hold oneself together without safe emotional resources.
+                      </span>
+                      Effective work targets both regulation skills and a safer bond with kindness.
                     </p>
                   </div>
                 </div>
@@ -1580,7 +1802,7 @@
               <article class="pub-card">
                 <div class="pub-header">
                   <div class="pub-year-journal">
-                    2021 · Mindfulness (co-first author)
+                    2021 · Mindfulness
                   </div>
                   <div class="pub-tag">
                     <span class="lang-zh">量表验证 · 害怕慈悲 · 中国文化</span>
@@ -1588,40 +1810,42 @@
                   </div>
                 </div>
                 <div class="pub-title lang-zh">
-                  害怕慈悲量表在中国文化情境下的验证
+                  害怕慈悲量表在中国文化情境下的验证（共同第一作者）
                 </div>
                 <div class="pub-title-en lang-en">
-                  Validation of the fears of compassion scale in a Chinese cultural context
+                  Validation of the fears of compassion scale in a Chinese cultural context (co-first author)
                 </div>
                 <div class="pub-fields">
                   <div class="pub-field">
                     <div class="pub-field-label">
-                      <span class="lang-zh">研究方向 / 问题</span>
-                      <span class="lang-en">Focus / question</span>
+                      <span class="lang-zh">研究焦点</span>
+                      <span class="lang-en">Focus</span>
                     </div>
                     <p class="lang-zh">
-                      将「害怕慈悲」这一概念系统引入中文语境，检验其结构与测量性质，
-                      为后续研究和临床提供工具。
+                      将「害怕慈悲」这一概念系统引入中文语境，检验量表结构与信度，
+                      为后续研究与实务提供工具。
                     </p>
                     <p class="lang-en">
-                      Brings the construct of “fears of compassion” into Chinese
-                      samples and tests the measure’s structure and properties
-                      for research and practice.
+                      Introduces and validates the construct of
+                      <span class="emphasis-soft">fears of compassion</span> in Chinese samples,
+                      providing a solid measurement base for research and practice.
                     </p>
                   </div>
                   <div class="pub-field">
-                    <div class="pub-field-label takehome">
-                      <span class="lang-zh">Take-home message</span>
-                      <span class="lang-en">Take-home message</span>
+                    <div class="pub-field-label">
+                      <span class="lang-zh">核心启示</span>
+                      <span class="lang-en">Take-home</span>
                     </div>
                     <p class="lang-zh">
-                      在华人文化里，<span class="emphasis-soft">害怕示弱、害怕麻烦别人</span>非常常见。
-                      有了可靠量表，我们可以更精准地看见、命名并陪伴这部分经验。
+                      在华人语境中，<span class="emphasis-soft">害怕温柔、害怕暴露脆弱</span>是常见又深刻的经验。
+                      有了可靠量表，我们才能更准确地看见、命名并陪伴这部分人。
                     </p>
                     <p class="lang-en">
-                      In Chinese culture, fearing vulnerability and “burdening
-                      others” is common. A valid scale lets us name and work
-                      with this experience more precisely.
+                      In Chinese settings,
+                      <span class="emphasis-soft">
+                        fear of softness and of showing vulnerability
+                      </span> is common yet rarely named.
+                      A robust scale lets us see and work with this experience with more precision.
                     </p>
                   </div>
                 </div>
@@ -1635,7 +1859,7 @@
           </div>
         </section>
 
-        <!-- PART 3 · 未来研究方向：从动机、人际、自主到 AI 与意义 -->
+        <!-- PART 4 · 未来方向：动机 · 关系 · 自主性 · 社会支持 · AI 与心理健康 · 生命意义 -->
         <section class="section future-section">
           <div class="container section-narrow">
             <div class="section-title">
@@ -1643,18 +1867,18 @@
               <span class="lang-en">Where this research is heading next</span>
             </div>
             <p class="section-subtitle lang-zh">
-              论文不是终点，而是一条更新的起点。接下来，我会在<span class="emphasis-soft">
-                学习动机、亲子和人际关系、自主性、社会支持、AI 与心理健康、自我探索与生命意义
-              </span>之间，继续搭桥——让理论和实践彼此校正。
+              论文是阶段性的句号，不是终点。未来，我会继续在
+              <span class="emphasis-soft">
+                学习动机、亲子与人际、自主性、社会支持、AI 与心理健康、自我探索与生命意义
+              </span>
+              上，把理论与实践更紧密地缝在一起。
             </p>
             <p class="section-subtitle lang-en">
-              The thesis was not an end, but a starting line. From here, I’m
-              continuing to bridge
+              The thesis is a comma, not a full stop. Going forward I’ll keep
+              weaving theory and practice around
               <span class="emphasis-soft">
-                learning motivation, family and interpersonal relationships,
-                autonomy, social support, AI &amp; mental health, self-exploration,
-                and meaning in life
-              </span>, keeping theory and practice in honest dialogue.
+                learning motivation, family and peer relationships, autonomy, social support, AI & mental health, self-exploration, and meaning in life.
+              </span>
             </p>
 
             <div class="future-layout">
@@ -1666,31 +1890,28 @@
                   In research, I aim to:
                 </p>
                 <ul class="future-list lang-zh">
-                  <li>用更多<span class="emphasis-soft">密集纵向与日记设计</span>，追踪孩子和成人在压力高峰期的细微波动。</li>
-                  <li>把<span class="emphasis-soft">学习动机、亲子和人际关系、自主性与社会支持</span>放进同一张图里，看清系统如何联动。</li>
-                  <li>探索<span class="emphasis-soft">AI 与心理健康</span>的交界：如何让技术成为陪伴与赋能，而非额外的控制或评判。</li>
-                  <li>在研究中加入<span class="emphasis-soft">自我探索和生命意义</span>的维度，理解人如何在不确定里找到可活的方向。</li>
+                  <li>用更多<span class="emphasis-soft">纵向与日记方法</span>，跟随青少年穿越转衔与压力高峰。</li>
+                  <li>把家庭、同伴、学校、线上社交与社会支持纳入同一模型，看系统如何联动。</li>
+                  <li>探索<span class="emphasis-soft">AI 与心理健康</span>的交汇：数字干预如何做到既有证据，又保有人味。</li>
+                  <li>将「自我探索」与「生命意义」放进发展轨迹中，而不是当成孤立事件。</li>
                 </ul>
                 <ul class="future-list lang-en">
                   <li>Use more <span class="emphasis-soft">intensive longitudinal and diary designs</span>
-                    to follow fine-grained changes during high-stress periods.</li>
-                  <li>Model <span class="emphasis-soft">
-                    motivation, family &amp; interpersonal ties, autonomy, and support
-                  </span> together to see system-level dynamics.</li>
-                  <li>Explore <span class="emphasis-soft">AI &amp; mental health</span>:
-                    how technology can accompany and empower, rather than control or judge.</li>
-                  <li>Bring <span class="emphasis-soft">self-exploration and meaning in life</span>
-                    into empirical work to understand how people orient themselves in uncertainty.</li>
+                    to follow youth through transitions and high-pressure periods.</li>
+                  <li>Model family, peers, school, online contexts, and social support together.</li>
+                  <li>Study <span class="emphasis-soft">AI & mental health</span>: how digital tools can be evidence-based without losing their humanity.</li>
+                  <li>Embed self-exploration and meaning-making into developmental trajectories rather than treating them as isolated “events”.</li>
                 </ul>
                 <p class="future-note lang-zh">
-                  无论是科研合作，还是课程、工作坊、咨询与团体，我都会坚持：
-                  <span class="emphasis-soft">每一个结论，都既经得起数据推敲，也经得起真实生活的考验。</span>
+                  对我来说，最理想的状态，是：<br />
+                  <span class="emphasis-soft">
+                    每一项研究都能最终变成一个更温柔但不失清晰的选择：让孩子、家长、老师与来访者，有一点点不一样的活法可以尝试。
+                  </span>
                 </p>
                 <p class="future-note lang-en">
-                  In collaborations, teaching, workshops, and therapy, I hold to
-                  one standard:
+                  My hope is that each study eventually becomes
                   <span class="emphasis-soft">
-                    every insight should withstand both data and real life.
+                    a gentler yet clearer option in real life – one more way to live for students, parents, teachers, and clients.
                   </span>
                 </p>
               </div>
@@ -1701,35 +1922,32 @@
                   <span class="lang-en">IF YOU'D LIKE TO COLLABORATE</span>
                 </div>
                 <p class="lang-zh">
-                  如果你在筹划<span class="emphasis-soft">
-                    学校项目、亲子课程、心理健康干预、或 AI 与心理服务结合的计划
-                  </span>，<br />
-                  欢迎和我聊聊，我们可以一起设计：
+                  如果你正在筹划<span class="emphasis-soft">
+                    学校项目、干预方案、AI 心理工具或纵向研究
+                  </span>，我们可以一起设计：
                 </p>
                 <p class="lang-en">
-                  If you’re planning
-                  <span class="emphasis-soft">
-                    school programmes, parenting courses, mental-health interventions,
-                    or AI-informed psychological services
+                  If you’re designing a <span class="emphasis-soft">
+                    school programme, intervention, AI-based mental health tool, or longitudinal study
                   </span>, we can explore:
                 </p>
                 <ul class="future-list lang-zh">
-                  <li>如何在你的情境中开展纵向/日记研究；</li>
-                  <li>以动机与自主为核心的课程、团体与工作坊设计；</li>
-                  <li>把复杂数据翻译成家长、老师和来访者都听得懂的语言。</li>
+                  <li>如何在真实场域实施可行的纵向或日记设计。</li>
+                  <li>如何围绕<span class="emphasis-soft">动机、自主与关系</span>构建课程、团体或数字干预。</li>
+                  <li>如何把现有数据转化为对一线有用、又有理论深度的成果。</li>
                 </ul>
                 <ul class="future-list lang-en">
-                  <li>Longitudinal or diary studies tailored to your context.</li>
-                  <li>Programmes centred on motivation and autonomy.</li>
-                  <li>Translating complex data into language parents, teachers, and clients can use.</li>
+                  <li>How to implement feasible longitudinal or diary designs in real-world settings.</li>
+                  <li>How to build programmes or digital tools around
+                    <span class="emphasis-soft">motivation, autonomy, and relationships</span>.</li>
+                  <li>How to turn existing data into results that matter both in theory and on the ground.</li>
                 </ul>
                 <p class="future-note lang-zh">
-                  联系方式与学术主页在页脚，我们可以从一封邮件开始，
-                  把更多真实的故事，变成可被看见、也能被行动的证据。
+                  你可以在页脚找到联系方式与学术主页。从一封邮件开始，我们可以把更多真实故事，变成温暖而有力量的证据。
                 </p>
                 <p class="future-note lang-en">
-                  You’ll find contact details below. We can start with one
-                  email, and turn more lived stories into evidence that can guide action.
+                  You’ll find my contact details and academic profiles below.
+                  One email is enough to start turning more lived stories into evidence that actually helps.
                 </p>
               </div>
             </div>
@@ -1750,8 +1968,8 @@
                   If these studies echo parts of your own journey
                 </h3>
                 <p class="footer-contact-text lang-zh">
-                  欢迎你写信、留言，或在社交平台上找到我。你可以带着疑惑、研究想法、合作意向，
-                  或只是单纯的好奇来——它们都不需要被修饰，只需要被认真地看见。
+                  欢迎你写信、留言，或在社交平台上找到我。你可以带着疑惑、研究想法、合作意向，或只是单纯的好奇来——
+                  它们都不需要被修饰，只需要被认真地看见。
                 </p>
                 <p class="footer-contact-text lang-en">
                   You’re warmly invited to reach out—by email or through the
@@ -1768,7 +1986,7 @@
 
               <div class="footer-contact-actions">
                 <div class="contact-pill-row">
-                  <!-- 请在正式上线前替换为真实链接与账号 -->
+                  <!-- 正式上线前请替换为真实链接与账号 -->
                   <a href="mailto:your.email@example.com" class="contact-pill">
                     <span class="lang-zh">Email 邮箱</span>
                     <span class="lang-en">Email</span>
@@ -1813,4 +2031,3 @@
     </div>
   </body>
 </html>
-```
