@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-lang="zh">
+
 <head>
   <meta charset="UTF-8" />
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=device-width, initial-scale=1.0"/>
+
+  <!-- 网站标题（会出现在浏览器标签 & 搜索结果标题） -->
+  <title>寻屿 Yunisle｜自主性 · 人际关系 · 学习动机 · 心理咨询与心理学研究</title>
+
+  <!-- 搜索结果摘要 / SEO 描述 -->
+  <meta
+    name="description"
+    content="寻屿 Yunisle 由心理学研究者与团体带领者Jingyun Wang创建，专注自主性、人际关系、动机、心理健康等主题，提供个人成长、心理团体与工作坊、
+    纵向研究、测评与工具共创，以及跨国合作项目。以科学与温度并行，让每个人在关系与自我之间找到更真实的空间。"
   />
-  <title>寻屿 · Yunisle | 心灵岛屿 · 自我探索 · 生命之旅</title>
+  <!-- ==================== -->
+  <!-- 🔥 多语言识别（双语 SEO） -->
+  <!-- ==================== -->
+  <link
+    rel="alternate"
+    hreflang="zh-CN"
+    href="https://jingyunwang.github.io/"
+  />
+  <link rel="alternate" hreflang="en" href="https://jingyunwang.github.io/" />
+  <!-- 告诉搜索引擎：这一页是网站的正式版本 -->
+  <link rel="canonical" href="https://jingyunwang.github.io/" />
+
+  <!-- 站点基础信息 -->
+  <meta name="author" content="Jingyun Wang" />
+  <meta name="keywords" content="Jingyun Wang, 寻屿, Yunisle, 心理咨询, 团体辅导，自主性, 动机, 青少年发展, 人际关系, 纵向研究, ILD, 
+    心理学研究，自我探索，向内成长，团体咨询, 心理健康, inner exploration, self exploration, mindfulness, 
+    autonomy, motivation, adolescent development, longitudinal research, mental health, relationship, wellbeing, psychology"" />
+
+  <!-- Open Graph：社交媒体与搜索引擎预览 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="寻屿 Yunisle｜自主性 · 人际关系 · 动机 · 个人和团体辅导与心理学研究" />
+  <meta
+    property="og:description"
+    content="由心理学研究者与咨询师Jingyun创建的平台，专注自主性、人际关系、动机、与心理健康，以科学与温度并行，陪伴真实生活中的选择与转变。"
+  />
+  <meta property="og:url" content="https://jingyunwang.github.io/" />
+  <!-- 如果你有网站封面图，可以把下面这行的图片路径改成自己的，如 img/og-cover.jpg -->
+  <meta property="og:image" content="https://jingyunwang.github.io/images/cover.png" />
+
+  <!-- 可选：Twitter 卡片（如果未来用推特，这个会生效，不影响国内使用） -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="寻屿 Yunisle｜自主性 · 人际关系 · 心理咨询与心理学研究" />
+  <meta
+    name="twitter:description"
+    content="专注自主性、人际关系、学习动机与心理健康的个人成长与心理学研究平台。"
+  />
+  <meta name="twitter:image" content="https://jingyunwang.github.io/img/og-cover.jpg" />
+
+  <!-- 结构化数据：告诉搜索引擎你是谁（Person） -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Jingyun Wang",
+      "url": "https://jingyunwang.github.io",
+      "jobTitle": "心理学研究者 · 内在旅者 ·人生体验师 · 团体带领者",
+      "description": "专注自主性、人际关系、动机、与心理健康的心理辅导与心理学研究。",
+      "sameAs": [
+        "https://scholar.google.com", 
+        "https://www.linkedin.com"
+      ]
+    }
+  </script>
+
+  <!-- 字体与样式（沿用你原来的） -->
   <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
@@ -17,8 +81,12 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
 
+  <!-- 你的脚本（语言切换等） -->
+  <script src="script.js" defer></script>
+</head>
+
+  
   <!-- 首页微调样式：子标题放大、强调文字、漂亮项目符号、小气泡标签、统一间距 -->
   <style>
     .hero-subtitle {
