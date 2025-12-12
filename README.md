@@ -1,10 +1,10 @@
-# jingyunwang.github.io
+# 寻屿 · Yunisle | jingyunwang.github.io
 Yunisle, the inner island of loving, becoming, and being whole.  
 A space created by Jingyun for inner journeys, reflection, and meaningful connection.
 
 # Personal Website
 
-This repository hosts the source files for my personal academic and professional website.
+This repository hosts the source files for my personal, academic and professional website.
 
 🌐 Please visit the live site here:
 👉 https://jingyunwang.github.io/
