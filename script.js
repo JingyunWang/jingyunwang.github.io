@@ -65,8 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
 // ====== Mobile drawer nav (append) ======
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.documentElement;
