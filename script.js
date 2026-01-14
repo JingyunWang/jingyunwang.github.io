@@ -67,5 +67,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// ====== Mobile drawer nav (append) ======
+document.addEventListener("DOMContentLoaded", () => {
+  const root = document.documentElement;
+  const openers = document.querySelectorAll(".nav-toggle, .nav-fab");
+  const closers = document.querySelectorAll("[data-nav-close]");
+  const drawer = document.getElementById("mobile-drawer");
+
+  function setOpen(isOpen) {
+    if (!root) return;
+    root.classList.toggle("nav-open", isOpen);
+
+    // aria-expanded sync
+    openers.forEach((btn) => btn.setAttribute("aria-expanded", String(isOpen)));
+
+    if (!isOpen) return;
+    // focus first link for accessibility (optional but nice)
+    const firstLink = drawer?.querySelector("a");
+    firstLink?.focus?.();
+  }
+
+  openers.forEach((btn) => {
+    btn?.addEventListener("click", () => setOpen(true));
+  });
+  closers.forEach((btn) => {
+    btn?.addEventListener("click", () => setOpen(false));
+  });
+
+  // close on ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+
+  // drawer language buttons (do not break your original logic)
+  const zhM = document.getElementById("lang-zh-m");
+  const enM = document.getElementById("lang-en-m");
+
+  function applyLang(lang) {
+    if (!root) return;
+    if (lang !== "zh" && lang !== "en") lang = "zh";
+    root.setAttribute("data-lang", lang);
+    try { window.localStorage.setItem("yunisle-lang", lang); } catch(_) {}
+
+    // sync desktop buttons if present
+    const zh = document.getElementById("lang-zh");
+    const en = document.getElementById("lang-en");
+    if (zh && en) {
+      zh.classList.toggle("active", lang === "zh");
+      en.classList.toggle("active", lang === "en");
+    }
+  }
+
+  zhM?.addEventListener("click", (e) => { e.preventDefault(); applyLang("zh"); setOpen(false); });
+  enM?.addEventListener("click", (e) => { e.preventDefault(); applyLang("en"); setOpen(false); });
+});
+
+
+
 
 
