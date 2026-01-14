@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <title>起点 Start｜转型期·自我探索·主体性｜寻屿 Yunisle｜Jingyun Wang 王景云</title>
+
+  <meta name="description"
+    content="寻屿 Yunisle｜Jingyun Wang（王景云）。我为处在过渡期/转型期的人提供自我探索与关系修复的清晰路径：从困住的循环到更有主体性的选择。心理健康、自主性、人际关系、动机与需求。"
+  />
+
+  <!-- 你要求的 SEO 关键词：全部放进来，但要“像人话”，别堆垃圾 -->
+  <meta name="keywords"
+    content="jingyun wang, 王景云, yunisle, 寻屿, 寻屿 Yunisle, 自我探索, 转型期, 过渡期, 过渡阶段, 人际关系, 自主性, 心理健康, 主体性, 动机, 需求, 关系修复, 跨文化, 生涯转型, 心理咨询, 团体, 工作坊"
+  />
+
+  <link rel="canonical" href="https://jingyunwang.github.io/" />
+  <link rel="alternate" hreflang="zh-CN" href="https://jingyunwang.github.io/" />
+  <link rel="alternate" hreflang="en" href="https://jingyunwang.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="寻屿 Yunisle" />
+  <meta property="og:url" content="https://jingyunwang.github.io/" />
+  <meta property="og:title" content="寻屿 Yunisle｜转型期·自我探索·主体性" />
+  <meta property="og:description" content="为处在过渡期/转型期的人，提供自我探索与关系修复的清晰路径：把选择活成自己。" />
+  <meta property="og:image" content="https://jingyunwang.github.io/images/cover.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Yunisle｜Transitions · Self-exploration · Agency" />
+  <meta name="twitter:description" content="A clear path for people in life transitions: agency, relationships, mental health." />
+  <meta name="twitter:image" content="https://jingyunwang.github.io/images/cover.png" />
+
+  <!-- 字体（沿用你的系统） -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+
+  <!-- 结构化数据：让“搜名字/品牌/关键词”更容易对上你 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "寻屿 Yunisle",
+    "url": "https://jingyunwang.github.io/",
+    "inLanguage": ["zh-CN","en"],
+    "about": [
+      "转型期","过渡期","自我探索","主体性","心理健康","自主性","人际关系"
+    ],
+    "publisher": {
+      "@type": "Person",
+      "name": "Jingyun Wang",
+      "alternateName": ["王景云","jingyun wang"],
+      "url": "https://jingyunwang.github.io/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jingyun Wang",
+    "alternateName": ["王景云","jingyun wang","Yunisle","寻屿"],
+    "url": "https://jingyunwang.github.io/",
+    "jobTitle": ["Psychologist","Researcher","Counsellor","Group Facilitator"],
+    "knowsAbout": ["life transitions","self-exploration","agency","autonomy","relationships","mental health","motivation","needs"],
+    "sameAs": [
+      "https://scholar.google.com",
+      "https://www.linkedin.com"
+    ]
+  }
+  </script>
+
+  <!-- 新版首页轻量局部样式：尽量少，主视觉仍走你原来的系统 -->
+  <style>
+    .hero-inner { padding-top: 5rem; padding-bottom: 2.6rem; }
+    .start-hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.55fr) minmax(0, 1.15fr);
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 980px){ .start-hero-grid{ grid-template-columns:minmax(0,1fr);} }
+
+    .hero-kicker{
+      font-size:0.78rem; letter-spacing:.16em; text-transform:uppercase;
+      color:#9a9cc1; margin-bottom:.4rem;
+    }
+    .start-title{
+      font-size:1.9rem; font-weight:650; line-height:1.25;
+      color:#26253f; margin:0 0 .6rem;
+    }
+    .start-subtitle{
+      font-size:1rem; line-height:1.9; color:#4c4e77; margin:0 0 .55rem;
+    }
+    .start-micro{
+      font-size:.9rem; line-height:1.85; color:#676993; margin:0 0 .6rem;
+    }
+
+    .cta-row{ display:flex; flex-wrap:wrap; gap:.55rem; margin-top:.75rem; }
+    .cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.52rem .95rem; border-radius:999px;
+      text-decoration:none; font-size:.86rem; font-weight:550;
+      border:1px solid rgba(205, 210, 248, .96);
+      background: rgba(255,255,255,.96);
+      box-shadow:0 14px 34px rgba(118,132,199,.28);
+      color:#2c2b48;
+    }
+    .cta.primary{
+      border: none;
+      background: linear-gradient(120deg, rgba(255,191,208,.95), rgba(245,212,169,.92), rgba(193,200,255,.92));
+      box-shadow:0 18px 42px rgba(118,132,199,.35);
+    }
+
+    .audience-card{
+      border-radius:1.8rem;
+      padding:1.2rem 1.25rem 1.25rem;
+      background: radial-gradient(circle at 15% 0%, #fff4fd, #e4ecff);
+      border:1px solid rgba(203,209,248,.95);
+      box-shadow:0 26px 56px rgba(118,131,201,.55);
+    }
+    .pill-label{
+      display:inline-flex; align-items:center; gap:.35rem;
+      padding:.16rem .8rem; border-radius:999px;
+      background: rgba(255,255,255,.96);
+      box-shadow:0 10px 22px rgba(143,156,212,.45);
+      font-size:.78rem; color:#7a7c9b; margin-bottom:.7rem;
+    }
+    .pill-dot{
+      width:7px; height:7px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, #ffe3f0, #bac9ff);
+    }
+    .audience-list{ list-style:none; padding:0; margin:.2rem 0 0; }
+    .audience-list li{
+      position:relative; padding-left:1rem; margin-bottom:.36rem;
+      font-size:.86rem; color:#595b86; line-height:1.75;
+    }
+    .audience-list li::before{
+      content:"⟡"; position:absolute; left:.1rem; top:.05rem;
+      font-size:.8rem; color:#c29cff;
+    }
+
+    .section-tight{ padding: 2.2rem 0; }
+    .tri-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:.9rem;
+      margin-top:.7rem;
+    }
+    @media (max-width: 1024px){ .tri-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 720px){ .tri-grid{ grid-template-columns: minmax(0,1fr); } }
+
+    .mini-card{
+      border-radius:1.4rem;
+      background: rgba(255,255,255,.98);
+      border:1px solid rgba(204,207,245,.96);
+      box-shadow:0 14px 36px rgba(118,132,199,.30);
+      padding:.95rem 1rem 1rem;
+    }
+    .mini-kicker{
+      font-size:.74rem; letter-spacing:.14em; text-transform:uppercase;
+      color:#a0a2c5; margin-bottom:.12rem;
+    }
+    .mini-title{
+      font-size:.98rem; font-weight:650; color:#2d2c4b;
+      margin:.1rem 0 .25rem;
+    }
+    .mini-text{ font-size:.86rem; color:#5b5d86; line-height:1.75; margin:0; }
+
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+      clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header：加入“移动端菜单按钮 + 抽屉导航” -->
+  <header class="site-header">
+    <div class="container site-header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-mark"><div class="brand-initial"></div></div>
+        <div>
+          <div class="brand-text-main">寻屿 · YUNISLE</div>
+          <div class="brand-text-sub lang-zh">转型期 · 自我探索 · 主体性</div>
+          <div class="brand-text-sub lang-en">Transitions · Self-exploration · Agency</div>
+        </div>
+      </a>
+
+      <!-- 桌面导航（保持你的经典样式） -->
+      <nav class="site-nav" aria-label="Primary">
+        <a class="active" href="index.html">
+          <span class="nav-label-cn lang-zh">起点</span>
+          <span class="nav-label-en lang-en">Start</span>
+        </a>
+        <a href="journeys.html">
+          <span class="nav-label-cn lang-zh">转型期·自我探索</span>
+          <span class="nav-label-en lang-en">Journeys</span>
+        </a>
+        <a href="about.html">
+          <span class="nav-label-cn lang-zh">关于景云</span>
+          <span class="nav-label-en lang-en">About</span>
+        </a>
+        <a href="approach.html">
+          <span class="nav-label-cn lang-zh">方法与框架</span>
+          <span class="nav-label-en lang-en">Approach</span>
+        </a>
+        <a href="research.html">
+          <span class="nav-label-cn lang-zh">研究证据</span>
+          <span class="nav-label-en lang-en">Research</span>
+        </a>
+        <a href="collab.html">
+          <span class="nav-label-cn lang-zh">合作与共创</span>
+          <span class="nav-label-en lang-en">Collaborate</span>
+        </a>
+      </nav>
+
+      <div class="lang-toggle">
+        <span class="lang-toggle-label lang-zh">语言</span>
+        <span class="lang-toggle-label lang-en">Language</span>
+        <div class="lang-toggle-buttons">
+          <button id="lang-zh" class="lang-btn">中文</button>
+          <button id="lang-en" class="lang-btn">EN</button>
+        </div>
+      </div>
+
+      <!-- 新增：移动端菜单按钮 -->
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
+    </div>
+
+    <!-- 新增：移动端抽屉导航 -->
+    <div class="nav-scrim" data-nav-close></div>
+    <aside id="mobile-drawer" class="nav-drawer" aria-label="Mobile menu">
+      <div class="nav-drawer-head">
+        <div class="nav-drawer-title">
+          <span class="lang-zh">导航</span><span class="lang-en">Menu</span>
+        </div>
+        <button class="nav-close" type="button" aria-label="Close menu" data-nav-close>✕</button>
+      </div>
+
+      <div class="nav-drawer-links">
+        <a href="index.html"><span class="lang-zh">起点</span><span class="lang-en">Start</span></a>
+        <a href="journeys.html"><span class="lang-zh">转型期·自我探索</span><span class="lang-en">Journeys</span></a>
+        <a href="about.html"><span class="lang-zh">关于景云</span><span class="lang-en">About</span></a>
+        <a href="approach.html"><span class="lang-zh">方法与框架</span><span class="lang-en">Approach</span></a>
+        <a href="research.html"><span class="lang-zh">研究证据</span><span class="lang-en">Research</span></a>
+        <a href="collab.html"><span class="lang-zh">合作与共创</span><span class="lang-en">Collaborate</span></a>
+      </div>
+
+      <div class="nav-drawer-lang">
+        <div class="nav-drawer-mini">
+          <span class="lang-zh">语言切换</span><span class="lang-en">Language</span>
+        </div>
+        <div class="lang-toggle-buttons">
+          <button id="lang-zh-m" class="lang-btn" data-lang="zh">中文</button>
+          <button id="lang-en-m" class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </div>
+    </aside>
+  </header>
+
+  <!-- 每页都能跳转的“浮动导航按钮”（移动端尤其好用） -->
+  <button class="nav-fab" type="button" aria-label="Open navigation" aria-controls="mobile-drawer" aria-expanded="false">
+    ☰
+  </button>
+
+  <main>
+    <!-- HERO：一眼看懂：你是谁/做什么/给谁 -->
+    <section class="hero hero-inner">
+      <div class="container start-hero-grid">
+        <div>
+          <div class="hero-kicker">
+            <span class="lang-zh">TRANSITIONS · SELF-EXPLORATION · AGENCY</span>
+            <span class="lang-en">TRANSITIONS · SELF-EXPLORATION · AGENCY</span>
+          </div>
+
+          <h1 class="start-title">
+            <span class="lang-zh">王景云 Jingyun Wang｜为“转型期”的你，搭一条回到自己的路</span>
+            <span class="lang-en">Jingyun Wang｜A clear path back to yourself—especially in transitions</span>
+          </h1>
+
+          <p class="start-subtitle lang-zh">
+            我做三件事：用心理学研究的<strong>证据</strong>，用咨询与团体的<strong>方法</strong>，
+            陪你在<strong>过渡期/转型期</strong>把混乱理清——从“被推着走”，走向更有<strong>主体性</strong>的选择。
+          </p>
+          <p class="start-subtitle lang-en">
+            I do three things: bring <strong>evidence</strong> from psychology research, use <strong>methods</strong> from counselling & groups,
+            and support you through life <strong>transitions</strong>—from drifting to choosing with <strong>agency</strong>.
+          </p>
+
+          <p class="start-micro lang-zh">
+            这不是“变得更厉害”的训练营。老派一点说：先把根扎稳——
+            情绪与需求、关系与边界、自主性与行动。然后你自然会走得更远。
+          </p>
+          <p class="start-micro lang-en">
+            This is not a bootcamp for becoming “more impressive”.
+            It’s the classical work: emotions & needs, boundaries & relationships, autonomy & action.
+          </p>
+
+          <div class="cta-row">
+            <a class="cta primary" href="journeys.html">
+              <span class="lang-zh">我在转型期｜从这里开始</span>
+              <span class="lang-en">I’m in transition｜Start here</span>
+            </a>
+            <a class="cta" href="about.html">
+              <span class="lang-zh">我想先了解你</span>
+              <span class="lang-en">Meet Jingyun</span>
+            </a>
+            <a class="cta" href="collab.html">
+              <span class="lang-zh">我想合作共创</span>
+              <span class="lang-en">Collaborate</span>
+            </a>
+          </div>
+
+          <!-- 你要的“能搜到”关键词：也放在可见语境里（但不要像堆垃圾） -->
+          <p class="sr-only">
+            jingyun wang 王景云 yunisle 寻屿 自我探索 转型期 过渡期 人际关系 自主性 心理健康 主体性
+          </p>
+        </div>
+
+        <div class="audience-card">
+          <div class="pill-label">
+            <span class="pill-dot"></span>
+            <span class="lang-zh">适合谁｜你可能正在经历</span>
+            <span class="lang-en">For whom｜You may be here because</span>
+          </div>
+
+          <ul class="audience-list lang-zh">
+            <li>身份在变：毕业/换城市/跨文化/换行业，心里却更不确定。</li>
+            <li>关系在卡：总是体谅别人，自己的需要却没地方站。</li>
+            <li>做选择很难：明明“都懂”，却行动不了，像被压力牵着走。</li>
+            <li>想要更真实：不想再只当“被期待的人”。</li>
+          </ul>
+
+          <ul class="audience-list lang-en">
+            <li>Your identity is shifting: moves, cultures, careers—certainty fades.</li>
+            <li>Relationships feel stuck: you care for others, your needs disappear.</li>
+            <li>Choices feel heavy: insight exists, action doesn’t follow.</li>
+            <li>You want to live more truthfully, not just by expectations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 三块：你在做什么（清晰、短、像导航牌） -->
+    <section class="section-tight">
+      <div class="container section-narrow">
+        <div class="section-title">
+          <span class="lang-zh">你会在这里得到什么</span>
+          <span class="lang-en">What you’ll get here</span>
+        </div>
+        <p class="section-subtitle lang-zh">
+          少一点空话，多一点可走的路：把“自我探索”落到<strong>具体选择</strong>与<strong>可持续的关系</strong>里。
+        </p>
+        <p class="section-subtitle lang-en">
+          Less slogans, more steps: self-exploration that lands in choices and relationships you can sustain.
+        </p>
+
+        <div class="tri-grid">
+          <div class="mini-card">
+            <div class="mini-kicker"><span class="lang-zh">PATH 01</span><span class="lang-en">PATH 01</span></div>
+            <div class="mini-title"><span class="lang-zh">把转型期“理清”</span><span class="lang-en">Clarify transitions</span></div>
+            <p class="mini-text lang-zh">识别你被困住的循环：讨好/拖延/自责/空心感，把问题从“我不行”改写成“我需要什么”。</p>
+            <p class="mini-text lang-en">Name the loop (people-pleasing, guilt, numbness) and shift from “I’m broken” to “what do I need?”.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-kicker"><span class="lang-zh">PATH 02</span><span class="lang-en">PATH 02</span></div>
+            <div class="mini-title"><span class="lang-zh">练习主体性</span><span class="lang-en">Practice agency</span></div>
+            <p class="mini-text lang-zh">用“自主性/边界/承诺”的语言，做出更像自己的选择——不是硬撑，是更清醒。</p>
+            <p class="mini-text lang-en">Choose with autonomy, boundaries, commitment—less force, more clarity.</p>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-kicker"><span class="lang-zh">PATH 03</span><span class="lang-en">PATH 03</span></div>
+            <div class="mini-title"><span class="lang-zh">让关系能呼吸</span><span class="lang-en">Let relationships breathe</span></div>
+            <p class="mini-text lang-zh">在人际关系里既能靠近也能说“不”：把共情沟通变成可用的句子与练习。</p>
+            <p class="mini-text lang-en">Stay close without losing yourself: empathy + concrete phrases you can actually use.</p>
+          </div>
+        </div>
+
+        <div class="cta-row" style="margin-top:1rem;">
+          <a class="cta primary" href="journeys.html">
+            <span class="lang-zh">去看“转型期·自我探索”完整地图</span>
+            <span class="lang-en">Go to the Journeys map</span>
+          </a>
+          <a class="cta" href="approach.html">
+            <span class="lang-zh">我想了解你怎么做（方法与框架）</span>
+            <span class="lang-en">How I work (Approach)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer：你现有页脚系统可以继续用（我不在这里强行改动） -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-contact-card">
+          <div class="footer-contact-layout">
+            <div class="footer-contact-main">
+              <h3 class="footer-contact-title lang-zh">如果你正处在过渡期/转型期</h3>
+              <h3 class="footer-contact-title lang-en">If you’re in a transition</h3>
+              <p class="footer-contact-text lang-zh">
+                你可以带着犹豫、困惑、故事来——不必先整理好。
+                先从一条消息开始，看看这座岛是否适合你。
+              </p>
+              <p class="footer-contact-text lang-en">
+                Bring doubts and stories as they are. One message is enough to begin.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
