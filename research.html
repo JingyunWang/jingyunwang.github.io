@@ -779,43 +779,91 @@
             </div>
           </a>
 
-          <nav class="site-nav">
-            <a href="index.html">
-              <span class="nav-label-cn lang-zh">首页</span>
-              <span class="nav-label-en lang-en">Home</span>
-            </a>
-            <a href="theory.html">
-              <span class="nav-label-cn lang-zh">理论与路径</span>
-              <span class="nav-label-en lang-en">Theory & Methods</span>
-            </a>
-            <a href="meet-yun.html">
-              <span class="nav-label-cn lang-zh">遇见云</span>
-              <span class="nav-label-en lang-en">Meet Yun</span>
-            </a>
-            <a href="research.html">
-              <span class="nav-label-cn lang-zh">研究发表</span>
-              <span class="nav-label-en lang-en">Research</span>
-            </a>
-            <a href="topics.html">
-              <span class="nav-label-cn lang-zh">话题与旅程</span>
-              <span class="nav-label-en lang-en">Topics</span>
-            </a>
-            <a href="projects.html">
-              <span class="nav-label-cn lang-zh">共创项目</span>
-              <span class="nav-label-en lang-en">Projects</span>
-            </a>
-          </nav>
+           <nav class="site-nav" aria-label="Primary">
+      <a class="active" href="index.html">
+        <span class="nav-label-cn lang-zh">首页</span>
+        <span class="nav-label-en lang-en">Home</span>
+      </a>
+      <a href="start.html">
+        <span class="nav-label-cn lang-zh">起点</span>
+        <span class="nav-label-en lang-en">Start</span>
+      </a>
+      <a href="theory.html">
+        <span class="nav-label-cn lang-zh">理论与路径</span>
+        <span class="nav-label-en lang-en">Theory & Pathways</span>
+      </a>
+      <a href="meet-yun.html">
+        <span class="nav-label-cn lang-zh">走近云</span>
+        <span class="nav-label-en lang-en">Meet Yun</span>
+      </a>
+      <a href="research.html">
+        <span class="nav-label-cn lang-zh">研究发表</span>
+        <span class="nav-label-en lang-en">Research</span>
+      </a>
+      <a href="topics.html">
+        <span class="nav-label-cn lang-zh">话题与旅程</span>
+        <span class="nav-label-en lang-en">Topics</span>
+      </a>
+      <a href="projects.html">
+        <span class="nav-label-cn lang-zh">共创项目</span>
+        <span class="nav-label-en lang-en">Projects</span>
+      </a>
+    </nav>
 
-          <div class="lang-toggle">
-            <span class="lang-toggle-label lang-zh">语言</span>
-            <span class="lang-toggle-label lang-en">Language</span>
-            <div class="lang-toggle-buttons">
-              <button id="lang-zh" class="lang-btn">中文</button>
-              <button id="lang-en" class="lang-btn">EN</button>
-            </div>
-          </div>
-        </div>
-      </header>
+    <div class="lang-toggle">
+      <span class="lang-toggle-label lang-zh">语言</span>
+      <span class="lang-toggle-label lang-en">Language</span>
+      <div class="lang-toggle-buttons">
+        <button id="lang-zh" class="lang-btn">中文</button>
+        <button id="lang-en" class="lang-btn">EN</button>
+      </div>
+    </div>
+
+    <button class="nav-toggle" type="button" aria-label="Open menu"
+            aria-controls="mobile-drawer" aria-expanded="false">
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+      <span class="nav-toggle-line"></span>
+    </button>
+  </div>
+
+  <div class="nav-scrim" data-nav-close></div>
+
+  <aside id="mobile-drawer" class="nav-drawer" aria-label="Mobile menu">
+    <div class="nav-drawer-head">
+      <div class="nav-drawer-title">
+        <span class="lang-zh">导航</span>
+        <span class="lang-en">Menu</span>
+      </div>
+      <button class="nav-close" type="button" aria-label="Close menu" data-nav-close>✕</button>
+    </div>
+
+    <div class="nav-drawer-links">
+      <a href="index.html"><span class="lang-zh">首页</span><span class="lang-en">Home</span></a>
+      <a href="start.html"><span class="lang-zh">起点</span><span class="lang-en">Start</span></a>
+      <a href="theory.html"><span class="lang-zh">理论与路径</span><span class="lang-en">Theory</span></a>
+      <a href="meet-yun.html"><span class="lang-zh">走近云</span><span class="lang-en">Meet Yun</span></a>
+      <a href="research.html"><span class="lang-zh">研究发表</span><span class="lang-en">Research</span></a>
+      <a href="topics.html"><span class="lang-zh">话题与旅程</span><span class="lang-en">Topics</span></a>
+      <a href="projects.html"><span class="lang-zh">共创项目</span><span class="lang-en">Projects</span></a>
+    </div>
+
+    <div class="nav-drawer-lang">
+      <div class="nav-drawer-mini">
+        <span class="lang-zh">语言切换</span>
+        <span class="lang-en">Language</span>
+      </div>
+      <div class="lang-toggle-buttons">
+        <button id="lang-zh-m" class="lang-btn" data-lang="zh">中文</button>
+        <button id="lang-en-m" class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </aside>
+</header>
+
+<button class="nav-fab" type="button" aria-label="Open navigation"
+        aria-controls="mobile-drawer" aria-expanded="false">☰</button>
+
 
       <main>
         <!-- HERO -->
