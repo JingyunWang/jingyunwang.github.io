@@ -120,19 +120,3 @@ document.addEventListener("DOMContentLoaded", () => {
   enM?.addEventListener("click", (e) => { e.preventDefault(); applyLang("en"); setOpen(false); });
 });
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
-
-  document.querySelectorAll(".site-nav a, .nav-drawer-links a").forEach(function (link) {
-    const href = link.getAttribute("href");
-
-    if (href === currentPage) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-});
-
-
